@@ -2,18 +2,14 @@
 
 //
 
+require_once __DIR__ . "/parts/index.php";
 function global_sidebar(){
-	require_once __DIR__ . "/parts/index.php";
 	?>
 	<div data-part="global-sidebar-container" 
 		class="global-sidebar shadow-md  <?php if(is_admin_bar_showing()) echo 'admin-bar-space';?>"
   >
 		<?php get_logo(); ?>
-		<nav class="">
-			<?php nav_link('My Dashboard', '/dashboard', 'home', 'solid'); ?>
-			<?php nav_link('Recipes', '/recipes', 'bookmark', 'solid', 'sml' ); ?>
-			<?php nav_link('Courses', '/courses', 'video', 'solid'); ?>
-		</nav> 
+		<?php get_sidebar_nav(); ?>
 		<div class="bottom-utils">
 				<?php nav_button('Flour Calculator', 'calculator', 'solid'); ?>
 		</div>

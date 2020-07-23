@@ -15,22 +15,6 @@ function get_logo(){
   </a>
   <?php
 }
-
-function nav_link($name, $link, $icon="bell", $icon_type="regular", $size='md'){
-  
-  ?> 
-  <a 
-    data-part="nav-link"
-    href="<?php echo $link; ?>"
-    class="nav-link"
-  >
-    <span class="icon">
-      <?php get_icon($icon, $icon_type); ?>
-    </span>
-    <span class="link-text"><?php echo $name; ?></span>
-  </a>
-  <?php
-}
 function nav_button($name, $icon="bell", $icon_type="regular"){
   ?> 
   <button 
@@ -43,3 +27,5 @@ function nav_button($name, $icon="bell", $icon_type="regular"){
   </button>
   <?php
 }
+
+include_once NHM_DIR . "/components/global-sidebar/parts/navigation.php";
