@@ -79,16 +79,25 @@
     background: var(--blue-light);
   }
 }
-.global-sidebar .sub-menu {
-  background: var(--blue-light);
-  a:hover {
-    background: var(--blue-dark);
+.menu-item-has-children {
+  .sub-menu {
+    background: var(--blue-light);
+    a:hover {
+      background: var(--blue-dark);
+    }
+  }
+  .toggle-sub-menu .icon {
+    transform: rotate(180deg);
   }
   &:not([data-open]) {
-    display: none;
+    .toggle-sub-menu .icon {
+      transform: rotate(0deg);
+    }
+    .sub-menu {
+      display: none;
+    }
   }
 }
-
 //
 
 .global-sidebar .nav-link {

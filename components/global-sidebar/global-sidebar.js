@@ -55,7 +55,7 @@ function initOpenCloseSubMenus() {
     const subMenu = menuItem.querySelector(".sub-menu");
     button.addEventListener("click", handleToggleSubMenu);
     function handleToggleSubMenu() {
-      toggle({ containerEl: subMenu, attr: "open" });
+      toggle({ containerEl: menuItem, attr: "open" });
     }
   });
 }

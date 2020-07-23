@@ -142,13 +142,19 @@ a svg {
   background: var(--blue-light);
 }
 
-.global-sidebar .sub-menu {
+.menu-item-has-children .sub-menu {
   background: var(--blue-light);
 }
-.global-sidebar .sub-menu a:hover {
+.menu-item-has-children .sub-menu a:hover {
   background: var(--blue-dark);
 }
-.global-sidebar .sub-menu:not([data-open]) {
+.menu-item-has-children .toggle-sub-menu .icon {
+  transform: rotate(180deg);
+}
+.menu-item-has-children:not([data-open]) .toggle-sub-menu .icon {
+  transform: rotate(0deg);
+}
+.menu-item-has-children:not([data-open]) .sub-menu {
   display: none;
 }
 

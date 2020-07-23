@@ -198,7 +198,7 @@ function initOpenCloseSubMenus() {
 
     function handleToggleSubMenu() {
       toggle({
-        containerEl: subMenu,
+        containerEl: menuItem,
         attr: "open"
       });
     }
