@@ -211,8 +211,8 @@ body:not([data-sidebar-state=open]) .link-text {
 body:not([data-sidebar-state=open]) .icon {
   margin: 0;
 }
-body:not([data-sidebar-state=open]) ~ .site {
-  margin-left: 114px;
+body:not([data-sidebar-state=open]) .site {
+  margin-left: 80px;
 }
 
 :root {
