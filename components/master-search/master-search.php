@@ -2,6 +2,7 @@
 
 function util_navigation_and_search(){
   ?>
+  <span class="use-tailwind">
   <div class="h-16 bg-white px-4 py-2 flex items-center shadow-sm">
     <form class="searchbar w-full flex item-center bg-gray-100 rounded overflow-hidden shadow-sm">
       <input 
@@ -36,5 +37,6 @@ function util_navigation_and_search(){
       </a>
     </div>
   </div>
+  </span>
   <?php
 }

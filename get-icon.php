@@ -1,6 +1,7 @@
 <?php
 
-define('NHM_SVGS_DIR' , NHM_DIR . 'assets/svg/svgs/');
+define('NHM_SVGS_DIR' , NHM_DIR . '/svgs/');
+
 if(!function_exists('get_icon')){
 
   function get_icon($slug, $type="regular"){

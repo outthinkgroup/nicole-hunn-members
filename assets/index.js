@@ -117,7 +117,9 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"global-sidebar/global-sidebar.js":[function(require,module,exports) {
+
+},{}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -189,18 +191,13 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"index.pcss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
-require("./index.scss");
+require("./global-sidebar/global-sidebar");
 
-require("./index.pcss");
-},{"./index.scss":"index.scss","./index.pcss":"index.pcss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("./index.scss");
+},{"./global-sidebar/global-sidebar":"global-sidebar/global-sidebar.js","./index.scss":"index.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -228,7 +225,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49577" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49591" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
