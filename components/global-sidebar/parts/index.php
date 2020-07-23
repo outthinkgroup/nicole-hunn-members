@@ -34,12 +34,12 @@ function nav_link($name, $link, $icon="bell", $icon_type="regular", $size='md'){
 function nav_button($name, $icon="bell", $icon_type="regular"){
   ?> 
   <button 
-    class="nav-button"
+    class="nav-button nav-link"
   >
     <span class="icon">
       <?php get_icon($icon, $icon_type); ?>
     </span>
-    <span><?php echo $name; ?></span>
+    <span class="link-text"><?php echo $name; ?></span>
   </button>
   <?php
 }

@@ -5,13 +5,11 @@
 function global_sidebar(){
 	require_once __DIR__ . "/parts/index.php";
 	?>
-	<span class="use-tailwind" >
 	<div data-part="global-sidebar-container" 
-		data-state="on"
 		class="global-sidebar shadow-md  <?php if(is_admin_bar_showing()) echo 'admin-bar-space';?>"
   >
 		<?php get_logo(); ?>
-		<nav class="pt-10">
+		<nav class="">
 			<?php nav_link('My Dashboard', '/dashboard', 'home', 'solid'); ?>
 			<?php nav_link('Recipes', '/recipes', 'bookmark', 'solid', 'sml' ); ?>
 			<?php nav_link('Courses', '/courses', 'video', 'solid'); ?>
@@ -20,16 +18,16 @@ function global_sidebar(){
 				<?php nav_button('Flour Calculator', 'calculator', 'solid'); ?>
 		</div>
 		<div data-part="toggle-sidebar" class="toggle-sidebar">
-			<button class="bg-nhBlue-light py-4 px-4 pr-6 rounded-r-full text-xl">
+			<button class="">
 				<?php get_icon('chevron-left', 'solid'); ?>
 			</button>
 		</div>
 	</div>
-	</span>
 	<?php
 }
 function enqueue_logged_in_assets(){
-	wp_enqueue_style( 'main-styles', get_stylesheet_directory_uri() . '/assets/index.css', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
+	wp_enqueue_style( 'logged-in-styles', get_stylesheet_directory_uri() . '/assets/index.css', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
+	wp_enqueue_script( 'logged-in-scripts', get_stylesheet_directory_uri() . '/assets/index.js', [], CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, true );
 }
 
 function bootstrap_logged_in_ui(){

@@ -9,7 +9,6 @@
 [data-part=global-sidebar-container] div {
   font-family: "Raleway";
 }
-
 [data-part=global-sidebar-container] h1 {
   font-family: "Berkshire Swash", handwriting;
 }
@@ -43,7 +42,6 @@ a svg {
     pointer-events: auto;
   }
 }
-
 .shadow {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
@@ -65,7 +63,6 @@ a svg {
   align-items: center;
   justify-content: space-between;
 }
-
 .button-group button + button,
 .button-group a + a {
   margin-left: 10px;
@@ -91,6 +88,10 @@ a svg {
 
 .global-sidebar nav {
   padding-top: 30px;
+}
+
+.global-sidebar a {
+  transition: none;
 }
 
 .global-sidebar .logo-container {
@@ -123,7 +124,6 @@ a svg {
   padding: 11px var(--sidebar-x-padding);
   align-items: center;
 }
-
 .global-sidebar .nav-link:hover {
   background: var(--blue-light);
 }
@@ -156,7 +156,6 @@ a svg {
   border-radius: 0;
   background: transparent;
 }
-
 .global-sidebar .nav-button:hover {
   background-color: var(--blue-light);
 }
@@ -181,47 +180,39 @@ a svg {
   line-height: 0;
 }
 
-[data-state=off][data-part=global-sidebar-container] {
+body:not([data-sidebar-state=open]) .global-sidebar {
   width: auto;
 }
-
-[data-state=off] [data-part=logo] {
+body:not([data-sidebar-state=open]) .logo-container {
   flex-direction: column;
   height: auto;
   justify-content: center;
   padding: 10px;
 }
-
-[data-state=off] [data-part=logo] h1 {
+body:not([data-sidebar-state=open]) .logo-container h1 {
   font-size: 14px;
 }
-
-[data-state=off] [data-part=logo] > div {
+body:not([data-sidebar-state=open]) .logo-container > div {
   margin: 0;
 }
-
-[data-state=off] [data-part=nav-link] {
+body:not([data-sidebar-state=open]) .nav-link {
   justify-content: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
   font-size: 1.4rem;
 }
-
-[data-state=off] [data-part=nav-link] svg {
+body:not([data-sidebar-state=open]) .nav-link svg {
   height: auto;
   margin: 0;
 }
-
-[data-state=off] [data-part=link-text] {
+body:not([data-sidebar-state=open]) .link-text {
   display: none;
 }
-
-[data-state=off] ~ .site {
-  margin-left: 114px;
+body:not([data-sidebar-state=open]) .icon {
+  margin: 0;
 }
-
-[data-state=off][data-part=global-sidebar-container] {
-  width: auto;
+body:not([data-sidebar-state=open]) ~ .site {
+  margin-left: 114px;
 }
 
 :root {
@@ -243,18 +234,17 @@ a svg {
   background: transparent;
   color: #718096;
 }
-
 .top-bar button:hover,
 .top-bar a:hover {
   background-color: var(--input-bg--hover);
 }
-
 .top-bar button svg,
 .top-bar a svg {
   fill: currentColor !important;
 }
 
 .top-bar .search-wrapper {
+  padding-left: 120px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -270,14 +260,13 @@ a svg {
   overflow: hidden;
 }
 
-.search-bar input {
+.top-bar .search-bar input {
   width: 100%;
   padding: 8px 40px 8px 16px;
   background-color: transparent;
   border: 1px solid transparent;
 }
-
-.search-bar input:active, .search-bar input:focus {
+.top-bar .search-bar input:active, .top-bar .search-bar input:focus {
   outline: 0;
   border: 1px solid transparent;
   background: var(--input-bg--hover);

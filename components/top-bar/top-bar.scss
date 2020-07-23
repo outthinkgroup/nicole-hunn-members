@@ -25,6 +25,7 @@
 //--
 
 .top-bar .search-wrapper {
+  padding-left: 120px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -38,7 +39,7 @@
   border-radius: 8px;
   overflow: hidden;
 }
-.search-bar input {
+.top-bar .search-bar input {
   width: 100%;
   padding: 8px 40px 8px 16px;
   background-color: transparent;
