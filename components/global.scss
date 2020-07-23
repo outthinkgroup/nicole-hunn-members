@@ -58,3 +58,14 @@ a {
 .admin-bar-space {
   margin-top: 30px;
 }
+//
+
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  button + button,
+  a + a {
+    margin-left: 10px;
+  }
+}

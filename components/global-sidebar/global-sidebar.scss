@@ -104,10 +104,6 @@
   padding-left: 12px;
   border-radius: 0 50% 50% 0;
   line-height: 0;
-  svg {
-    width: 1em;
-    fill: currentColor;
-  }
 }
 [data-state="off"] {
   &[data-part="global-sidebar-container"] {

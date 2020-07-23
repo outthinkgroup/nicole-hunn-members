@@ -1,0 +1,72 @@
+:root {
+  --input-bg: hsl(210, 38%, 95%);
+  --input-bg--hover: hsl(210, 38%, 90%);
+}
+
+.top-bar {
+  height: 64px;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: #718096;
+}
+.top-bar button,
+.top-bar a {
+  background: transparent;
+  color: #718096;
+  &:hover {
+    background-color: var(--input-bg--hover);
+  }
+  svg {
+    fill: currentColor !important;
+  }
+}
+//--
+
+.top-bar .search-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.top-bar .search-bar {
+  background: var(--input-bg);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.search-bar input {
+  width: 100%;
+  padding: 8px 40px 8px 16px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  &:active,
+  &:focus {
+    outline: 0;
+    border: 1px solid transparent;
+    background: var(--input-bg--hover);
+  }
+}
+.search-bar button {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 5px;
+  justify-content: center;
+  background-color: transparent;
+  height: 100%;
+  border-radius: 0;
+}
+//--
+
+.top-bar .button-group a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  border-radius: 50%;
+}

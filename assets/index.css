@@ -60,6 +60,17 @@ a svg {
   margin-top: 30px;
 }
 
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-group button + button,
+.button-group a + a {
+  margin-left: 10px;
+}
+
 :root {
   --blue-light: hsl(221, 29%, 22%);
   --blue-base: hsl(224, 37%, 17%);
@@ -170,11 +181,6 @@ a svg {
   line-height: 0;
 }
 
-.toggle-sidebar button svg {
-  width: 1em;
-  fill: currentColor;
-}
-
 [data-state=off][data-part=global-sidebar-container] {
   width: auto;
 }
@@ -216,6 +222,85 @@ a svg {
 
 [data-state=off][data-part=global-sidebar-container] {
   width: auto;
+}
+
+:root {
+  --input-bg: hsl(210, 38%, 95%);
+  --input-bg--hover: hsl(210, 38%, 90%);
+}
+
+.top-bar {
+  height: 64px;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: #718096;
+}
+
+.top-bar button,
+.top-bar a {
+  background: transparent;
+  color: #718096;
+}
+
+.top-bar button:hover,
+.top-bar a:hover {
+  background-color: var(--input-bg--hover);
+}
+
+.top-bar button svg,
+.top-bar a svg {
+  fill: currentColor !important;
+}
+
+.top-bar .search-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar .search-bar {
+  background: var(--input-bg);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px 40px 8px 16px;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.search-bar input:active, .search-bar input:focus {
+  outline: 0;
+  border: 1px solid transparent;
+  background: var(--input-bg--hover);
+}
+
+.search-bar button {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 5px;
+  justify-content: center;
+  background-color: transparent;
+  height: 100%;
+  border-radius: 0;
+}
+
+.top-bar .button-group a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=/index.css.map */
