@@ -25,10 +25,12 @@
 //--
 
 .top-bar .search-wrapper {
-  padding-left: 120px;
   width: 100%;
   display: flex;
   justify-content: center;
+  @media (min-width: 650px) {
+    padding-left: 120px;
+  }
 }
 .top-bar .search-bar {
   background: var(--input-bg);

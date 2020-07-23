@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", initGlobalSidebar);
 function initGlobalSidebar() {
-  document.body.dataset.sidebarState = "open";
+  runOnDesktop("650px", () => (document.body.dataset.sidebarState = "open"));
   addHandlerToToggler();
 }
 function addHandlerToToggler() {
@@ -22,4 +22,16 @@ function toggle({ containerEl, attr }) {
   } else {
     containerEl.dataset[attr] = "open";
   }
+}
+
+function runOnDesktop(dimensions, callback) {
+  function checkIfDesktop(x) {
+    if (!isMobile.matches) {
+      callback();
+    }
+  }
+
+  var isMobile = window.matchMedia(`(max-width: ${dimensions})`);
+  checkIfDesktop(isMobile); // Call listener function at run time
+  isMobile.addListener(checkIfDesktop); // Attach listener function on state changes
 }

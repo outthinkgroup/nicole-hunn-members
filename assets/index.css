@@ -52,7 +52,7 @@ a svg {
 
 @media (min-width: 650px) {
   .admin-bar-space {
-    margin-top: 30px;
+    margin-top: 46px;
   }
 }
 .button-group {
@@ -273,10 +273,14 @@ body:not([data-sidebar-state=open]) .icon {
 }
 
 .top-bar .search-wrapper {
-  padding-left: 120px;
   width: 100%;
   display: flex;
   justify-content: center;
+}
+@media (min-width: 650px) {
+  .top-bar .search-wrapper {
+    padding-left: 120px;
+  }
 }
 
 .top-bar .search-bar {

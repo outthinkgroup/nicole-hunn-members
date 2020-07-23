@@ -121,7 +121,9 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 window.addEventListener("DOMContentLoaded", initGlobalSidebar);
 
 function initGlobalSidebar() {
-  document.body.dataset.sidebarState = "open";
+  runOnDesktop("650px", function () {
+    return document.body.dataset.sidebarState = "open";
+  });
   addHandlerToToggler();
 }
 
@@ -149,6 +151,19 @@ function toggle(_ref) {
   } else {
     containerEl.dataset[attr] = "open";
   }
+}
+
+function runOnDesktop(dimensions, callback) {
+  function checkIfDesktop(x) {
+    if (!isMobile.matches) {
+      callback();
+    }
+  }
+
+  var isMobile = window.matchMedia("(max-width: ".concat(dimensions, ")"));
+  checkIfDesktop(isMobile); // Call listener function at run time
+
+  isMobile.addListener(checkIfDesktop); // Attach listener function on state changes
 }
 },{}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
