@@ -27,17 +27,6 @@ a svg {
   fill: currentColor;
 }
 
-@media (min-width: 768px) {
-  [data-part=toggle-sidebar] {
-    visibility: hidden;
-    pointer-events: none;
-  }
-
-  [data-part=global-sidebar-container]:hover [data-part=toggle-sidebar] {
-    visibility: visible;
-    pointer-events: auto;
-  }
-}
 .shadow {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
@@ -55,6 +44,12 @@ a svg {
     margin-top: 46px;
   }
 }
+@media (min-width: 783px) {
+  .admin-bar-space {
+    margin-top: 32px;
+  }
+}
+
 .button-group {
   display: flex;
   align-items: center;
@@ -73,10 +68,11 @@ a svg {
   --sidebar-x-padding: 22px;
 }
 
-body {
-  overflow: hidden;
+@media (max-width: 650px) {
+  body {
+    overflow: hidden;
+  }
 }
-
 @media (min-width: 650px) {
   .site {
     margin-left: 16rem;
@@ -128,6 +124,34 @@ body {
   margin-bottom: 11px;
 }
 
+.global-sidebar .menu-item-has-children {
+  position: relative;
+}
+
+.global-sidebar .toggle-sub-menu {
+  position: absolute;
+  padding-right: var(--sidebar-x-padding);
+  top: 0;
+  right: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+}
+.global-sidebar .toggle-sub-menu:hover {
+  background: var(--blue-light);
+}
+
+.global-sidebar .sub-menu {
+  background: var(--blue-light);
+}
+.global-sidebar .sub-menu a:hover {
+  background: var(--blue-dark);
+}
+.global-sidebar .sub-menu:not([data-open]) {
+  display: none;
+}
+
 .global-sidebar .nav-link {
   display: flex;
   color: white;
@@ -136,7 +160,7 @@ body {
   align-items: center;
 }
 .global-sidebar .nav-link:hover {
-  background: var(--blue-light);
+  background: var(--blue-dark);
 }
 
 .global-sidebar .icon {
@@ -174,7 +198,6 @@ body {
 .global-sidebar .toggle-sidebar {
   position: absolute;
   left: 100%;
-  z-index: 0;
   height: 100%;
   top: 0;
   display: flex;
@@ -199,6 +222,17 @@ body {
   line-height: 0;
 }
 
+@media (min-width: 650px) {
+  .toggle-sidebar button {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .global-sidebar:hover .toggle-sidebar button {
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
 body:not([data-sidebar-state=open]) {
   overflow-y: scroll;
 }
@@ -237,6 +271,17 @@ body:not([data-sidebar-state=open]) .link-text {
 }
 body:not([data-sidebar-state=open]) .icon {
   margin: 0;
+}
+body:not([data-sidebar-state=open]) .global-sidebar .toggle-sidebar svg {
+  transform: rotate(180deg);
+}
+@media (min-width: 650px) {
+  body:not([data-sidebar-state=open]) .toggle-sub-menu {
+    display: none;
+  }
+  body:not([data-sidebar-state=open]) .sub-menu {
+    display: none;
+  }
 }
 @media (min-width: 650px) {
   body:not([data-sidebar-state=open]) .site {
