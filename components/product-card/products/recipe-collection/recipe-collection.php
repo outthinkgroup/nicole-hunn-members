@@ -18,10 +18,7 @@ add_filter('product_image', function($image, $product){
     $recipe_ids = get_post_meta($product->ID, 'list_items', true);
     
     $image = loopThroughRecipesForImage($recipe_ids, $count, $image );
-      
-    
-    // var_dump($first_recipe_id);
-    // $image = $first_recipe_id;
+
   }
   return $image;
 },10,2);

@@ -30,3 +30,10 @@ function nhm_user_courses($user_id){
 	}
 	return $courses;
 }
+
+add_filter('card_top_classes', function($card_top_classes, $product){
+  if($product->post_type == 'sfwd-courses'){
+    $card_top_classes .= ' course-card-top';
+  }
+  return $card_top_classes;
+}, 10, 2);
