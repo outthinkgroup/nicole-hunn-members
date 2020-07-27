@@ -20,6 +20,7 @@ define('NHM_URL', get_stylesheet_directory_uri());
 function child_enqueue_styles() {
 
 	wp_enqueue_style( 'nicole-hunn-members-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
+	wp_enqueue_style( 'nicole-hunn-members-global-css', get_stylesheet_directory_uri() . '/assets/global.css', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
 	
 
 }
@@ -33,6 +34,11 @@ add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 
 include_once NHM_DIR . '/components/index.php';
+include_once NHM_DIR . '/templates/index.php';
+include_once NHM_DIR . '/customfields/customfields.php';
+
 include_once NHM_DIR . '/get-icon.php';
 include_once NHM_DIR . '/navigation_setup.php';
-include_once NHM_DIR . '/customfields/customfields.php';
+
+	
+

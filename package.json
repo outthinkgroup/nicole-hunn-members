@@ -9,8 +9,8 @@
     "postcss-nested": "^4.2.3"
   },
   "scripts": {
-    "dev": "parcel watch components/index.js --out-dir assets",
-    "build": "parcel build components/index.js --out-dir assets",
+    "dev": "parcel watch components/index.js components/global.js --out-dir assets",
+    "build": "parcel build components/index.js components/global.js --out-dir assets",
     "clean": "rm -r .cache && rm -r assets"
   },
   "devDependencies": {

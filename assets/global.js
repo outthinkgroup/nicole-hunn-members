@@ -117,94 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"global-sidebar/global-sidebar.js":[function(require,module,exports) {
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-window.addEventListener("DOMContentLoaded", initGlobalSidebar);
-
-function initGlobalSidebar() {
-  runOnDesktop("650px", expandSidebar);
-  addHandlerToToggler();
-}
-
-function expandSidebar() {
-  isSideBarOpen = localStorage.getItem("isSideBarOpen");
-  if (isSideBarOpen === "false") return;
-  document.body.dataset.sidebarState = "open";
-}
-
-function addHandlerToToggler() {
-  var toggleBtn = document.querySelector('[data-part="toggle-sidebar"] button');
-  toggleBtn.addEventListener("click", toggleHandler);
-
-  function toggleHandler() {
-    var containerEl = document.body;
-    var attr = "sidebarState";
-    var oldState = toggle({
-      containerEl: containerEl,
-      attr: attr
-    });
-    var isSideBarOpen = typeof oldState === "undefined" ? "true" : "false";
-    localStorage.setItem("isSideBarOpen", isSideBarOpen);
-  }
-}
-
-function toggle(_ref) {
-  var containerEl = _ref.containerEl,
-      attr = _ref.attr;
-  var state = containerEl.dataset[attr];
-
-  if (state) {
-    delete containerEl.dataset[attr];
-  } else {
-    containerEl.dataset[attr] = "open";
-  }
-
-  return state;
-}
-
-function runOnDesktop(dimensions, callback) {
-  function checkIfDesktop(x) {
-    if (!isMobile.matches) {
-      callback();
-    }
-  }
-
-  var isMobile = window.matchMedia("(max-width: ".concat(dimensions, ")"));
-  checkIfDesktop(isMobile); // Call listener function at run time
-
-  isMobile.addListener(checkIfDesktop); // Attach listener function on state changes
-}
-
-window.addEventListener("DOMContentLoaded", initOpenCloseSubMenus);
-
-function initOpenCloseSubMenus() {
-  var allMenuItemsWithChildren = _toConsumableArray(document.querySelectorAll(".menu-item-has-children"));
-
-  allMenuItemsWithChildren.forEach(function (menuItem) {
-    var button = menuItem.querySelector("[data-action]");
-    var subMenu = menuItem.querySelector(".sub-menu");
-    button.addEventListener("click", handleToggleSubMenu);
-
-    function handleToggleSubMenu() {
-      toggle({
-        containerEl: menuItem,
-        attr: "open"
-      });
-    }
-  });
-}
-},{}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -271,18 +184,16 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel/src/builtins/bundle-url.js"}],"index.scss":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel/src/builtins/bundle-url.js"}],"global.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"global.js":[function(require,module,exports) {
 "use strict";
 
-require("./global-sidebar/global-sidebar.js");
-
-require("./index.scss");
-},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./index.scss":"index.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("./global.scss");
+},{"./global.scss":"global.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -486,5 +397,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/index.js.map
+},{}]},{},["../node_modules/parcel/src/builtins/hmr-runtime.js","global.js"], null)
+//# sourceMappingURL=/global.js.map
