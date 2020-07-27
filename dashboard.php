@@ -19,12 +19,13 @@ $user_id = $user->ID;
 				<h3>Recipes</h3>
 				<ul class="grid">
 					<?php
-						$courses = nhm_user_courses($user_id);
-						foreach($courses as $course){
-							product_card($course);
+						$recipes = nhm_all_recipes();
+						foreach($recipes as $recipe){
+							product_card($recipe);
 						}
 					?>
 				</ul>
+				<a href="/recipes" class="viewall">View all Recipes</a>
 			</section>
 			<section class="my-courses">
 				<h3>My Courses</h3>
@@ -47,6 +48,7 @@ $user_id = $user->ID;
 						}
 					?>
 				</ul>
+				<a href="#" class="viewall">View all My Recipe Collections</a>
 			</section>
 			<section class="my-downloads">
 				<h3>My Downloads</h3>
@@ -58,6 +60,7 @@ $user_id = $user->ID;
 						}
 					?>
 				</ul>
+				<a href="/my-account/downloads" class="viewall">View all My Downloads</a>
 			</section>
 			<section class="bonus">
 				<h3>Bonus Content & Updates</h3>
