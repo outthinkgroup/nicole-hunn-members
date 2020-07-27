@@ -1,5 +1,6 @@
 @import "/product-card/product-card.scss";
 @import "/template-styles/dashboard.scss";
+@import "/template-styles/grid-archive.scss";
 
 ul.grid {
   margin: 0;
@@ -26,4 +27,8 @@ ul.grid {
 
 label {
   display: block;
+}
+
+.custom-wrapper {
+  padding: 20px;
 }

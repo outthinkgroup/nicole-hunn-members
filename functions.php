@@ -34,7 +34,6 @@ add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 
 include_once NHM_DIR . '/components/index.php';
-include_once NHM_DIR . '/templates/index.php';
 include_once NHM_DIR . '/customfields/customfields.php';
 
 include_once NHM_DIR . '/get-icon.php';

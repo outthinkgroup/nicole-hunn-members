@@ -4,6 +4,7 @@
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
+  background: #fff;
 }
 
 .product-card .card-top {
@@ -137,6 +138,113 @@ section.bonus .grid > div {
   margin-bottom: 20px;
 }
 
+.post-type-archive-recipe .ast-container {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+.post-type-archive-recipe .custom-wrapper {
+  padding: 0;
+}
+
+.archive-template-layout {
+  display: grid;
+  grid-template-areas: "header " "sidebar" "main ";
+  grid-template-columns: 100%;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  max-width: 100%;
+}
+@media (min-width: 870px) {
+  .archive-template-layout {
+    grid-template-areas: "header header" "main sidebar";
+    grid-template-columns: minmax(0, 1fr) 250px;
+  }
+}
+.archive-template-layout header {
+  grid-area: header;
+}
+.archive-template-layout main {
+  grid-area: main;
+}
+.archive-template-layout aside {
+  grid-area: sidebar;
+}
+
+.archive-template-layout header {
+  text-align: center;
+  padding: 100px 20px;
+  background: white;
+  background-image: var(--header-bg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 40px;
+}
+
+.archive-template-layout h2 {
+  color: white;
+  text-shadow: 0 0 60px black;
+}
+
+.archive-template-layout main,
+.archive-template-layout aside {
+  padding: 20px;
+}
+
+.recipe-categories h3 {
+  font-size: 20px;
+}
+
+.recipe-categories ul {
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  list-style: none;
+}
+
+.recipe-categories li {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.recipe-categories a {
+  width: 100%;
+  display: block;
+  padding: 5px 20px;
+  background: var(--blue-light);
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+.recipe-categories a:hover {
+  background: var(--blue-base);
+}
+
+.recipe-categories ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -5px;
+  margin-bottom: 20px;
+}
+
+a {
+  display: inline-block;
+}
+
+li {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.archive-template-layout .recipes .grid {
+  max-width: 100%;
+  grid-template-columns: repeat(auto-fit, 250px);
+  --card-mx-width: 100%;
+}
+
+.archive-template-layout .product-card .card-top {
+  height: 150px;
+}
+
 ul.grid {
   margin: 0;
   padding: 0;
@@ -161,6 +269,10 @@ ul.grid {
 
 label {
   display: block;
+}
+
+.custom-wrapper {
+  padding: 20px;
 }
 
 /*# sourceMappingURL=/global.css.map */
