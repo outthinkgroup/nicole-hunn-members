@@ -17,14 +17,9 @@ function get_logo(){
 }
 function nav_button($name, $icon="bell", $icon_type="regular"){
   ?> 
-  <button 
-    class="nav-button nav-link"
-  >
-    <span class="icon">
-      <?php get_icon($icon, $icon_type); ?>
-    </span>
-    <span class="link-text"><?php echo $name; ?></span>
-  </button>
+  <div class="flour-calc-wrapper" id="flour-calc" data-state>
+    
+  </div>
   <?php
 }
 

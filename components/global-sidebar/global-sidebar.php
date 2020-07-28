@@ -10,10 +10,10 @@ function global_sidebar(){
   >
 		<?php get_logo(); ?>
 		<?php get_sidebar_nav(); ?>
-		<div class="bottom-utils">
+		<div class="bottom-utils" style="">
 				<?php nav_button('Flour Calculator', 'calculator', 'solid'); ?>
 		</div>
-		<div data-part="toggle-sidebar" class="toggle-sidebar">
+		<div data-part="toggle-sidebar" class="toggle-sidebar"  style="z-index:999">
 			<button class="">
 				<?php get_icon('chevron-left', 'solid'); ?>
 			</button>

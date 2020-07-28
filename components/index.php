@@ -10,3 +10,5 @@ include_once NHM_DIR . "/components/top-bar/top-bar.php";
 include_once NHM_DIR . "/components/product-card/product-card.php";
 
 include_once NHM_DIR . "/components/post-type-grid/post-type-grid.php";
+
+include_once NHM_DIR . "/components/flour-calc/flour-calc.php";
