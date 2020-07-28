@@ -1,0 +1,82 @@
+recipes:
+  betterThanCup4CupBlend:
+    name: "Better Than Cup4Cup Blend"
+    ingredients:
+      - name: "White Rice Flour"
+        percent: 43.4
+      - name: "Cornstarch"
+        percent: 25.2
+      - name: "Brown Rice Flour"
+        percent: 23.8
+      - name: "Tapioca Starch"
+        percent: 21
+      - name: " Non-Fat Dry Milk"
+        percent: 19.6
+      - name: " Potato Starch"
+        percent: 4.2
+      - name: " Xanthan Gum"
+        percent: 2.8000000000000003
+  basicXanthanFreeBlend:
+    name: " Basic Xanthan-Free Blend"
+    ingredients:
+      - name: " White Rice Flour"
+        percent: 92.4
+      - name: " Tapioca Starch"
+        percent: 30.8
+      - name: " Potato Starch"
+        percent: 16.8
+  mockCup4CupBlend:
+    name: " Mock Cup4Cup Blend"
+    ingredients:
+      - name: " White Rice Flour"
+        percent: 43.4
+      - name: " Cornstarch"
+        percent: 35
+      - name: " Brown Rice Flour"
+        percent: 19.6
+      - name: " Tapioca Starch"
+        percent: 21
+      - name: " Non-Fat Dry Milk"
+        percent: 14
+      - name: " Potato Starch"
+        percent: 4.2
+      - name: " Xanthan Gum"
+        percent: 2.8000000000000003
+  mockBetterBatter:
+    name: " Mock Better Batter"
+    ingredients:
+      - name: " White Rice Flour"
+        percent: 42
+      - name: " Brown Rice Flour"
+        percent: 42
+      - name: " Tapioca Starch"
+        percent: 21
+      - name: " Potato Starch"
+        percent: 21
+      - name: " Xanthan Gum"
+        percent: 4.2
+      - name: " Potato Flour"
+        percent: 7
+      - name: " Pectin"
+        percent: 2.8000000000000003
+  glutenFreeBreadFlour:
+    name: " Gluten Free Bread Flour"
+    ingredients:
+      - name: " White Rice Flour"
+        percent: 30
+      - name: " Brown Rice Flour"
+        percent: 30
+      - name: " Tapioca Starch"
+        percent: 15
+      - name: " Potato Starch"
+        percent: 15
+      - name: " Xanthan Gum"
+        percent: 3
+      - name: " Potato Flour"
+        percent: 5
+      - name: " Pectin"
+        percent: 2
+      - name: " Whey Protein Isolate"
+        percent: 25
+      - name: " Expandex"
+        percent: 15

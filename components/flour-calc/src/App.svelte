@@ -8,6 +8,7 @@
   function toggleCalc() {
     isCalcShowing = !isCalcShowing;
   }
+  
 </script>
 
 <style>

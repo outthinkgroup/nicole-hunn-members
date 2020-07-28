@@ -1,9 +1,22 @@
 <script>
-  export let selectedFlourType;
+  /* eslint  */
+  import { allRecipeNames, activeRecipeSlug } from "../store";
+
+  export let liveActiveRecipe;
+  const unsubscribeActiveRecipe = activeRecipeSlug.subscribe((val) => {
+    liveActiveRecipe = val;
+  });
+  const setActiveRecipe = (e) => {
+    const slug = e.target.value;
+    activeRecipeSlug.set(slug);
+  };
 </script>
 
-<select value={selectedFlourType}>
-  <option value="flourType02">flour type 1</option>
-  <option value="flourType01">flour type 2</option>
-  <option>flour type 3</option>
+<select
+  value={liveActiveRecipe}
+  on:change={setActiveRecipe}
+  on:blur={setActiveRecipe}>
+  {#each allRecipeNames as recipeName}
+    <option value={recipeName.slug}>{recipeName.label}</option>
+  {/each}
 </select>

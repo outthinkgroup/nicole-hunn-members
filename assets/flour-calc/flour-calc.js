@@ -2372,7 +2372,683 @@ var Calculator = /*#__PURE__*/function (_SvelteComponentDev) {
 
 var _default = Calculator;
 exports.default = _default;
-},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"flour-calc/src/components/FlourSelector.svelte":[function(require,module,exports) {
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"flour-calc/data/flour-recipes.yaml":[function(require,module,exports) {
+module.exports = {
+  recipes: {
+    betterThanCup4CupBlend: {
+      name: "Better Than Cup4Cup Blend",
+      ingredients: [{
+        name: "White Rice Flour",
+        percent: 43.4
+      }, {
+        name: "Cornstarch",
+        percent: 25.2
+      }, {
+        name: "Brown Rice Flour",
+        percent: 23.8
+      }, {
+        name: "Tapioca Starch",
+        percent: 21
+      }, {
+        name: " Non-Fat Dry Milk",
+        percent: 19.6
+      }, {
+        name: " Potato Starch",
+        percent: 4.2
+      }, {
+        name: " Xanthan Gum",
+        percent: 2.8000000000000003
+      }]
+    },
+    basicXanthanFreeBlend: {
+      name: " Basic Xanthan-Free Blend",
+      ingredients: [{
+        name: " White Rice Flour",
+        percent: 92.4
+      }, {
+        name: " Tapioca Starch",
+        percent: 30.8
+      }, {
+        name: " Potato Starch",
+        percent: 16.8
+      }]
+    },
+    mockCup4CupBlend: {
+      name: " Mock Cup4Cup Blend",
+      ingredients: [{
+        name: " White Rice Flour",
+        percent: 43.4
+      }, {
+        name: " Cornstarch",
+        percent: 35
+      }, {
+        name: " Brown Rice Flour",
+        percent: 19.6
+      }, {
+        name: " Tapioca Starch",
+        percent: 21
+      }, {
+        name: " Non-Fat Dry Milk",
+        percent: 14
+      }, {
+        name: " Potato Starch",
+        percent: 4.2
+      }, {
+        name: " Xanthan Gum",
+        percent: 2.8000000000000003
+      }]
+    },
+    mockBetterBatter: {
+      name: " Mock Better Batter",
+      ingredients: [{
+        name: " White Rice Flour",
+        percent: 42
+      }, {
+        name: " Brown Rice Flour",
+        percent: 42
+      }, {
+        name: " Tapioca Starch",
+        percent: 21
+      }, {
+        name: " Potato Starch",
+        percent: 21
+      }, {
+        name: " Xanthan Gum",
+        percent: 4.2
+      }, {
+        name: " Potato Flour",
+        percent: 7
+      }, {
+        name: " Pectin",
+        percent: 2.8000000000000003
+      }]
+    },
+    glutenFreeBreadFlour: {
+      name: " Gluten Free Bread Flour",
+      ingredients: [{
+        name: " White Rice Flour",
+        percent: 30
+      }, {
+        name: " Brown Rice Flour",
+        percent: 30
+      }, {
+        name: " Tapioca Starch",
+        percent: 15
+      }, {
+        name: " Potato Starch",
+        percent: 15
+      }, {
+        name: " Xanthan Gum",
+        percent: 3
+      }, {
+        name: " Potato Flour",
+        percent: 5
+      }, {
+        name: " Pectin",
+        percent: 2
+      }, {
+        name: " Whey Protein Isolate",
+        percent: 25
+      }, {
+        name: " Expandex",
+        percent: 15
+      }]
+    }
+  }
+};
+},{}],"../node_modules/svelte/index.mjs":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "SvelteComponent", {
+  enumerable: true,
+  get: function () {
+    return _internal.SvelteComponentDev;
+  }
+});
+Object.defineProperty(exports, "afterUpdate", {
+  enumerable: true,
+  get: function () {
+    return _internal.afterUpdate;
+  }
+});
+Object.defineProperty(exports, "beforeUpdate", {
+  enumerable: true,
+  get: function () {
+    return _internal.beforeUpdate;
+  }
+});
+Object.defineProperty(exports, "createEventDispatcher", {
+  enumerable: true,
+  get: function () {
+    return _internal.createEventDispatcher;
+  }
+});
+Object.defineProperty(exports, "getContext", {
+  enumerable: true,
+  get: function () {
+    return _internal.getContext;
+  }
+});
+Object.defineProperty(exports, "onDestroy", {
+  enumerable: true,
+  get: function () {
+    return _internal.onDestroy;
+  }
+});
+Object.defineProperty(exports, "onMount", {
+  enumerable: true,
+  get: function () {
+    return _internal.onMount;
+  }
+});
+Object.defineProperty(exports, "setContext", {
+  enumerable: true,
+  get: function () {
+    return _internal.setContext;
+  }
+});
+Object.defineProperty(exports, "tick", {
+  enumerable: true,
+  get: function () {
+    return _internal.tick;
+  }
+});
+
+var _internal = require("./internal");
+},{"./internal":"../node_modules/svelte/internal/index.mjs"}],"../node_modules/svelte/store/index.mjs":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.derived = derived;
+exports.readable = readable;
+exports.writable = writable;
+Object.defineProperty(exports, "get", {
+  enumerable: true,
+  get: function () {
+    return _internal.get_store_value;
+  }
+});
+
+var _internal = require("../internal");
+
+const subscriber_queue = [];
+/**
+ * Creates a `Readable` store that allows reading by subscription.
+ * @param value initial value
+ * @param {StartStopNotifier}start start and stop notifications for subscriptions
+ */
+
+function readable(value, start) {
+  return {
+    subscribe: writable(value, start).subscribe
+  };
+}
+/**
+ * Create a `Writable` store that allows both updating and reading by subscription.
+ * @param {*=}value initial value
+ * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+ */
+
+
+function writable(value, start = _internal.noop) {
+  let stop;
+  const subscribers = [];
+
+  function set(new_value) {
+    if ((0, _internal.safe_not_equal)(value, new_value)) {
+      value = new_value;
+
+      if (stop) {
+        // store is ready
+        const run_queue = !subscriber_queue.length;
+
+        for (let i = 0; i < subscribers.length; i += 1) {
+          const s = subscribers[i];
+          s[1]();
+          subscriber_queue.push(s, value);
+        }
+
+        if (run_queue) {
+          for (let i = 0; i < subscriber_queue.length; i += 2) {
+            subscriber_queue[i][0](subscriber_queue[i + 1]);
+          }
+
+          subscriber_queue.length = 0;
+        }
+      }
+    }
+  }
+
+  function update(fn) {
+    set(fn(value));
+  }
+
+  function subscribe(run, invalidate = _internal.noop) {
+    const subscriber = [run, invalidate];
+    subscribers.push(subscriber);
+
+    if (subscribers.length === 1) {
+      stop = start(set) || _internal.noop;
+    }
+
+    run(value);
+    return () => {
+      const index = subscribers.indexOf(subscriber);
+
+      if (index !== -1) {
+        subscribers.splice(index, 1);
+      }
+
+      if (subscribers.length === 0) {
+        stop();
+        stop = null;
+      }
+    };
+  }
+
+  return {
+    set,
+    update,
+    subscribe
+  };
+}
+
+function derived(stores, fn, initial_value) {
+  const single = !Array.isArray(stores);
+  const stores_array = single ? [stores] : stores;
+  const auto = fn.length < 2;
+  return readable(initial_value, set => {
+    let inited = false;
+    const values = [];
+    let pending = 0;
+    let cleanup = _internal.noop;
+
+    const sync = () => {
+      if (pending) {
+        return;
+      }
+
+      cleanup();
+      const result = fn(single ? values[0] : values, set);
+
+      if (auto) {
+        set(result);
+      } else {
+        cleanup = (0, _internal.is_function)(result) ? result : _internal.noop;
+      }
+    };
+
+    const unsubscribers = stores_array.map((store, i) => (0, _internal.subscribe)(store, value => {
+      values[i] = value;
+      pending &= ~(1 << i);
+
+      if (inited) {
+        sync();
+      }
+    }, () => {
+      pending |= 1 << i;
+    }));
+    inited = true;
+    sync();
+    return function stop() {
+      (0, _internal.run_all)(unsubscribers);
+      cleanup();
+    };
+  });
+}
+},{"../internal":"../node_modules/svelte/internal/index.mjs"}],"flour-calc/src/store.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.gramCalc = gramCalc;
+exports.setActiveRecipeSlug = exports.totalCups = exports.activeRecipeSlug = exports.allRecipeNames = void 0;
+
+var _store = require("svelte/store");
+
+var _flourRecipes = _interopRequireDefault(require("../data/flour-recipes.yaml"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var recipes = _flourRecipes.default.recipes;
+
+var _allRecipeNames = Object.keys(recipes);
+
+var allRecipeNames = _allRecipeNames.map(function (slug) {
+  return {
+    slug: slug,
+    label: recipes[slug].name
+  };
+});
+
+exports.allRecipeNames = allRecipeNames;
+var activeRecipeSlug = (0, _store.writable)(allRecipeNames[2].slug);
+exports.activeRecipeSlug = activeRecipeSlug;
+var totalCups = (0, _store.writable)(5);
+exports.totalCups = totalCups;
+
+function gramCalc(recipeSlug, totalCups) {
+  var recipeObj = recipes[recipeSlug];
+  var name = recipeObj.name,
+      ingredients = recipeObj.ingredients;
+  var ingredientsPortions = ingredients.map(function (_ref) {
+    var name = _ref.name,
+        percent = _ref.percent;
+    var grams = Math.round(totalCups * percent);
+    return {
+      name: name,
+      grams: grams
+    };
+  });
+  return {
+    name: name,
+    ingredients: ingredientsPortions
+  };
+} // export const currentRecipe = gramCalc(recipes[activeRecipe.slug]);
+
+
+var setActiveRecipeSlug = function setActiveRecipeSlug(newRecipeSlug) {
+  activeRecipe.set(newRecipeSlug);
+};
+
+exports.setActiveRecipeSlug = setActiveRecipeSlug;
+},{"svelte/store":"../node_modules/svelte/store/index.mjs","../data/flour-recipes.yaml":"flour-calc/data/flour-recipes.yaml"}],"flour-calc/src/components/FlourSelector.svelte":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _internal = require("svelte/internal");
+
+var _store = require("../store");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var file = "flour-calc/src/components/FlourSelector.svelte";
+
+function get_each_context(ctx, list, i) {
+  var child_ctx = ctx.slice();
+  child_ctx[3] = list[i];
+  return child_ctx;
+} // (19:2) {#each allRecipeNames as recipeName}
+
+
+function create_each_block(ctx) {
+  var option;
+  var t_value =
+  /*recipeName*/
+  ctx[3].label + "";
+  var t;
+  var option_value_value;
+  var block = {
+    c: function create() {
+      option = (0, _internal.element)("option");
+      t = (0, _internal.text)(t_value);
+      option.__value = option_value_value =
+      /*recipeName*/
+      ctx[3].slug;
+      option.value = option.__value;
+      (0, _internal.add_location)(option, file, 19, 4, 479);
+    },
+    m: function mount(target, anchor) {
+      (0, _internal.insert_dev)(target, option, anchor);
+      (0, _internal.append_dev)(option, t);
+    },
+    p: _internal.noop,
+    d: function destroy(detaching) {
+      if (detaching) (0, _internal.detach_dev)(option);
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_each_block.name,
+    type: "each",
+    source: "(19:2) {#each allRecipeNames as recipeName}",
+    ctx: ctx
+  });
+  return block;
+}
+
+function create_fragment(ctx) {
+  var select;
+  var mounted;
+  var dispose;
+  var each_value = _store.allRecipeNames;
+  (0, _internal.validate_each_argument)(each_value);
+  var each_blocks = [];
+
+  for (var i = 0; i < each_value.length; i += 1) {
+    each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+  }
+
+  var block = {
+    c: function create() {
+      select = (0, _internal.element)("select");
+
+      for (var _i = 0; _i < each_blocks.length; _i += 1) {
+        each_blocks[_i].c();
+      }
+
+      (0, _internal.add_location)(select, file, 14, 0, 342);
+    },
+    l: function claim(nodes) {
+      throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    },
+    m: function mount(target, anchor) {
+      (0, _internal.insert_dev)(target, select, anchor);
+
+      for (var _i2 = 0; _i2 < each_blocks.length; _i2 += 1) {
+        each_blocks[_i2].m(select, null);
+      }
+
+      (0, _internal.select_option)(select,
+      /*liveActiveRecipe*/
+      ctx[0]);
+
+      if (!mounted) {
+        dispose = [(0, _internal.listen_dev)(select, "change",
+        /*setActiveRecipe*/
+        ctx[1], false, false, false), (0, _internal.listen_dev)(select, "blur",
+        /*setActiveRecipe*/
+        ctx[1], false, false, false)];
+        mounted = true;
+      }
+    },
+    p: function update(ctx, _ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+          dirty = _ref2[0];
+
+      if (dirty &
+      /*allRecipeNames*/
+      0) {
+        each_value = _store.allRecipeNames;
+        (0, _internal.validate_each_argument)(each_value);
+
+        var _i3;
+
+        for (_i3 = 0; _i3 < each_value.length; _i3 += 1) {
+          var child_ctx = get_each_context(ctx, each_value, _i3);
+
+          if (each_blocks[_i3]) {
+            each_blocks[_i3].p(child_ctx, dirty);
+          } else {
+            each_blocks[_i3] = create_each_block(child_ctx);
+
+            each_blocks[_i3].c();
+
+            each_blocks[_i3].m(select, null);
+          }
+        }
+
+        for (; _i3 < each_blocks.length; _i3 += 1) {
+          each_blocks[_i3].d(1);
+        }
+
+        each_blocks.length = each_value.length;
+      }
+
+      if (dirty &
+      /*liveActiveRecipe, allRecipeNames*/
+      1) {
+        (0, _internal.select_option)(select,
+        /*liveActiveRecipe*/
+        ctx[0]);
+      }
+    },
+    i: _internal.noop,
+    o: _internal.noop,
+    d: function destroy(detaching) {
+      if (detaching) (0, _internal.detach_dev)(select);
+      (0, _internal.destroy_each)(each_blocks, detaching);
+      mounted = false;
+      (0, _internal.run_all)(dispose);
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_fragment.name,
+    type: "component",
+    source: "",
+    ctx: ctx
+  });
+  return block;
+}
+
+function instance($$self, $$props, $$invalidate) {
+  var liveActiveRecipe = $$props.liveActiveRecipe;
+
+  var unsubscribeActiveRecipe = _store.activeRecipeSlug.subscribe(function (val) {
+    $$invalidate(0, liveActiveRecipe = val);
+  });
+
+  var setActiveRecipe = function setActiveRecipe(e) {
+    var slug = e.target.value;
+
+    _store.activeRecipeSlug.set(slug);
+  };
+
+  var writable_props = ["liveActiveRecipe"];
+  Object.keys($$props).forEach(function (key) {
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<FlourSelector> was created with unknown prop '".concat(key, "'"));
+  });
+  var _$$props$$$slots = $$props.$$slots,
+      $$slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
+      $$scope = $$props.$$scope;
+  (0, _internal.validate_slots)("FlourSelector", $$slots, []);
+
+  $$self.$set = function ($$props) {
+    if ("liveActiveRecipe" in $$props) $$invalidate(0, liveActiveRecipe = $$props.liveActiveRecipe);
+  };
+
+  $$self.$capture_state = function () {
+    return {
+      allRecipeNames: _store.allRecipeNames,
+      activeRecipeSlug: _store.activeRecipeSlug,
+      liveActiveRecipe: liveActiveRecipe,
+      unsubscribeActiveRecipe: unsubscribeActiveRecipe,
+      setActiveRecipe: setActiveRecipe
+    };
+  };
+
+  $$self.$inject_state = function ($$props) {
+    if ("liveActiveRecipe" in $$props) $$invalidate(0, liveActiveRecipe = $$props.liveActiveRecipe);
+  };
+
+  if ($$props && "$$inject" in $$props) {
+    $$self.$inject_state($$props.$$inject);
+  }
+
+  return [liveActiveRecipe, setActiveRecipe];
+}
+
+var FlourSelector = /*#__PURE__*/function (_SvelteComponentDev) {
+  _inherits(FlourSelector, _SvelteComponentDev);
+
+  var _super = _createSuper(FlourSelector);
+
+  function FlourSelector(options) {
+    var _this;
+
+    _classCallCheck(this, FlourSelector);
+
+    _this = _super.call(this, options);
+    (0, _internal.init)(_assertThisInitialized(_this), options, instance, create_fragment, _internal.safe_not_equal, {
+      liveActiveRecipe: 0
+    });
+    (0, _internal.dispatch_dev)("SvelteRegisterComponent", {
+      component: _assertThisInitialized(_this),
+      tagName: "FlourSelector",
+      options: options,
+      id: create_fragment.name
+    });
+    var ctx = _this.$$.ctx;
+    var props = options.props || {};
+
+    if (
+    /*liveActiveRecipe*/
+    ctx[0] === undefined && !("liveActiveRecipe" in props)) {
+      console.warn("<FlourSelector> was created without expected prop 'liveActiveRecipe'");
+    }
+
+    return _this;
+  }
+
+  _createClass(FlourSelector, [{
+    key: "liveActiveRecipe",
+    get: function get() {
+      throw new Error("<FlourSelector>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    },
+    set: function set(value) {
+      throw new Error("<FlourSelector>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    }
+  }]);
+
+  return FlourSelector;
+}(_internal.SvelteComponentDev);
+
+var _default = FlourSelector;
+exports.default = _default;
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","../store":"flour-calc/src/store.js"}],"flour-calc/src/components/IngredientTable.svelte":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2416,61 +3092,153 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var file = "flour-calc/src/components/FlourSelector.svelte";
+var file = "flour-calc/src/components/IngredientTable.svelte";
 
-function create_fragment(ctx) {
-  var select;
-  var option0;
-  var option1;
-  var option2;
+function get_each_context(ctx, list, i) {
+  var child_ctx = ctx.slice();
+  child_ctx[1] = list[i];
+  return child_ctx;
+} // (6:2) {#each ingredients as ingredient}
+
+
+function create_each_block(ctx) {
+  var p;
+  var span0;
+  var t0_value =
+  /*ingredient*/
+  ctx[1].name + "";
+  var t0;
+  var t1;
+  var span1;
+  var t2_value =
+  /*ingredient*/
+  ctx[1].grams + "";
+  var t2;
+  var t3;
+  var t4;
   var block = {
     c: function create() {
-      select = (0, _internal.element)("select");
-      option0 = (0, _internal.element)("option");
-      option0.textContent = "flour type 1";
-      option1 = (0, _internal.element)("option");
-      option1.textContent = "flour type 2";
-      option2 = (0, _internal.element)("option");
-      option2.textContent = "flour type 3";
-      option0.__value = "flourType02";
-      option0.value = option0.__value;
-      (0, _internal.add_location)(option0, file, 5, 2, 89);
-      option1.__value = "flourType01";
-      option1.value = option1.__value;
-      (0, _internal.add_location)(option1, file, 6, 2, 141);
-      option2.__value = "flour type 3";
-      option2.value = option2.__value;
-      (0, _internal.add_location)(option2, file, 7, 2, 193);
-      (0, _internal.add_location)(select, file, 4, 0, 52);
+      p = (0, _internal.element)("p");
+      span0 = (0, _internal.element)("span");
+      t0 = (0, _internal.text)(t0_value);
+      t1 = (0, _internal.space)();
+      span1 = (0, _internal.element)("span");
+      t2 = (0, _internal.text)(t2_value);
+      t3 = (0, _internal.text)(" grams");
+      t4 = (0, _internal.space)();
+      (0, _internal.add_location)(span0, file, 7, 6, 123);
+      (0, _internal.add_location)(span1, file, 8, 6, 160);
+      (0, _internal.set_style)(p, "color", "black");
+      (0, _internal.add_location)(p, file, 6, 4, 92);
+    },
+    m: function mount(target, anchor) {
+      (0, _internal.insert_dev)(target, p, anchor);
+      (0, _internal.append_dev)(p, span0);
+      (0, _internal.append_dev)(span0, t0);
+      (0, _internal.append_dev)(p, t1);
+      (0, _internal.append_dev)(p, span1);
+      (0, _internal.append_dev)(span1, t2);
+      (0, _internal.append_dev)(span1, t3);
+      (0, _internal.append_dev)(p, t4);
+    },
+    p: function update(ctx, dirty) {
+      if (dirty &
+      /*ingredients*/
+      1 && t0_value !== (t0_value =
+      /*ingredient*/
+      ctx[1].name + "")) (0, _internal.set_data_dev)(t0, t0_value);
+      if (dirty &
+      /*ingredients*/
+      1 && t2_value !== (t2_value =
+      /*ingredient*/
+      ctx[1].grams + "")) (0, _internal.set_data_dev)(t2, t2_value);
+    },
+    d: function destroy(detaching) {
+      if (detaching) (0, _internal.detach_dev)(p);
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_each_block.name,
+    type: "each",
+    source: "(6:2) {#each ingredients as ingredient}",
+    ctx: ctx
+  });
+  return block;
+}
+
+function create_fragment(ctx) {
+  var div;
+  var each_value =
+  /*ingredients*/
+  ctx[0];
+  (0, _internal.validate_each_argument)(each_value);
+  var each_blocks = [];
+
+  for (var i = 0; i < each_value.length; i += 1) {
+    each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+  }
+
+  var block = {
+    c: function create() {
+      div = (0, _internal.element)("div");
+
+      for (var _i = 0; _i < each_blocks.length; _i += 1) {
+        each_blocks[_i].c();
+      }
+
+      (0, _internal.add_location)(div, file, 4, 0, 46);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     },
     m: function mount(target, anchor) {
-      (0, _internal.insert_dev)(target, select, anchor);
-      (0, _internal.append_dev)(select, option0);
-      (0, _internal.append_dev)(select, option1);
-      (0, _internal.append_dev)(select, option2);
-      (0, _internal.select_option)(select,
-      /*selectedFlourType*/
-      ctx[0]);
+      (0, _internal.insert_dev)(target, div, anchor);
+
+      for (var _i2 = 0; _i2 < each_blocks.length; _i2 += 1) {
+        each_blocks[_i2].m(div, null);
+      }
     },
     p: function update(ctx, _ref) {
       var _ref2 = _slicedToArray(_ref, 1),
           dirty = _ref2[0];
 
       if (dirty &
-      /*selectedFlourType*/
+      /*ingredients*/
       1) {
-        (0, _internal.select_option)(select,
-        /*selectedFlourType*/
-        ctx[0]);
+        each_value =
+        /*ingredients*/
+        ctx[0];
+        (0, _internal.validate_each_argument)(each_value);
+
+        var _i3;
+
+        for (_i3 = 0; _i3 < each_value.length; _i3 += 1) {
+          var child_ctx = get_each_context(ctx, each_value, _i3);
+
+          if (each_blocks[_i3]) {
+            each_blocks[_i3].p(child_ctx, dirty);
+          } else {
+            each_blocks[_i3] = create_each_block(child_ctx);
+
+            each_blocks[_i3].c();
+
+            each_blocks[_i3].m(div, null);
+          }
+        }
+
+        for (; _i3 < each_blocks.length; _i3 += 1) {
+          each_blocks[_i3].d(1);
+        }
+
+        each_blocks.length = each_value.length;
       }
     },
     i: _internal.noop,
     o: _internal.noop,
     d: function destroy(detaching) {
-      if (detaching) (0, _internal.detach_dev)(select);
+      if (detaching) (0, _internal.detach_dev)(div);
+      (0, _internal.destroy_each)(each_blocks, detaching);
     }
   };
   (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
@@ -2484,54 +3252,54 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-  var selectedFlourType = $$props.selectedFlourType;
-  var writable_props = ["selectedFlourType"];
+  var ingredients = $$props.ingredients;
+  var writable_props = ["ingredients"];
   Object.keys($$props).forEach(function (key) {
-    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<FlourSelector> was created with unknown prop '".concat(key, "'"));
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<IngredientTable> was created with unknown prop '".concat(key, "'"));
   });
   var _$$props$$$slots = $$props.$$slots,
       $$slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
       $$scope = $$props.$$scope;
-  (0, _internal.validate_slots)("FlourSelector", $$slots, []);
+  (0, _internal.validate_slots)("IngredientTable", $$slots, []);
 
   $$self.$set = function ($$props) {
-    if ("selectedFlourType" in $$props) $$invalidate(0, selectedFlourType = $$props.selectedFlourType);
+    if ("ingredients" in $$props) $$invalidate(0, ingredients = $$props.ingredients);
   };
 
   $$self.$capture_state = function () {
     return {
-      selectedFlourType: selectedFlourType
+      ingredients: ingredients
     };
   };
 
   $$self.$inject_state = function ($$props) {
-    if ("selectedFlourType" in $$props) $$invalidate(0, selectedFlourType = $$props.selectedFlourType);
+    if ("ingredients" in $$props) $$invalidate(0, ingredients = $$props.ingredients);
   };
 
   if ($$props && "$$inject" in $$props) {
     $$self.$inject_state($$props.$$inject);
   }
 
-  return [selectedFlourType];
+  return [ingredients];
 }
 
-var FlourSelector = /*#__PURE__*/function (_SvelteComponentDev) {
-  _inherits(FlourSelector, _SvelteComponentDev);
+var IngredientTable = /*#__PURE__*/function (_SvelteComponentDev) {
+  _inherits(IngredientTable, _SvelteComponentDev);
 
-  var _super = _createSuper(FlourSelector);
+  var _super = _createSuper(IngredientTable);
 
-  function FlourSelector(options) {
+  function IngredientTable(options) {
     var _this;
 
-    _classCallCheck(this, FlourSelector);
+    _classCallCheck(this, IngredientTable);
 
     _this = _super.call(this, options);
     (0, _internal.init)(_assertThisInitialized(_this), options, instance, create_fragment, _internal.safe_not_equal, {
-      selectedFlourType: 0
+      ingredients: 0
     });
     (0, _internal.dispatch_dev)("SvelteRegisterComponent", {
       component: _assertThisInitialized(_this),
-      tagName: "FlourSelector",
+      tagName: "IngredientTable",
       options: options,
       id: create_fragment.name
     });
@@ -2539,30 +3307,30 @@ var FlourSelector = /*#__PURE__*/function (_SvelteComponentDev) {
     var props = options.props || {};
 
     if (
-    /*selectedFlourType*/
-    ctx[0] === undefined && !("selectedFlourType" in props)) {
-      console.warn("<FlourSelector> was created without expected prop 'selectedFlourType'");
+    /*ingredients*/
+    ctx[0] === undefined && !("ingredients" in props)) {
+      console.warn("<IngredientTable> was created without expected prop 'ingredients'");
     }
 
     return _this;
   }
 
-  _createClass(FlourSelector, [{
-    key: "selectedFlourType",
+  _createClass(IngredientTable, [{
+    key: "ingredients",
     get: function get() {
-      throw new Error("<FlourSelector>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+      throw new Error("<IngredientTable>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     },
     set: function set(value) {
-      throw new Error("<FlourSelector>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+      throw new Error("<IngredientTable>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     }
   }]);
 
-  return FlourSelector;
+  return IngredientTable;
 }(_internal.SvelteComponentDev);
 
-var _default = FlourSelector;
+var _default = IngredientTable;
 exports.default = _default;
-},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"flour-calc/src/components/Calculator.svelte":[function(require,module,exports) {
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"flour-calc/src/components/TotalCupInput.svelte":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2572,7 +3340,219 @@ exports.default = void 0;
 
 var _internal = require("svelte/internal");
 
+var _svelte = require("svelte");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var file = "flour-calc/src/components/TotalCupInput.svelte";
+
+function create_fragment(ctx) {
+  var div;
+  var t0;
+  var input;
+  var t1;
+  var mounted;
+  var dispose;
+  var block = {
+    c: function create() {
+      div = (0, _internal.element)("div");
+      t0 = (0, _internal.text)("I want\n  ");
+      input = (0, _internal.element)("input");
+      t1 = (0, _internal.text)("\n  cups of flour");
+      (0, _internal.attr_dev)(input, "type", "number");
+      (0, _internal.attr_dev)(input, "name", "totalcups");
+      (0, _internal.attr_dev)(input, "id", "totalcups");
+      input.value =
+      /*totalCups*/
+      ctx[0];
+      (0, _internal.add_location)(input, file, 9, 2, 156);
+      (0, _internal.add_location)(div, file, 7, 0, 139);
+    },
+    l: function claim(nodes) {
+      throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    },
+    m: function mount(target, anchor) {
+      (0, _internal.insert_dev)(target, div, anchor);
+      (0, _internal.append_dev)(div, t0);
+      (0, _internal.append_dev)(div, input);
+      (0, _internal.append_dev)(div, t1);
+
+      if (!mounted) {
+        dispose = (0, _internal.listen_dev)(input, "change",
+        /*change_handler*/
+        ctx[2], false, false, false);
+        mounted = true;
+      }
+    },
+    p: function update(ctx, _ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+          dirty = _ref2[0];
+
+      if (dirty &
+      /*totalCups*/
+      1) {
+        (0, _internal.prop_dev)(input, "value",
+        /*totalCups*/
+        ctx[0]);
+      }
+    },
+    i: _internal.noop,
+    o: _internal.noop,
+    d: function destroy(detaching) {
+      if (detaching) (0, _internal.detach_dev)(div);
+      mounted = false;
+      dispose();
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_fragment.name,
+    type: "component",
+    source: "",
+    ctx: ctx
+  });
+  return block;
+}
+
+function instance($$self, $$props, $$invalidate) {
+  var totalCups = $$props.totalCups;
+  var dispatch = (0, _svelte.createEventDispatcher)();
+  var writable_props = ["totalCups"];
+  Object.keys($$props).forEach(function (key) {
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<TotalCupInput> was created with unknown prop '".concat(key, "'"));
+  });
+  var _$$props$$$slots = $$props.$$slots,
+      $$slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
+      $$scope = $$props.$$scope;
+  (0, _internal.validate_slots)("TotalCupInput", $$slots, []);
+
+  var change_handler = function change_handler(e) {
+    return dispatch("updateCups", e.target.value);
+  };
+
+  $$self.$set = function ($$props) {
+    if ("totalCups" in $$props) $$invalidate(0, totalCups = $$props.totalCups);
+  };
+
+  $$self.$capture_state = function () {
+    return {
+      createEventDispatcher: _svelte.createEventDispatcher,
+      totalCups: totalCups,
+      dispatch: dispatch
+    };
+  };
+
+  $$self.$inject_state = function ($$props) {
+    if ("totalCups" in $$props) $$invalidate(0, totalCups = $$props.totalCups);
+  };
+
+  if ($$props && "$$inject" in $$props) {
+    $$self.$inject_state($$props.$$inject);
+  }
+
+  return [totalCups, dispatch, change_handler];
+}
+
+var TotalCupInput = /*#__PURE__*/function (_SvelteComponentDev) {
+  _inherits(TotalCupInput, _SvelteComponentDev);
+
+  var _super = _createSuper(TotalCupInput);
+
+  function TotalCupInput(options) {
+    var _this;
+
+    _classCallCheck(this, TotalCupInput);
+
+    _this = _super.call(this, options);
+    (0, _internal.init)(_assertThisInitialized(_this), options, instance, create_fragment, _internal.safe_not_equal, {
+      totalCups: 0
+    });
+    (0, _internal.dispatch_dev)("SvelteRegisterComponent", {
+      component: _assertThisInitialized(_this),
+      tagName: "TotalCupInput",
+      options: options,
+      id: create_fragment.name
+    });
+    var ctx = _this.$$.ctx;
+    var props = options.props || {};
+
+    if (
+    /*totalCups*/
+    ctx[0] === undefined && !("totalCups" in props)) {
+      console.warn("<TotalCupInput> was created without expected prop 'totalCups'");
+    }
+
+    return _this;
+  }
+
+  _createClass(TotalCupInput, [{
+    key: "totalCups",
+    get: function get() {
+      throw new Error("<TotalCupInput>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    },
+    set: function set(value) {
+      throw new Error("<TotalCupInput>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    }
+  }]);
+
+  return TotalCupInput;
+}(_internal.SvelteComponentDev);
+
+var _default = TotalCupInput;
+exports.default = _default;
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","svelte":"../node_modules/svelte/index.mjs"}],"flour-calc/src/components/Calculator.svelte":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _internal = require("svelte/internal");
+
+var _flourRecipes = _interopRequireDefault(require("../../data/flour-recipes.yaml"));
+
+var _svelte = require("svelte");
+
+var _store = require("../store.js");
+
 var _FlourSelector = _interopRequireDefault(require("./FlourSelector.svelte"));
+
+var _IngredientTable = _interopRequireDefault(require("./IngredientTable.svelte"));
+
+var _TotalCupInput = _interopRequireDefault(require("./TotalCupInput.svelte"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2594,19 +3574,51 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var console_1 = _internal.globals.console;
 var file = "flour-calc/src/components/Calculator.svelte";
 
 function create_fragment(ctx) {
   var h4;
   var t1;
+  var div;
+  var totalcupinput;
+  var t2;
+  var ingredienttable;
+  var t3;
   var flourselector;
   var current;
-  flourselector = new _FlourSelector.default({
+  totalcupinput = new _TotalCupInput.default({
     props: {
-      selectedFlourType:
-      /*flourType*/
+      totalCups:
+      /*liveTotalCups*/
       ctx[0]
     },
+    $$inline: true
+  });
+  totalcupinput.$on("updateCups",
+  /*updateCupTotal*/
+  ctx[2]);
+  ingredienttable = new _IngredientTable.default({
+    props: {
+      ingredients:
+      /*recipe*/
+      ctx[1].ingredients
+    },
+    $$inline: true
+  });
+  flourselector = new _FlourSelector.default({
     $$inline: true
   });
   var block = {
@@ -2614,8 +3626,14 @@ function create_fragment(ctx) {
       h4 = (0, _internal.element)("h4");
       h4.textContent = "Flour Calculator";
       t1 = (0, _internal.space)();
+      div = (0, _internal.element)("div");
+      (0, _internal.create_component)(totalcupinput.$$.fragment);
+      t2 = (0, _internal.space)();
+      (0, _internal.create_component)(ingredienttable.$$.fragment);
+      t3 = (0, _internal.space)();
       (0, _internal.create_component)(flourselector.$$.fragment);
-      (0, _internal.add_location)(h4, file, 5, 0, 107);
+      (0, _internal.add_location)(h4, file, 29, 0, 871);
+      (0, _internal.add_location)(div, file, 30, 0, 897);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2623,22 +3641,53 @@ function create_fragment(ctx) {
     m: function mount(target, anchor) {
       (0, _internal.insert_dev)(target, h4, anchor);
       (0, _internal.insert_dev)(target, t1, anchor);
+      (0, _internal.insert_dev)(target, div, anchor);
+      (0, _internal.mount_component)(totalcupinput, div, null);
+      (0, _internal.append_dev)(div, t2);
+      (0, _internal.mount_component)(ingredienttable, div, null);
+      (0, _internal.insert_dev)(target, t3, anchor);
       (0, _internal.mount_component)(flourselector, target, anchor);
       current = true;
     },
-    p: _internal.noop,
+    p: function update(ctx, _ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+          dirty = _ref2[0];
+
+      var totalcupinput_changes = {};
+      if (dirty &
+      /*liveTotalCups*/
+      1) totalcupinput_changes.totalCups =
+      /*liveTotalCups*/
+      ctx[0];
+      totalcupinput.$set(totalcupinput_changes);
+      var ingredienttable_changes = {};
+      if (dirty &
+      /*recipe*/
+      2) ingredienttable_changes.ingredients =
+      /*recipe*/
+      ctx[1].ingredients;
+      ingredienttable.$set(ingredienttable_changes);
+    },
     i: function intro(local) {
       if (current) return;
+      (0, _internal.transition_in)(totalcupinput.$$.fragment, local);
+      (0, _internal.transition_in)(ingredienttable.$$.fragment, local);
       (0, _internal.transition_in)(flourselector.$$.fragment, local);
       current = true;
     },
     o: function outro(local) {
+      (0, _internal.transition_out)(totalcupinput.$$.fragment, local);
+      (0, _internal.transition_out)(ingredienttable.$$.fragment, local);
       (0, _internal.transition_out)(flourselector.$$.fragment, local);
       current = false;
     },
     d: function destroy(detaching) {
       if (detaching) (0, _internal.detach_dev)(h4);
       if (detaching) (0, _internal.detach_dev)(t1);
+      if (detaching) (0, _internal.detach_dev)(div);
+      (0, _internal.destroy_component)(totalcupinput);
+      (0, _internal.destroy_component)(ingredienttable);
+      if (detaching) (0, _internal.detach_dev)(t3);
       (0, _internal.destroy_component)(flourselector, detaching);
     }
   };
@@ -2653,10 +3702,31 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
-  var flourType = "flourType01";
+  var liveActiveRecipe;
+
+  var unsubscribeActiveRecipe = _store.activeRecipeSlug.subscribe(function (val) {
+    $$invalidate(3, liveActiveRecipe = val);
+  });
+
+  var liveTotalCups;
+
+  var unsubscribeTotalCup = _store.totalCups.subscribe(function (val) {
+    $$invalidate(0, liveTotalCups = val);
+  });
+
+  function updateCupTotal(e) {
+    var newTotal = e.detail;
+
+    _store.totalCups.set(newTotal);
+  }
+
+  (0, _svelte.onDestroy)(function () {
+    unsubscribeTotalCup();
+    unsubscribeActiveRecipe();
+  });
   var writable_props = [];
   Object.keys($$props).forEach(function (key) {
-    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<Calculator> was created with unknown prop '".concat(key, "'"));
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn("<Calculator> was created with unknown prop '".concat(key, "'"));
   });
   var _$$props$$$slots = $$props.$$slots,
       $$slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
@@ -2665,20 +3735,53 @@ function instance($$self, $$props, $$invalidate) {
 
   $$self.$capture_state = function () {
     return {
+      Date: _flourRecipes.default,
+      onDestroy: _svelte.onDestroy,
+      activeRecipeSlug: _store.activeRecipeSlug,
+      gramCalc: _store.gramCalc,
+      totalCups: _store.totalCups,
       FlourSelector: _FlourSelector.default,
-      flourType: flourType
+      IngredientTable: _IngredientTable.default,
+      TotalCupInput: _TotalCupInput.default,
+      liveActiveRecipe: liveActiveRecipe,
+      unsubscribeActiveRecipe: unsubscribeActiveRecipe,
+      liveTotalCups: liveTotalCups,
+      unsubscribeTotalCup: unsubscribeTotalCup,
+      updateCupTotal: updateCupTotal,
+      recipe: recipe,
+      test: test
     };
   };
 
   $$self.$inject_state = function ($$props) {
-    if ("flourType" in $$props) $$invalidate(0, flourType = $$props.flourType);
+    if ("liveActiveRecipe" in $$props) $$invalidate(3, liveActiveRecipe = $$props.liveActiveRecipe);
+    if ("liveTotalCups" in $$props) $$invalidate(0, liveTotalCups = $$props.liveTotalCups);
+    if ("recipe" in $$props) $$invalidate(1, recipe = $$props.recipe);
+    if ("test" in $$props) test = $$props.test;
   };
+
+  var recipe;
+  var test;
 
   if ($$props && "$$inject" in $$props) {
     $$self.$inject_state($$props.$$inject);
   }
 
-  return [flourType];
+  $$self.$$.update = function () {
+    if ($$self.$$.dirty &
+    /*liveActiveRecipe, liveTotalCups*/
+    9) {
+      $: $$invalidate(1, recipe = (0, _store.gramCalc)(liveActiveRecipe, liveTotalCups));
+    }
+
+    if ($$self.$$.dirty &
+    /*liveActiveRecipe*/
+    8) {
+      $: test = console.log(liveActiveRecipe);
+    }
+  };
+
+  return [liveTotalCups, recipe, updateCupTotal];
 }
 
 var Calculator = /*#__PURE__*/function (_SvelteComponentDev) {
@@ -2707,7 +3810,7 @@ var Calculator = /*#__PURE__*/function (_SvelteComponentDev) {
 
 var _default = Calculator;
 exports.default = _default;
-},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","./FlourSelector.svelte":"flour-calc/src/components/FlourSelector.svelte"}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","../../data/flour-recipes.yaml":"flour-calc/data/flour-recipes.yaml","svelte":"../node_modules/svelte/index.mjs","../store.js":"flour-calc/src/store.js","./FlourSelector.svelte":"flour-calc/src/components/FlourSelector.svelte","./IngredientTable.svelte":"flour-calc/src/components/IngredientTable.svelte","./TotalCupInput.svelte":"flour-calc/src/components/TotalCupInput.svelte"}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -2985,7 +4088,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var file = "flour-calc/src/App.svelte"; // (23:0) {#if isCalcShowing}
+var file = "flour-calc/src/App.svelte"; // (24:0) {#if isCalcShowing}
 
 function create_if_block(ctx) {
   var modal;
@@ -3026,11 +4129,11 @@ function create_if_block(ctx) {
     block: block,
     id: create_if_block.name,
     type: "if",
-    source: "(23:0) {#if isCalcShowing}",
+    source: "(24:0) {#if isCalcShowing}",
     ctx: ctx
   });
   return block;
-} // (24:2) <Modal>
+} // (25:2) <Modal>
 
 
 function create_default_slot(ctx) {
@@ -3064,7 +4167,7 @@ function create_default_slot(ctx) {
     block: block,
     id: create_default_slot.name,
     type: "slot",
-    source: "(24:2) <Modal>",
+    source: "(25:2) <Modal>",
     ctx: ctx
   });
   return block;
@@ -3102,11 +4205,11 @@ function create_fragment(ctx) {
       if (if_block) if_block.c();
       if_block_anchor = (0, _internal.empty)();
       (0, _internal.attr_dev)(span0, "class", "icon");
-      (0, _internal.add_location)(span0, file, 17, 2, 392);
+      (0, _internal.add_location)(span0, file, 18, 2, 395);
       (0, _internal.attr_dev)(span1, "class", "link-text");
-      (0, _internal.add_location)(span1, file, 20, 2, 447);
+      (0, _internal.add_location)(span1, file, 21, 2, 450);
       (0, _internal.attr_dev)(button, "class", "nav-button nav-link");
-      (0, _internal.add_location)(button, file, 16, 0, 331);
+      (0, _internal.add_location)(button, file, 17, 0, 334);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3333,7 +4436,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49853" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49416" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
