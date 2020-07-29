@@ -10,7 +10,10 @@ ul.grid {
 @media (min-width: 650px) {
   .grid {
     display: grid;
-    grid-template: auto/ repeat(var(--cols, 3), minmax(0, 1fr));
+    grid-template: auto/ repeat(
+        var(--cols, 3),
+        minmax(var(--min-col-width, 0), 1fr)
+      );
     gap: 20px;
     > div,
     > li {

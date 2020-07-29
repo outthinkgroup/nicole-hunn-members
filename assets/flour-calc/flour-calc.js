@@ -4130,8 +4130,8 @@ var file = "flour-calc/src/components/Modal.svelte";
 
 function add_css() {
   var style = (0, _internal.element)("style");
-  style.id = "svelte-jhxg99-style";
-  style.textContent = ".modal.svelte-jhxg99{position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);height:550px;width:300px;z-index:1}.modal-bg.svelte-jhxg99{background:#fff;box-shadow:0 50px 100px rgba(50, 50, 93, 0.1),\n      0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);border-radius:8px;padding:20px;padding-bottom:10px;overflow:hidden;position:relative}@media(min-width: 650px){.modal.svelte-jhxg99{transform:none;position:absolute;left:calc(100% + 30px);bottom:50%;top:unset}.modal.svelte-jhxg99:after{position:absolute;bottom:5px;left:-20px;width:0;content:\"\";height:0;border-top:30px solid transparent;border-bottom:30px solid transparent;border-right:30px solid white}}button.svelte-jhxg99{position:absolute;right:5px;top:5px;z-index:10;background:transparent;color:black;padding:0;font-size:10px;width:20px;height:20px;line-height:0;display:flex;align-items:center;justify-content:center}button.svelte-jhxg99:hover{background:#efefef}\n";
+  style.id = "svelte-fbbr57-style";
+  style.textContent = ".modal.svelte-fbbr57{position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);height:550px;width:300px;z-index:1}.modal-bg.svelte-fbbr57{background:#fff;box-shadow:0 50px 100px rgba(50, 50, 93, 0.1),\n      0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);border-radius:8px;padding:20px;padding-bottom:10px;overflow:hidden;position:relative}@media(min-width: 650px){.modal.svelte-fbbr57{transform:none;position:absolute;left:calc(100% + 30px);bottom:50%;top:unset}.modal.svelte-fbbr57:after{position:absolute;bottom:20px;left:-17px;width:0;content:\"\";height:0;border-top:20px solid transparent;border-bottom:20px solid transparent;border-right:20px solid white}}button.svelte-fbbr57{position:absolute;right:5px;top:5px;z-index:10;background:transparent;color:black;padding:0;font-size:10px;width:20px;height:20px;line-height:0;display:flex;align-items:center;justify-content:center}button.svelte-fbbr57:hover{background:#efefef}\n";
   (0, _internal.append_dev)(document.head, style);
 }
 
@@ -4163,13 +4163,13 @@ function create_fragment(ctx) {
       t = (0, _internal.space)();
       div0 = (0, _internal.element)("div");
       if (default_slot) default_slot.c();
-      (0, _internal.add_location)(span, file, 76, 4, 1521);
-      (0, _internal.attr_dev)(button, "class", "svelte-jhxg99");
-      (0, _internal.add_location)(button, file, 75, 2, 1485);
-      (0, _internal.attr_dev)(div0, "class", "modal-bg svelte-jhxg99");
-      (0, _internal.add_location)(div0, file, 80, 2, 1574);
-      (0, _internal.attr_dev)(div1, "class", "modal svelte-jhxg99");
-      (0, _internal.add_location)(div1, file, 74, 0, 1463);
+      (0, _internal.add_location)(span, file, 76, 4, 1522);
+      (0, _internal.attr_dev)(button, "class", "svelte-fbbr57");
+      (0, _internal.add_location)(button, file, 75, 2, 1486);
+      (0, _internal.attr_dev)(div0, "class", "modal-bg svelte-fbbr57");
+      (0, _internal.add_location)(div0, file, 80, 2, 1575);
+      (0, _internal.attr_dev)(div1, "class", "modal svelte-fbbr57");
+      (0, _internal.add_location)(div1, file, 74, 0, 1464);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4281,7 +4281,7 @@ var Modal = /*#__PURE__*/function (_SvelteComponentDev) {
     _classCallCheck(this, Modal);
 
     _this = _super.call(this, options);
-    if (!document.getElementById("svelte-jhxg99-style")) add_css();
+    if (!document.getElementById("svelte-fbbr57-style")) add_css();
     (0, _internal.init)(_assertThisInitialized(_this), options, instance, create_fragment, _internal.safe_not_equal, {});
     (0, _internal.dispatch_dev)("SvelteRegisterComponent", {
       component: _assertThisInitialized(_this),

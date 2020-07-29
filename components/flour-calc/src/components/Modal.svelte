@@ -39,16 +39,16 @@
 
     .modal:after {
       position: absolute;
-      bottom: 5px;
-      left: -20px;
+      bottom: 20px;
+      left: -17px;
       width: 0;
 
       content: "";
       height: 0;
-      border-top: 30px solid transparent;
-      border-bottom: 30px solid transparent;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
 
-      border-right: 30px solid white;
+      border-right: 20px solid white;
     }
   }
   button {

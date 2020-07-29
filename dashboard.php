@@ -17,7 +17,7 @@ $user_id = $user->ID;
 		<main class="dashboard">
 			<section class="recipes">
 				<h3>Recipes</h3>
-				<ul class="grid">
+				<ul class="grid" style="--cols:auto-fill; --min-col-width:220px">
 					<?php
 						$recipes = nhm_all_recipes();
 						foreach($recipes as $recipe){

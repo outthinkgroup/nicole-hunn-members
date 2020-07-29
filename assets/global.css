@@ -77,6 +77,28 @@
      object-position: 50% 0%;
 }
 
+.card-top .top-left-corner {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.top-left-corner .add-recipe-to-list .button-lists {
+  top: calc(100% + 5px);
+  left: 0;
+  width: 210px;
+}
+
+.top-left-corner .icon-button {
+  border-radius: 50%;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
 .dashboard header {
   margin-top: 25px;
   margin-bottom: 25px;
@@ -254,7 +276,7 @@ ul.grid {
 @media (min-width: 650px) {
   .grid {
     display: grid;
-    grid-template: auto/repeat(var(--cols, 3), minmax(0, 1fr));
+    grid-template: auto/repeat(var(--cols, 3), minmax(var(--min-col-width, 0), 1fr));
     gap: 20px;
   }
   .grid > div,
