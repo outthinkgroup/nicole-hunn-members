@@ -12,6 +12,14 @@
   };
 </script>
 
+<style>
+  select {
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+</style>
+
 <select
   value={liveActiveRecipe}
   on:change={setActiveRecipe}

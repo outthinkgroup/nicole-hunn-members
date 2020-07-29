@@ -8,11 +8,16 @@
   function toggleCalc() {
     isCalcShowing = !isCalcShowing;
   }
-  
 </script>
 
 <style>
-
+  .nav-button {
+    width: calc(100% + 10px);
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+    border-radius: 0 20px 20px 0;
+  }
 </style>
 
 <button class="nav-button nav-link" on:click={toggleCalc}>
@@ -22,7 +27,7 @@
   <span class="link-text">{appName}</span>
 </button>
 {#if isCalcShowing}
-  <Modal>
+  <Modal classN>
     <Calculator />
   </Modal>
 {/if}

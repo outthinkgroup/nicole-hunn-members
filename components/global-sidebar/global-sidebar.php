@@ -13,7 +13,7 @@ function global_sidebar(){
 		<div class="bottom-utils" style="">
 				<?php nav_button('Flour Calculator', 'calculator', 'solid'); ?>
 		</div>
-		<div data-part="toggle-sidebar" class="toggle-sidebar"  style="z-index:999">
+		<div data-part="toggle-sidebar" class="toggle-sidebar"  style="">
 			<button class="">
 				<?php get_icon('chevron-left', 'solid'); ?>
 			</button>
