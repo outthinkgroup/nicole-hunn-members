@@ -195,6 +195,7 @@ a svg {
   padding-bottom: 73px;
   width: 100%;
   z-index: 5;
+  background: var(--blue-base);
 }
 
 .global-sidebar .nav-button {

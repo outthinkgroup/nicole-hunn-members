@@ -1,3 +1,13 @@
+<script>
+  import { createEventDispatcher } from "svelte";
+  import CloseIcon from "../assests/icons/close.svelte";
+  const dispatch = createEventDispatcher();
+
+  function handleClose() {
+    dispatch("close");
+  }
+</script>
+
 <style>
   .modal {
     position: fixed;
@@ -41,9 +51,33 @@
       border-right: 30px solid white;
     }
   }
+  button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 10;
+    background: transparent;
+    color: black;
+    padding: 0;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  button:hover {
+    background: #efefef;
+  }
 </style>
 
 <div class="modal">
+  <button on:click={handleClose}>
+    <span>
+      <CloseIcon />
+    </span>
+  </button>
   <div class="modal-bg">
     <slot />
   </div>

@@ -27,7 +27,7 @@
   <span class="link-text">{appName}</span>
 </button>
 {#if isCalcShowing}
-  <Modal classN>
+  <Modal on:close={toggleCalc}>
     <Calculator />
   </Modal>
 {/if}

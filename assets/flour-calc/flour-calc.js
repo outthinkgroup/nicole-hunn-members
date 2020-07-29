@@ -3966,7 +3966,7 @@ var Calculator = /*#__PURE__*/function (_SvelteComponentDev) {
 
 var _default = Calculator;
 exports.default = _default;
-},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","../../data/flour-recipes.yaml":"flour-calc/data/flour-recipes.yaml","svelte":"../node_modules/svelte/index.mjs","../store.js":"flour-calc/src/store.js","./FlourSelector.svelte":"flour-calc/src/components/FlourSelector.svelte","./IngredientTable.svelte":"flour-calc/src/components/IngredientTable.svelte","./TotalCupInput.svelte":"flour-calc/src/components/TotalCupInput.svelte","_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"flour-calc/src/components/Modal.svelte":[function(require,module,exports) {
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","../../data/flour-recipes.yaml":"flour-calc/data/flour-recipes.yaml","svelte":"../node_modules/svelte/index.mjs","../store.js":"flour-calc/src/store.js","./FlourSelector.svelte":"flour-calc/src/components/FlourSelector.svelte","./IngredientTable.svelte":"flour-calc/src/components/IngredientTable.svelte","./TotalCupInput.svelte":"flour-calc/src/components/TotalCupInput.svelte","_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"flour-calc/src/assests/icons/close.svelte":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -3975,6 +3975,126 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _internal = require("svelte/internal");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var file = "flour-calc/src/assests/icons/close.svelte";
+
+function add_css() {
+  var style = (0, _internal.element)("style");
+  style.id = "svelte-1mz40ew-style";
+  style.textContent = "svg.svelte-1mz40ew{max-width:1em}\n";
+  (0, _internal.append_dev)(document.head, style);
+}
+
+function create_fragment(ctx) {
+  var svg;
+  var path;
+  var block = {
+    c: function create() {
+      svg = (0, _internal.svg_element)("svg");
+      path = (0, _internal.svg_element)("path");
+      (0, _internal.attr_dev)(path, "d", "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19\n    0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93\n    89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19\n    0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24\n    22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28\n    32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z");
+      (0, _internal.add_location)(path, file, 7, 2, 115);
+      (0, _internal.attr_dev)(svg, "xmlns", "http://www.w3.org/2000/svg");
+      (0, _internal.attr_dev)(svg, "viewBox", "0 0 352 512");
+      (0, _internal.attr_dev)(svg, "class", "svelte-1mz40ew");
+      (0, _internal.add_location)(svg, file, 6, 0, 50);
+    },
+    l: function claim(nodes) {
+      throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    },
+    m: function mount(target, anchor) {
+      (0, _internal.insert_dev)(target, svg, anchor);
+      (0, _internal.append_dev)(svg, path);
+    },
+    p: _internal.noop,
+    i: _internal.noop,
+    o: _internal.noop,
+    d: function destroy(detaching) {
+      if (detaching) (0, _internal.detach_dev)(svg);
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_fragment.name,
+    type: "component",
+    source: "",
+    ctx: ctx
+  });
+  return block;
+}
+
+function instance($$self, $$props) {
+  var writable_props = [];
+  Object.keys($$props).forEach(function (key) {
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<Close> was created with unknown prop '".concat(key, "'"));
+  });
+  var _$$props$$$slots = $$props.$$slots,
+      $$slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
+      $$scope = $$props.$$scope;
+  (0, _internal.validate_slots)("Close", $$slots, []);
+  return [];
+}
+
+var Close = /*#__PURE__*/function (_SvelteComponentDev) {
+  _inherits(Close, _SvelteComponentDev);
+
+  var _super = _createSuper(Close);
+
+  function Close(options) {
+    var _this;
+
+    _classCallCheck(this, Close);
+
+    _this = _super.call(this, options);
+    if (!document.getElementById("svelte-1mz40ew-style")) add_css();
+    (0, _internal.init)(_assertThisInitialized(_this), options, instance, create_fragment, _internal.safe_not_equal, {});
+    (0, _internal.dispatch_dev)("SvelteRegisterComponent", {
+      component: _assertThisInitialized(_this),
+      tagName: "Close",
+      options: options,
+      id: create_fragment.name
+    });
+    return _this;
+  }
+
+  return Close;
+}(_internal.SvelteComponentDev);
+
+var _default = Close;
+exports.default = _default;
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"flour-calc/src/components/Modal.svelte":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _internal = require("svelte/internal");
+
+var _svelte = require("svelte");
+
+var _close = _interopRequireDefault(require("../assests/icons/close.svelte"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -4010,36 +4130,56 @@ var file = "flour-calc/src/components/Modal.svelte";
 
 function add_css() {
   var style = (0, _internal.element)("style");
-  style.id = "svelte-v0frd8-style";
-  style.textContent = ".modal.svelte-v0frd8{position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);height:550px;width:300px;z-index:1}.modal-bg.svelte-v0frd8{background:#fff;box-shadow:0 50px 100px rgba(50, 50, 93, 0.1),\n      0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);border-radius:8px;padding:20px;padding-bottom:10px;overflow:hidden;position:relative}@media(min-width: 650px){.modal.svelte-v0frd8{transform:none;position:absolute;left:calc(100% + 30px);bottom:50%;top:unset}.modal.svelte-v0frd8:after{position:absolute;bottom:5px;left:-20px;width:0;content:\"\";height:0;border-top:30px solid transparent;border-bottom:30px solid transparent;border-right:30px solid white}}\n";
+  style.id = "svelte-jhxg99-style";
+  style.textContent = ".modal.svelte-jhxg99{position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);height:550px;width:300px;z-index:1}.modal-bg.svelte-jhxg99{background:#fff;box-shadow:0 50px 100px rgba(50, 50, 93, 0.1),\n      0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);border-radius:8px;padding:20px;padding-bottom:10px;overflow:hidden;position:relative}@media(min-width: 650px){.modal.svelte-jhxg99{transform:none;position:absolute;left:calc(100% + 30px);bottom:50%;top:unset}.modal.svelte-jhxg99:after{position:absolute;bottom:5px;left:-20px;width:0;content:\"\";height:0;border-top:30px solid transparent;border-bottom:30px solid transparent;border-right:30px solid white}}button.svelte-jhxg99{position:absolute;right:5px;top:5px;z-index:10;background:transparent;color:black;padding:0;font-size:10px;width:20px;height:20px;line-height:0;display:flex;align-items:center;justify-content:center}button.svelte-jhxg99:hover{background:#efefef}\n";
   (0, _internal.append_dev)(document.head, style);
 }
 
 function create_fragment(ctx) {
   var div1;
+  var button;
+  var span;
+  var closeicon;
+  var t;
   var div0;
   var current;
+  var mounted;
+  var dispose;
+  closeicon = new _close.default({
+    $$inline: true
+  });
   var default_slot_template =
   /*$$slots*/
-  ctx[1].default;
+  ctx[2].default;
   var default_slot = (0, _internal.create_slot)(default_slot_template, ctx,
   /*$$scope*/
-  ctx[0], null);
+  ctx[1], null);
   var block = {
     c: function create() {
       div1 = (0, _internal.element)("div");
+      button = (0, _internal.element)("button");
+      span = (0, _internal.element)("span");
+      (0, _internal.create_component)(closeicon.$$.fragment);
+      t = (0, _internal.space)();
       div0 = (0, _internal.element)("div");
       if (default_slot) default_slot.c();
-      (0, _internal.attr_dev)(div0, "class", "modal-bg svelte-v0frd8");
-      (0, _internal.add_location)(div0, file, 46, 2, 915);
-      (0, _internal.attr_dev)(div1, "class", "modal svelte-v0frd8");
-      (0, _internal.add_location)(div1, file, 45, 0, 893);
+      (0, _internal.add_location)(span, file, 76, 4, 1521);
+      (0, _internal.attr_dev)(button, "class", "svelte-jhxg99");
+      (0, _internal.add_location)(button, file, 75, 2, 1485);
+      (0, _internal.attr_dev)(div0, "class", "modal-bg svelte-jhxg99");
+      (0, _internal.add_location)(div0, file, 80, 2, 1574);
+      (0, _internal.attr_dev)(div1, "class", "modal svelte-jhxg99");
+      (0, _internal.add_location)(div1, file, 74, 0, 1463);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     },
     m: function mount(target, anchor) {
       (0, _internal.insert_dev)(target, div1, anchor);
+      (0, _internal.append_dev)(div1, button);
+      (0, _internal.append_dev)(button, span);
+      (0, _internal.mount_component)(closeicon, span, null);
+      (0, _internal.append_dev)(div1, t);
       (0, _internal.append_dev)(div1, div0);
 
       if (default_slot) {
@@ -4047,6 +4187,13 @@ function create_fragment(ctx) {
       }
 
       current = true;
+
+      if (!mounted) {
+        dispose = (0, _internal.listen_dev)(button, "click",
+        /*handleClose*/
+        ctx[0], false, false, false);
+        mounted = true;
+      }
     },
     p: function update(ctx, _ref) {
       var _ref2 = _slicedToArray(_ref, 1),
@@ -4055,25 +4202,30 @@ function create_fragment(ctx) {
       if (default_slot) {
         if (default_slot.p && dirty &
         /*$$scope*/
-        1) {
+        2) {
           (0, _internal.update_slot)(default_slot, default_slot_template, ctx,
           /*$$scope*/
-          ctx[0], dirty, null, null);
+          ctx[1], dirty, null, null);
         }
       }
     },
     i: function intro(local) {
       if (current) return;
+      (0, _internal.transition_in)(closeicon.$$.fragment, local);
       (0, _internal.transition_in)(default_slot, local);
       current = true;
     },
     o: function outro(local) {
+      (0, _internal.transition_out)(closeicon.$$.fragment, local);
       (0, _internal.transition_out)(default_slot, local);
       current = false;
     },
     d: function destroy(detaching) {
       if (detaching) (0, _internal.detach_dev)(div1);
+      (0, _internal.destroy_component)(closeicon);
       if (default_slot) default_slot.d(detaching);
+      mounted = false;
+      dispose();
     }
   };
   (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
@@ -4087,6 +4239,12 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
+  var dispatch = (0, _svelte.createEventDispatcher)();
+
+  function handleClose() {
+    dispatch("close");
+  }
+
   var writable_props = [];
   Object.keys($$props).forEach(function (key) {
     if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<Modal> was created with unknown prop '".concat(key, "'"));
@@ -4097,10 +4255,19 @@ function instance($$self, $$props, $$invalidate) {
   (0, _internal.validate_slots)("Modal", $$slots, ['default']);
 
   $$self.$set = function ($$props) {
-    if ("$$scope" in $$props) $$invalidate(0, $$scope = $$props.$$scope);
+    if ("$$scope" in $$props) $$invalidate(1, $$scope = $$props.$$scope);
   };
 
-  return [$$scope, $$slots];
+  $$self.$capture_state = function () {
+    return {
+      createEventDispatcher: _svelte.createEventDispatcher,
+      CloseIcon: _close.default,
+      dispatch: dispatch,
+      handleClose: handleClose
+    };
+  };
+
+  return [handleClose, $$scope, $$slots];
 }
 
 var Modal = /*#__PURE__*/function (_SvelteComponentDev) {
@@ -4114,7 +4281,7 @@ var Modal = /*#__PURE__*/function (_SvelteComponentDev) {
     _classCallCheck(this, Modal);
 
     _this = _super.call(this, options);
-    if (!document.getElementById("svelte-v0frd8-style")) add_css();
+    if (!document.getElementById("svelte-jhxg99-style")) add_css();
     (0, _internal.init)(_assertThisInitialized(_this), options, instance, create_fragment, _internal.safe_not_equal, {});
     (0, _internal.dispatch_dev)("SvelteRegisterComponent", {
       component: _assertThisInitialized(_this),
@@ -4130,7 +4297,7 @@ var Modal = /*#__PURE__*/function (_SvelteComponentDev) {
 
 var _default = Modal;
 exports.default = _default;
-},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"flour-calc/src/App.svelte":[function(require,module,exports) {
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","svelte":"../node_modules/svelte/index.mjs","../assests/icons/close.svelte":"flour-calc/src/assests/icons/close.svelte","_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"flour-calc/src/App.svelte":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4197,7 +4364,6 @@ function create_if_block(ctx) {
   var current;
   modal = new _Modal.default({
     props: {
-      classN: true,
       $$slots: {
         default: [create_default_slot]
       },
@@ -4207,6 +4373,9 @@ function create_if_block(ctx) {
     },
     $$inline: true
   });
+  modal.$on("close",
+  /*toggleCalc*/
+  ctx[2]);
   var block = {
     c: function create() {
       (0, _internal.create_component)(modal.$$.fragment);
@@ -4214,6 +4383,20 @@ function create_if_block(ctx) {
     m: function mount(target, anchor) {
       (0, _internal.mount_component)(modal, target, anchor);
       current = true;
+    },
+    p: function update(ctx, dirty) {
+      var modal_changes = {};
+
+      if (dirty &
+      /*$$scope*/
+      8) {
+        modal_changes.$$scope = {
+          dirty: dirty,
+          ctx: ctx
+        };
+      }
+
+      modal.$set(modal_changes);
     },
     i: function intro(local) {
       if (current) return;
@@ -4236,7 +4419,7 @@ function create_if_block(ctx) {
     ctx: ctx
   });
   return block;
-} // (30:2) <Modal classN>
+} // (30:2) <Modal on:close={toggleCalc}>
 
 
 function create_default_slot(ctx) {
@@ -4270,7 +4453,7 @@ function create_default_slot(ctx) {
     block: block,
     id: create_default_slot.name,
     type: "slot",
-    source: "(30:2) <Modal classN>",
+    source: "(30:2) <Modal on:close={toggleCalc}>",
     ctx: ctx
   });
   return block;
@@ -4350,6 +4533,8 @@ function create_fragment(ctx) {
       /*isCalcShowing*/
       ctx[1]) {
         if (if_block) {
+          if_block.p(ctx, dirty);
+
           if (dirty &
           /*isCalcShowing*/
           2) {
