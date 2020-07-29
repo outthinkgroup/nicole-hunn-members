@@ -17,7 +17,7 @@ jobs:
         FTP_SERVER: 35.245.151.137
         FTP_USERNAME: ${{ secrets.SERVER_USER }}
         FTP_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
-        REMOTE_DIR: /srv/users/${{secrets.SERVER_USER}}/apps/dev/public/wp-content/plugins/bb_commander
+        REMOTE_DIR: /www/${{secrets.SERVER_USER}}_933/public/wp-content/themes/nicole-hunn-members
         ARGS: --delete
         PORT: 36541
         METHOD: sftp
