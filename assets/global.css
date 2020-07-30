@@ -5,6 +5,7 @@
   --gold: hsl(46, 55%, 58%);
   --light-grey-95: hsl(210, 38%, 95%);
   --light-grey-90: hsl(210, 38%, 90%);
+  --med-grey: hsl(216, 15%, 52%);
   --input-bg: var(--light-grey-95);
   --input-bg--hover: var(--light-grey-90);
   --theme-color: var(--gold);
@@ -213,6 +214,11 @@ section.bonus .grid > div {
   grid-area: sidebar;
 }
 
+.archive-template-layout main.recipes ul.grid {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
 .archive-template-layout header {
   text-align: center;
   padding: 100px 20px;
@@ -233,6 +239,11 @@ section.bonus .grid > div {
   padding: 20px;
 }
 
+@media (min-width: 650px) {
+  .archive-template-layout aside {
+    border-left: 1px solid var(--med-grey);
+  }
+}
 .recipe-categories h3 {
   font-size: 20px;
 }

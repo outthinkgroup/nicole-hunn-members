@@ -34,6 +34,10 @@
     grid-area: sidebar;
   }
 }
+.archive-template-layout main.recipes ul.grid {
+  margin: 0 auto;
+  max-width: 900px;
+}
 .archive-template-layout header {
   text-align: center;
   padding: 100px 20px;
@@ -50,6 +54,11 @@
 .archive-template-layout main,
 .archive-template-layout aside {
   padding: 20px;
+}
+@media (min-width: 650px) {
+  .archive-template-layout aside {
+    border-left: 1px solid var(--med-grey);
+  }
 }
 .recipe-categories h3 {
   font-size: 20px;
