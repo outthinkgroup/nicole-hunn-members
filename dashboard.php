@@ -48,7 +48,7 @@ $user_id = $user->ID;
 						}
 					?>
 				</ul>
-				<a href="#" class="viewall">View all My Recipe Collections</a>
+				<a href="#" class="viewall">View all My Recipe Collections &rarr;/a>
 			</section>
 			<section class="my-downloads">
 				<h3>My Downloads</h3>
@@ -60,7 +60,7 @@ $user_id = $user->ID;
 						}
 					?>
 				</ul>
-				<a href="/my-account/downloads" class="viewall">View all My Downloads</a>
+				<a href="/my-account/downloads" class="viewall">View all My Downloads &rarr;</a>
 			</section>
 			<section class="bonus">
 				<h3>Bonus Content & Updates</h3>
