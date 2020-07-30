@@ -1,0 +1,18 @@
+.product-card.post-type-lists {
+  .top-right-corner {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  button[data-action="delete-list"] {
+    color: #df9393;
+    background: white;
+  }
+
+  .list-item:not([data-state="hidden"]) {
+    background: none;
+    display: block;
+    border: none;
+    padding: 0;
+  }
+}

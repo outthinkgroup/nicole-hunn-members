@@ -38,3 +38,24 @@ function loopThroughRecipesForImage($array, $count, $image ){
     }
 }
 
+add_filter('product_card_complex_title', function($title, $product){
+  if(!$product->post_type === 'lists') return $title;
+
+  ob_start();
+  show_list_title_and_count($product);
+  $title = ob_get_clean();
+
+  return $title;
+
+}, 10, 2);
+
+add_action('product_card_top', function($product){
+  ?>
+  <div class="list-actions top-right-corner">
+    <button type="button" data-action="delete-list" data-tooltip="Delete this list" class="danger icon-button" style="--tool-tip-y-distance:-80px" >
+      <span class="icon"><?php get_icon('delete'); ?></span>
+    </button>
+  </div>
+  <?php
+}, 10, 1);
+

@@ -86,6 +86,22 @@
   background: #cfb35b;
 }
 
+.product-card.post-type-lists .top-right-corner {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.product-card.post-type-lists button[data-action=delete-list] {
+  color: #df9393;
+  background: white;
+}
+.product-card.post-type-lists .list-item:not([data-state=hidden]) {
+  background: none;
+  display: block;
+  border: none;
+  padding: 0;
+}
+
 .product-card .card-top--download img {
   -o-object-position: 50% 0%;
      object-position: 50% 0%;
@@ -299,6 +315,10 @@ li {
 
 .archive-template-layout .product-card .card-top {
   height: 150px;
+}
+
+.recipe-collections .lists {
+  box-shadow: none;
 }
 
 ul.grid {

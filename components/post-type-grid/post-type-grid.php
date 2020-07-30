@@ -1,5 +1,5 @@
 <?php
-function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count=-1, $author=null, ){
+function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count=-1, $author=null, $product_complex_title=false ){
   $args = [
     'post_type' => $type,
     'posts_per_page' => $count,
@@ -20,11 +20,19 @@ function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count
   }
 
   $posts = get_posts($args);
-  ?> <ul class="grid"> <?php
+  ?> <ul class="<?php echo apply_filters('post_type_grid_ul_classes', 'grid', $type, $author); ?>"> <?php
   foreach($posts as $post){
-    product_card($post);
+    ?>
+    <li <?php echo apply_filters('post_type_grid_li_attr', '', $type, $post, $author); ?> >
+      <?php product_card($post, null, $product_complex_title); ?>
+    </li>
+    <?php
   }
-  ?> </ul> <?php
+
+  do_action('post_type_grid_after_loop', $type, $author, $count);
+  ?> 
+  </ul> 
+  <?php
 }
 
 
@@ -43,3 +51,4 @@ function wp_loop_post_grid(){
  <?php endif; 
 }
 
+include_once NHM_DIR . "/components/post-type-grid/products/products.php";
