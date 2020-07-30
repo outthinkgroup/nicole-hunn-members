@@ -55,6 +55,11 @@
 .archive-template-layout aside {
   padding: 20px;
 }
+@media (min-width: 650px) {
+  .archive-template-layout aside {
+    border-left: 1px solid var(--med-grey);
+  }
+}
 .recipe-categories h3 {
   font-size: 20px;
 }
