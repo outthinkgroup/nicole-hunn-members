@@ -144,8 +144,11 @@ function expandSidebar() {
 }
 
 function addHandlerToToggler() {
-  var toggleBtn = document.querySelector('[data-part="toggle-sidebar"] button');
-  toggleBtn.addEventListener("click", toggleHandler);
+  var toggleButtons = _toConsumableArray(document.querySelectorAll('[data-part="toggle-sidebar"] button'));
+
+  toggleButtons.forEach(function (toggleBtn) {
+    return toggleBtn.addEventListener("click", toggleHandler);
+  });
 
   function toggleHandler() {
     var containerEl = document.body;
@@ -310,7 +313,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55972" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59922" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

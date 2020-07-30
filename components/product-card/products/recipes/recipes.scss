@@ -10,7 +10,7 @@
   width: 210px;
 }
 
-.top-left-corner .icon-button {
+.top-left-corner .add-recipe-to-list > button.icon-button {
   border-radius: 50%;
   padding: 0px;
   display: flex;
@@ -18,4 +18,7 @@
   justify-content: center;
   width: 30px;
   height: 30px;
+  .icon {
+    padding: 0;
+  }
 }

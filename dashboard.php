@@ -25,7 +25,7 @@ $user_id = $user->ID;
 						}
 					?>
 				</ul>
-				<a href="/recipes" class="viewall">View all Recipes</a>
+				<a href="/recipes" class="viewall">View all Recipes &rarr;</a>
 			</section>
 			<section class="my-courses">
 				<h3>My Courses</h3>

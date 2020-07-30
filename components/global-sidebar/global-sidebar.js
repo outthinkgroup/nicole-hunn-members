@@ -10,10 +10,13 @@ function expandSidebar() {
   document.body.dataset.sidebarState = "open";
 }
 function addHandlerToToggler() {
-  const toggleBtn = document.querySelector(
-    '[data-part="toggle-sidebar"] button'
+  const toggleButtons = [
+    ...document.querySelectorAll('[data-part="toggle-sidebar"] button'),
+  ];
+  toggleButtons.forEach((toggleBtn) =>
+    toggleBtn.addEventListener("click", toggleHandler)
   );
-  toggleBtn.addEventListener("click", toggleHandler);
+
   function toggleHandler() {
     const containerEl = document.body;
     const attr = "sidebarState";

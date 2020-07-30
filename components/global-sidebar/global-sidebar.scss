@@ -1,8 +1,4 @@
 :root {
-  --blue-light: hsl(221, 29%, 22%);
-  --blue-base: hsl(224, 37%, 17%);
-  --blue-dark: hsl(224, 37%, 13%);
-  --gold: hsl(46, 55%, 58%);
   --sidebar-x-padding: 22px;
 }
 //
@@ -85,6 +81,8 @@
   &:hover {
     background: var(--blue-light);
   }
+
+  //testing action
 }
 .menu-item-has-children {
   .sub-menu {
@@ -161,9 +159,9 @@
   display: flex;
   align-items: center;
   @media (max-width: 650px) {
-    align-items: flex-end;
+    align-items: flex-start;
     button {
-      margin-bottom: 150px;
+      margin-top: 50px;
     }
   }
 }
@@ -231,6 +229,12 @@ body:not([data-sidebar-state="open"]) {
   .global-sidebar .toggle-sidebar svg {
     transform: rotate(180deg);
   }
+  @media (max-width: 650px) {
+    .toggle-sidebar {
+      display: none;
+    }
+  }
+
   @media (max-width: 650px) {
     .global-sidebar .bottom-utils {
       display: none;

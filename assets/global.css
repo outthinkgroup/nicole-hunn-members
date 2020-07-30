@@ -1,3 +1,16 @@
+:root {
+  --blue-light: hsl(221, 29%, 22%);
+  --blue-base: hsl(224, 37%, 17%);
+  --blue-dark: hsl(224, 37%, 13%);
+  --gold: hsl(46, 55%, 58%);
+  --light-grey-95: hsl(210, 38%, 95%);
+  --light-grey-90: hsl(210, 38%, 90%);
+  --input-bg: var(--light-grey-95);
+  --input-bg--hover: var(--light-grey-90);
+  --theme-color: var(--gold);
+  --secondary: var(--blue-base);
+}
+
 .product-card {
   position: relative;
   max-width: var(--card-mx-width, 350px);
@@ -89,7 +102,7 @@
   width: 210px;
 }
 
-.top-left-corner .icon-button {
+.top-left-corner .add-recipe-to-list > button.icon-button {
   border-radius: 50%;
   padding: 0px;
   display: flex;
@@ -97,6 +110,9 @@
   justify-content: center;
   width: 30px;
   height: 30px;
+}
+.top-left-corner .add-recipe-to-list > button.icon-button .icon {
+  padding: 0;
 }
 
 .dashboard header {
@@ -158,6 +174,11 @@ section.bonus .grid > div {
 
 .help input {
   margin-bottom: 20px;
+}
+
+.viewall {
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .post-type-archive-recipe .ast-container {
@@ -295,6 +316,12 @@ label {
 
 .custom-wrapper {
   padding: 20px;
+}
+
+@media (min-width: 650px) {
+  .mobile {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=/global.css.map */
