@@ -1,7 +1,5 @@
 <?php 
 
-
-
 function html_to_array($html){
     // filters the_content()
     if(strpos($html, '</p>')){
@@ -17,7 +15,6 @@ function html_to_array($html){
           $list[] = $list_item;
         }
       }
-      
       return $list;
       
     } else {
@@ -26,12 +23,55 @@ function html_to_array($html){
 }
 
 add_shortcode( 'ingredients', 'recipe_ingredients' );
+
 function recipe_ingredients( $atts ) {
     $atts = shortcode_atts( array(
         'foo' => 'no foo',
         'baz' => 'default baz'
     ), $atts, 'ingredients' );
     global $post;
+    ?>
+    <style>
+    .ingredients-list {
+}
+.ingredients-list li {
+  cursor: pointer;
+  margin-bottom: 13px;
+  list-style: none;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+.ingredients-list li::before {
+  font-family: 'Font Awesome 5 Free';
+  font-size: 18px;
+  margin-right: 7px;
+  content: '\f111';
+  text-decoration: none !important;
+  font-style: normal !important;
+  margin-left: -25px;
+}
+.ingredients-list li.checked {
+  color: #ccc;
+}
+.ingredients-list li.checked::before {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-style: normal;
+  content: '\f058';
+}
+.uabb-tab-current a.uabb-tab-link {
+    background: #fff;
+    border: 1px solid #000;
+    border-bottom: 1px solid #fff;
+}
+a.uabb-tab-link {
+    margin-bottom: -1px;
+    border: 1px solid #ddd;
+    background: #efefef;
+    border-bottom: 1px solid #000;
+}
+    </style>
+    <?php
     $ingredients = get_field('ingredients', $post->ID);
     $htmlarr = html_to_array($ingredients);
     $content = '';
@@ -45,81 +85,77 @@ function recipe_ingredients( $atts ) {
 
 add_shortcode( 'recipe_steps', 'show_recipe_steps' );
 function show_recipe_steps( $atts ) {
-$atts = shortcode_atts( array(
-), $atts, 'recipe_steps' );
-ob_start(); ?>
-<style>
-:root {
-  --primary-color: #cfb359;
-}
-.step-list {
-  clear: both;
-  list-style: none;
-}
-.step-list li {
-  padding-top: 1em;
-  display: block;
-  position: relative;
-  counter-increment: inst;
-}
-.step-list li::before {
-  content: counter(inst);
-  background: var(--primary-color);
-  color: #fff;
-  
-  font-size: 1em;
-  font-weight: 700;
-  font-style: italic;
-  text-shadow: 1px 1px rgba(255, 150, 0, 0.5);
-  
-  border-radius: 50%;
-  font-size: 1.5em;
-  text-align: center;
-  
-  left: -5%;
-  top: 0;
-  height: 1.35em;
-  width: 1.35em;
-  position: absolute;
-  
-  transition: all 0.2s ease-in-out;
-  
-  z-index: -1;
-}
-@media (min-width: 33em) {
-  .step li:before {
+  $atts = shortcode_atts( array(
+  ), $atts, 'recipe_steps' );
+  ob_start(); ?>
+  <style>
+  :root {
+    --primary-color: #2e86ab;
+  }
+  .step-list {
+    clear: both;
+    list-style: none;
+  }
+  .step-list > li {
+    padding-top: 1em;
+    display: block;
+    position: relative;
+    counter-increment: inst;
+  }
+  .step-list > li::before {
+    content: counter(inst);
+    background: var(--primary-color);
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
     border-radius: 50%;
-    font-size: 1.5em;
-    height: 1.35em;
-    margin-left: 2.5%;
-    padding-left: 0;
-    padding-top: 0;
-    top: -0.15em;
-    width: 1.35em;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    left: -7%;
+    padding: 0px;
+    top: 16px;
+    height: 36px;
+    margin: 0px;
+    width: 36px;
+    position: absolute;
+    transition: all 0.2s ease-in-out;
     z-index: -1;
   }
-}
-</style>
-<?php // Check rows exists.
-if( have_rows('steps') ): ?>
-<ol class="step-list"> 
-  <?php
-    // Loop through rows.
-    while( have_rows('steps') ) : the_row();
-
-        // Load sub field value.
-        $sub_value = get_sub_field('step');
-        // Do something...
-        ?>
-        <li><?php echo $sub_value; ?></li>
-        <?php
-    // End loop.
-    endwhile; ?>
-    </ol><!-- end step-list-->
+  @media (min-width: 33em) {
+    .step > li:before {
+      border-radius: 50%;
+      font-size: 1.5em;
+      height: 1.35em;
+      margin-left: 2.5%;
+      padding-left: 0;
+      padding-top: 0;
+      top: -0.15em;
+      width: 1.35em;
+      z-index: -1;
+    }
+  }
+  </style>
+  <?php // Check rows exists.
+  if( have_rows('steps') ): ?>
+  <ol class="step-list"> 
     <?php
-  endif;
-// need more stuff here.
-return ob_get_clean();
+      // Loop through rows.
+      while( have_rows('steps') ) : the_row();
+
+          // Load sub field value.
+          $sub_value = get_sub_field('step');
+          // Do something...
+          ?>
+          <li><?php echo $sub_value; ?></li>
+          <?php
+      // End loop.
+      endwhile; ?>
+      </ol><!-- end step-list-->
+      <?php
+    endif;
+  // need more stuff here.
+  return ob_get_clean();
 }
 
 add_shortcode( 'recipe_notes', 'gf_recipe_notes' );
