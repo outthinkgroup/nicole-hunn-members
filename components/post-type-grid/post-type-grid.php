@@ -1,10 +1,10 @@
 <?php
-function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ]){
+function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count=-1, $author=null, ){
   $args = [
     'post_type' => $type,
-    'posts_per_page' => 20,
+    'posts_per_page' => $count,
   ];
-  if($category['slug']= $cat){
+  if($category && $category['slug'] = $cat){
     $terms = $category['terms'];
     $args['tax_query'] = [
       [
@@ -15,6 +15,10 @@ function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ]){
       ]
     ];
   }
+  if($author){
+    $args['author'] = $author;
+  }
+
   $posts = get_posts($args);
   ?> <ul class="grid"> <?php
   foreach($posts as $post){
@@ -38,3 +42,4 @@ function wp_loop_post_grid(){
  	<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
  <?php endif; 
 }
+
