@@ -6,7 +6,7 @@ $user_id = $user->ID;
 ?>
 
 <div class="custom-wrapper archive-template-layout">
-  <header style="--header-bg:url('/wp-content/uploads/2019/11/Peanut-Butter-Blossom-Cookies-overhead.png');">
+  <header style="--header-bg:url('/wp-content/uploads/2020/01/fresco-pizza-top.jpg');">
     <h2><?php echo post_type_archive_title( '', false );?></h2>
   </header>
 		

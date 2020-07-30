@@ -24,12 +24,15 @@ add_filter('product_image', function($image, $product){
 },10,2);
 function loopThroughRecipesForImage($array, $count, $image ){
   if($image = get_the_post_thumbnail($array[$count])){
-      return $image;
+      // var_dump($image);
+      echo $image;
+      return;
     }else{
       $count++;
       if($array[$count]){
         loopThroughRecipesForImage($array, $count, $image);
       }else{
+        // var_dump([$array, $count]);
         return null;
       }
     }

@@ -6,14 +6,14 @@ $user_id = $user->ID;
 ?>
 
 	<div class="custom-wrapper archive-template-layout">
-		<header>
+		<header style="--header-bg:url('/wp-content/uploads/2020/01/fresco-pizza-top.jpg');"> 
       <h2>
         <span class="taxonomy">
           <?php echo get_taxonomy_title() . ': ' ; ?>
         </span>
         <?php echo get_taxonomy_term_title(); ?>
       </h2>
-		</header>
+    </header>
 		
 		<main class="recipes">
       <?php wp_loop_post_grid('recipe'); ?>
