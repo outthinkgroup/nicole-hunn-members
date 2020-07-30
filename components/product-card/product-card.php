@@ -5,9 +5,9 @@ function product_card($product, $options=['title_tag'=>'h4']){
   ?>
   <div class="product-card">
     <div class="<?php echo apply_filters("card_top_classes", 'card-top ', $product); ?>">
-      <div class="product-image">
+      <a class="product-image" href="<?php echo get_the_permalink($product->ID); ?>">
         <?php echo apply_filters("product_image", get_the_post_thumbnail($product->ID), $product); ?>
-      </div>
+      </a>
       <?php do_action('product_card_top', $product); ?>
     </div>
     <?php $card_bottom_classes = 'card-bottom'; ?>
