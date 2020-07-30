@@ -35,3 +35,9 @@ label {
 .custom-wrapper {
   padding: 20px;
 }
+
+.mobile {
+  @media (min-width: 650px) {
+    display: none;
+  }
+}

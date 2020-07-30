@@ -4,6 +4,13 @@ function util_navigation_and_search(){
   ?>
   <span class="use-tailwind">
   <div class="top-bar shadow-sm">
+    <div class="mobile" data-part="toggle-sidebar">
+      <button class="button-icon top-bar__button" data-action="open-sidebar">
+        <span class="icon">
+          <?php get_icon('bars', 'solid'); ?>
+        </span>
+      </button>
+    </div>
     <div class="search-wrapper">
       <form class="search-bar shadow-sm" action="/" method="GET">
       <input 

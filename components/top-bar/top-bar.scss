@@ -64,7 +64,8 @@
 }
 //--
 
-.top-bar .button-group a {
+.top-bar .button-group a,
+.top-bar__button {
   width: 50px;
   height: 50px;
   display: flex;
@@ -72,4 +73,17 @@
   justify-content: center;
   line-height: 0;
   border-radius: 50%;
+  &:focus {
+    background: var(--input-bg);
+  }
+  &:active {
+    background: var(--input-bg--hover);
+  }
+}
+
+.top-bar > *:not(:last-child) {
+  margin-right: 5px;
+}
+.top-bar [data-part="toggle-sidebar"] svg {
+  width: 1.5em;
 }
