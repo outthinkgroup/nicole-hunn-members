@@ -61,10 +61,6 @@ a svg {
 }
 
 :root {
-  --blue-light: hsl(221, 29%, 22%);
-  --blue-base: hsl(224, 37%, 17%);
-  --blue-dark: hsl(224, 37%, 13%);
-  --gold: hsl(46, 55%, 58%);
   --sidebar-x-padding: 22px;
 }
 
@@ -316,11 +312,6 @@ body:not([data-sidebar-state=open]) .global-sidebar .toggle-sidebar svg {
   body:not([data-sidebar-state=open]) .site {
     margin-left: 80px;
   }
-}
-
-:root {
-  --input-bg: hsl(210, 38%, 95%);
-  --input-bg--hover: hsl(210, 38%, 90%);
 }
 
 .top-bar {

@@ -1,3 +1,4 @@
+
 {
   "version": 3,
   "sources": [
@@ -23,3 +24,4 @@
     "@import \"/product-card/product-card.scss\";\n@import \"/template-styles/dashboard.scss\";\n@import \"/template-styles/grid-archive.scss\";\n\nul.grid {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\n@media (min-width: 650px) {\n  .grid {\n    display: grid;\n    grid-template: auto/ repeat(\n        var(--cols, 3),\n        minmax(var(--min-col-width, 0), 1fr)\n      );\n    gap: 20px;\n    > div,\n    > li {\n      margin: 0;\n    }\n  }\n}\n.grid {\n  > div,\n  > li {\n    margin-bottom: 20px;\n  }\n}\n\nlabel {\n  display: block;\n}\n\n.custom-wrapper {\n  padding: 20px;\n}\n\n.mobile {\n  @media (min-width: 650px) {\n    display: none;\n  }\n}\n"
   ]
 }
+

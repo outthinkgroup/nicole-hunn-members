@@ -1,3 +1,17 @@
+:root {
+  //colors
+  --blue-light: hsl(221, 29%, 22%);
+  --blue-base: hsl(224, 37%, 17%);
+  --blue-dark: hsl(224, 37%, 13%);
+  --gold: hsl(46, 55%, 58%);
+  --light-grey-95: hsl(210, 38%, 95%);
+  --light-grey-90: hsl(210, 38%, 90%);
+  //Color Intent Variables
+  --input-bg: var(--light-grey-95);
+  --input-bg--hover: var(--light-grey-90);
+  --theme-color: var(--gold);
+  --secondary: var(--blue-base);
+}
 @import "/product-card/product-card.scss";
 @import "/template-styles/dashboard.scss";
 @import "/template-styles/grid-archive.scss";
