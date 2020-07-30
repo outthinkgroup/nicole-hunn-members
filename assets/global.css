@@ -182,11 +182,13 @@ section.bonus .grid > div {
   font-size: 18px;
 }
 
-.post-type-archive-recipe .ast-container {
+.post-type-archive-recipe .ast-container,
+.tax-recipe_category .ast-container {
   padding: 0 !important;
   max-width: 100% !important;
 }
-.post-type-archive-recipe .custom-wrapper {
+.post-type-archive-recipe .custom-wrapper,
+.tax-recipe_category .custom-wrapper {
   padding: 0;
 }
 
