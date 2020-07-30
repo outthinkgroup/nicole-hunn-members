@@ -161,9 +161,9 @@
   display: flex;
   align-items: center;
   @media (max-width: 650px) {
-    align-items: flex-end;
+    align-items: flex-start;
     button {
-      margin-bottom: 150px;
+      margin-top: 50px;
     }
   }
 }
@@ -231,6 +231,12 @@ body:not([data-sidebar-state="open"]) {
   .global-sidebar .toggle-sidebar svg {
     transform: rotate(180deg);
   }
+  @media (max-width: 650px) {
+    .toggle-sidebar {
+      display: none;
+    }
+  }
+
   @media (max-width: 650px) {
     .global-sidebar .bottom-utils {
       display: none;

@@ -144,8 +144,11 @@ function expandSidebar() {
 }
 
 function addHandlerToToggler() {
-  var toggleBtn = document.querySelector('[data-part="toggle-sidebar"] button');
-  toggleBtn.addEventListener("click", toggleHandler);
+  var toggleButtons = _toConsumableArray(document.querySelectorAll('[data-part="toggle-sidebar"] button'));
+
+  toggleButtons.forEach(function (toggleBtn) {
+    return toggleBtn.addEventListener("click", toggleHandler);
+  });
 
   function toggleHandler() {
     var containerEl = document.body;
