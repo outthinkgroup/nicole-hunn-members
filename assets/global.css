@@ -363,6 +363,7 @@ ul.grid {
 .grid > div,
 .grid > li {
   margin-bottom: 20px;
+  height: 100%;
 }
 
 label {
@@ -377,6 +378,10 @@ label {
   .mobile {
     display: none;
   }
+}
+
+.custom-wrapper header {
+  margin-bottom: 30px;
 }
 
 /*# sourceMappingURL=/global.css.map */

@@ -20,6 +20,7 @@
 @import "/template-styles/dashboard.scss";
 @import "/template-styles/grid-archive.scss";
 @import "/template-styles/recipe-collections.scss";
+@import "/template-styles/single-lists.scss";
 
 ul.grid {
   margin: 0;
@@ -45,6 +46,7 @@ ul.grid {
   > div,
   > li {
     margin-bottom: 20px;
+    height: 100%;
   }
 }
 
@@ -60,4 +62,8 @@ label {
   @media (min-width: 650px) {
     display: none;
   }
+}
+
+.custom-wrapper header {
+  margin-bottom: 30px;
 }
