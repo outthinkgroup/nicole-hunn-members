@@ -58,3 +58,23 @@ add_action('after_product_card_image', function($product){
   <?php
 }, 10, 1);
 
+add_action('product_card_no_image', function($replaced_image, $product){
+  if($product->post_type !== 'lists') return;
+  ob_start();
+  ?>
+  <a 
+    href="/recipe" 
+    class="product-image " 
+    style="padding:20px;"
+  >
+    <div class="default_msg_empty_list">
+      <p>Add Recipes To Collection</p>
+      <div>
+        <?php get_icon('plus', 'solid'); ?>
+      </div>
+    </div>
+  </a>
+  <?php
+  $replaced_image = ob_get_clean();
+  return $replaced_image;
+}, 10, 2);

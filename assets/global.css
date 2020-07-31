@@ -33,6 +33,7 @@
 .product-image {
   height: 100%;
   width: 100%;
+  background: var(--light-grey-90);
 }
 
 .product-image img {
@@ -61,6 +62,11 @@
   font-size: inherit;
   font-weight: inherit;
   color: inherit;
+}
+
+.product-card .default-img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .product-card.post-type-sfwd-courses .card-top {
@@ -121,6 +127,19 @@
 }
 .product-card.post-type-lists .title-el {
   display: inline;
+}
+.product-card.post-type-lists .default_msg_empty_list {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--med-grey);
+  font-weight: 600;
+}
+.product-card.post-type-lists .default_msg_empty_list p {
+  margin-bottom: 15px;
 }
 
 .product-card.post-type-download .card-top img {
