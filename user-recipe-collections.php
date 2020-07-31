@@ -21,4 +21,5 @@ $user_id = $user->ID;
 		</main>
 	</div>
 <?php
+get_footer();
 
