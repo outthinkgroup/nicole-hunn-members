@@ -23,6 +23,12 @@
   background: #fff;
 }
 
+.card-top .top-right-corner {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 .product-card .card-top {
   height: 220px;
   position: relative;
@@ -106,11 +112,6 @@
 
 .product-card.post-type-lists {
   height: 100%;
-}
-.product-card.post-type-lists .top-right-corner {
-  position: absolute;
-  top: 5px;
-  right: 5px;
 }
 .product-card.post-type-lists button[data-action=delete-list] {
   color: #df9393;
@@ -359,6 +360,21 @@ li {
 
 .recipe-collections .lists {
   box-shadow: none;
+}
+
+.recipe-collections-single-layout .card-top button[data-action=delete-from-list] {
+  color: #df9393;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0;
+  width: var(--button-size, 28px);
+  height: var(--button-size, 28px);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.recipe-collections-single-layout .card-top button[data-action=delete-from-list]:hover {
+  color: white;
+  background: #df9393;
 }
 
 ul.grid {

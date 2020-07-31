@@ -8,7 +8,11 @@
   border-radius: 8px;
   background: #fff;
 }
-
+.card-top .top-right-corner {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
 .product-card .card-top {
   height: 220px;
   position: relative;

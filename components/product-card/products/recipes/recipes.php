@@ -15,3 +15,5 @@ add_action( 'after_product_card_image', function($product){
     </span> 
   <?php 
 },10,1);
+
+include_once NHM_DIR . "/components/product-card/products/recipes/collection-single-recipes.php";

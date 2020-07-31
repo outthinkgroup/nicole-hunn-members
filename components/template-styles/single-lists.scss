@@ -1,0 +1,16 @@
+.recipe-collections-single-layout {
+  .card-top button[data-action="delete-from-list"] {
+    color: #df9393;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 0;
+    width: var(--button-size, 28px);
+    height: var(--button-size, 28px);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      color: white;
+      background: #df9393;
+    }
+  }
+}
