@@ -11,9 +11,7 @@ $user_id = $user->ID;
 		<header>
 			<h2><?php echo the_title(); ?></h2>
 		</header>
-		<aside class="dash-sidebar">
 
-		</aside>
 		<main class="dashboard">
 			<section class="my-courses">
 				<ul class="grid" style="--cols:2; --card-mx-width:100%">
