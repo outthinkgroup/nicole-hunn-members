@@ -1,4 +1,5 @@
 .product-card.post-type-lists {
+  height: 100%;
   .top-right-corner {
     position: absolute;
     top: 5px;
@@ -14,5 +15,11 @@
     display: block;
     border: none;
     padding: 0;
+  }
+  .recipe-title {
+    align-items: start;
+  }
+  .title-el {
+    display: inline;
   }
 }
