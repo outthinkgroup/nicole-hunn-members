@@ -2,6 +2,7 @@
   --blue-light: hsl(221, 29%, 22%);
   --blue-base: hsl(224, 37%, 17%);
   --blue-dark: hsl(224, 37%, 13%);
+  --light-blue:#2e86ab;
   --gold: hsl(46, 55%, 58%);
   --light-grey-95: hsl(210, 38%, 95%);
   --light-grey-90: hsl(210, 38%, 90%);
@@ -10,6 +11,7 @@
   --input-bg--hover: var(--light-grey-90);
   --theme-color: var(--gold);
   --secondary: var(--blue-base);
+  --link-color: var(--light-blue);
 }
 
 .product-card {
