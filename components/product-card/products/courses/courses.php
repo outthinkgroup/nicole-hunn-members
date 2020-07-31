@@ -1,13 +1,7 @@
 <?php
 
-add_filter('card_bottom_classes', function($card_bottom_classes, $product){
-  if($product->post_type == 'sfwd-courses'){
-    $card_bottom_classes .= ' course-card-bottom';
-  }
-  return $card_bottom_classes;
-}, 10, 2);
 
-add_action('product_card_top', function($product){
+add_action('after_product_card_image', function($product){
   if($product->post_type !== 'sfwd-courses') return;
   $course_progress = get_user_meta( get_current_user_id(), '_sfwd-course_progress', true )[$product->ID];
   $completed = $course_progress['completed'];
@@ -31,9 +25,3 @@ function nhm_user_courses($user_id){
 	return $courses;
 }
 
-add_filter('card_top_classes', function($card_top_classes, $product){
-  if($product->post_type == 'sfwd-courses'){
-    $card_top_classes .= ' course-card-top';
-  }
-  return $card_top_classes;
-}, 10, 2);

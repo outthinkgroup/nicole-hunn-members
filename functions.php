@@ -29,8 +29,8 @@ add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 
 
-// error_reporting (-1);
-// ini_set('error_reporting', E_ALL);
+//  error_reporting (-1);
+//  ini_set('error_reporting', E_ALL);
 
 
 include_once NHM_DIR . '/components/index.php';

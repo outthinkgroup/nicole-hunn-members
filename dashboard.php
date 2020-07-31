@@ -38,16 +38,11 @@ $user_id = $user->ID;
 					?>
 				</ul>
 			</section>
-			<section class="my-collections">
+			<section class="my-collections recipe-list-management-area">
 				<h3>My Recipe Collections</h3>
-				<ul class="grid">
-					<?php 
-						$collections = nhm_user_recipe_collections($user_id);
-						foreach($collections as $collection){
-							product_card($collection);
-						}
-					?>
-				</ul>
+				<div class="lists">
+          <?php post_type_grid('lists', null, -1, $user_id); ?>
+        </div>
 				<a href="#" class="viewall">View all My Recipe Collections &rarr;</a>
 			</section>
 			<section class="my-downloads">

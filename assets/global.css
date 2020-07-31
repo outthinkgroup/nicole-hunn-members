@@ -2,6 +2,7 @@
   --blue-light: hsl(221, 29%, 22%);
   --blue-base: hsl(224, 37%, 17%);
   --blue-dark: hsl(224, 37%, 13%);
+  --light-blue:#2e86ab;
   --gold: hsl(46, 55%, 58%);
   --light-grey-95: hsl(210, 38%, 95%);
   --light-grey-90: hsl(210, 38%, 90%);
@@ -10,6 +11,7 @@
   --input-bg--hover: var(--light-grey-90);
   --theme-color: var(--gold);
   --secondary: var(--blue-base);
+  --link-color: var(--light-blue);
 }
 
 .product-card {
@@ -49,13 +51,23 @@
 .product-title {
   font-size: 20px;
   font-weight: 600;
+  color: black;
+}
+.product-title:hover {
+  color: unset;
 }
 
-.product-card .course-card-top {
+.product-title * {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.product-card.post-type-sfwd-courses .card-top {
   height: 300px;
 }
 
-.course-card-bottom {
+.product-card.post-type-sfwd-courses .card-bottom {
   z-index: 2;
   position: absolute;
   bottom: 0;
@@ -64,7 +76,7 @@
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
 }
 
-.course-card-bottom .product-title {
+.product-card.post-type-sfwd-courses .card-bottom .product-title {
   color: #fff;
   text-shadow: 0 0 60px black;
 }
@@ -86,7 +98,23 @@
   background: #cfb35b;
 }
 
-.product-card .card-top--download img {
+.product-card.post-type-lists .top-right-corner {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.product-card.post-type-lists button[data-action=delete-list] {
+  color: #df9393;
+  background: rgba(255, 255, 255, 0.85);
+}
+.product-card.post-type-lists .list-item:not([data-state=hidden]) {
+  background: none;
+  display: block;
+  border: none;
+  padding: 0;
+}
+
+.product-card.post-type-download .card-top img {
   -o-object-position: 50% 0%;
      object-position: 50% 0%;
 }
@@ -299,6 +327,10 @@ li {
 
 .archive-template-layout .product-card .card-top {
   height: 150px;
+}
+
+.recipe-collections .lists {
+  box-shadow: none;
 }
 
 ul.grid {

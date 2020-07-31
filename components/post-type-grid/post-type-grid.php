@@ -1,10 +1,10 @@
 <?php
-function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ]){
+function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count=-1, $author=null ){
   $args = [
     'post_type' => $type,
-    'posts_per_page' => 20,
+    'posts_per_page' => $count,
   ];
-  if($category['slug']= $cat){
+  if($category && $category['slug'] = $cat){
     $terms = $category['terms'];
     $args['tax_query'] = [
       [
@@ -15,12 +15,25 @@ function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ]){
       ]
     ];
   }
-  $posts = get_posts($args);
-  ?> <ul class="grid"> <?php
-  foreach($posts as $post){
-    product_card($post);
+  if($author){
+    $args['author'] = $author;
   }
-  ?> </ul> <?php
+
+  $posts = get_posts($args);
+  ?> <ul class="<?php echo apply_filters('post_type_grid_ul_classes', 'grid', $type, $author); ?>"> <?php
+  foreach($posts as $post){
+    ?>
+    <li <?php echo apply_filters('post_type_grid_li_attr', '', $type, $post, $author); ?> >
+      <?php product_card($post); ?>
+    </li>
+    <?php
+  }
+  ?> 
+  <?php do_action('post_type_grid_append_item', $type, $author, $count); ?>
+  
+  </ul>
+  <?php do_action('post_type_grid_after_loop', $type, $author, $count); ?>
+  <?php
 }
 
 
@@ -38,3 +51,5 @@ function wp_loop_post_grid(){
  	<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
  <?php endif; 
 }
+
+include_once NHM_DIR . "/components/post-type-grid/products/products.php";
