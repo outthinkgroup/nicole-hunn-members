@@ -189,8 +189,7 @@ function gf_video_filter( $atts ) {
 }
 
 
-function gov_get_video_id_from_url($url)
-{
+function gov_get_video_id_from_url($url) {
 	if(strpos($url, "youtube.com") !== false || strpos($url, "youtu.be") !== false)
 	{
 		//Video is from YouTube
