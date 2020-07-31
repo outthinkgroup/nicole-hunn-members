@@ -28,10 +28,11 @@ function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count
     </li>
     <?php
   }
-
-  do_action('post_type_grid_after_loop', $type, $author, $count);
   ?> 
-  </ul> 
+  <?php do_action('post_type_grid_append_item', $type, $author, $count); ?>
+  
+  </ul>
+  <?php do_action('post_type_grid_after_loop', $type, $author, $count); ?>
   <?php
 }
 

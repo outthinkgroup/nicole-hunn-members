@@ -410,6 +410,11 @@ body:not([data-sidebar-state=open]) .global-sidebar .toggle-sidebar svg {
 .my-collections.recipe-list-management-area .lists,
 .user-collections .lists {
   box-shadow: none;
+  margin-bottom: 20px;
+}
+.my-collections.recipe-list-management-area .my-lists,
+.user-collections .my-lists {
+  margin-bottom: 20px;
 }
 .my-collections.recipe-list-management-area .list-item,
 .user-collections .list-item {

@@ -2,18 +2,21 @@
 //grid area
 function add_collection_area($type, $author, $count){
   if($type !== 'lists') return;
-
-    create_empty_list_item();
-
   if(function_exists('show_create_list_area')){
     ?>
-    <li>
+    
       <?php show_create_list_area(); ?>
-    </li>
+    
     <?php
   }
 }
 add_action('post_type_grid_after_loop', 'add_collection_area', 10, 3);\
+
+
+add_action('post_type_grid_append_item', function($type){
+  if($type !== 'lists') return;
+  create_empty_list_item();
+},10, 2);
 
 add_filter('post_type_grid_ul_classes', function($classes, $type, $author){
   if($type !== 'lists') return;
@@ -42,7 +45,7 @@ add_action('empty_product_product_card', function($product, $forced_type){
 function create_empty_list_item(){
   ?>
   <li class="list-item" data-list-id data-state="hidden">
-    <?php product_card(null, null, true, 'lists'); ?>
+    <?php product_card(null, 'lists'); ?>
   </li>
   <?php
 }
