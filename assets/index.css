@@ -408,6 +408,10 @@ body:not([data-sidebar-state=open]) .global-sidebar .toggle-sidebar svg {
   width: 1.5em;
 }
 
+.grid li {
+  height: 100%;
+}
+
 .my-collections.recipe-list-management-area .lists,
 .user-collections .lists {
   box-shadow: none;

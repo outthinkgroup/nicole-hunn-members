@@ -1,4 +1,5 @@
 .product-card.post-type-lists {
+  height: 100%;
   .top-right-corner {
     position: absolute;
     top: 5px;
@@ -14,5 +15,25 @@
     display: block;
     border: none;
     padding: 0;
+  }
+  .recipe-title {
+    align-items: start;
+  }
+  .title-el {
+    display: inline;
+  }
+
+  .default_msg_empty_list {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--med-grey);
+    font-weight: 600;
+    p {
+      margin-bottom: 15px;
+    }
   }
 }

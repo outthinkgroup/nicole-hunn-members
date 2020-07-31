@@ -11,7 +11,7 @@
 /**
  * Define Constants
  */
-define( 'CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION', '1.0.0' );
+define( 'CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION', '1.2.0' );
 define('NHM_DIR', get_stylesheet_directory());
 define('NHM_URL', get_stylesheet_directory_uri());
 /**
