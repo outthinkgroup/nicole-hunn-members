@@ -49,13 +49,23 @@
 .product-title {
   font-size: 20px;
   font-weight: 600;
+  color: black;
+}
+.product-title:hover {
+  color: unset;
 }
 
-.product-card .course-card-top {
+.product-title * {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.product-card.post-type-sfwd-courses .card-top {
   height: 300px;
 }
 
-.course-card-bottom {
+.product-card.post-type-sfwd-courses .card-bottom {
   z-index: 2;
   position: absolute;
   bottom: 0;
@@ -64,7 +74,7 @@
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
 }
 
-.course-card-bottom .product-title {
+.product-card.post-type-sfwd-courses .card-bottom .product-title {
   color: #fff;
   text-shadow: 0 0 60px black;
 }
@@ -93,7 +103,7 @@
 }
 .product-card.post-type-lists button[data-action=delete-list] {
   color: #df9393;
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
 }
 .product-card.post-type-lists .list-item:not([data-state=hidden]) {
   background: none;
@@ -102,7 +112,7 @@
   padding: 0;
 }
 
-.product-card .card-top--download img {
+.product-card.post-type-download .card-top img {
   -o-object-position: 50% 0%;
      object-position: 50% 0%;
 }

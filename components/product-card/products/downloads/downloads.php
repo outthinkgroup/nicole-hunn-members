@@ -4,18 +4,20 @@ function nhm_user_downloads($user_id){
   $downloads = wc_get_customer_available_downloads($user_id);
 	return $downloads;
 }
-add_filter('product_title', function($the_title, $product){
+
+add_filter('product_card_title', function($the_title, $product){
   if(is_array($product) && array_key_exists('download_url', $product)){
     $the_title = $product['product_name'];
   }
   return $the_title;
 }, 11, 2);
 
-add_filter("card_top_classes", function($classes, $product){
+add_filter("product_card_post_type", function($postType, $product){
+
   if(is_array($product) && array_key_exists('download_url', $product)){
-    $classes .= ' card-top--download';
+    $postType = 'download';
   }
-  return $classes;
+  return $postType;
 },10,2);
 
 add_filter('product_image', function($image, $product){

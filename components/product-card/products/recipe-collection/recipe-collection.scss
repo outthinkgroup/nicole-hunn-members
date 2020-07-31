@@ -6,7 +6,7 @@
   }
   button[data-action="delete-list"] {
     color: #df9393;
-    background: white;
+    background: rgba(255, 255, 255, 0.85);
   }
 
   .list-item:not([data-state="hidden"]) {

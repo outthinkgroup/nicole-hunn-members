@@ -407,4 +407,21 @@ body:not([data-sidebar-state=open]) .global-sidebar .toggle-sidebar svg {
   width: 1.5em;
 }
 
+.my-collections.recipe-list-management-area .lists,
+.user-collections .lists {
+  box-shadow: none;
+}
+.my-collections.recipe-list-management-area .list-item,
+.user-collections .list-item {
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.my-collections.recipe-list-management-area .product-card.post-type-lists,
+.user-collections .product-card.post-type-lists {
+  width: 100%;
+}
+
 /*# sourceMappingURL=/index.css.map */

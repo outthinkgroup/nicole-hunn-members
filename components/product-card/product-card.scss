@@ -32,6 +32,15 @@
 .product-title {
   font-size: 20px;
   font-weight: 600;
+  color: black;
+  &:hover {
+    color: unset;
+  }
+}
+.product-title * {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
 }
 //DELETE
 // .product-card ~ .product-card {

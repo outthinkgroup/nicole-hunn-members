@@ -1,5 +1,5 @@
 <?php
-function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count=-1, $author=null, $product_complex_title=false ){
+function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count=-1, $author=null ){
   $args = [
     'post_type' => $type,
     'posts_per_page' => $count,
@@ -24,7 +24,7 @@ function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count
   foreach($posts as $post){
     ?>
     <li <?php echo apply_filters('post_type_grid_li_attr', '', $type, $post, $author); ?> >
-      <?php product_card($post, null, $product_complex_title); ?>
+      <?php product_card($post); ?>
     </li>
     <?php
   }

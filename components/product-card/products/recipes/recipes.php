@@ -7,11 +7,11 @@ function nhm_all_recipes(){
   $recipes = get_posts($args);
   return $recipes;
 }
-add_action( 'product_card_top', function($product){
+add_action( 'after_product_card_image', function($product){
   if($product->post_type !== 'recipe') return;
   ?>
     <span class="top-left-corner">
-      <?php echo do_shortcode('[add_recipe_button icon_button=true]'); ?>
+      <?php echo do_shortcode('[add_recipe_button icon_button=true post_id='.$product->ID.']'); ?>
     </span> 
   <?php 
 },10,1);
