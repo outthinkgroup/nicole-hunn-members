@@ -25,3 +25,5 @@ export function gramCalc(recipeSlug, totalCups) {
 export const setActiveRecipeSlug = (newRecipeSlug) => {
   activeRecipe.set(newRecipeSlug);
 };
+
+export const isCalcOpen = writable(false);

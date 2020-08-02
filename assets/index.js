@@ -337,6 +337,14 @@ require("./global-sidebar/global-sidebar.js");
 require("./product-card/products/recipes/collection-single-recipes.js");
 
 require("./index.scss");
+
+window.addEventListener("DOMContentLoaded", function () {
+  var active;
+  setTimeout(function () {
+    console.log(active);
+  }, 2000);
+  console.log(active);
+});
 },{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./index.scss":"index.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -365,7 +373,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64863" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59349" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

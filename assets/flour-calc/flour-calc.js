@@ -2708,7 +2708,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.gramCalc = gramCalc;
-exports.setActiveRecipeSlug = exports.totalCups = exports.activeRecipeSlug = exports.allRecipeNames = void 0;
+exports.isCalcOpen = exports.setActiveRecipeSlug = exports.totalCups = exports.activeRecipeSlug = exports.allRecipeNames = void 0;
 
 var _store = require("svelte/store");
 
@@ -2758,6 +2758,8 @@ var setActiveRecipeSlug = function setActiveRecipeSlug(newRecipeSlug) {
 };
 
 exports.setActiveRecipeSlug = setActiveRecipeSlug;
+var isCalcOpen = (0, _store.writable)(false);
+exports.isCalcOpen = isCalcOpen;
 },{"svelte/store":"../node_modules/svelte/store/index.mjs","../data/flour-recipes.yaml":"flour-calc/data/flour-recipes.yaml"}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
@@ -4313,6 +4315,10 @@ var _Calculator = _interopRequireDefault(require("./components/Calculator.svelte
 
 var _Modal = _interopRequireDefault(require("./components/Modal.svelte"));
 
+var _store = require("./store.js");
+
+var _svelte = require("svelte");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -4337,6 +4343,14 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -4349,14 +4363,15 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+var document_1 = _internal.globals.document;
 var file = "flour-calc/src/App.svelte";
 
 function add_css() {
   var style = (0, _internal.element)("style");
   style.id = "svelte-17g4lul-style";
   style.textContent = ".nav-button.svelte-17g4lul{width:calc(100% + 10px);padding:10px;justify-content:center;display:flex;border-radius:0 20px 20px 0}\n";
-  (0, _internal.append_dev)(document.head, style);
-} // (29:0) {#if isCalcShowing}
+  (0, _internal.append_dev)(document_1.head, style);
+} // (51:0) {#if isCalcShowing}
 
 
 function create_if_block(ctx) {
@@ -4389,7 +4404,7 @@ function create_if_block(ctx) {
 
       if (dirty &
       /*$$scope*/
-      8) {
+      32) {
         modal_changes.$$scope = {
           dirty: dirty,
           ctx: ctx
@@ -4415,11 +4430,11 @@ function create_if_block(ctx) {
     block: block,
     id: create_if_block.name,
     type: "if",
-    source: "(29:0) {#if isCalcShowing}",
+    source: "(51:0) {#if isCalcShowing}",
     ctx: ctx
   });
   return block;
-} // (30:2) <Modal on:close={toggleCalc}>
+} // (52:2) <Modal on:close={toggleCalc}>
 
 
 function create_default_slot(ctx) {
@@ -4453,7 +4468,7 @@ function create_default_slot(ctx) {
     block: block,
     id: create_default_slot.name,
     type: "slot",
-    source: "(30:2) <Modal on:close={toggleCalc}>",
+    source: "(52:2) <Modal on:close={toggleCalc}>",
     ctx: ctx
   });
   return block;
@@ -4491,11 +4506,11 @@ function create_fragment(ctx) {
       if (if_block) if_block.c();
       if_block_anchor = (0, _internal.empty)();
       (0, _internal.attr_dev)(span0, "class", "icon");
-      (0, _internal.add_location)(span0, file, 23, 2, 542);
+      (0, _internal.add_location)(span0, file, 45, 2, 1159);
       (0, _internal.attr_dev)(span1, "class", "link-text");
-      (0, _internal.add_location)(span1, file, 26, 2, 597);
+      (0, _internal.add_location)(span1, file, 48, 2, 1214);
       (0, _internal.attr_dev)(button, "class", "nav-button nav-link svelte-17g4lul");
-      (0, _internal.add_location)(button, file, 22, 0, 481);
+      (0, _internal.add_location)(button, file, 44, 0, 1098);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4587,13 +4602,33 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
   var appName = $$props.appName;
-  var isCalcShowing = false;
+  var oldFlourCalcURL = $$props.oldFlourCalcURL;
+  var isCalcShowing;
+
+  function showCalc(e) {
+    e.preventDefault();
+    $$invalidate(1, isCalcShowing = true);
+  }
 
   function toggleCalc() {
     $$invalidate(1, isCalcShowing = !isCalcShowing);
   }
 
-  var writable_props = ["appName"];
+  (0, _svelte.onMount)(function () {
+    var allLinks = _toConsumableArray(document.querySelectorAll("a[href=\"".concat(oldFlourCalcURL, "\"]")));
+
+    allLinks.forEach(function (link) {
+      link.addEventListener("click", showCalc);
+    });
+  });
+  (0, _svelte.onDestroy)(function () {
+    var allLinks = _toConsumableArray(document.querySelectorAll("a[href=\"".concat(oldFlourCalcURL, "\"]")));
+
+    allLinks.forEach(function (link) {
+      link.removeEventListener("click", showCalc);
+    });
+  });
+  var writable_props = ["appName", "oldFlourCalcURL"];
   Object.keys($$props).forEach(function (key) {
     if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<App> was created with unknown prop '".concat(key, "'"));
   });
@@ -4604,6 +4639,7 @@ function instance($$self, $$props, $$invalidate) {
 
   $$self.$set = function ($$props) {
     if ("appName" in $$props) $$invalidate(0, appName = $$props.appName);
+    if ("oldFlourCalcURL" in $$props) $$invalidate(3, oldFlourCalcURL = $$props.oldFlourCalcURL);
   };
 
   $$self.$capture_state = function () {
@@ -4611,14 +4647,20 @@ function instance($$self, $$props, $$invalidate) {
       CalculatorIcon: _calculator.default,
       Calculator: _Calculator.default,
       Modal: _Modal.default,
+      isCalcOpen: _store.isCalcOpen,
+      onMount: _svelte.onMount,
+      onDestroy: _svelte.onDestroy,
       appName: appName,
+      oldFlourCalcURL: oldFlourCalcURL,
       isCalcShowing: isCalcShowing,
+      showCalc: showCalc,
       toggleCalc: toggleCalc
     };
   };
 
   $$self.$inject_state = function ($$props) {
     if ("appName" in $$props) $$invalidate(0, appName = $$props.appName);
+    if ("oldFlourCalcURL" in $$props) $$invalidate(3, oldFlourCalcURL = $$props.oldFlourCalcURL);
     if ("isCalcShowing" in $$props) $$invalidate(1, isCalcShowing = $$props.isCalcShowing);
   };
 
@@ -4626,7 +4668,7 @@ function instance($$self, $$props, $$invalidate) {
     $$self.$inject_state($$props.$$inject);
   }
 
-  return [appName, isCalcShowing, toggleCalc];
+  return [appName, isCalcShowing, toggleCalc, oldFlourCalcURL];
 }
 
 var App = /*#__PURE__*/function (_SvelteComponentDev) {
@@ -4640,9 +4682,10 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
     _classCallCheck(this, App);
 
     _this = _super.call(this, options);
-    if (!document.getElementById("svelte-17g4lul-style")) add_css();
+    if (!document_1.getElementById("svelte-17g4lul-style")) add_css();
     (0, _internal.init)(_assertThisInitialized(_this), options, instance, create_fragment, _internal.safe_not_equal, {
-      appName: 0
+      appName: 0,
+      oldFlourCalcURL: 3
     });
     (0, _internal.dispatch_dev)("SvelteRegisterComponent", {
       component: _assertThisInitialized(_this),
@@ -4659,11 +4702,25 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
       console.warn("<App> was created without expected prop 'appName'");
     }
 
+    if (
+    /*oldFlourCalcURL*/
+    ctx[3] === undefined && !("oldFlourCalcURL" in props)) {
+      console.warn("<App> was created without expected prop 'oldFlourCalcURL'");
+    }
+
     return _this;
   }
 
   _createClass(App, [{
     key: "appName",
+    get: function get() {
+      throw new Error("<App>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    },
+    set: function set(value) {
+      throw new Error("<App>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    }
+  }, {
+    key: "oldFlourCalcURL",
     get: function get() {
       throw new Error("<App>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     },
@@ -4677,7 +4734,7 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
 
 var _default = App;
 exports.default = _default;
-},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","./assests/icons/calculator.svelte":"flour-calc/src/assests/icons/calculator.svelte","./components/Calculator.svelte":"flour-calc/src/components/Calculator.svelte","./components/Modal.svelte":"flour-calc/src/components/Modal.svelte","_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"flour-calc/flour-calc.js":[function(require,module,exports) {
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","./assests/icons/calculator.svelte":"flour-calc/src/assests/icons/calculator.svelte","./components/Calculator.svelte":"flour-calc/src/components/Calculator.svelte","./components/Modal.svelte":"flour-calc/src/components/Modal.svelte","./store.js":"flour-calc/src/store.js","svelte":"../node_modules/svelte/index.mjs","_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"flour-calc/flour-calc.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4692,7 +4749,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var app = new _App.default({
   target: document.querySelector("#flour-calc"),
   props: {
-    appName: "Flour Calculator"
+    appName: "Flour Calculator",
+    oldFlourCalcURL: "https://nicolehunn.local/recipe/how-to-make-quickbread-pita-bread-step-x-step/"
   }
 });
 var _default = app;
@@ -4725,7 +4783,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64863" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59349" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
