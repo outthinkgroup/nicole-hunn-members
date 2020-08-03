@@ -24,3 +24,4 @@ function nav_button($name, $icon="bell", $icon_type="regular"){
 }
 
 include_once NHM_DIR . "/components/global-sidebar/parts/navigation.php";
+

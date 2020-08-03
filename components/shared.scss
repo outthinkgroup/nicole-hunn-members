@@ -58,7 +58,13 @@ a {
   align-items: center;
   justify-content: space-between;
   button + button,
-  a + a {
+  a + a,
+  button + a,
+  a + button,
+  a + .top-bar__button,
+  .top-bar__button + a,
+  button + .top-bar__button,
+  .top-bar__button + button {
     margin-left: 10px;
   }
 }

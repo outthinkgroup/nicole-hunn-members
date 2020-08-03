@@ -2,12 +2,34 @@
   import CalculatorIcon from "./assests/icons/calculator.svelte";
   import Calculator from "./components/Calculator.svelte";
   import Modal from "./components/Modal.svelte";
+  import { isCalcOpen } from "./store.js";
+  import { onMount, onDestroy } from "svelte";
   export let appName;
-
-  let isCalcShowing = false;
+  export let oldFlourCalcURL;
+  let isCalcShowing;
+  function showCalc(e) {
+    e.preventDefault();
+    isCalcShowing = true;
+  }
   function toggleCalc() {
     isCalcShowing = !isCalcShowing;
   }
+  onMount(() => {
+    const allLinks = [
+      ...document.querySelectorAll(`a[href="${oldFlourCalcURL}"]`),
+    ];
+    allLinks.forEach((link) => {
+      link.addEventListener("click", showCalc);
+    });
+  });
+  onDestroy(() => {
+    const allLinks = [
+      ...document.querySelectorAll(`a[href="${oldFlourCalcURL}"]`),
+    ];
+    allLinks.forEach((link) => {
+      link.removeEventListener("click", showCalc);
+    });
+  });
 </script>
 
 <style>

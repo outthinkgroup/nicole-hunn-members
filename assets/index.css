@@ -32,7 +32,7 @@ a svg {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-.shadow-md {
+.shadow-md, .recent-updates-card {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
@@ -57,7 +57,13 @@ a svg {
   justify-content: space-between;
 }
 .button-group button + button,
-.button-group a + a {
+.button-group a + a,
+.button-group button + a,
+.button-group a + button,
+.button-group a + .top-bar__button,
+.button-group .top-bar__button + a,
+.button-group button + .top-bar__button,
+.button-group .top-bar__button + button {
   margin-left: 10px;
 }
 
@@ -381,7 +387,9 @@ body:not([data-sidebar-state=open]) .global-sidebar .toggle-sidebar svg {
   border-radius: 0;
 }
 
-.top-bar .button-group a,
+.top-bar .button-group > a,
+.top-bar__button > button,
+.top-bar__button > a,
 .top-bar__button {
   width: 50px;
   height: 50px;
@@ -389,13 +397,18 @@ body:not([data-sidebar-state=open]) .global-sidebar .toggle-sidebar svg {
   align-items: center;
   justify-content: center;
   line-height: 0;
+  padding: 0;
   border-radius: 50%;
 }
-.top-bar .button-group a:focus,
+.top-bar .button-group > a:focus,
+.top-bar__button > button:focus,
+.top-bar__button > a:focus,
 .top-bar__button:focus {
   background: var(--input-bg);
 }
-.top-bar .button-group a:active,
+.top-bar .button-group > a:active,
+.top-bar__button > button:active,
+.top-bar__button > a:active,
 .top-bar__button:active {
   background: var(--input-bg--hover);
 }
@@ -406,6 +419,87 @@ body:not([data-sidebar-state=open]) .global-sidebar .toggle-sidebar svg {
 
 .top-bar [data-part=toggle-sidebar] svg {
   width: 1.5em;
+}
+
+[data-part=notifications] {
+  position: relative;
+  z-index: 2;
+}
+
+[data-part=notifications] .dot {
+  position: absolute;
+  background: var(--link-color);
+  border-radius: 50%;
+  bottom: calc(50% - 5px);
+  right: calc(50% - 7px);
+  transform: translate(50%, 50%);
+  width: 10px;
+  height: 10px;
+}
+[data-part=notifications] .dot[data-notify=true] {
+  display: block;
+}
+[data-part=notifications] .dot[data-notify=false] {
+  display: none;
+}
+
+.notification-wrapper {
+  position: relative;
+}
+
+.recent-updates-card {
+  z-index: 1;
+  position: absolute;
+  top: 0%;
+  right: 0;
+  width: 90vw;
+  max-width: 450px;
+  min-width: 250px;
+  background: white;
+  border-radius: 8px;
+}
+
+.recent-updates-card header {
+  padding: 10px 20px;
+}
+
+.recent-updates-card ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.recent-updates-card li {
+  margin: 0;
+}
+
+.recent-updates-card li a {
+  padding: 10px 20px;
+  display: block;
+  color: #333;
+}
+
+.recent-updates-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  margin: 0;
+  color: inherit;
+}
+.recent-updates-card h4:hover {
+  color: inherit;
+}
+
+.recent-updates-card time {
+  display: block;
+  line-height: 1;
+}
+
+.notification-wrapper[data-state=closed] .recent-updates-card {
+  display: none;
+}
+.notification-wrapper[data-state=opened] .recent-updates-card {
+  display: unset;
 }
 
 .grid li {

@@ -59,7 +59,9 @@
 }
 //--
 
-.top-bar .button-group a,
+.top-bar .button-group > a,
+.top-bar__button > button,
+.top-bar__button > a,
 .top-bar__button {
   width: 50px;
   height: 50px;
@@ -67,6 +69,7 @@
   align-items: center;
   justify-content: center;
   line-height: 0;
+  padding: 0;
   border-radius: 50%;
   &:focus {
     background: var(--input-bg);
@@ -81,4 +84,81 @@
 }
 .top-bar [data-part="toggle-sidebar"] svg {
   width: 1.5em;
+}
+[data-part="notifications"] {
+  position: relative;
+  z-index: 2;
+}
+[data-part="notifications"] .dot {
+  position: absolute;
+  background: var(--link-color);
+  border-radius: 50%;
+  bottom: calc(50% - 5px);
+  right: calc(50% - 7px);
+  transform: translate(50%, 50%);
+  width: 10px;
+  height: 10px;
+  &[data-notify="true"] {
+    display: block;
+  }
+  &[data-notify="false"] {
+    display: none;
+  }
+}
+.notification-wrapper {
+  position: relative;
+}
+.recent-updates-card {
+  z-index: 1;
+  position: absolute;
+  top: 0%;
+  right: 0;
+  width: 90vw;
+  max-width: 450px;
+  min-width: 250px;
+  background: white;
+  border-radius: 8px;
+  @extend .shadow-md;
+}
+.recent-updates-card header {
+  padding: 10px 20px;
+}
+.recent-updates-card ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.recent-updates-card li {
+  margin: 0;
+}
+.recent-updates-card li a {
+  padding: 10px 20px;
+  display: block;
+  color: #333;
+}
+.recent-updates-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  margin: 0;
+  color: inherit;
+  &:hover {
+    color: inherit;
+  }
+}
+.recent-updates-card time {
+  display: block;
+  line-height: 1;
+}
+.notification-wrapper {
+  &[data-state="closed"] {
+    .recent-updates-card {
+      display: none;
+    }
+  }
+  &[data-state="opened"] {
+    .recent-updates-card {
+      display: unset;
+    }
+  }
 }

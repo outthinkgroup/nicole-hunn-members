@@ -28,15 +28,7 @@ function util_navigation_and_search(){
     </form>
     </div>
     <div class="button-group">
-      <a 
-        data-part="notifications" 
-        href="#" 
-        class=""
-      >
-        <span class="">
-          <?php get_icon('bell'); ?>
-        </span>
-      </a>
+      <?php get_notification_button(); ?>
       <a 
         data-part="profile-link" 
         href="my-account" 
@@ -50,4 +42,55 @@ function util_navigation_and_search(){
   </div>
   </span>
   <?php
+}
+
+function get_notification_button(){
+  ?>
+  <div class="top-bar__button notification-wrapper" data-state="closed">
+    <button 
+    data-part="notifications"  
+    class=""
+    >
+    <span class="" >
+      <?php get_icon('bell'); ?>
+      <?php notification_dot();?>
+    </span>
+  </button>
+  <div class="recent-updates-card">
+    <header>
+      <h3>Recent Updates</h3>
+    </header>
+    <ul>
+      <?php 
+      $posts = get_posts([
+        'posts_per_page' => 8,
+      ]);
+      foreach ($posts as $the_post){ 
+      ?>
+      <li>
+        <a href="<?php echo get_the_permalink($the_post->ID); ?>">
+          <h4>
+            <?php echo $the_post->post_title; ?>
+          </h4>
+          <time datetime="<?php echo $the_post->post_date; ?>">
+            <?php echo nhm_format_date($the_post->post_date); ?>
+          </time> 
+        </a>
+      </li>
+      <?php } ?>
+    </ul>
+  </div>
+</div>
+  <?php
+}
+function notification_dot(){
+  ?>
+    <div class="dot" data-notify="<?php echo does_user_need_notification(get_current_user_id()); ?>">
+    </div>
+  <?php
+}
+
+function nhm_format_date($date){
+  $date_string = strtotime($date);
+  return date('F j, Y', $date_string);
 }
