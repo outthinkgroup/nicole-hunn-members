@@ -207,6 +207,76 @@ function initOpenCloseSubMenus() {
     }
   });
 }
+},{}],"top-bar/top-bar.js":[function(require,module,exports) {
+window.addEventListener("DOMContentLoaded", initNotificationAlert);
+
+function initNotificationAlert() {
+  var notificationButton = document.querySelector('[data-part="notifications"]');
+  notificationButton.addEventListener("click", showRecentUpdates);
+}
+
+function showRecentUpdates(e) {
+  var button = e.target;
+  clearUserNotificationMeta(button);
+  toggleUpdatesCard(button);
+}
+
+function clearUserNotificationMeta(button) {
+  var dot = button.querySelector(".dot");
+  if (dot.dataset.notify == "false") return;
+  dot.dataset.notify = "false";
+  var data = {
+    action: "nhm_clear_notification",
+    notified: true
+  };
+  fetch("".concat(WP.ajaxUrl), {
+    method: "POST",
+    mode: "cors",
+    credentials: "same-origin",
+    // include, *same-origin, omit
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+    },
+    body: toQueryString(data)
+  }).then(function (res) {
+    return console.log(res);
+  });
+}
+
+function toggleUpdatesCard(button) {
+  var wrapperEl = button.closest(".notification-wrapper");
+  var state = wrapperEl.dataset.state;
+
+  if (state === "opened") {
+    closeUpdatesCard(wrapperEl);
+  } else {
+    openUpdatesCard(wrapperEl);
+  }
+}
+
+function openUpdatesCard(el) {
+  console.log("ran");
+  el.dataset.state = "opened";
+  document.body.addEventListener("click", handleCloseUpdatesCard);
+}
+
+function closeUpdatesCard(el) {
+  el.dataset.state = "closed";
+  document.body.removeEventListener("click", handleCloseUpdatesCard);
+}
+
+function handleCloseUpdatesCard(e) {
+  console.log("ran handleCloseUpdatesCard");
+  if (e.target.classList.contains("notification-wrapper") || e.target.closest(".notification-wrapper")) return;
+  var wrapper = document.querySelector(".notification-wrapper");
+  closeUpdatesCard(wrapper);
+}
+
+function toQueryString(data) {
+  var urlSearhParams = new URLSearchParams(data);
+  var queryString = urlSearhParams.toString();
+  return queryString;
+}
 },{}],"product-card/products/recipes/collection-single-recipes.js":[function(require,module,exports) {
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -334,6 +404,8 @@ module.hot.accept(reloadCSS);
 
 require("./global-sidebar/global-sidebar.js");
 
+require("./top-bar/top-bar.js");
+
 require("./product-card/products/recipes/collection-single-recipes.js");
 
 require("./index.scss");
@@ -345,7 +417,7 @@ window.addEventListener("DOMContentLoaded", function () {
   }, 2000);
   console.log(active);
 });
-},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./index.scss":"index.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./index.scss":"index.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -373,7 +445,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59349" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55175" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
