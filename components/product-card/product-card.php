@@ -24,7 +24,6 @@ add_filter('card_top', function($card_top_markup, $product){
       <a class="product-image" href="<?php echo apply_filters('product_card_link', get_the_permalink($product->ID), $product); ?>">
         <?php echo apply_filters("product_image", get_the_post_thumbnail($product->ID), $product); ?>
       </a>
-
     <?php }else{ 
       echo apply_filters('product_card_no_image', '', $product);
     }
