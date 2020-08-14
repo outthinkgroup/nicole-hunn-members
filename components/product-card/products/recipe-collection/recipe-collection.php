@@ -11,26 +11,20 @@ function nhm_user_recipe_collections($user_id){
 
 add_filter('product_image', function($image, $product){
   if($product->post_type == 'lists'){
-    $count=0;
-    $recipe_ids = get_post_meta($product->ID, 'list_items', true);
-
-    $image = loopThroughRecipesForImage($recipe_ids, $count, $image );
-  
+    
   }
-  echo $image;
+  
   return $image;
 },10,2);
 function loopThroughRecipesForImage($array, $count, $image ){
   if($image = get_the_post_thumbnail($array[$count])){
      
-      echo $image;
-      return;
+      return $image;
     }else{
       $count++;
       if($array[$count]){
         loopThroughRecipesForImage($array, $count, $image);
       }else{
-        
         return null;
       }
     }
@@ -38,7 +32,6 @@ function loopThroughRecipesForImage($array, $count, $image ){
 
 add_filter('card_bottom', function($card_bottom_markup, $product){
   if($product->post_type !== 'lists') return $card_bottom_markup;
-
   ob_start();
   show_list_title_and_count($product);
   $title = ob_get_clean();
@@ -60,6 +53,15 @@ add_action('after_product_card_image', function($product){
 
 add_action('product_card_no_image', function($replaced_image, $product){
   if($product->post_type !== 'lists') return;
+
+  $count=0;
+  $recipe_ids = get_post_meta($product->ID, 'list_items', true);
+  $image = loopThroughRecipesForImage($recipe_ids, $count, $image );
+  if($image){
+    $image = '<a class="product-image" href="'. get_permalink($product->ID) .'">'. $image .  '</a>';
+    return $image;
+  } 
+
   ob_start();
   ?>
   <a 

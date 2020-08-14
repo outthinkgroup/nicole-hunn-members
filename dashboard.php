@@ -59,8 +59,17 @@ $user_id = $user->ID;
 			</section>
 			<section class="bonus">
 				<h3>Bonus Content & Updates</h3>
+				<ul class="grid" style="--cols:4; --card-mx-width:100%">
+					<?php 
+						$allposts = get_posts();
+						foreach($allposts as $thispost){
+							product_card($thispost);
+						}
+					?>
+				</ul>
+				<a href="/my-account/downloads" class="viewall">View all My Downloads &rarr;</a>
 				<div class="grid" style="--cols:2; --card-mx-width:100%">
-					<ul class="list">
+					<ul class="grid" style="--cols:3; --card-mx-width:100%">
 					<?php
 					$posts = get_posts('post_type=post&posts_per_page=5');
 					foreach ($posts as $post){

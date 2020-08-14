@@ -33,10 +33,10 @@ add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
  ini_set('error_reporting', E_ALL);
 
 
-include_once NHM_DIR . '/components/index.php';
-include_once NHM_DIR . '/customfields/customfields.php';
-
-include_once NHM_DIR . '/get-icon.php';
+ include_once NHM_DIR . '/components/index.php';
+ include_once NHM_DIR . '/member-bootstrap.php';
+ include_once NHM_DIR . '/get-icon.php';
+ include_once NHM_DIR . '/customfields/customfields.php';
 include_once NHM_DIR . '/navigation_setup.php';
 
 //*CODE That allows us to know if we user has seen  new content

@@ -11,7 +11,30 @@ $user_id = $user->ID;
   </header>
 		
 		<main class="recipes">
-      <?php wp_loop_post_grid('recipe'); ?>
+      <?php
+      $categories = get_terms('recipe_category', array(
+        'orderby' => 'count',
+        'order' => 'DESC'
+      ));
+      foreach($categories as $category){
+        //var_dump($category);
+        $args = array(
+          'post_type' => 'recipe',
+          //'posts_per_page' => ,
+          'tax_query' => array(
+              array(
+                  'taxonomy' => 'recipe_category',
+                  'field'    => 'slug',
+                  'terms'    => $category->slug,
+              ),
+          ),
+      );
+        query_posts($args);
+        echo '<h4>'.$category->name.'</h4>';
+        wp_loop_post_grid('recipe');
+      }
+      wp_reset_postdata(); 
+      ?>
     </main>
     <aside class="recipe-categories">
         <h3>Recipe Categories</h3>
