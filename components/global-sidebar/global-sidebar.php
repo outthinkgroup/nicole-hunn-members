@@ -23,6 +23,7 @@ function global_sidebar(){
 }
 function enqueue_logged_in_assets(){
 	wp_enqueue_style( 'logged-in-styles', get_stylesheet_directory_uri() . '/assets/index.css', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
+	wp_enqueue_script('flour-calc', get_stylesheet_directory_uri() . '/assets/flour-calc/flour-calc.js', [], CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, true );
 	wp_enqueue_script( 'logged-in-scripts', get_stylesheet_directory_uri() . '/assets/index.js', [], CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, true );
 	wp_localize_script( 'logged-in-scripts', 'WP', [
 		"userId" => get_current_user_id(),
