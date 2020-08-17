@@ -43,7 +43,7 @@ add_filter('card_bottom', function($card_bottom_markup, $product){
       </h4>
     </a>  
   <?php
-  $card_bottom_markup = ob_get_clean();
+  $card_bottom_markup .= ob_get_clean();
   return $card_bottom_markup;
 }, 1, 2);
 

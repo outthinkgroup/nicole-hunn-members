@@ -35,9 +35,23 @@
     grid-area: sidebar;
   }
 }
-.archive-template-layout main.recipes ul.grid {
-  margin: 0 auto;
-  max-width: 900px;
+.archive-template-layout main.recipes {
+  > ul.grid,
+  section {
+    margin: 0 auto;
+    max-width: 900px;
+  }
+  section {
+    padding: 30px 0;
+    h3 {
+      font-family: "Berkshire Swash", handwriting;
+      margin-bottom: 1em;
+      color: var(--secondary);
+    }
+  }
+  section:first-child {
+    padding-top: 0;
+  }
 }
 .archive-template-layout header {
   text-align: center;
@@ -53,11 +67,12 @@
   text-shadow: 0 0 60px black;
 }
 .archive-template-layout main,
-.archive-template-layout aside {
+.archive-template-layout aside > div {
   padding: 20px;
 }
 @media (min-width: 650px) {
-  .archive-template-layout aside {
+  .archive-template-layout aside > div {
+    height: auto;
     border-left: 1px solid var(--med-grey);
   }
 }
