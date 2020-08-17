@@ -23,13 +23,18 @@ add_filter('card_bottom', function($card_bottom_markup, $product){
   if($product->post_type !== 'recipe') return $card_bottom_markup;
 
   ob_start();
-  ?>
-    <ul class="cat-list">
-      <li><a href="">tag number 1</a></li>
-      <li><a href="">tag number 2</a></li>
-      <li><a href="">tag number 3</a></li>
-    </ul>
-  <?php
+  ?><ul class="cat-list"><?php
+    $categories = get_the_terms($product->ID, 'recipe_category');
+    foreach($categories as $category){
+      ?>
+      <li>
+        <a href="<?php echo '/'.$category->taxonomy.'/'.$category->slug; ?>">
+          <?php echo $category->name ?>
+        </a>
+      </li>
+      <?php
+    }
+  ?> </ul> <?php 
   $card_bottom_markup .= ob_get_clean();
   return $card_bottom_markup;
 }, 10, 2);
