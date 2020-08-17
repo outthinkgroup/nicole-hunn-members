@@ -22,3 +22,30 @@
     padding: 0;
   }
 }
+
+.card-bottom h4 {
+  margin-bottom: 10px;
+}
+
+.card-bottom .cat-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  > li {
+    display: inline-block;
+    margin-left: 0;
+    margin-bottom: 6px;
+    a {
+      background: var(--input-bg);
+      color: hsl(216, 15%, 42%);
+      padding: 0 5px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      &:hover {
+        color: var(--link-color);
+      }
+    }
+  }
+}

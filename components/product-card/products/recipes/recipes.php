@@ -19,15 +19,17 @@ add_action( 'after_product_card_image', function($product){
   <?php 
 },10,1);
 
-// add_filter('card_bottom', function($card_bottom_markup, $product){
-//   if($product->post_type !== 'recipe') return;
+add_filter('card_bottom', function($card_bottom_markup, $product){
+  if($product->post_type !== 'recipe') return $card_bottom_markup;
 
-//   ob_start(); ?>
-//     <p>hello</p>
-
-//   <?php
-//   $card_bottom_markup .= ob_get_clean();
-//   return $card_bottom_markup;
-// },10, 2);
-
-
+  ob_start();
+  ?>
+    <ul class="cat-list">
+      <li><a href="">tag number 1</a></li>
+      <li><a href="">tag number 2</a></li>
+      <li><a href="">tag number 3</a></li>
+    </ul>
+  <?php
+  $card_bottom_markup .= ob_get_clean();
+  return $card_bottom_markup;
+}, 10, 2);

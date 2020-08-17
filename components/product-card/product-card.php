@@ -30,7 +30,7 @@ add_filter('card_top', function($card_top_markup, $product){
     ?>
   <?php do_action('after_product_card_image', $product); ?>
   <?php
-  $card_top_markup .= ob_get_clean();
+  $card_top_markup = ob_get_clean();
   return $card_top_markup;
 }, 1, 2);
 
@@ -43,7 +43,7 @@ add_filter('card_bottom', function($card_bottom_markup, $product){
       </h4>
     </a>  
   <?php
-  $card_bottom_markup = ob_get_clean();
+  $card_bottom_markup .= ob_get_clean();
   return $card_bottom_markup;
 }, 1, 2);
 

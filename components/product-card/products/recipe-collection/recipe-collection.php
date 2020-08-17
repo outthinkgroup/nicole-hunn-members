@@ -9,16 +9,10 @@ function nhm_user_recipe_collections($user_id){
   return $lists;
 }
 
-add_filter('product_image', function($image, $product){
-  if($product->post_type == 'lists'){
-    
-  }
-  
-  return $image;
-},10,2);
+
 function loopThroughRecipesForImage($array, $count, $image ){
-  if($image = get_the_post_thumbnail($array[$count])){
-     
+  if(isset($array[$count]) && get_the_post_thumbnail($array[$count])){
+     $image = get_the_post_thumbnail($array[$count]);
       return $image;
     }else{
       $count++;
@@ -56,6 +50,7 @@ add_action('product_card_no_image', function($replaced_image, $product){
 
   $count=0;
   $recipe_ids = get_post_meta($product->ID, 'list_items', true);
+  $image = null;
   $image = loopThroughRecipesForImage($recipe_ids, $count, $image );
   if($image){
     $image = '<a class="product-image" href="'. get_permalink($product->ID) .'">'. $image .  '</a>';
