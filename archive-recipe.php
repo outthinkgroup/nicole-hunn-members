@@ -30,26 +30,32 @@ $user_id = $user->ID;
           ),
       );
         query_posts($args);
-        echo '<h4>'.$category->name.'</h4>';
-        wp_loop_post_grid('recipe');
+        ?>
+        <section>
+          <h3> <?php echo $category->name; ?></h3>
+          <?php wp_loop_post_grid('recipe'); ?>
+        </section>
+        <?php
       }
       wp_reset_postdata(); 
       ?>
     </main>
     <aside class="recipe-categories">
-        <h3>Recipe Categories</h3>
-        <ul>
-        <?php
-          $categories = get_terms('recipe_category');
-          foreach($categories as $category){
-            ?>
-            <li >
-              <a class="shadow-sm card" href="<?php echo get_term_link($category); ?>" > <?php echo $category->name; ?></a>
-            </li>
-            <?php
-          }
-        ?>
-        </ul>
+        <div>
+          <h3>Recipe Categories</h3>
+          <ul>
+          <?php
+            $categories = get_terms('recipe_category');
+            foreach($categories as $category){
+              ?>
+              <li >
+                <a class="shadow-sm card" href="<?php echo get_term_link($category); ?>" > <?php echo $category->name; ?></a>
+              </li>
+              <?php
+            }
+          ?>
+          </ul>
+        </div>
     </aside>
 	</div>
 

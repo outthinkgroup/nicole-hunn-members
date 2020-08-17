@@ -19,19 +19,21 @@ $user_id = $user->ID;
       <?php wp_loop_post_grid('recipe'); ?>
     </main>
     <aside class="recipe-categories">
-        <h3>Recipe Categories</h3>
-        <ul>
-        <?php
-          $categories = get_terms('recipe_category');
-          foreach($categories as $category){
-            ?>
-            <li>
-              <a class="shadow-sm card" href="<?php echo get_term_link($category); ?>" > <?php echo $category->name; ?></a>
-            </li>
-            <?php
-          }
-        ?>
-        </ul>
+        <div>
+          <h3>Recipe Categories</h3>
+          <ul>
+          <?php
+            $categories = get_terms('recipe_category');
+            foreach($categories as $category){
+              ?>
+              <li>
+                <a class="shadow-sm card" href="<?php echo get_term_link($category); ?>" > <?php echo $category->name; ?></a>
+              </li>
+              <?php
+            }
+          ?>
+          </ul>
+        </div>
     </aside>
 	</div>
 
