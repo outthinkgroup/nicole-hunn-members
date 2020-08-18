@@ -11,37 +11,31 @@ $user_id = $user->ID;
   </header>
 		
 		<main class="recipes">
-      <?php
-      $categories = get_terms('recipe_category', array(
-        'orderby' => 'count',
-        'order' => 'DESC'
-      ));
-      foreach($categories as $category){
-        //var_dump($category);
-        $args = array(
-          'post_type' => 'recipe',
-          //'posts_per_page' => ,
-          'tax_query' => array(
-              array(
-                  'taxonomy' => 'recipe_category',
-                  'field'    => 'slug',
-                  'terms'    => $category->slug,
-              ),
-          ),
-      );
-        query_posts($args);
-        ?>
-        <section>
-          <h3> <?php echo $category->name; ?></h3>
-          <?php wp_loop_post_grid('recipe'); ?>
-        </section>
-        <?php
-      }
-      wp_reset_postdata(); 
-      ?>
-    </main>
-    <aside class="recipe-categories">
+      <aside class="recipe-categories">
         <div>
+
+        
+        <div class="filter-widget">
+          Filter
+          <div class="search-wrapper">
+            <form class="search-bar shadow-sm" action="/" method="GET" data-action="filter">
+              <input 
+                placeholder="Filter"
+                type="search"
+                name="s"
+                value="<?php echo get_search_query() ?>"
+                id="s"
+              />
+              <button type="submit" >
+                <span >
+                  <?php get_icon('search', 'solid'); ?>
+                </span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="filter-widget">
           <h3>Recipe Categories</h3>
           <ul>
           <?php
@@ -56,7 +50,39 @@ $user_id = $user->ID;
           ?>
           </ul>
         </div>
-    </aside>
+      </aside>
+      <div class="recipe-grids">
+        <?php
+      $categories = get_terms('recipe_category', array(
+        'orderby' => 'count',
+        'order' => 'DESC'
+      ));
+      foreach($categories as $category){
+        //var_dump($category);
+        $args = array(
+          'post_type' => 'recipe',
+          //'posts_per_page' => ,
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'recipe_category',
+              'field'    => 'slug',
+              'terms'    => $category->slug,
+            ),
+          ),
+        );
+        query_posts($args);
+        ?>
+        <section>
+          <h3> <?php echo $category->name; ?></h3>
+          <?php wp_loop_post_grid('recipe'); ?>
+        </section>
+        <?php
+      }
+      wp_reset_postdata(); 
+      ?>
+    </div> 
+    </div>     
+    </main>
 	</div>
 
 

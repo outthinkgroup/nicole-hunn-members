@@ -522,6 +522,91 @@ function handleDeleteFromList(e) {
     }
   });
 }
+},{}],"recipe-archive-filter.js":[function(require,module,exports) {
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+window.addEventListener("DOMContentLoaded", initRecipeFilter);
+
+function initRecipeFilter() {
+  if (!document.querySelector('[data-action="filter"]')) return;
+  var searchBox = document.querySelector('[data-action="filter"]');
+  addAllEventHandlers(searchBox);
+}
+
+function filterRecipes(e) {
+  e.preventDefault();
+  var searchVal = e.target.value;
+  removeNoResultsEl();
+  var grids = document.querySelectorAll("section .grid");
+  grids.forEach(function (grid) {
+    grid.closest("section").dataset.state = "show";
+
+    var recipes = _toConsumableArray(grid.querySelectorAll(".product-card"));
+
+    recipes.forEach(function (recipe) {
+      recipe.dataset.state = "hide";
+    });
+    var filtered = recipes.filter(function (recipe) {
+      var title = recipe.querySelector(".product-title h4");
+
+      if (title.innerText.toLowerCase().includes(searchVal.toLowerCase())) {
+        return true;
+      }
+
+      return false;
+    });
+    filtered.forEach(function (recipe) {
+      recipe.dataset.state = "show";
+    });
+
+    if (filtered.length === 0) {
+      grid.closest("section").dataset.state = "hide";
+    }
+  });
+  var sections = document.querySelectorAll('.recipes section[data-state="show"]');
+
+  if (sections.length === 0) {
+    showNoResultsEl();
+  }
+}
+
+function removeNoResultsEl() {
+  var recipes = document.querySelector(".recipe-grids");
+  var noResEl = recipes.querySelector(".no-res");
+
+  if (noResEl) {
+    noResEl.parentElement.removeChild(noResEl);
+  }
+}
+
+function showNoResultsEl() {
+  var recipes = document.querySelector(".recipe-grids");
+  var el = document.createElement("div");
+  el.classList.add("no-res");
+  el.innerHTML = "<p>No Recipes Found, try a different search</p>";
+  recipes.appendChild(el);
+}
+
+function addAllEventHandlers(searchInput) {
+  searchInput.closest("form").addEventListener("submit", function (e) {
+    return e.preventDefault();
+  });
+  searchInput.addEventListener("submit", function (e) {
+    return e.preventDefault();
+  });
+  searchInput.addEventListener("input", filterRecipes);
+  searchInput.addEventListener("blur", filterRecipes);
+}
 },{}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
@@ -605,8 +690,10 @@ require("./screen-caffeine-toggle/screen-caffeine-toggle.js");
 
 require("./product-card/products/recipes/collection-single-recipes.js");
 
+require("./recipe-archive-filter.js");
+
 require("./index.scss");
-},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./screen-caffeine-toggle/screen-caffeine-toggle.js":"screen-caffeine-toggle/screen-caffeine-toggle.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./index.scss":"index.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./screen-caffeine-toggle/screen-caffeine-toggle.js":"screen-caffeine-toggle/screen-caffeine-toggle.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./recipe-archive-filter.js":"recipe-archive-filter.js","./index.scss":"index.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -634,7 +721,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63180" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65213" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
