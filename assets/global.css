@@ -289,7 +289,6 @@ section.bonus .grid > div {
 
 .archive-template-layout aside {
   order: 2;
-  padding-right: 20px;
   padding-top: 1em;
   margin-bottom: 30px;
 }
@@ -302,12 +301,15 @@ section.bonus .grid > div {
 .filter-widget {
   margin-bottom: 20px;
 }
+.filter-widget h3 {
+  margin-bottom: 10px;
+}
 
 .archive-template-layout main.recipes {
   margin: 0 auto;
   max-width: 900px;
 }
-@media (min-width: 700px) {
+@media (min-width: 838px) {
   .archive-template-layout main.recipes {
     max-width: 1200px;
     display: grid;
@@ -404,6 +406,11 @@ li {
   --card-mx-width: 270px;
 }
 
+@media (max-width: 650px) {
+  .archive-template-layout .product-card {
+    margin: 0 auto 20px;
+  }
+}
 .archive-template-layout .product-card .card-top {
   height: 150px;
 }
