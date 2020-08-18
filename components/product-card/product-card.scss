@@ -60,3 +60,13 @@
 @import "/product-card/products/recipe-collection/recipe-collection.scss";
 @import "/product-card/products/downloads/downloads.scss";
 @import "/product-card/products/recipes/recipes.scss";
+
+//STATE
+.product-card {
+  &[data-state="show"] {
+    display: unset;
+  }
+  &[data-state="hide"] {
+    display: none;
+  }
+}

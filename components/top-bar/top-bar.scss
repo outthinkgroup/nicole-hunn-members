@@ -28,36 +28,9 @@
   }
 }
 .top-bar .search-bar {
-  background: var(--input-bg);
-  display: flex;
-  align-items: center;
-  width: 100%;
   max-width: 500px;
-  border-radius: 8px;
-  overflow: hidden;
 }
-.top-bar .search-bar input {
-  width: 100%;
-  padding: 8px 40px 8px 16px;
-  background-color: transparent;
-  border: 1px solid transparent;
-  &:active,
-  &:focus {
-    outline: 0;
-    border: 1px solid transparent;
-    background: var(--input-bg--hover);
-  }
-}
-.search-bar button {
-  display: flex;
-  align-items: center;
-  padding: 10px 10px 5px;
-  justify-content: center;
-  background-color: transparent;
-  height: 100%;
-  border-radius: 0;
-}
-//--
+//Other styles for the search bar are in shared.scss
 
 .top-bar .button-group > a,
 .top-bar__button > button,
