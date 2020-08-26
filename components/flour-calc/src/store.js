@@ -7,8 +7,8 @@ export const allRecipeNames = _allRecipeNames.map((slug) => {
   return { slug, label: recipes[slug].name };
 });
 
-export const activeRecipeSlug = writable(allRecipeNames[2].slug);
-export const totalCups = writable(5);
+export const activeRecipeSlug = writable(allRecipeNames[0].slug);
+export const totalCups = writable(1);
 
 export function gramCalc(recipeSlug, totalCups) {
   const recipeObj = recipes[recipeSlug];
