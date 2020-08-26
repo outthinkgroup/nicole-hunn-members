@@ -4,7 +4,36 @@ const app = new App({
   target: document.querySelector("#flour-calc"),
   props: {
     appName: "Flour Calculator",
-    oldFlourCalcURL: "https://nicolehunn.com/flour-calculator/",
+    oldFlourCalcURL: [
+      {
+        link: "https://nicolehunn.com/flour-calculator/",
+        type: null,
+      },
+      {
+        link: "https://glutenfreeonashoestring.com/gluten-free-bread-flour/",
+        type: "glutenFreeBreadFlour",
+      },
+      {
+        link:
+          "https://glutenfreeonashoestring.com/d-i-y-gluten-free-all-purpose-flour/",
+        type: "mockBetterBatter",
+      },
+      {
+        link:
+          "https://glutenfreeonashoestring.com/basic-gluten-free-flour-blend/",
+        type: "basicXanthanFreeBlend",
+      },
+      {
+        link:
+          "https://glutenfreeonashoestring.com/better-than-cup4cup-gluten-free-flour-blend-d-i-y-how-to/",
+        type: "betterThanCup4CupBlend",
+      },
+      {
+        link:
+          "https://glutenfreeonashoestring.com/better-batter-pastry-flour-hack-mock-cup4cup/",
+        type: "mockCup4CupBlend",
+      },
+    ],
   },
 });
 

@@ -1,31 +1,35 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import CalculatorIcon from "./assests/icons/calculator.svelte";
   import Calculator from "./components/Calculator.svelte";
   import Modal from "./components/Modal.svelte";
-  import { isCalcOpen } from "./store.js";
-  import { onMount, onDestroy } from "svelte";
+  import { activeRecipeSlug, gramCalc, totalCups } from "./store.js";
+
   export let appName;
   export let oldFlourCalcURL;
   let isCalcShowing;
   function showCalc(e) {
     e.preventDefault();
+
+    const recipeSlug = oldFlourCalcURL.find((obj) => obj.link === e.target.href)
+      .type;
+    activeRecipeSlug.set(recipeSlug);
     isCalcShowing = true;
   }
   function toggleCalc() {
     isCalcShowing = !isCalcShowing;
   }
   onMount(() => {
-    const allLinks = [
-      ...document.querySelectorAll(`a[href="${oldFlourCalcURL}"]`),
-    ];
+    const linkSelector = oldFlourCalcURL
+      .map((obj) => `a[href="${obj.link}"]`)
+      .join(", ");
+    const allLinks = [...document.querySelectorAll(linkSelector)];
     allLinks.forEach((link) => {
       link.addEventListener("click", showCalc);
     });
   });
   onDestroy(() => {
-    const allLinks = [
-      ...document.querySelectorAll(`a[href="${oldFlourCalcURL}"]`),
-    ];
+    const allLinks = [...document.querySelectorAll()];
     allLinks.forEach((link) => {
       link.removeEventListener("click", showCalc);
     });
