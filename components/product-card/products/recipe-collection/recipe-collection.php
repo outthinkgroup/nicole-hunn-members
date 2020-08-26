@@ -11,6 +11,8 @@ function nhm_user_recipe_collections($user_id){
 
 
 function loopThroughRecipesForImage($array, $count, $image ){
+  if((!is_array($array)) || count($array) === 0) return null;
+
   if(isset($array[$count]) && get_the_post_thumbnail($array[$count])){
      $image = get_the_post_thumbnail($array[$count]);
       return $image;
@@ -38,7 +40,7 @@ add_action('after_product_card_image', function($product){
   if($product->post_type !== 'lists') return;
   ?>
   <div class="list-actions top-right-corner">
-    <button type="button" data-action="delete-list" data-tooltip="Delete this list" class="danger icon-button" style="--tool-tip-y-distance:-80px" >
+    <button type="button" data-action="warn-delete-list" data-tooltip="Delete this list" class="danger icon-button" style="--tool-tip-y-distance:-80px" >
       <span class="icon"><?php get_icon('delete'); ?></span>
     </button>
   </div>
