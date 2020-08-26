@@ -34,11 +34,11 @@ add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 
  include_once NHM_DIR . '/components/index.php';
- include_once NHM_DIR . '/member-bootstrap.php';
  include_once NHM_DIR . '/get-icon.php';
  include_once NHM_DIR . '/customfields/customfields.php';
-include_once NHM_DIR . '/navigation_setup.php';
+ include_once NHM_DIR . '/inc/index.php';
 
+//TODO: Please move to own file,
 //*CODE That allows us to know if we user has seen  new content
 add_action('save_post', function($post_ID, $post, $update ){
 	if(!get_field('should_notify_users', $post_ID)) return;

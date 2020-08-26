@@ -31,7 +31,7 @@ function util_navigation_and_search(){
       <?php get_notification_button(); ?>
       <a 
         data-part="profile-link" 
-        href="my-account" 
+        href="/my-account" 
         class=""
       >
       <span class="">
