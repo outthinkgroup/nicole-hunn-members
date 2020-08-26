@@ -16,7 +16,7 @@ $user_id = $user->ID;
 
         
         <div class="filter-widget">
-          Filter
+          <h3>Filter Recipes by Title</h3>
           <div class="search-wrapper">
             <form class="search-bar shadow-sm" action="/" method="GET" data-action="filter">
               <input 
