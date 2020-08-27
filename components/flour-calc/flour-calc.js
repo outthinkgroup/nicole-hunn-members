@@ -33,6 +33,16 @@ const app = new App({
           "https://glutenfreeonashoestring.com/better-batter-pastry-flour-hack-mock-cup4cup/",
         type: "mockCup4CupBlend",
       },
+      {
+        link:
+          "https://glutenfreeonashoestring.com/category/basic-gluten-free-recipes/gluten-free-flour-blends/",
+        type: null,
+      },
+      {
+        link:
+          "https://glutenfreeonashoestring.com/all-purpose-gluten-free-flour-recipes/",
+        type: null,
+      },
     ],
   },
 });

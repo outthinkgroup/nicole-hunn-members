@@ -13,7 +13,9 @@
 
     const recipeSlug = oldFlourCalcURL.find((obj) => obj.link === e.target.href)
       .type;
-    activeRecipeSlug.set(recipeSlug);
+    if (recipeSlug) {
+      activeRecipeSlug.set(recipeSlug);
+    }
     isCalcShowing = true;
   }
   function toggleCalc() {
