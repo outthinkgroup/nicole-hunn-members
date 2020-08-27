@@ -12,6 +12,7 @@ function nhm_all_recipes(){
 
 add_action( 'after_product_card_image', function($product){
   if($product->post_type !== 'recipe') return;
+  if(!is_user_logged_in()) return;
   ?>
     <span class="top-left-corner">
       <?php echo do_shortcode('[add_recipe_button icon_button=true post_id='.$product->ID.']'); ?>

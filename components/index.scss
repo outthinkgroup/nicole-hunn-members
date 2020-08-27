@@ -1,8 +1,23 @@
-@import "shared.scss";
+.shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+//--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--//
+.admin-bar-space {
+  @media (min-width: 650px) {
+    margin-top: 46px;
+  }
+  @media (min-width: 783px) {
+    margin-top: 32px;
+  }
+}
+
 @import "/global-sidebar/global-sidebar.scss";
 @import "/top-bar/top-bar.scss";
-@import "/post-type-grid/post-type-grid.scss";
-@import "/recipe-formatting/recipe-formatting.scss";
 @import "/learndash/learndash.scss";
-
-@import "/screen-caffeine-toggle/screen-caffeine-toggle.scss";
