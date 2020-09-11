@@ -20,7 +20,7 @@ define('NHM_URL', get_stylesheet_directory_uri());
 function child_enqueue_styles() {
 
 	wp_enqueue_style( 'nicole-hunn-members-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
-	wp_enqueue_style( 'nicole-hunn-members-global-css', get_stylesheet_directory_uri() . '/assets/global.css?123', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
+	wp_enqueue_style( 'nicole-hunn-members-global-css', get_stylesheet_directory_uri() . '/assets/global.css?byjoshkennedy', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
 	wp_enqueue_script( 'nicole-hunn-members-global-js', get_stylesheet_directory_uri() . '/assets/global.js', array(), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION,  true);
 	
 
