@@ -71,3 +71,8 @@ label {
 .custom-wrapper header {
   margin-bottom: 30px;
 }
+@media (min-width: 769px) {
+  #primary {
+    width: unset;
+  }
+}
