@@ -35,7 +35,8 @@ function util_navigation_and_search(){
         class=""
       >
       <span class="">
-        <?php get_icon('user', 'solid'); ?>
+      <?php echo get_avatar( $current_user->ID, $size = '30'); ?>
+        <?php //get_icon('user', 'solid'); ?>
       </span>
       </a>
     </div>
