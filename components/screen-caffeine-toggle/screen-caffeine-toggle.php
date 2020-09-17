@@ -38,7 +38,7 @@ function screen_caffeine_toggle( $atts ) {
             </div>
           </label>
       `
-      const parentEl = document.querySelector('<? echo $parent_selector; ?>')
+      const parentEl = document.querySelector('<?php echo $parent_selector; ?>')
       if(parentEl){
         parentEl.appendChild(el)
       }
