@@ -17,7 +17,7 @@ $user_id = $user->ID;
 		<main class="dashboard">
 			<section class="my-downloads">
 				<ul class="grid">
-					<?php 
+					<?php
 						$downloads = nhm_user_downloads($user_id, '-1');
 						foreach($downloads as $download){
 							product_card($download);
