@@ -5,7 +5,6 @@ const noSleep = new NoSleep();
 window.addEventListener("DOMContentLoaded", initScreenCaffeine);
 function initScreenCaffeine() {
   if (!document.querySelector(".wake-lock-toggle")) return;
-
   const allToggles = [...document.querySelectorAll(".wake-lock-toggle input")];
   allToggles.forEach((toggle) =>
     toggle.addEventListener("change", toggleScreenCaffeine)
@@ -29,11 +28,14 @@ function rememberSetting() {
 }
 
 function caffeinateScreen() {
+  noSleep.enable();
   const allToggles = [...document.querySelectorAll(".wake-lock-toggle input")];
   allToggles.forEach((toggle) => (toggle.checked = true));
+
   window.localStorage.setItem("isScreenCaffeinated", "true");
 }
 function decaffeinateScreen() {
+  noSleep.disable();
   const allToggles = [...document.querySelectorAll(".wake-lock-toggle input")];
   allToggles.forEach((toggle) => (toggle.checked = false));
   window.localStorage.setItem("isScreenCaffeinated", "false");

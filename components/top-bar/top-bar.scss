@@ -51,6 +51,14 @@
     background: var(--input-bg--hover);
   }
 }
+.top-bar .button-group {
+  button:hover,
+  a:hover {
+    img {
+      opacity: 0.75;
+    }
+  }
+}
 .top-bar .button-group button svg {
   width: 1.2em;
 }
