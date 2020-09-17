@@ -32,10 +32,10 @@ function util_navigation_and_search(){
       <a 
         data-part="profile-link" 
         href="/my-account" 
-        class=""
+        class="profile"
       >
-      <span class="">
-      <?php echo get_avatar( $current_user->ID, $size = '30'); ?>
+      <span class="profile-icon">
+      <?php echo get_avatar( wp_get_current_user()->ID, $size = '100'); ?>
         <?php //get_icon('user', 'solid'); ?>
       </span>
       </a>

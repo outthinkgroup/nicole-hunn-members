@@ -8,8 +8,8 @@
 }
 .top-bar button,
 .top-bar a {
-  background: transparent;
   color: #718096;
+  background-color: var(--input-bg);
   &:hover {
     background-color: var(--input-bg--hover);
   }
@@ -50,6 +50,9 @@
   &:active {
     background: var(--input-bg--hover);
   }
+}
+.top-bar .button-group button svg {
+  width: 1.2em;
 }
 
 .top-bar > *:not(:last-child) {

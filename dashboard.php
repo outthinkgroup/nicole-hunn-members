@@ -55,7 +55,7 @@ $user_id = $user->ID;
 						}
 					?>
 				</ul>
-				<a href="/my-account/downloads" class="viewall">View all My Downloads &rarr;</a>
+				<a href="/member-updates/" class="viewall">View all My Downloads &rarr;</a>
 			</section>
 			<section class="bonus">
 				<h3>Bonus Content & Updates</h3>
