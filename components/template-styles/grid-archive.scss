@@ -115,8 +115,23 @@ li {
   grid-template-columns: repeat(auto-fill, 250px);
   --card-mx-width: 270px;
 }
+@media (max-width: 1233px) {
+  .archive-template-layout .recipes .grid {
+    --card-mx-width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 450px) {
+  .archive-template-layout .recipes .grid {
+    display: grid;
+    --card-max-width: 270px;
+    gap: 20px;
+  }
+}
+
 @media (max-width: 650px) {
   .archive-template-layout .product-card {
+    --card-mx-width: 270px;
     margin: 0 auto 20px;
   }
 }

@@ -13,6 +13,7 @@ function product_card($product=null, $forced_type=null){
     <div class="card-bottom">
       <?php echo apply_filters('card_bottom','',$product); ?>
     </div>
+    <?php do_action('end_of_card', $product); ?>
   </div>  
   <?php
 }

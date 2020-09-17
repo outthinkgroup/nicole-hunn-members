@@ -17,7 +17,7 @@ $user_id = $user->ID;
 		<main class="dashboard">
 			<section class="my-downloads">
 				<ul class="grid">
-				<?php 
+				<?php
 						$allposts = get_posts();
 						foreach($allposts as $thispost){
 							product_card($thispost);

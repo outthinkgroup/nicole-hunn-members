@@ -2,7 +2,7 @@
 
 function get_logo(){
   ?>
-  <a data-part="logo" class="logo-container" href="/">
+  <a data-part="logo" class="logo-container" href="/dashboard">
     <div class=" logo">
       <img 
         class="" 

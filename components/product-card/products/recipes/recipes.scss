@@ -1,25 +1,28 @@
-.card-top .top-left-corner {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-}
+.product-card {
+  position: relative;
+  .top-left-corner {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
 
-.top-left-corner .add-recipe-to-list .button-lists {
-  top: calc(100% + 5px);
-  left: 0;
-  width: 210px;
-}
+  .top-left-corner .add-recipe-to-list .button-lists {
+    top: calc(100% + 5px);
+    left: 0;
+    width: 210px;
+  }
 
-.top-left-corner .add-recipe-to-list > button.icon-button {
-  border-radius: 50%;
-  padding: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  .icon {
-    padding: 0;
+  .top-left-corner .add-recipe-to-list > button.icon-button {
+    border-radius: 50%;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    .icon {
+      padding: 0;
+    }
   }
 }
 

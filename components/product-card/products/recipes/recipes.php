@@ -10,7 +10,7 @@ function nhm_all_recipes(){
   return $recipes;
 }
 
-add_action( 'after_product_card_image', function($product){
+add_action( 'end_of_card', function($product){
   if($product->post_type !== 'recipe') return;
   if(!is_user_logged_in()) return;
   ?>
@@ -39,3 +39,4 @@ add_filter('card_bottom', function($card_bottom_markup, $product){
   $card_bottom_markup .= ob_get_clean();
   return $card_bottom_markup;
 }, 10, 2);
+
