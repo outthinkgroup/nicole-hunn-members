@@ -143,3 +143,11 @@ function gov_get_video_id_from_url($url) {
 		}	
 	}
 }
+
+//Recipe Title filter to add add to collections button beside
+add_filter('the_title', function($title, $id){
+  if(is_single() && ( get_post_type($id) === 'recipe' )){
+    $title = '<span class="title-add-to-collections">' . do_shortcode('[add_recipe_button  icon_button=true]') . '</span> ' . $title;
+  }
+  return $title;
+},10, 2);

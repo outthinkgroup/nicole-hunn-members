@@ -1,89 +1,131 @@
 .ingredients-list li {
-    cursor: pointer;
-    margin-bottom: 13px;
-    list-style: none;
-    padding-left: 0px;
-    margin-left: 0px;
-  
+  cursor: pointer;
+  margin-bottom: 13px;
+  list-style: none;
+  padding-left: 0px;
+  margin-left: 0px;
+
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    font-size: 18px;
+    margin-right: 7px;
+    content: "\f111";
+    text-decoration: none !important;
+    font-style: normal !important;
+    margin-left: -25px;
+  }
+
+  &.checked {
+    color: #ccc;
+
     &::before {
-      font-family: 'Font Awesome 5 Free';
-      font-size: 18px;
-      margin-right: 7px;
-      content: '\f111';
-      text-decoration: none !important;
-      font-style: normal !important;
-      margin-left: -25px;
-    }
-  
-    &.checked {
-      color: #ccc;
-  
-      &::before {
-        color: var(--light-blue);
-        text-decoration: none;
-        font-style: normal;
-        content: '\f058';
-      }
+      color: var(--light-blue);
+      text-decoration: none;
+      font-style: normal;
+      content: "\f058";
     }
   }
-  
-  .uabb-tab-current a.uabb-tab-link {
-    background: #fff;
-    border: 1px solid #000;
-    border-bottom: 1px solid #fff;
-  }
-  
-  a.uabb-tab-link {
-    margin-bottom: -1px;
-    border: 1px solid #ddd;
-    background: #efefef;
-    border-bottom: 1px solid #000;
-  }
+}
+
+.uabb-tab-current a.uabb-tab-link {
+  background: #fff;
+  border: 1px solid #000;
+  border-bottom: 1px solid #fff;
+}
+
+a.uabb-tab-link {
+  margin-bottom: -1px;
+  border: 1px solid #ddd;
+  background: #efefef;
+  border-bottom: 1px solid #000;
+}
 // This should probably go away.
-  
-  .step-list {
-    clear: both;
-    list-style: none;
-  
-    > li {
-      padding-top: 1em;
-      display: block;
-      position: relative;
-      counter-increment: inst;
-  
-      &::before {
-        content: counter(inst);
-        background: var(--light-blue);
-        color: #fff;
-        font-weight: 700;
-        text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
-        border-radius: 50%;
-        font-size: 30px;
-        line-height: 30px;
-        text-align: center;
-        left: -7%;
-        padding: 0px;
-        top: 16px;
-        height: 36px;
-        margin: 0px;
-        width: 36px;
-        position: absolute;
-        transition: all 0.2s ease-in-out;
-        z-index: -1;
-      }
-    }
-  }
-  
-  @media (min-width: 33em) {
-    .step > li:before {
+
+.step-list {
+  clear: both;
+  list-style: none;
+
+  > li {
+    padding-top: 1em;
+    display: block;
+    position: relative;
+    counter-increment: inst;
+
+    &::before {
+      content: counter(inst);
+      background: var(--light-blue);
+      color: #fff;
+      font-weight: 700;
+      text-shadow: 1px 1px rgba(0, 0, 0, 0.25);
       border-radius: 50%;
-      font-size: 1.5em;
-      height: 1.35em;
-      margin-left: 2.5%;
-      padding-left: 0;
-      padding-top: 0;
-      top: -0.15em;
-      width: 1.35em;
+      font-size: 30px;
+      line-height: 30px;
+      text-align: center;
+      left: -7%;
+      padding: 0px;
+      top: 16px;
+      height: 36px;
+      margin: 0px;
+      width: 36px;
+      position: absolute;
+      transition: all 0.2s ease-in-out;
       z-index: -1;
     }
   }
+}
+
+@media (min-width: 33em) {
+  .step > li:before {
+    border-radius: 50%;
+    font-size: 1.5em;
+    height: 1.35em;
+    margin-left: 2.5%;
+    padding-left: 0;
+    padding-top: 0;
+    top: -0.15em;
+    width: 1.35em;
+    z-index: -1;
+  }
+}
+
+.uabb-heading .title-add-to-collections button .recipe-title .title-el,
+.uabb-heading .lists-action button .text,
+.uabb-heading .lists-action button .icon {
+  color: black !important;
+  svg {
+    fill: #888;
+  }
+}
+
+.title-add-to-collections {
+  display: inline-block;
+  @media (min-width: 650px) {
+    transform: translateY(-9px);
+  }
+  .add-recipe-to-list .button-lists {
+    top: calc(100% + 5px);
+    left: 0;
+    width: 210px;
+  }
+  .add-recipe-to-list > button.icon-button {
+    border-radius: 50%;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5em;
+    height: 2.5em;
+    line-height: 0;
+
+    .icon {
+      padding: 0;
+    }
+  }
+}
+.single__recipe-title {
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

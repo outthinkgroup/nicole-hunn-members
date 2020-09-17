@@ -689,6 +689,50 @@ a.uabb-tab-link {
     z-index: -1;
   }
 }
+.uabb-heading .title-add-to-collections button .recipe-title .title-el,
+.uabb-heading .lists-action button .text,
+.uabb-heading .lists-action button .icon {
+  color: black !important;
+}
+.uabb-heading .title-add-to-collections button .recipe-title .title-el svg,
+.uabb-heading .lists-action button .text svg,
+.uabb-heading .lists-action button .icon svg {
+  fill: #888;
+}
+
+.title-add-to-collections {
+  display: inline-block;
+}
+@media (min-width: 650px) {
+  .title-add-to-collections {
+    transform: translateY(-9px);
+  }
+}
+.title-add-to-collections .add-recipe-to-list .button-lists {
+  top: calc(100% + 5px);
+  left: 0;
+  width: 210px;
+}
+.title-add-to-collections .add-recipe-to-list > button.icon-button {
+  border-radius: 50%;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 0;
+}
+.title-add-to-collections .add-recipe-to-list > button.icon-button .icon {
+  padding: 0;
+}
+
+.single__recipe-title h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .wake-lock-toggle {
   position: relative;
   display: inline-block;
