@@ -259,3 +259,12 @@ function ld_redirect_to_lessons() {
 		exit;
 	}
 }
+
+//[course_title]
+add_shortcode('course_title', function(){
+    global $post;
+    $course_id = get_post_meta($post->ID, 'course_id', true);
+    $course = get_post($course_id);
+
+    return $course->post_title;
+});
