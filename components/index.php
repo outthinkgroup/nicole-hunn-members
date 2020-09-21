@@ -18,3 +18,5 @@ include_once NHM_DIR . "/components/recipe-formatting/recipe-formatting.php";
 include_once NHM_DIR . "/components/learndash/learndash.php";
 
 include_once NHM_DIR . "/components/screen-caffeine-toggle/screen-caffeine-toggle.php";
+
+include_once NHM_DIR . "/components/download-button/download-button.php";
