@@ -11,46 +11,7 @@ $user_id = $user->ID;
   </header>
 		
 		<main class="recipes">
-      <aside class="recipe-categories">
-        <div>
-
-        
-        <div class="filter-widget">
-          <h3>Filter Recipes by Title</h3>
-          <div class="search-wrapper">
-            <form class="search-bar shadow-sm" action="/" method="GET" data-action="filter">
-              <input 
-                placeholder="Filter"
-                type="search"
-                name="s"
-                value="<?php echo get_search_query() ?>"
-                id="s"
-              />
-              <button type="submit" >
-                <span >
-                  <?php get_icon('search', 'solid'); ?>
-                </span>
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div class="filter-widget">
-          <h3>Recipe Categories</h3>
-          <ul>
-          <?php
-            $categories = get_terms('recipe_category');
-            foreach($categories as $category){
-              ?>
-              <li >
-                <a class="shadow-sm card" href="<?php echo get_term_link($category); ?>" > <?php echo $category->name; ?></a>
-              </li>
-              <?php
-            }
-          ?>
-          </ul>
-        </div>
-      </aside>
+      <?php recipe_archive_sidebar(); ?>
       <div class="recipe-grids">
         <?php
       $categories = get_terms('recipe_category', array(
