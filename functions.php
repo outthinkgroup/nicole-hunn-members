@@ -11,7 +11,7 @@
 /**
  * Define Constants
  */
-define( 'CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION', '1.34.0' );
+define( 'CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION', '1.34df.0' );
 define('NHM_DIR', get_stylesheet_directory());
 define('NHM_URL', get_stylesheet_directory_uri());
 /**
@@ -20,7 +20,7 @@ define('NHM_URL', get_stylesheet_directory_uri());
 function child_enqueue_styles() {
 
 	wp_enqueue_style( 'nicole-hunn-members-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
-	wp_enqueue_style( 'nicole-hunn-members-global-css', get_stylesheet_directory_uri() . '/assets/global.css?1.32', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
+	wp_enqueue_style( 'nicole-hunn-members-global-css', get_stylesheet_directory_uri() . '/assets/global.css?1.22', array('astra-theme-css'), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION, 'all' );
 	wp_enqueue_script( 'nicole-hunn-members-global-js', get_stylesheet_directory_uri() . '/assets/global.js', array(), CHILD_THEME_NICOLE_HUNN_MEMBERS_VERSION,  true);
 	
 

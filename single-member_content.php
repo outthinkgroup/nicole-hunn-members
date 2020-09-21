@@ -22,17 +22,19 @@ global $post;
     </div>
   </header>
 
-  <main>
+  <main >
     
-    <figure>
+    <div class="">
+      <figure>
       <?php echo get_the_post_thumbnail(); ?>
     </figure>
-
-    <article>
-      <div class="downloads">
+    <div class="downloads">
         <h3>Download</h3>
         <?php get_download_buttons(); ?>
       </div>
+    </div>
+
+    <article>
       <?php 
       if ( have_posts() ) : 
           while ( have_posts() ) : the_post(); 

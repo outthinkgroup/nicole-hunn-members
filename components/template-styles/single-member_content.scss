@@ -24,19 +24,23 @@
     margin-bottom: 15px;
   }
   main {
+    border-radius: 4px;
+    box-shadow: var(--shadow-xl);
     position: relative;
     max-width: 860px;
-    padding: 20px;
+    padding: 30px 20px;
     margin: 0 auto;
     margin-top: -160px;
     background: white;
+    margin-bottom: 30px;
   }
   .downloads {
     padding: 10px;
     background: var(--input-bg);
-    margin-bottom: 20px;
+    margin-top: 20px;
     border-radius: 3px;
     h3 {
+      margin-top: 0;
       font-size: 1.5rem;
       margin-bottom: 5px;
     }
