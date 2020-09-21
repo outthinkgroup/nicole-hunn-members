@@ -1,0 +1,23 @@
+.ast-container {
+  min-height: var(--page-min-height);
+}
+.member-updates-single-layout {
+  padding-top: 30px;
+  padding-bottom: 0px;
+  background: var(--input-bg);
+  min-height: inherit;
+  display: flex;
+  .wrapper {
+    max-width: 762px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: white;
+    min-height: fill-available;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: var(--shadow-xl);
+  }
+  header {
+    margin-bottom: 40px;
+  }
+}
