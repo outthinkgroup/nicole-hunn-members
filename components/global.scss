@@ -15,6 +15,9 @@
   --theme-color: var(--gold);
   --secondary: var(--blue-base);
   --link-color: var(--light-blue);
+
+  //other defaults
+  --header-bg: url("../images/fresco-pizza-top.jpg");
 }
 @import "/shared.scss";
 @import "/typeography.scss";
@@ -23,6 +26,7 @@
 @import "/template-styles/grid-archive.scss";
 @import "/template-styles/recipe-collections.scss";
 @import "/template-styles/single-lists.scss";
+@import "/template-styles/single-member_content.scss";
 @import "/post-type-grid/post-type-grid.scss";
 @import "/recipe-formatting/recipe-formatting.scss";
 @import "/screen-caffeine-toggle/screen-caffeine-toggle.scss";
@@ -40,7 +44,7 @@ ul.grid {
         var(--cols, 3),
         minmax(var(--min-col-width, 0), 1fr)
       );
-    gap: 20px;
+    gap: var(--grid-gap, 20px);
     > div,
     > li {
       margin: 0;
@@ -53,6 +57,16 @@ ul.grid {
     margin-bottom: 20px;
     height: 100%;
   }
+}
+
+@media (min-width: 450px) {
+  .flex {
+    display: flex;
+  }
+}
+.flex-start {
+  justify-content: flex-start;
+  align-items: center;
 }
 
 label {

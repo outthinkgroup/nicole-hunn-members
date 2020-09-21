@@ -11,4 +11,4 @@ function e(e){return o(e)||n(e)||r(e)||t()}function t(){throw new TypeError("Inv
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./global-sidebar/global-sidebar.js"),require("./top-bar/top-bar.js"),require("./product-card/products/recipe-collection/recipe-collection.js"),require("./product-card/products/recipes/collection-single-recipes.js"),require("./index.scss");
 },{"./global-sidebar/global-sidebar.js":"rVf6","./top-bar/top-bar.js":"vyUn","./product-card/products/recipe-collection/recipe-collection.js":"i2Oc","./product-card/products/recipes/collection-single-recipes.js":"E3GJ","./index.scss":"eHzx"}]},{},["Focm"], null)
-//# sourceMappingURL=/index.js.map
+//# sourceMappingURL=index.js.map
