@@ -12,10 +12,12 @@ async function updateThemeVersion() {
   writeFileAsync(FILE, newContent);
 }
 //increments the version by 1
-function updater(match) {
-  const version = Number(match);
-  const newVersion = version + 1;
-  return newVersion;
+function updater() {
+  return "xxxxxyxx-xyxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c === "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
 }
 
 function readFileAsync(path) {

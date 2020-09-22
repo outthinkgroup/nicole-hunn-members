@@ -1,0 +1,51 @@
+.main-header-bar-navigation .main-navigation {
+  padding: 10px 0;
+  a {
+    line-height: 1.4;
+    padding: 8px 10px;
+    font-weight: bold;
+    letter-spacing: 0.75px;
+  }
+  .login-btn a {
+    display: inline-flex;
+    background-color: var(--theme-color);
+    padding-left: 12px;
+    padding-right: 12px;
+    padding: 5px 16px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: var(--shadow-md);
+    color: white;
+    &:hover {
+      color: white;
+
+      background-image: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.1) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.1) 75%,
+        transparent 75%,
+        transparent
+      );
+      background-repeat: repeat-x;
+      background-size: 3rem 3rem;
+      animation: hover-animation 2s linear 0s infinite;
+    }
+    @keyframes hover-animation {
+      from {
+        background-position-x: 0%;
+      }
+      to {
+        background-position-x: 150%;
+      }
+    }
+  }
+}
+.ast-theme-transparent-header .main-navigation {
+  a {
+    color: white;
+  }
+}
