@@ -15,11 +15,12 @@ jobs:
       - uses: actions/setup-node@v1.4.3
         width:
           version: 14x
+
       - name: Install dependencies
-      - run: npm install
+        run: npm install
 
       - name: Build
-      - run: npm run build
+        run: npm run build
 
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@2.0.0
