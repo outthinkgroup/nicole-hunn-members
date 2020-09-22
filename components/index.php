@@ -22,3 +22,5 @@ include_once NHM_DIR . "/components/screen-caffeine-toggle/screen-caffeine-toggl
 include_once NHM_DIR . "/components/download-button/download-button.php";
 
 include_once NHM_DIR . "/components/recipe-archive-sidebar/recipe-archive-sidebar.php";
+
+include_once NHM_DIR . "/components/woocommerce-welcome/woocommerce-welcome.php";
