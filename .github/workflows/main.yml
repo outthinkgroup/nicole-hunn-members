@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@main
 
       - uses: actions/setup-node@v1.4.3
-        width:
+        with:
           version: 14.x
 
       - name: Install dependencies
