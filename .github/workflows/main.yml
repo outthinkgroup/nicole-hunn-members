@@ -1,27 +1,36 @@
 name: DEPLOY
 
-on: 
+on:
   pull_request:
-    branches: 
+    branches:
       - production
-  
 
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@2.0.0
-      with:
-        port: 22
-        method: sftp
-      env:
-        FTP_SERVER: 35.245.151.137
-        FTP_USERNAME: ${{ secrets.SERVER_USER }}
-        FTP_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
-        REMOTE_DIR: /www/${{secrets.SERVER_USER}}_933/public/wp-content/themes/nicole-hunn-members
-        ARGS: --delete
-        PORT: 36541
-        METHOD: sftp
+      - uses: actions/checkout@main
+
+      - uses: actions/setup-node@v1.4.3
+        width:
+          version: 14x
+      - name: Install dependencies
+      - run: npm install
+
+      - name: Build
+      - run: npm run build
+
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
+        with:
+          port: 22
+          method: sftp
+        env:
+          FTP_SERVER: 35.245.151.137
+          FTP_USERNAME: ${{ secrets.SERVER_USER }}
+          FTP_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+          REMOTE_DIR: /www/${{secrets.SERVER_USER}}_933/public/wp-content/themes/nicole-hunn-members
+          ARGS: --delete
+          PORT: 36541
+          METHOD: sftp
