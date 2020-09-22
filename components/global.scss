@@ -33,6 +33,9 @@
   --shadow-outline: 0 0 0 3px rgba(66, 153, 225, 0.5);
   --shadow-none: none;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+  //fonts
+  --heading-font: "Berkshire Swash", handwriting;
 }
 @import "/shared.scss";
 @import "/typeography.scss";
@@ -43,10 +46,12 @@
 @import "/template-styles/single-lists.scss";
 @import "/template-styles/single-member_content.scss";
 @import "/template-styles/member-updates.scss";
+@import "/template-styles/woocommerce-thankyou.scss";
 @import "/post-type-grid/post-type-grid.scss";
 @import "/recipe-formatting/recipe-formatting.scss";
 @import "/screen-caffeine-toggle/screen-caffeine-toggle.scss";
 @import "/non-logged-in-nav/non-logged-in-nav.scss";
+
 ul.grid {
   margin: 0;
   padding: 0;

@@ -1,0 +1,58 @@
+.woocommerce .woo-welcome {
+  background: hsl(210, 38%, 95%);
+  border-radius: 10px;
+  box-shadow: var(--shadow-2xl);
+  padding: 30px 20px;
+  margin-bottom: 50px;
+  text-align: center;
+  a {
+    display: inline-flex;
+    background-color: var(--theme-color);
+    padding-left: 12px;
+    padding-right: 12px;
+    padding: 10px 26px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: var(--shadow-md);
+    font-weight: bold;
+    color: white;
+    &:hover {
+      color: white;
+
+      background-image: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.1) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.1) 75%,
+        transparent 75%,
+        transparent
+      );
+      background-repeat: repeat-x;
+      background-size: 3rem 3rem;
+      animation: hover-animation 2s linear 0s infinite;
+    }
+    @keyframes hover-animation {
+      from {
+        background-position-x: 0%;
+      }
+      to {
+        background-position-x: 150%;
+      }
+    }
+  }
+}
+.woocommerce-order-received {
+  h2 {
+    font-size: 3em;
+  }
+  .fl-builder-content > .fl-row {
+    margin: 0 auto;
+    max-width: 860px;
+  }
+  header {
+    display: none;
+  }
+}
