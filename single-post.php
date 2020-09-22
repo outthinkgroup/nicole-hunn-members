@@ -25,6 +25,13 @@ global $post;
         </article>
       </main>
     </div>
+    <div class="comments-wrapper">
+      <?php
+      if (comments_open()){
+        comments_template();
+      }
+      ?>
+    </div>
 	</div>
 
 

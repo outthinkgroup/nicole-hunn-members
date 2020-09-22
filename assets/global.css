@@ -27,6 +27,7 @@
   --shadow-outline: 0 0 0 3px rgba(66, 153, 225, 0.5);
   --shadow-none: none;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --heading-font: "Berkshire Swash", handwriting;
 }
 
 [data-part=global-sidebar-container] h2,
@@ -692,6 +693,13 @@ a {
   background: var(--input-bg);
   min-height: inherit;
   display: flex;
+  flex-direction: column;
+}
+.member-updates-single-layout header {
+  margin-bottom: 40px;
+}
+.member-updates-single-layout header h2 {
+  color: var(--blue-base);
 }
 .member-updates-single-layout .wrapper {
   max-width: 762px;
@@ -702,11 +710,34 @@ a {
   min-height: -moz-available;
   min-height: fill-available;
   width: 100%;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 10px;
   box-shadow: var(--shadow-xl);
 }
-.member-updates-single-layout header {
-  margin-bottom: 40px;
+
+.member-updates-single-layout .comments-wrapper {
+  max-width: 762px;
+  padding: 20px 30px 40px;
+  margin: 0 auto;
+  width: 100%;
+}
+.member-updates-single-layout .comments-wrapper h3 {
+  font-family: var(--heading-font);
+}
+.member-updates-single-layout .comments-wrapper #comments {
+  padding: 0;
+}
+.member-updates-single-layout .comments-wrapper #comments textarea,
+.member-updates-single-layout .comments-wrapper #comments input[type=text] {
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+.member-updates-single-layout .comments-wrapper #comments input[type=submit] {
+  background-color: var(--blue-light);
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.member-updates-single-layout .comments-wrapper #comments input[type=submit]:hover {
+  background-color: var(--blue-dark);
 }
 
 .grid li {
