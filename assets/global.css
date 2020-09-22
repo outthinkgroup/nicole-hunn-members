@@ -829,6 +829,34 @@ a.uabb-tab-link {
   fill: #888;
 }
 
+li[data-in-list] button {
+  position: relative;
+}
+li[data-in-list] button:after {
+  content: "Already in Collection";
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  transition: transform 0.2s ease-in, opacity 0.15s linear;
+  opacity: 0;
+  transform: translateX(calc(100% + 5px)) translateY(-50%);
+  right: 5px;
+  display: block;
+  background: #2cadba;
+  color: white;
+  border-radius: 4px;
+  box-shadow: var(--shadow-sm);
+  font-size: 12px;
+  padding: 5px;
+}
+
+li[data-in-list] button:hover:after,
+li[data-in-list] button:active:after,
+li[data-in-list] button:focus:after {
+  opacity: 1;
+  transform: translateX(0%) translateY(-50%);
+}
+
 .title-add-to-collections {
   display: inline-block;
 }
