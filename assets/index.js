@@ -378,6 +378,42 @@ function handleDeleteFromList(e) {
     }
   });
 }
+},{}],"learndash/course-sidebar.js":[function(require,module,exports) {
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+window.addEventListener("load", courseScriptsInit);
+
+function courseScriptsInit() {
+  if (!document.getElementById("course_navigation")) return;
+
+  var modules = _toConsumableArray(document.querySelectorAll(".learndash_navigation_lesson_topics_list > div"));
+
+  modules.forEach(function (topic, index) {
+    var lessons = _toConsumableArray(topic.querySelectorAll(".topic_item"));
+
+    var totalLessons = lessons.length;
+    var completedLessons = lessons.filter(function (lesson) {
+      return lesson.querySelector(".topic-completed");
+    });
+    var totalCompletedLessons = completedLessons.length > 0 ? completedLessons.length : 0;
+    var percentCompleted = "".concat(Math.floor(totalCompletedLessons / totalLessons * 100));
+    topic.style.setProperty("--module-progress", percentCompleted);
+
+    if (percentCompleted === "100") {
+      topic.classList.add("completed");
+    }
+  });
+}
 },{}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
@@ -461,8 +497,10 @@ require("./product-card/products/recipe-collection/recipe-collection.js");
 
 require("./product-card/products/recipes/collection-single-recipes.js");
 
+require("./learndash/course-sidebar.js");
+
 require("./member.scss");
-},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./member.scss":"member.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./learndash/course-sidebar.js":"learndash/course-sidebar.js","./member.scss":"member.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -490,7 +528,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61224" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51948" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
