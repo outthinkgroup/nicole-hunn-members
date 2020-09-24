@@ -637,7 +637,7 @@ a {
   text-align: center;
   color: white;
   background-image: var(--header-bg);
-  padding: 150px 0px;
+  padding: 75px 0px 150px;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -652,6 +652,27 @@ a {
 .member_content-single-layout header .wrapper {
   position: relative;
   z-index: 2;
+}
+.member_content-single-layout header .content_type {
+  font-size: 1.54em;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 35px;
+}
+.member_content-single-layout header .content_type:hover {
+  color: var(--theme-color);
+}
+.member_content-single-layout header .content_type:after {
+  content: "";
+  width: 75%;
+  height: 3px;
+  background: white;
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .member_content-single-layout h2 {
   color: inherit;
