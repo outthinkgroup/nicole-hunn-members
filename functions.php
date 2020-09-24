@@ -74,3 +74,14 @@ add_action( 'wp_ajax_nhm_clear_notification', function(){
 function user_was_notified($user_id){
 	return update_user_meta($user_id, 'should_notify_user', 'false');
 }
+
+
+//archive pages
+function get_taxonomy_term_title(){
+  return get_queried_object()->name;
+}
+function get_taxonomy_title(){
+  $taxonomy_slug = get_queried_object()->taxonomy;
+  $taxonomy = get_taxonomy($taxonomy_slug);
+  return $taxonomy->labels->singular_name;
+}

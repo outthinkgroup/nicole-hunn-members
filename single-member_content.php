@@ -8,6 +8,7 @@ $user = wp_get_current_user();
 $user_id = $user->ID;
 global $post;
 
+$type = get_the_terms($post,'content_type')[0];
 
 ?>
 
@@ -15,6 +16,9 @@ global $post;
   
   <header>
     <div class="wrapper">
+      <a href="/content_type/<?php echo $type->slug;?>" class="content_type">
+        <?php echo $type->name; ?>
+      </a>
       <h2><?php echo the_title(); ?></h2>
       <div>
         <img src="<?php echo NHM_URL . '/images/frill.jpg'?>" alt="">

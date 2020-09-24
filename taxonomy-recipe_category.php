@@ -27,11 +27,3 @@ $user_id = $user->ID;
 <?php get_footer(); ?>
 
 <?php
-function get_taxonomy_term_title(){
-  return get_queried_object()->name;
-}
-function get_taxonomy_title(){
-  $taxonomy_slug = get_queried_object()->taxonomy;
-  $taxonomy = get_taxonomy($taxonomy_slug);
-  return $taxonomy->labels->singular_name;
-}

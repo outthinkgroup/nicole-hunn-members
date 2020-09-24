@@ -3,7 +3,7 @@
     text-align: center;
     color: white;
     background-image: var(--header-bg);
-    padding: 150px 0px;
+    padding: 75px 0px 150px;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -17,6 +17,27 @@
     .wrapper {
       position: relative;
       z-index: 2;
+    }
+    .content_type {
+      font-size: 1.54em;
+      color: white;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 35px;
+      &:hover {
+        color: var(--theme-color);
+      }
+      &:after {
+        content: "";
+        width: 75%;
+        height: 3px;
+        background: white;
+        position: absolute;
+        bottom: -16px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
   }
   h2 {
