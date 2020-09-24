@@ -125,3 +125,8 @@ label {
   margin: 0 auto;
   padding: 30px 20px 0;
 }
+@media screen {
+  .print-only {
+    display: none;
+  }
+}
