@@ -48,7 +48,7 @@ add_action('after_product_card_image', function($product){
 }, 10, 1);
 
 add_action('product_card_no_image', function($replaced_image, $product){
-  if($product->post_type !== 'lists') return;
+  if($product->post_type !== 'lists') return $replaced_image;
 
   $count=0;
   $recipe_ids = get_post_meta($product->ID, 'list_items', true);

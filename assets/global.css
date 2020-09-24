@@ -260,7 +260,7 @@ a svg {
 .product-card.post-type-lists {
   height: 100%;
 }
-.product-card.post-type-lists button[data-action=delete-list] {
+.product-card.post-type-lists button[data-action=warn-delete-list] {
   color: #df9393;
   background: rgba(255, 255, 255, 0.85);
 }
