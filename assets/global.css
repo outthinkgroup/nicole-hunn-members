@@ -290,9 +290,21 @@ a svg {
   margin-bottom: 15px;
 }
 
-.product-card.post-type-download .card-top img {
+.product-card.post-type-member_content .card-top img {
   -o-object-position: 50% 0%;
      object-position: 50% 0%;
+}
+.product-card.post-type-member_content .tag {
+  background: var(--input-bg);
+  color: #5b687b;
+  padding: 0 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.product-card.post-type-member_content .tag:hover {
+  color: var(--link-color);
 }
 
 .product-card {

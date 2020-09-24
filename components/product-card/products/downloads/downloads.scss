@@ -1,5 +1,19 @@
-.product-card.post-type-download .card-top {
-  img {
-    object-position: 50% 0%;
+.product-card.post-type-member_content {
+  .card-top {
+    img {
+      object-position: 50% 0%;
+    }
+  }
+  .tag {
+    background: var(--input-bg);
+    color: hsl(216, 15%, 42%);
+    padding: 0 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    &:hover {
+      color: var(--link-color);
+    }
   }
 }
