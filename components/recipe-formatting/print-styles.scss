@@ -1,0 +1,30 @@
+.top-bar,
+.global-sidebar,
+.site-header,
+.title-add-to-collections,
+.recipe-video,
+.wake-lock-toggle,
+.post-navigation,
+.uabb-tabs-nav,
+.fl-module-separator,
+.ast-scroll-top {
+  display: none;
+}
+html #content h3 {
+  font-family: "Berkshire Swash", handwriting;
+}
+.uabb-tabs .uabb-content-wrap .section {
+  display: block;
+}
+.recipe-info-row {
+  padding-top: 20px;
+}
+//Tabs module
+.fl-module-advanced-tabs {
+  > div {
+    margin: 0;
+  }
+  .uabb-tabs-desc {
+    margin: 20px 0px;
+  }
+}
