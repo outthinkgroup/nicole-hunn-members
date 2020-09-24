@@ -130,3 +130,15 @@ label {
     display: none;
   }
 }
+
+section.post-collection {
+  padding: 30px 0;
+  h3 {
+    font-family: "Berkshire Swash", handwriting;
+    margin-bottom: 1em;
+    color: var(--secondary);
+  }
+  &:first-child {
+    padding-top: 0;
+  }
+}

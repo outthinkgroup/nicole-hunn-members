@@ -31,4 +31,9 @@
       margin-bottom: 15px;
     }
   }
+  &.hide-functionality {
+    button {
+      display: none;
+    }
+  }
 }

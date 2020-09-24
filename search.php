@@ -1,52 +1,41 @@
 <?php
-
+global $wp_query;
 get_header();
 ?>
-<div class="custom-wrapper archive-template-layout">
-  <header style="--header-bg:url('/wp-content/uploads/2020/01/fresco-pizza-top.jpg');">
-    <h2>Search</h2>
+<div class="archive-template-layout">
+  <header style="--header-bg:url('/wp-content/uploads/2020/01/fresco-pizza-top.jpg'); padding:50px;">
+    <h2>
+      Searched for: <?php echo get_search_query() ?>
+    </h2>
   </header>
 		
 		<main class="page-mx-width">
       <div class="recipe-grids">
         <?php
-      // $categories = get_terms('recipe_category', array(
-      //   'orderby' => 'count',
-      //   'order' => 'DESC'
-      // ));
-      // $category_cache = [];
-      // foreach($categories as $category){
-      //   //var_dump($category);
-      //   $args = array(
-      //     'post_type' => 'recipe',
-      //     //'posts_per_page' => ,
-      //     'tax_query' => array(
-      //       'relation'  => 'AND',
-      //       array(
-      //         'taxonomy' => 'recipe_category',
-      //         'field'    => 'slug',
-      //         'terms'    => $category->slug,
-      //       ),
-      //       array(
-      //         'operator'  => 'NOT IN',
-      //         'taxonomy' => 'recipe_category',
-      //         'field'    => 'slug',
-      //         'terms'    => $category_cache,
-      //       )
-      //     ),
-      //   );
-        // $query = query_posts($args);
-        // if( have_posts()){
+          $searched_posts = $wp_query->posts;
+          $post_type_group = [];
+          foreach($searched_posts as $s_post){
+            $post_type = get_post_type_object($s_post->post_type);
+            $post_type_group[$post_type->label][] = $s_post;
+          }
+          foreach($post_type_group as $post_type=>$posts){
           ?>
-          <section>
-            <!-- <h3> <?php echo $category->name; ?></h3> -->
-            <?php wp_loop_post_grid(); ?>
+          <section class="post-collection">
+            <h3> <?php echo $post_type; ?></h3>
+            <ul class="grid">
+
+              <?php
+            foreach($posts as $_post){ ?>
+              
+                <?php product_card($_post);?>
+              
+              <?php } ?>
+            </ul>
           </section>
           <?php
-          // $category_cache[] = $category->slug;
-        // }
-      // }
-      // wp_reset_postdata(); 
+            
+          }
+          
       ?>
     </div> 
     </div>     
@@ -55,4 +44,18 @@ get_header();
 
 
 <?php
- get_footer();
+get_footer();
+
+/* 
+create list of all post types
+loop through post types 
+  loop through all the post and if is same post type
+  show that post
+  remove post from array
+
+create an array of arrays of post types and put each post in to corresponding key
+create parent array
+loop through all posts
+push post into array[post_type][] = post
+
+*/

@@ -42,7 +42,7 @@ $user_id = $user->ID;
         $query = query_posts($args);
         if( have_posts()){
           ?>
-          <section>
+          <section class="post-collection">
             <h3> <?php echo $category->name; ?></h3>
             <?php wp_loop_post_grid('recipe'); ?>
           </section>
