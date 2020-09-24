@@ -19,8 +19,8 @@ include_once NHM_DIR . '/theme-version.php';
  */
 function child_enqueue_styles() {
 
-	wp_enqueue_style( 'nicole-hunn-members-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), NHM_VERSION, 'all' );
-	wp_enqueue_style( 'nicole-hunn-members-global-css', get_stylesheet_directory_uri() . '/assets/global.css', array('astra-theme-css'), NHM_VERSION, 'all' );
+	wp_enqueue_style( 'nicole-hunn-members-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), NHM_VERSION, 'screen' );
+	wp_enqueue_style( 'nicole-hunn-members-global-css', get_stylesheet_directory_uri() . '/assets/global.css', array('astra-theme-css'), NHM_VERSION, 'screen' );
 	wp_enqueue_script( 'nicole-hunn-members-global-js', get_stylesheet_directory_uri() . '/assets/global.js', array(), NHM_VERSION,  true);
 	
 

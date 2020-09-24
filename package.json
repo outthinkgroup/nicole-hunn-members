@@ -10,8 +10,8 @@
     "postcss-nested": "^4.2.3"
   },
   "scripts": {
-    "dev": "parcel watch components/index.js components/global.js components/flour-calc/flour-calc.js --out-dir assets --public-url .",
-    "build": "parcel build components/index.js components/global.js components/flour-calc/flour-calc.js --out-dir assets --public-url .",
+    "dev": "parcel watch components/index.js components/global.js components/flour-calc/flour-calc.js components/recipe-formatting/print-styles.scss --out-dir assets --public-url .",
+    "build": "parcel build components/index.js components/global.js components/flour-calc/flour-calc.js components/recipe-formatting/print-styles.scss --out-dir assets --public-url .",
     "clean": "rm -r .cache && rm -r assets",
     "update-version": "node ./update-version.js"
   },
