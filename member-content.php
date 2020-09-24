@@ -7,14 +7,12 @@ $user = wp_get_current_user();
 $user_id = $user->ID;
 ?>
 
-	<div class="custom-wrapper dashboard">
+	<div class="archive-template-layout">
 		<header>
 			<h2><?php echo the_title(); ?></h2>
 		</header>
-		<aside class="dash-sidebar">
-
-		</aside>
-		<main class="dashboard">
+		
+		<main class="page-mx-width">
 			<section class="my-downloads">
 				<ul class="grid">
 					<?php
