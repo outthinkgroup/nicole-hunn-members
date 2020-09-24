@@ -7,7 +7,7 @@ function nhm_user_downloads($user_id, $num = 3){
 
 //adds the content_type to the card
 add_filter('card_bottom', function($card_bottom_markup, $product){
-  if($product->post_type !== 'member_content') return;
+  if($product->post_type !== 'member_content') return $card_bottom_markup;
   $type = get_the_terms($product, 'content_type')[0];
   ob_start();
   ?>

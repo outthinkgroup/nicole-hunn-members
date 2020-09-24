@@ -260,7 +260,7 @@ a svg {
 .product-card.post-type-lists {
   height: 100%;
 }
-.product-card.post-type-lists button[data-action=delete-list] {
+.product-card.post-type-lists button[data-action=warn-delete-list] {
   color: #df9393;
   background: rgba(255, 255, 255, 0.85);
 }
@@ -288,6 +288,9 @@ a svg {
 }
 .product-card.post-type-lists .default_msg_empty_list p {
   margin-bottom: 15px;
+}
+.product-card.post-type-lists.hide-functionality button {
+  display: none;
 }
 
 .product-card.post-type-member_content .card-top img {
@@ -470,17 +473,6 @@ img.avatar.photo {
     grid-template-columns: minmax(0, 1fr) 300px;
   }
 }
-.archive-template-layout main.recipes section {
-  padding: 30px 0;
-}
-.archive-template-layout main.recipes section h3 {
-  font-family: "Berkshire Swash", handwriting;
-  margin-bottom: 1em;
-  color: var(--secondary);
-}
-.archive-template-layout main.recipes section:first-child {
-  padding-top: 0;
-}
 
 .archive-template-layout header {
   text-align: center;
@@ -527,12 +519,12 @@ aside .widgets > div {
   margin-bottom: 30px;
 }
 
-.recipe-collections ul a {
+aside .recipe-collections ul a {
   display: block;
   background: var(--input-bg);
   color: var(--blue-dark);
 }
-.recipe-collections ul a .count {
+aside .recipe-collections ul a .count {
   text-align: center;
   display: inline-flex;
   width: 2em;
@@ -543,10 +535,10 @@ aside .widgets > div {
   background: var(--input-bg--hover);
   margin-right: 5px;
 }
-.recipe-collections ul a:hover {
+aside .recipe-collections ul a:hover {
   background: var(--input-bg--hover);
 }
-.recipe-collections ul a:hover .count {
+aside .recipe-collections ul a:hover .count {
   background: var(--input-bg);
 }
 
@@ -1223,6 +1215,17 @@ label {
   .print-only {
     display: none;
   }
+}
+section.post-collection {
+  padding: 30px 0;
+}
+section.post-collection h3 {
+  font-family: "Berkshire Swash", handwriting;
+  margin-bottom: 1em;
+  color: var(--secondary);
+}
+section.post-collection:first-child {
+  padding-top: 0;
 }
 
 /*# sourceMappingURL=global.css.map */

@@ -48,7 +48,7 @@ add_action('after_product_card_image', function($product){
 }, 10, 1);
 
 add_action('product_card_no_image', function($replaced_image, $product){
-  if($product->post_type !== 'lists') return;
+  if($product->post_type !== 'lists') return $replaced_image;
 
   $count=0;
   $recipe_ids = get_post_meta($product->ID, 'list_items', true);
@@ -77,3 +77,10 @@ add_action('product_card_no_image', function($replaced_image, $product){
   $replaced_image = ob_get_clean();
   return $replaced_image;
 }, 10, 2);
+
+add_filter('product_card_extra_classes', function($classes, $product){
+  if($product->post_type !== "lists" || !is_search()) return $classes;
+  
+  $classes .= 'hide-functionality';
+  return $classes;
+},10, 2);

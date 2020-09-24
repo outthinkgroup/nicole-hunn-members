@@ -6,7 +6,13 @@ function product_card($product=null, $forced_type=null){
     $product = apply_filters('empty_product_product_card', $product, $forced_type);
   }
   ?>
-  <div class="product-card post-type-<?php echo apply_filters('product_card_post_type',$product->post_type, $product); ?> ">
+  <div 
+    class="
+      product-card 
+      post-type-<?php echo apply_filters('product_card_post_type',$product->post_type, $product); ?> 
+      <?php echo apply_filters('product_card_extra_classes','', $product); ?>
+    "
+  >
     <div class="card-top">
       <?php echo apply_filters('card_top','', $product); ?>
     </div>

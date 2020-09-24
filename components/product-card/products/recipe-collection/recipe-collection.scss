@@ -1,6 +1,6 @@
 .product-card.post-type-lists {
   height: 100%;
-  button[data-action="delete-list"] {
+  button[data-action="warn-delete-list"] {
     color: #df9393;
     background: rgba(255, 255, 255, 0.85);
   }
@@ -29,6 +29,11 @@
     font-weight: 600;
     p {
       margin-bottom: 15px;
+    }
+  }
+  &.hide-functionality {
+    button {
+      display: none;
     }
   }
 }
