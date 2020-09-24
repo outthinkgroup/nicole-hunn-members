@@ -18,26 +18,37 @@ $user_id = $user->ID;
         'orderby' => 'count',
         'order' => 'DESC'
       ));
+      $category_cache = [];
       foreach($categories as $category){
         //var_dump($category);
         $args = array(
           'post_type' => 'recipe',
           //'posts_per_page' => ,
           'tax_query' => array(
+            'relation'  => 'AND',
             array(
               'taxonomy' => 'recipe_category',
               'field'    => 'slug',
               'terms'    => $category->slug,
             ),
+            array(
+              'operator'  => 'NOT IN',
+              'taxonomy' => 'recipe_category',
+              'field'    => 'slug',
+              'terms'    => $category_cache,
+            )
           ),
         );
-        query_posts($args);
-        ?>
-        <section>
-          <h3> <?php echo $category->name; ?></h3>
-          <?php wp_loop_post_grid('recipe'); ?>
-        </section>
-        <?php
+        $query = query_posts($args);
+        if( have_posts()){
+          ?>
+          <section>
+            <h3> <?php echo $category->name; ?></h3>
+            <?php wp_loop_post_grid('recipe'); ?>
+          </section>
+          <?php
+          $category_cache[] = $category->slug;
+        }
       }
       wp_reset_postdata(); 
       ?>
@@ -49,3 +60,16 @@ $user_id = $user->ID;
 
 <?php get_footer(); ?>
 
+<!-- 
+# Ideas
+- create a cache of already displayed recipes.
+before running wp_loop_post_grid run a array_filter 
+for posts in the cache to weed out the already dsiplayed
+
+- create a cache of already displayed categories.
+In the args query for query_posts include an
+exclude param for the posts in the already display categories
+
+
+
+ -->
