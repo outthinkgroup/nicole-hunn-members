@@ -604,4 +604,9 @@ STRUCTURE
   background: var(--blue-base);
 }
 
+.woocommerce-account article.page {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
 /*# sourceMappingURL=index.css.map */
