@@ -327,7 +327,10 @@ function handleShowDeleteUI(e) {
       }
     });
   }
-}
+} //add default new list link
+
+
+window.__FAVE_RECIPE.newListItemLink = "/recipes";
 },{}],"product-card/products/recipes/collection-single-recipes.js":[function(require,module,exports) {
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
