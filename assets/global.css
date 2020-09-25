@@ -750,7 +750,7 @@ a {
   min-height: var(--page-min-height);
 }
 
-.member-updates-single-layout {
+.nhm-default {
   padding-top: 30px;
   padding-bottom: 0px;
   background: var(--input-bg);
@@ -758,13 +758,13 @@ a {
   display: flex;
   flex-direction: column;
 }
-.member-updates-single-layout header {
+.nhm-default header {
   margin-bottom: 40px;
 }
-.member-updates-single-layout header h2 {
+.nhm-default header h2 {
   color: var(--blue-base);
 }
-.member-updates-single-layout .wrapper {
+.nhm-default .wrapper {
   max-width: 762px;
   margin: 0 auto;
   padding: 40px 30px;
@@ -777,29 +777,29 @@ a {
   box-shadow: var(--shadow-xl);
 }
 
-.member-updates-single-layout .comments-wrapper {
+.nhm-default .comments-wrapper {
   max-width: 762px;
   padding: 20px 30px 40px;
   margin: 0 auto;
   width: 100%;
 }
-.member-updates-single-layout .comments-wrapper h3 {
+.nhm-default .comments-wrapper h3 {
   font-family: var(--heading-font);
 }
-.member-updates-single-layout .comments-wrapper #comments {
+.nhm-default .comments-wrapper #comments {
   padding: 0;
 }
-.member-updates-single-layout .comments-wrapper #comments textarea,
-.member-updates-single-layout .comments-wrapper #comments input[type=text] {
+.nhm-default .comments-wrapper #comments textarea,
+.nhm-default .comments-wrapper #comments input[type=text] {
   border-radius: 8px;
   box-shadow: var(--shadow-md);
 }
-.member-updates-single-layout .comments-wrapper #comments input[type=submit] {
+.nhm-default .comments-wrapper #comments input[type=submit] {
   background-color: var(--blue-light);
   text-transform: capitalize;
   font-weight: bold;
 }
-.member-updates-single-layout .comments-wrapper #comments input[type=submit]:hover {
+.nhm-default .comments-wrapper #comments input[type=submit]:hover {
   background-color: var(--blue-dark);
 }
 

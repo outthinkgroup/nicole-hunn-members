@@ -1,7 +1,7 @@
 .ast-container {
   min-height: var(--page-min-height);
 }
-.member-updates-single-layout {
+.nhm-default {
   padding-top: 30px;
   padding-bottom: 0px;
   background: var(--input-bg);
@@ -28,7 +28,7 @@
   }
 }
 
-.member-updates-single-layout .comments-wrapper {
+.nhm-default .comments-wrapper {
   max-width: 762px;
   padding: 20px 30px 40px;
   margin: 0 auto;
