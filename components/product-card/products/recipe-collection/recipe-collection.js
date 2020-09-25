@@ -34,3 +34,5 @@ function handleShowDeleteUI(e) {
     });
   }
 }
+//add default new list link
+window.__FAVE_RECIPE.newListItemLink = "/recipes";
