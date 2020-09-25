@@ -145,6 +145,42 @@ a svg {
   padding: 0;
 }
 
+.customer-login #main .woocommerce button[type=submit], .main-header-bar-navigation .main-navigation .login-btn a {
+  display: inline-flex;
+  background-color: var(--theme-color);
+  padding-left: 12px;
+  padding-right: 12px;
+  padding: 5px 16px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+.customer-login #main .woocommerce button[type=submit]:hover, .main-header-bar-navigation .main-navigation .login-btn a:hover {
+  color: white;
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
+  background-repeat: repeat-x;
+  background-size: 3rem 3rem;
+  -webkit-animation: hover-animation 2s linear 0s infinite;
+          animation: hover-animation 2s linear 0s infinite;
+}
+@-webkit-keyframes hover-animation {
+  from {
+    background-position-x: 0%;
+  }
+  to {
+    background-position-x: 150%;
+  }
+}
+@keyframes hover-animation {
+  from {
+    background-position-x: 0%;
+  }
+  to {
+    background-position-x: 150%;
+  }
+}
+
 #primary h1,
 #primary h2 {
   font-family: "Berkshire Swash", cursive;
@@ -795,14 +831,6 @@ a {
   -webkit-animation: hover-animation 2s linear 0s infinite;
           animation: hover-animation 2s linear 0s infinite;
 }
-@-webkit-keyframes hover-animation {
-  from {
-    background-position-x: 0%;
-  }
-  to {
-    background-position-x: 150%;
-  }
-}
 @keyframes hover-animation {
   from {
     background-position-x: 0%;
@@ -1111,36 +1139,72 @@ li[data-in-list] button:focus:after {
   font-weight: bold;
   letter-spacing: 0.75px;
 }
-.main-header-bar-navigation .main-navigation .login-btn a {
-  display: inline-flex;
-  background-color: var(--theme-color);
-  padding-left: 12px;
-  padding-right: 12px;
-  padding: 5px 16px;
-  border-radius: 20px;
-  position: relative;
-  box-shadow: var(--shadow-md);
-  color: white;
-}
-.main-header-bar-navigation .main-navigation .login-btn a:hover {
-  color: white;
-  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
-  background-repeat: repeat-x;
-  background-size: 3rem 3rem;
-  -webkit-animation: hover-animation 2s linear 0s infinite;
-          animation: hover-animation 2s linear 0s infinite;
-}
-@keyframes hover-animation {
-  from {
-    background-position-x: 0%;
-  }
-  to {
-    background-position-x: 150%;
-  }
-}
-
 .ast-theme-transparent-header .main-navigation a {
   color: white;
+}
+
+body.customer-login {
+  background: #f4f7fa;
+}
+
+.customer-login main {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.customer-login header {
+  padding: 0;
+}
+
+.customer-login #main .woocommerce {
+  box-shadow: var(--shadow-xl);
+  border: none;
+  background: #fff;
+  font-size: 18px;
+  border-radius: 8px;
+  padding: 20px;
+}
+.customer-login #main .woocommerce input[type=text],
+.customer-login #main .woocommerce input[type=password] {
+  background: var(--input-bg);
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 18px;
+  height: 50px;
+  font-weight: normal;
+  border: 1px solid var(--input-bg--hover);
+}
+.customer-login #main .woocommerce input[type=text]:-webkit-autofill,
+.customer-login #main .woocommerce input[type=password]:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--input-bg) inset;
+}
+.customer-login #main .woocommerce input[type=text]:-webkit-autofill::first-line,
+.customer-login #main .woocommerce input[type=password]:-webkit-autofill::first-line {
+  font-size: 18px;
+  font-family: "Raleway", sans-serif;
+}
+.customer-login #main .woocommerce input[type=text]:focus, .customer-login #main .woocommerce input[type=text]:active,
+.customer-login #main .woocommerce input[type=password]:focus,
+.customer-login #main .woocommerce input[type=password]:active {
+  background-color: var(--input-bg--hover);
+}
+.customer-login #main .woocommerce input[type=text]:focus:-webkit-autofill, .customer-login #main .woocommerce input[type=text]:active:-webkit-autofill,
+.customer-login #main .woocommerce input[type=password]:focus:-webkit-autofill,
+.customer-login #main .woocommerce input[type=password]:active:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--input-bg--hover) inset;
+}
+.customer-login #main .woocommerce .woocommerce-form-login__rememberme {
+  margin-bottom: 10px;
+}
+.customer-login #main .woocommerce button[type=submit] {
+  text-transform: capitalize;
+  padding: 12px 24px;
+}
+
+#main .woocommerce form {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 ul.grid {
@@ -1201,7 +1265,7 @@ label {
   }
 }
 #content {
-  --page-min-height: 80vh;
+  --page-min-height: 81vh;
   min-height: var(--page-min-height);
 }
 

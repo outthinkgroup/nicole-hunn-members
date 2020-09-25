@@ -1,0 +1,57 @@
+body.customer-login {
+  background: hsl(210, 38%, 97%);
+}
+.customer-login main {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.customer-login header {
+  padding: 0;
+}
+.customer-login #main .woocommerce {
+  box-shadow: var(--shadow-xl);
+  border: none;
+  background: #fff;
+  font-size: 18px;
+  border-radius: 8px;
+  padding: 20px;
+  //inputs
+  input[type="text"],
+  input[type="password"] {
+    background: var(--input-bg);
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 18px;
+    height: 50px;
+    font-weight: normal;
+    border: 1px solid var(--input-bg--hover);
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px var(--input-bg) inset;
+    }
+    &:-webkit-autofill::first-line {
+      font-size: 18px;
+      font-family: "Raleway", sans-serif;
+    }
+    &:focus,
+    &:active {
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px var(--input-bg--hover) inset;
+      }
+      background-color: var(--input-bg--hover);
+    }
+  }
+  .woocommerce-form-login__rememberme {
+    margin-bottom: 10px;
+  }
+  button[type="submit"] {
+    @extend %fancy-button;
+    text-transform: capitalize;
+    padding: 12px 24px;
+  }
+}
+
+#main .woocommerce form {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
