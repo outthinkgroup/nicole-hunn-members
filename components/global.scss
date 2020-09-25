@@ -39,6 +39,7 @@
   //fonts
   --heading-font: "Berkshire Swash", handwriting;
 }
+
 @import "/shared.scss";
 @import "/typeography.scss";
 @import "/product-card/product-card.scss";
@@ -53,6 +54,7 @@
 @import "/recipe-formatting/recipe-formatting.scss";
 @import "/screen-caffeine-toggle/screen-caffeine-toggle.scss";
 @import "/non-logged-in-nav/non-logged-in-nav.scss";
+@import "/login/login.scss";
 
 ul.grid {
   margin: 0;
@@ -116,7 +118,7 @@ label {
 }
 
 #content {
-  --page-min-height: 80vh;
+  --page-min-height: 81vh;
   min-height: var(--page-min-height);
 }
 
