@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
 :root {
   --blue-light: hsl(221, 29%, 22%);
   --blue-base: hsl(224, 37%, 17%);
@@ -1141,6 +1142,63 @@ li[data-in-list] button:focus:after {
 }
 .ast-theme-transparent-header .main-navigation a {
   color: white;
+}
+
+.mockup-wrapper {
+  font-size: 32px;
+  font-family: "Roboto Slab", "serif";
+}
+.mockup-wrapper .mockup {
+  position: relative;
+  display: grid;
+  grid-template: 1fr/1fr;
+}
+.mockup-wrapper .mockup > * {
+  grid-area: 1/1;
+}
+.mockup-wrapper .mockup img {
+  width: 100%;
+}
+.mockup-wrapper .mockup-image {
+  position: relative;
+  z-index: 2;
+}
+.mockup-wrapper .mockup-price-wrapper,
+.mockup-wrapper .shadow-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 2% 9%;
+  width: 100%;
+}
+.mockup-wrapper .mockup-price-wrapper .currency {
+  display: inline-flex;
+  line-height: 0;
+  margin-right: 0.3em;
+  font-weight: bold;
+}
+.mockup-wrapper .mockup-price-wrapper .mockup-price {
+  display: flex;
+  align-items: center;
+  background: var(--theme-color);
+  height: 1.5em;
+  padding: 0 24px;
+  position: relative;
+  z-index: 3;
+  box-shadow: var(--shadow-sm);
+}
+.mockup-wrapper .mockup-price-wrapper .symbol {
+  font-size: 60%;
+}
+.mockup-wrapper .banner-shadow {
+  position: absolute;
+  height: 1.5em;
+  width: 30%;
+  background: #bda158;
+  right: 9%;
+  top: 3.5%;
+  transform-origin: 100% 100%;
+  transform: rotate(-50deg);
 }
 
 body.customer-login {

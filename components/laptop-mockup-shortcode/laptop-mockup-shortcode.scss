@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
+.mockup-wrapper {
+  font-size: 32px;
+  font-family: "Roboto Slab", "serif";
+  .mockup {
+    position: relative;
+    display: grid;
+    grid-template: 1fr/1fr;
+    > * {
+      grid-area: 1/1;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .mockup-image {
+    position: relative;
+    z-index: 2;
+  }
+  .mockup-price-wrapper,
+  .shadow-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2% 9%;
+    width: 100%;
+  }
+
+  .mockup-price-wrapper {
+    .currency {
+      display: inline-flex;
+      line-height: 0;
+      margin-right: 0.3em;
+      font-weight: bold;
+    }
+
+    .mockup-price {
+      display: flex;
+      align-items: center;
+      background: var(--theme-color);
+      height: 1.5em;
+      padding: 0 24px;
+      position: relative;
+      z-index: 3;
+      box-shadow: var(--shadow-sm);
+    }
+    .symbol {
+      font-size: 60%;
+    }
+  }
+  .banner-shadow {
+    position: absolute;
+    height: 1.5em;
+    width: 30%;
+    background: #bda158;
+    right: 9%;
+    top: 3.5%;
+    transform-origin: 100% 100%;
+    transform: rotate(-50deg);
+  }
+}
