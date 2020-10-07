@@ -26,3 +26,6 @@ include_once NHM_DIR . "/components/recipe-archive-sidebar/recipe-archive-sideba
 include_once NHM_DIR . "/components/woocommerce-welcome/woocommerce-welcome.php";
 
 include_once NHM_DIR . "/components/login/login.php";
+
+include_once NHM_DIR . "/components/laptop-mockup-shortcode/laptop-mockup-shortcode.php";
+
