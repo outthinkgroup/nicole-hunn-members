@@ -43,6 +43,11 @@ const app = new App({
           "https://glutenfreeonashoestring.com/all-purpose-gluten-free-flour-recipes/",
         type: null,
       },
+      {
+        link:
+          "https://members.glutenfreeonashoestring.com/all-purpose-gluten-free-flour-blend-recipes-information/",
+        type: null,
+      },
     ],
   },
 });
