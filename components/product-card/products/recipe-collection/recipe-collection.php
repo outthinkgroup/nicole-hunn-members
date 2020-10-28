@@ -62,7 +62,7 @@ add_action('product_card_no_image', function($replaced_image, $product){
   ob_start();
   ?>
   <a 
-    href="/recipe" 
+    href="/recipes" 
     class="product-image " 
     style="padding:20px;"
   >

@@ -387,11 +387,11 @@ body:not([data-sidebar-state=open]) .global-sidebar .toggle-sidebar svg {
 }
 
 .recent-updates-card {
-  z-index: 1;
   position: absolute;
   top: 0%;
   right: 0;
   width: 90vw;
+  z-index: 999;
   max-width: 450px;
   min-width: 250px;
   background: white;

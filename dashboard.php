@@ -43,7 +43,7 @@ $user_id = $user->ID;
 				<div class="lists">
           <?php post_type_grid('lists', null, -1, $user_id); ?>
         </div>
-				<a href="#" class="viewall">View all My Recipe Collections &rarr;</a>
+				<a href="/collections" class="viewall">View all My Recipe Collections &rarr;</a>
 			</section>
 			<section class="my-downloads">
 				<h3>My Downloads</h3>
