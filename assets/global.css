@@ -182,6 +182,10 @@ a svg {
   }
 }
 
+a > strong {
+  pointer-events: none !important;
+}
+
 #primary h1,
 #primary h2 {
   font-family: "Berkshire Swash", cursive;
