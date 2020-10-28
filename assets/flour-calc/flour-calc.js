@@ -4363,8 +4363,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var console_1 = _internal.globals.console,
-    document_1 = _internal.globals.document;
+var document_1 = _internal.globals.document;
 var file = "flour-calc/src/App.svelte";
 
 function add_css() {
@@ -4372,7 +4371,7 @@ function add_css() {
   style.id = "svelte-17g4lul-style";
   style.textContent = ".nav-button.svelte-17g4lul{width:calc(100% + 10px);padding:10px;justify-content:center;display:flex;border-radius:0 20px 20px 0}\n";
   (0, _internal.append_dev)(document_1.head, style);
-} // (57:0) {#if isCalcShowing}
+} // (56:0) {#if isCalcShowing}
 
 
 function create_if_block(ctx) {
@@ -4431,11 +4430,11 @@ function create_if_block(ctx) {
     block: block,
     id: create_if_block.name,
     type: "if",
-    source: "(57:0) {#if isCalcShowing}",
+    source: "(56:0) {#if isCalcShowing}",
     ctx: ctx
   });
   return block;
-} // (58:2) <Modal on:close={toggleCalc}>
+} // (57:2) <Modal on:close={toggleCalc}>
 
 
 function create_default_slot(ctx) {
@@ -4469,7 +4468,7 @@ function create_default_slot(ctx) {
     block: block,
     id: create_default_slot.name,
     type: "slot",
-    source: "(58:2) <Modal on:close={toggleCalc}>",
+    source: "(57:2) <Modal on:close={toggleCalc}>",
     ctx: ctx
   });
   return block;
@@ -4507,11 +4506,11 @@ function create_fragment(ctx) {
       if (if_block) if_block.c();
       if_block_anchor = (0, _internal.empty)();
       (0, _internal.attr_dev)(span0, "class", "icon");
-      (0, _internal.add_location)(span0, file, 51, 2, 1400);
+      (0, _internal.add_location)(span0, file, 50, 2, 1380);
       (0, _internal.attr_dev)(span1, "class", "link-text");
-      (0, _internal.add_location)(span1, file, 54, 2, 1455);
+      (0, _internal.add_location)(span1, file, 53, 2, 1435);
       (0, _internal.attr_dev)(button, "class", "nav-button nav-link svelte-17g4lul");
-      (0, _internal.add_location)(button, file, 50, 0, 1339);
+      (0, _internal.add_location)(button, file, 49, 0, 1319);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4608,7 +4607,6 @@ function instance($$self, $$props, $$invalidate) {
 
   function showCalc(e) {
     e.preventDefault();
-    console.log(e);
     var recipeSlug = oldFlourCalcURL.find(function (obj) {
       return obj.link === e.target.href;
     }).type;
@@ -4644,7 +4642,7 @@ function instance($$self, $$props, $$invalidate) {
   });
   var writable_props = ["appName", "oldFlourCalcURL"];
   Object.keys($$props).forEach(function (key) {
-    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn("<App> was created with unknown prop '".concat(key, "'"));
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<App> was created with unknown prop '".concat(key, "'"));
   });
   var _$$props$$$slots = $$props.$$slots,
       $$slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
@@ -4715,13 +4713,13 @@ var App = /*#__PURE__*/function (_SvelteComponentDev) {
     if (
     /*appName*/
     ctx[0] === undefined && !("appName" in props)) {
-      console_1.warn("<App> was created without expected prop 'appName'");
+      console.warn("<App> was created without expected prop 'appName'");
     }
 
     if (
     /*oldFlourCalcURL*/
     ctx[3] === undefined && !("oldFlourCalcURL" in props)) {
-      console_1.warn("<App> was created without expected prop 'oldFlourCalcURL'");
+      console.warn("<App> was created without expected prop 'oldFlourCalcURL'");
     }
 
     return _this;
@@ -4826,7 +4824,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58030" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55683" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
