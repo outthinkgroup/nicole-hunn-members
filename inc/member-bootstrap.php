@@ -9,6 +9,13 @@ function enqueue_logged_in_assets(){
 	]);
 }
 
+function init_helpscout(){
+	?>
+		<script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});
+		</script><script type="text/javascript">window.Beacon('init', 'e296ca53-aa5d-4c1d-8701-b4aeb669bfe2')</script> 
+	<?php
+}
+
 function bootstrap_logged_in_ui(){
 	//adds sidebar
 	add_action('astra_body_top', 'global_sidebar');
@@ -18,6 +25,8 @@ function bootstrap_logged_in_ui(){
 	add_action('astra_header_before', 'util_navigation_and_search');
 	//adds logged in css
 	add_action( 'wp_enqueue_scripts', 'enqueue_logged_in_assets', 16 );
+	//adds help scout
+	add_action('wp_head', 'init_helpscout');
 }
 
 add_action( 'init', function(){
@@ -25,3 +34,5 @@ add_action( 'init', function(){
 		bootstrap_logged_in_ui( );
 	}
 });
+
+
