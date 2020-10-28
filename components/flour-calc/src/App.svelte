@@ -10,7 +10,6 @@
   let isCalcShowing;
   function showCalc(e) {
     e.preventDefault();
-    console.log(e);
     const recipeSlug = oldFlourCalcURL.find((obj) => obj.link === e.target.href)
       .type;
     if (recipeSlug) {
