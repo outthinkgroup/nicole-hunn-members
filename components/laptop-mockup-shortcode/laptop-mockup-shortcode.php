@@ -2,10 +2,10 @@
 
 add_shortcode('laptop_mockup', function($atts){
   $param = shortcode_atts( array(
-		'mockup-url' => '/wp-content/uploads/2020/10/laptop_mockup-1.png',
+		'mockup_url' => '/wp-content/uploads/2020/10/laptop_mockup-1.png',
     'price' => '29.97',
   ), $atts );
-  $image_url = $param['mockup-url'];
+  $image_url = $param['mockup_url'];
   $price = $param['price'];
 
   ob_start(); ?>
