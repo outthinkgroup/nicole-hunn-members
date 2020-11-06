@@ -103,21 +103,12 @@ function gf_video_filter( $atts ) {
     <?php
 
     return ob_get_clean();
-  } else {
-    //return featured image
-    $image = get_the_post_thumbnail( $post->ID, 'full' );
-    ob_start(); ?>
-    <div class="recipe-featured-image">
-      <?php echo $image; ?>
-    </div>
-    <?php
-    return ob_get_clean();
-  }
+  } 
 }
 
 add_filter("body_class", "body_class_no_youtube_video");
 function body_class_no_youtube_video($classes){
-  if(!get_field('youtube_url')){
+  if(!get_field('youtube_url') && !get_field('recipe_image')){
     $classes[]= "no-youtube-video";
   }
   return $classes;
