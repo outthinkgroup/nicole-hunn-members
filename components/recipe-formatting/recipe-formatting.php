@@ -93,15 +93,26 @@ function gf_video_filter( $atts ) {
   ), $atts, 'gfoas_video' );
   global $post;
   $youtube_url = get_field('youtube_url', $post->ID); 
-  $youtube_id = gov_get_video_id_from_url($youtube_url);
-  ob_start(); ?>
-  <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'>
-  <iframe id='player' frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' title='GFOAS Members Video' width='100%' height='100%' 
-  src='https://www.youtube-nocookie.com/embed/<?php echo $youtube_id; ?>?iv_load_policy=3&cc_load_policy=1&title=0&modestbranding=1&playsinline=1&rel=0&controls=0&autoplay=0&enablejsapi=1'></iframe></div>
-  <?php
-  return ob_get_clean();
+  if($youtube_url){
+    $youtube_id = gov_get_video_id_from_url($youtube_url);
+
+    ob_start(); ?>
+    <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'>
+    <iframe id='player' frameborder='0' allowfullscreen='1' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' title='GFOAS Members Video' width='100%' height='100%' 
+    src='https://www.youtube-nocookie.com/embed/<?php echo $youtube_id; ?>?iv_load_policy=3&cc_load_policy=1&title=0&modestbranding=1&playsinline=1&rel=0&controls=0&autoplay=0&enablejsapi=1'></iframe></div>
+    <?php
+
+    return ob_get_clean();
+  } 
 }
 
+add_filter("body_class", "body_class_no_youtube_video");
+function body_class_no_youtube_video($classes){
+  if(!get_field('youtube_url') && !get_field('recipe_image')){
+    $classes[]= "no-youtube-video";
+  }
+  return $classes;
+}
 
 function gov_get_video_id_from_url($url) {
 	if(strpos($url, "youtube.com") !== false || strpos($url, "youtu.be") !== false)
