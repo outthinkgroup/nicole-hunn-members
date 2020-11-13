@@ -756,6 +756,7 @@ a {
 }
 
 .nhm-default {
+  padding: 10px;
   padding-top: 30px;
   padding-bottom: 0px;
   background: var(--input-bg);
@@ -769,6 +770,9 @@ a {
 .nhm-default header h2 {
   color: var(--blue-base);
 }
+.nhm-default .wrapper--live header {
+  text-align: center;
+}
 .nhm-default .wrapper {
   max-width: 762px;
   margin: 0 auto;
@@ -780,6 +784,25 @@ a {
   width: 100%;
   border-radius: 10px;
   box-shadow: var(--shadow-xl);
+}
+.nhm-default .wrapper--live {
+  margin-bottom: 30px;
+}
+.nhm-default .iframe-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+  margin-bottom: 20px;
+}
+.nhm-default iframe {
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .nhm-default .comments-wrapper {

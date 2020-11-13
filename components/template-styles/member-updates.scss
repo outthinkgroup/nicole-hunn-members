@@ -2,8 +2,10 @@
   min-height: var(--page-min-height);
 }
 .nhm-default {
+  padding: 10px;
   padding-top: 30px;
   padding-bottom: 0px;
+
   background: var(--input-bg);
   min-height: inherit;
   display: flex;
@@ -15,6 +17,9 @@
       color: var(--blue-base);
     }
   }
+  .wrapper--live header {
+    text-align: center;
+  }
 
   .wrapper {
     max-width: 762px;
@@ -25,6 +30,24 @@
     width: 100%;
     border-radius: 10px;
     box-shadow: var(--shadow-xl);
+  }
+  .wrapper--live {
+    margin-bottom: 30px;
+  }
+  .iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+    margin-bottom: 20px;
+  }
+  iframe {
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
