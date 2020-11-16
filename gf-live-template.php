@@ -16,7 +16,7 @@ global $post;
       <main class="">
         <article>
         <div class="iframe-wrapper">
-          <? echo get_field('live_video');?>
+          <?php echo get_field('live_video');?>
         </div>
         <div>
         <?php 
