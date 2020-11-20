@@ -755,11 +755,15 @@ a {
   min-height: var(--page-min-height);
 }
 
+.single-live .ast-container {
+  padding: 0;
+}
+
 .nhm-default {
+  background: var(--input-bg);
   padding: 10px;
   padding-top: 30px;
   padding-bottom: 0px;
-  background: var(--input-bg);
   min-height: inherit;
   display: flex;
   flex-direction: column;
