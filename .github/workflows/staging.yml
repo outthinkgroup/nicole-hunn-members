@@ -1,9 +1,9 @@
-name: DEPLOY PRODUCTION
+name: DEPLOY STAGING
 
 on:
-  pull_request:
+  push:
     branches:
-      - production
+      - master
 
 jobs:
   FTP-Deploy-Action:
@@ -28,7 +28,7 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@2.0.0
         with:
-          port: 22
+          port: 50647
           method: sftp
         env:
           FTP_SERVER: 35.245.151.137
@@ -36,5 +36,5 @@ jobs:
           FTP_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
           REMOTE_DIR: /www/${{secrets.SERVER_USER}}_933/public/wp-content/themes/nicole-hunn-members
           ARGS: --delete
-          PORT: 36541
+          PORT: 50647
           METHOD: sftp
