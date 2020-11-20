@@ -757,6 +757,7 @@ a {
 
 .single-live .ast-container {
   padding: 0;
+  min-width: 100%;
 }
 
 .nhm-default {
