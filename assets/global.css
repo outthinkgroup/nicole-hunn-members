@@ -755,11 +755,17 @@ a {
   min-height: var(--page-min-height);
 }
 
+.single-live .ast-container,
+.single-post .ast-container {
+  padding: 0;
+  min-width: 100%;
+}
+
 .nhm-default {
+  background: var(--input-bg);
   padding: 10px;
   padding-top: 30px;
   padding-bottom: 0px;
-  background: var(--input-bg);
   min-height: inherit;
   display: flex;
   flex-direction: column;
@@ -796,7 +802,7 @@ a {
   height: 0;
   margin-bottom: 20px;
 }
-.nhm-default iframe {
+.nhm-default .iframe-wrapper iframe {
   min-width: 100%;
   position: absolute;
   top: 0;
