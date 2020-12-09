@@ -444,7 +444,6 @@ function init() {
   var wrapper = document.querySelector(".carousel-wrapper");
 
   if (!wrapper) {
-    console.log("not found");
     return;
   }
 
@@ -459,6 +458,8 @@ function init() {
 
   var slides = _toConsumableArray(wrapper.querySelectorAll(".slide"));
 
+  var dots = _toConsumableArray(document.querySelectorAll(".navigation button"));
+
   allSlideStateInactive();
   slides[0].dataset.state = "active";
   slides[1].dataset.state = "next";
@@ -469,9 +470,7 @@ function init() {
     slide.addEventListener("mouseleave", startAutoNext);
   });
   startAutoNext();
-
-  var dots = _toConsumableArray(document.querySelectorAll(".navigation button"));
-
+  dots[0].dataset.state = "active";
   dots.forEach(function (dot, index) {
     return dot.addEventListener("click", function () {
       return resetAutoNext(function () {
@@ -517,13 +516,19 @@ function init() {
     nextSlide.dataset.state = "next";
     var previousSlide = wrapperEl.querySelector("[data-slide=\"".concat(getNextState(nextState, dir * -1), "\"]"));
     previousSlide.dataset.state = "previous";
+    dots.find(function (_, i) {
+      return i == nextState;
+    }).dataset.state = "active";
     wrapperEl.dataset.state = nextState;
   }
 
   function allSlideStateInactive() {
-    slides.forEach(function removeState(slide) {
-      slide.dataset.state = "inactive";
-    });
+    function removeState(el) {
+      el.dataset.state = "inactive";
+    }
+
+    slides.forEach(removeState);
+    dots.forEach(removeState);
   }
 
   function getNextState(currentState, dir) {
@@ -547,7 +552,7 @@ function init() {
         next();
         console.log("ran");
         start();
-      }, 1000);
+      }, 4000);
     }
 
     function stop() {

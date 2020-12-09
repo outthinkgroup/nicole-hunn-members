@@ -692,6 +692,7 @@ STRUCTURE
 }
 .dashboard-carousel .slide[data-state=active] {
   z-index: 1;
+  box-shadow: var(--shadow-2xl);
 }
 .dashboard-carousel .slide[data-state=inactive] {
   z-index: -3;
@@ -718,6 +719,9 @@ STRUCTURE
   height: 10px;
   background: #999;
   border-radius: 50%;
+}
+.carousel-wrapper .navigation .dot[data-state=active] span {
+  background: #777;
 }
 
 /*# sourceMappingURL=index.css.map */

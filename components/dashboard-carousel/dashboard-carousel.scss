@@ -90,6 +90,7 @@
     }
     &[data-state="active"] {
       z-index: 1;
+      box-shadow: var(--shadow-2xl);
     }
     &[data-state="inactive"] {
       z-index: -3;
@@ -118,5 +119,10 @@
     height: 10px;
     background: #999;
     border-radius: 50%;
+  }
+  .dot[data-state="active"] {
+    span {
+      background: #777;
+    }
   }
 }

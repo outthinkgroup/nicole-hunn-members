@@ -1,11 +1,9 @@
 <?php
 
 function dashboard_carousel($post_id){
-
   ?>
   <div class="carousel-wrapper">
     <h3>New Content</h3>
-
     <?php 
     $slides = get_field('slides');
     if($slides) {
@@ -19,7 +17,6 @@ function dashboard_carousel($post_id){
           <a href="<?php echo get_permalink($slide['supporting_post']->ID); ?>" class="btn">learn more</a>
         </div>
         <div class="image">
-
           <?php 
           $image = wp_get_attachment_image( $slide['image'], 'full' );
           if(!$image){
@@ -27,7 +24,6 @@ function dashboard_carousel($post_id){
           }
           echo $image;
           ?>
-          <!-- <img src="" alt=""> -->
         </div>
       </li>
     <?php endforeach; ?>  
