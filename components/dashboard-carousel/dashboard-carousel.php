@@ -4,7 +4,7 @@ function dashboard_carousel($post_id){
   $slides = get_field('slides');
   if($slides) { ?>
   <div class="carousel-wrapper">
-    <h3>New Content</h3>
+    <h3>Whats New</h3>
     <?php 
     ?>
     <ul class="dashboard-carousel">
