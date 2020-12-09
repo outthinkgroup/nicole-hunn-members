@@ -5,6 +5,7 @@
 get_header();
 $user = wp_get_current_user();
 $user_id = $user->ID;
+global $post;
 ?>
 
 	<div class="custom-wrapper dashboard">
@@ -15,6 +16,7 @@ $user_id = $user->ID;
 
 		</aside>
 		<main class="dashboard">
+			<?php dashboard_carousel($post->ID); ?>
 			<section class="recipes">
 				<h3>Recipes</h3>
 				<ul class="grid" style="--cols:auto-fill; --min-col-width:220px">

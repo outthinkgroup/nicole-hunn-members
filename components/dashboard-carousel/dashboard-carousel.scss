@@ -1,0 +1,122 @@
+.carousel-wrapper {
+  padding: 20px;
+  // overflow: hidden;
+  padding-bottom: 30px;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}
+
+/*  */
+//Slide Styles
+/*  */
+.dashboard-carousel {
+  //TODO
+  .slide {
+    overflow: hidden;
+
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-xl);
+    background: var(--blue-base);
+    color: white;
+    display: grid;
+    grid-template-columns: 66% 33%;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    // @media (min-width: 900px) {
+    //   max-height: 350px;
+    // }
+  }
+  .content {
+    min-height: 100%;
+    padding: 30px 10vmin;
+  }
+  a.btn {
+    border-radius: 40px;
+    background: var(--theme-color);
+    font-family: var(--heading-font);
+    text-shadow: 1px 2px 4px rgba(black, 0.2);
+    font-size: 20px;
+  }
+  .description {
+    margin-bottom: 20px;
+  }
+  h4 {
+    color: white;
+    font-family: var(--heading-font);
+    font-size: 44px;
+  }
+  .image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: red;
+    img {
+      object-fit: cover;
+      width: 100%;
+      min-width: 100%;
+      height: 100%;
+      min-height: 100%;
+    }
+  }
+}
+
+/*  */
+// Slide Functionality Styles
+/*  */
+//States = [active, previous, next, inactive?]
+.dashboard-carousel {
+  display: grid;
+  grid-template: 1/1;
+  > .slide {
+    grid-area: 1/1;
+  }
+  .slide {
+    position: relative;
+    z-index: -1;
+    transition: transform 0.25s ease-in-out;
+    &[data-state="previous"] {
+      transform: scale(0.78) translateX(-20%);
+    }
+    &[data-state="next"] {
+      z-index: -2;
+      transform: scale(0.78) translateX(20%);
+    }
+    &[data-state="active"] {
+      z-index: 1;
+    }
+    &[data-state="inactive"] {
+      z-index: -3;
+      transform: scale(0.78);
+    }
+  }
+}
+
+/*  */
+//Navigation
+/*  */
+.carousel-wrapper .navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button.dot {
+    border: 0;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    background: none;
+  }
+  span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #999;
+    border-radius: 50%;
+  }
+}

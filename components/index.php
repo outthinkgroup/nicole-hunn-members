@@ -29,3 +29,4 @@ include_once NHM_DIR . "/components/login/login.php";
 
 include_once NHM_DIR . "/components/laptop-mockup-shortcode/laptop-mockup-shortcode.php";
 
+include_once NHM_DIR . "/components/dashboard-carousel/dashboard-carousel.php";
