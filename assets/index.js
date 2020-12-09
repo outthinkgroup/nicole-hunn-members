@@ -534,7 +534,6 @@ function init() {
   function getNextState(currentState, dir) {
     if (dir == 1) {
       var state = currentState < slides.length - 1 ? currentState + dir : 0;
-      console.log(state);
       return state;
     }
 
@@ -550,9 +549,8 @@ function init() {
     function start() {
       timer = setTimeout(function goNext() {
         next();
-        console.log("ran");
         start();
-      }, 4000);
+      }, 5000);
     }
 
     function stop() {
@@ -684,7 +682,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62887" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57849" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

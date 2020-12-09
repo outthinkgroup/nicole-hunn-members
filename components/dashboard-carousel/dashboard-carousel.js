@@ -79,7 +79,6 @@ function init() {
   function getNextState(currentState, dir) {
     if (dir == 1) {
       const state = currentState < slides.length - 1 ? currentState + dir : 0;
-      console.log(state);
       return state;
     }
     if (dir == -1) {
@@ -93,9 +92,8 @@ function init() {
     function start() {
       timer = setTimeout(function goNext() {
         next();
-        console.log("ran");
         start();
-      }, 4000);
+      }, 5000);
     }
     function stop() {
       clearTimeout(timer);
