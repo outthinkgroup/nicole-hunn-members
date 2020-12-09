@@ -417,6 +417,155 @@ function courseScriptsInit() {
     }
   });
 }
+},{}],"dashboard-carousel/dashboard-carousel.js":[function(require,module,exports) {
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+window.addEventListener("DOMContentLoaded", init);
+
+function init() {
+  var wrapper = document.querySelector(".carousel-wrapper");
+
+  if (!wrapper) {
+    return;
+  }
+
+  var _autoNext = autoNext(),
+      _autoNext2 = _slicedToArray(_autoNext, 3),
+      startAutoNext = _autoNext2[0],
+      stopAutoNext = _autoNext2[1],
+      resetAutoNext = _autoNext2[2]; //setup initial state
+
+
+  wrapper.dataset.state = "0";
+
+  var slides = _toConsumableArray(wrapper.querySelectorAll(".slide"));
+
+  var dots = _toConsumableArray(document.querySelectorAll(".navigation button"));
+
+  allSlideStateInactive();
+  slides[0].dataset.state = "active";
+  slides[1].dataset.state = "next";
+  slides[slides.length - 1].dataset.state = "previous";
+  slides.forEach(function (slide, i) {
+    slide.dataset.slide = i;
+    slide.addEventListener("mouseenter", stopAutoNext);
+    slide.addEventListener("mouseleave", startAutoNext);
+  });
+  startAutoNext();
+  dots[0].dataset.state = "active";
+  dots.forEach(function (dot, index) {
+    return dot.addEventListener("click", function () {
+      return resetAutoNext(function () {
+        return navigateDirectly(index);
+      });
+    });
+  });
+
+  function next() {
+    navigateByOne(1);
+  }
+
+  function navigateByOne(dir) {
+    var wrapperEl = document.querySelector(".carousel-wrapper");
+    var currentState = Number(wrapperEl.dataset.state);
+    var nextState = getNextState(currentState, dir);
+    allSlideStateInactive();
+    changeState({
+      wrapperEl: wrapperEl,
+      nextState: nextState,
+      dir: dir
+    });
+  }
+
+  function navigateDirectly(slideIndex) {
+    var wrapperEl = document.querySelector(".carousel-wrapper");
+    var nextState = Number(slideIndex);
+    changeState({
+      wrapperEl: wrapperEl,
+      nextState: nextState,
+      dir: 1
+    });
+  }
+
+  function changeState(_ref) {
+    var wrapperEl = _ref.wrapperEl,
+        nextState = _ref.nextState,
+        dir = _ref.dir;
+    //change data attr to show the next slides
+    var activeSlide = wrapperEl.querySelector("[data-slide=\"".concat(nextState, "\"]"));
+    activeSlide.dataset.state = "active";
+    var nextSlide = wrapperEl.querySelector("[data-slide=\"".concat(getNextState(nextState, dir), "\"]"));
+    nextSlide.dataset.state = "next";
+    var previousSlide = wrapperEl.querySelector("[data-slide=\"".concat(getNextState(nextState, dir * -1), "\"]"));
+    previousSlide.dataset.state = "previous";
+    dots.find(function (_, i) {
+      return i == nextState;
+    }).dataset.state = "active";
+    wrapperEl.dataset.state = nextState;
+  }
+
+  function allSlideStateInactive() {
+    function removeState(el) {
+      el.dataset.state = "inactive";
+    }
+
+    slides.forEach(removeState);
+    dots.forEach(removeState);
+  }
+
+  function getNextState(currentState, dir) {
+    if (dir == 1) {
+      var state = currentState < slides.length - 1 ? currentState + dir : 0;
+      return state;
+    }
+
+    if (dir == -1) {
+      return currentState <= 0 ? slides.length - 1 : currentState + dir;
+    }
+  } //responsible for showing the next slide automatically, stopping, and resetting
+
+
+  function autoNext() {
+    var timer;
+
+    function start() {
+      timer = setTimeout(function goNext() {
+        next();
+        start();
+      }, 5000);
+    }
+
+    function stop() {
+      clearTimeout(timer);
+    }
+
+    function resetAfter(cb) {
+      stop();
+      cb();
+      start();
+    }
+
+    return [start, stop, resetAfter];
+  }
+}
 },{}],"../node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
@@ -502,8 +651,10 @@ require("./product-card/products/recipes/collection-single-recipes.js");
 
 require("./learndash/course-sidebar.js");
 
+require("./dashboard-carousel/dashboard-carousel.js");
+
 require("./member.scss");
-},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./learndash/course-sidebar.js":"learndash/course-sidebar.js","./member.scss":"member.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./learndash/course-sidebar.js":"learndash/course-sidebar.js","./dashboard-carousel/dashboard-carousel.js":"dashboard-carousel/dashboard-carousel.js","./member.scss":"member.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -531,7 +682,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51591" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57849" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

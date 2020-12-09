@@ -1,0 +1,100 @@
+#content .cma-main {
+  display: block;
+  .cma-wrapper {
+    min-width: 100%;
+    display: block;
+  }
+  //repeating class to be more specific
+  h1.entry-title.entry-title {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+
+  //--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--//
+  //orderby buttons
+  .cma-thread-orderby {
+    li {
+      border-radius: 3px;
+    }
+    li:hover {
+      background-color: var(--input-bg--hover);
+    }
+  }
+  li.cma-current-sort {
+    background: var(--input-bg);
+    a {
+      font-weight: bold;
+      color: var(--secondary);
+    }
+  }
+  //--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--//
+
+  //--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--//
+  //thread list
+  .cma-thread-list {
+    border: 1px solid transparent;
+    border-top-color: var(--input-bg--hover);
+    td {
+      border: none;
+      border-bottom: 1px solid var(--input-bg--hover);
+    }
+
+    .cma-thread-meta {
+      padding: 5px;
+      .cma-thread-numbers {
+        margin: 0;
+      }
+    }
+  }
+
+  //--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--//
+
+  //--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--//
+  //ask a question form
+  .cma-thread-add {
+    textarea {
+      resize: none;
+      height: 275px;
+    }
+    [type="text"],
+    textarea {
+      background: var(--input-bg);
+      border: none;
+      border-radius: 4px;
+      box-shadow: var(--shadow-sm);
+      &:active,
+      &:focus {
+        background: var(--input-bg--hover);
+        outline: none;
+        border: none;
+      }
+
+      width: 100%;
+      max-width: 450px;
+    }
+
+    [type="submit"] {
+      background: var(--blue-base);
+      color: white;
+      text-transform: Capitalize;
+      letter-spacing: 1px;
+      font-weight: normal;
+      font-size: 14px;
+      font-family: raleway;
+      border-radius: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      &:hover,
+      &:focus,
+      &:active {
+        background: var(--blue-dark);
+      }
+      &:focus,
+      &:active {
+        border: 2px solid var(--theme-color);
+      }
+    }
+  }
+}

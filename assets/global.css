@@ -885,6 +885,85 @@ a {
   display: none;
 }
 
+#content .cma-main {
+  display: block;
+}
+#content .cma-main .cma-wrapper {
+  min-width: 100%;
+  display: block;
+}
+#content .cma-main h1.entry-title.entry-title {
+  font-size: 26px;
+}
+#content .cma-main h3 {
+  font-size: 20px;
+}
+#content .cma-main .cma-thread-orderby li {
+  border-radius: 3px;
+}
+#content .cma-main .cma-thread-orderby li:hover {
+  background-color: var(--input-bg--hover);
+}
+#content .cma-main li.cma-current-sort {
+  background: var(--input-bg);
+}
+#content .cma-main li.cma-current-sort a {
+  font-weight: bold;
+  color: var(--secondary);
+}
+#content .cma-main .cma-thread-list {
+  border: 1px solid transparent;
+  border-top-color: var(--input-bg--hover);
+}
+#content .cma-main .cma-thread-list td {
+  border: none;
+  border-bottom: 1px solid var(--input-bg--hover);
+}
+#content .cma-main .cma-thread-list .cma-thread-meta {
+  padding: 5px;
+}
+#content .cma-main .cma-thread-list .cma-thread-meta .cma-thread-numbers {
+  margin: 0;
+}
+#content .cma-main .cma-thread-add textarea {
+  resize: none;
+  height: 275px;
+}
+#content .cma-main .cma-thread-add [type=text],
+#content .cma-main .cma-thread-add textarea {
+  background: var(--input-bg);
+  border: none;
+  border-radius: 4px;
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  max-width: 450px;
+}
+#content .cma-main .cma-thread-add [type=text]:active, #content .cma-main .cma-thread-add [type=text]:focus,
+#content .cma-main .cma-thread-add textarea:active,
+#content .cma-main .cma-thread-add textarea:focus {
+  background: var(--input-bg--hover);
+  outline: none;
+  border: none;
+}
+#content .cma-main .cma-thread-add [type=submit] {
+  background: var(--blue-base);
+  color: white;
+  text-transform: Capitalize;
+  letter-spacing: 1px;
+  font-weight: normal;
+  font-size: 14px;
+  font-family: raleway;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#content .cma-main .cma-thread-add [type=submit]:hover, #content .cma-main .cma-thread-add [type=submit]:focus, #content .cma-main .cma-thread-add [type=submit]:active {
+  background: var(--blue-dark);
+}
+#content .cma-main .cma-thread-add [type=submit]:focus, #content .cma-main .cma-thread-add [type=submit]:active {
+  border: 2px solid var(--theme-color);
+}
+
 .grid li {
   height: 100%;
 }
