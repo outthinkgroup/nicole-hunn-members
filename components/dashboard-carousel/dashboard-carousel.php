@@ -1,12 +1,11 @@
 <?php
 
 function dashboard_carousel($post_id){
-  ?>
+  $slides = get_field('slides');
+  if($slides) { ?>
   <div class="carousel-wrapper">
     <h3>New Content</h3>
     <?php 
-    $slides = get_field('slides');
-    if($slides) {
     ?>
     <ul class="dashboard-carousel">
     <?php foreach($slides as $slide): ?>
@@ -38,7 +37,7 @@ function dashboard_carousel($post_id){
         }
         ?>
     </div>
-    <?php } ?>
   </div>
-  <?php
+  <?php }
+
 }
