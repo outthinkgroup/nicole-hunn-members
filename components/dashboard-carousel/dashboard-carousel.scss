@@ -16,12 +16,11 @@
   //TODO
   .slide {
     overflow: hidden;
-
     width: 90%;
     margin: 0 auto;
     border-radius: 8px;
     box-shadow: var(--shadow-xl);
-    background: var(--blue-base);
+    background: #374056;
     color: white;
     display: grid;
     grid-template-rows: 1fr 250px;
@@ -86,7 +85,7 @@
       min-height: 100%;
     }
   }
-}
+} //end of dashboard
 
 /*  */
 // Slide Functionality Styles
@@ -139,12 +138,35 @@
     display: block;
     width: 10px;
     height: 10px;
-    background: #999;
+    background: #aaa;
     border-radius: 50%;
   }
   .dot[data-state="active"] {
     span {
-      background: #777;
+      background: #555;
+    }
+  }
+}
+
+/*  */
+//Header
+/*  */
+.carousel-wrapper {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  .viewall {
+    background: #f3f3f3;
+    border-radius: 4px;
+    line-height: 1;
+    padding: 8px 16px;
+    font-size: 14px;
+    &:hover {
+      background: #ddd;
+      color: var(--link-color);
     }
   }
 }

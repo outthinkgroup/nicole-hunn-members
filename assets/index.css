@@ -627,7 +627,7 @@ STRUCTURE
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: var(--shadow-xl);
-  background: var(--blue-base);
+  background: #374056;
   color: white;
   display: grid;
   grid-template-rows: 1fr 250px;
@@ -751,11 +751,31 @@ STRUCTURE
   display: block;
   width: 10px;
   height: 10px;
-  background: #999;
+  background: #aaa;
   border-radius: 50%;
 }
 .carousel-wrapper .navigation .dot[data-state=active] span {
-  background: #777;
+  background: #555;
+}
+
+/*  */
+/*  */
+.carousel-wrapper .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.carousel-wrapper .viewall {
+  background: #f3f3f3;
+  border-radius: 4px;
+  line-height: 1;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+.carousel-wrapper .viewall:hover {
+  background: #ddd;
+  color: var(--link-color);
 }
 
 /*# sourceMappingURL=index.css.map */
