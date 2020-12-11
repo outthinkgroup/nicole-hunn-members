@@ -6,9 +6,9 @@ function dashboard_carousel($post_id){
   <div class="carousel-wrapper">
     <div class="header">
       <h3>Whats New</h3>
-      <div class="end">
+      <!-- <div class="end">
         <a class="viewall" href="">See all latest content</a>
-      </div>
+      </div> -->
     </div>
     <?php 
     ?>
