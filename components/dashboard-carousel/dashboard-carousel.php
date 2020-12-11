@@ -4,7 +4,12 @@ function dashboard_carousel($post_id){
   $slides = get_field('slides');
   if($slides) { ?>
   <div class="carousel-wrapper">
-    <h3>New Content</h3>
+    <div class="header">
+      <h3>Whats New</h3>
+      <!-- <div class="end">
+        <a class="viewall" href="">See all latest content</a>
+      </div> -->
+    </div>
     <?php 
     ?>
     <ul class="dashboard-carousel">
@@ -13,7 +18,21 @@ function dashboard_carousel($post_id){
         <div class="content">
           <h4 class="title"><?php echo $slide['title']?></h4>
           <p class="description"><?php echo $slide['description'] ?></p>
-          <a href="<?php echo get_permalink($slide['supporting_post']->ID); ?>" class="btn">learn more</a>
+          <?php if(array_key_exists('supporting_post', $slide) && $slide['supporting_post']){
+              $link = get_permalink($slide['supporting_post']->ID);
+            }elseif(array_key_exists('custom_link', $slide) && $slide['custom_link']) {
+              $link = $slide['custom_link'];
+            }
+            ?>
+          <a href="<?php echo $link; ?>" class="btn">
+            
+            <?php if(array_key_exists('button_text', $slide) && $slide['button_text']){
+              echo $slide['button_text'];
+            }else {
+              echo 'Learn More';
+            }
+            ?>
+          </a>
         </div>
         <div class="image">
           <?php 

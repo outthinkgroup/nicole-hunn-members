@@ -9,8 +9,10 @@ function nhm_user_downloads($user_id, $num = 3){
 add_filter('card_bottom', function($card_bottom_markup, $product){
   if($product->post_type !== 'member_content') return $card_bottom_markup;
   $type = get_the_terms($product, 'linked_content')[0];
+  
   ob_start();
   ?>
+    <?php if($type): ?>
     <div>
       <a 
       href="/content_type/<?php echo $type->slug;?>" 
@@ -19,6 +21,7 @@ add_filter('card_bottom', function($card_bottom_markup, $product){
         <?php echo $type->name; ?>
       </a>
     </div>
+    <?php endif; ?>
     <a href=<?php echo apply_filters('product_card_link', get_the_permalink($product->ID), $product); ?> class="product-title" >
       <h4>
         <?php echo apply_filters('product_card_title', $product->post_title, $product); ?>
