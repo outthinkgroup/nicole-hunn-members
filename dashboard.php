@@ -30,6 +30,26 @@ global $post;
 				<a href="/member-updates/" class="viewall">All Updates &rarr;</a>
 			</section>
 
+			<section class="gf-lives">
+				<header><h3><i>LIVES</i> with Nicole Hunn</h3> <div class="actions"><a href="">Ask Nicole A question</a></div></header>
+				<ul class="grid" style="--cols:auto-fit; --card-mx-width:100%; --min-col-width:220px">
+				<?php
+				$lives = get_posts([
+					'post_type' => 'live',
+					'posts_per_page' => 3,
+					'status' => 'all',
+				]);
+				foreach($lives as $live){ ?>
+					<li>
+						<?php product_card($live); ?>
+					</li>
+					<?php
+				}
+				?> 
+				</ul>
+				<a href="/gf-lives" class="viewall">View all Lives &rarr;</a>
+			</section>
+
 			<section class="recipes">
 				<h3>Recipes</h3>
 				<ul class="grid" style="--cols:auto-fill; --min-col-width:220px">

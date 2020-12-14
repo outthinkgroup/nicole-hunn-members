@@ -1,5 +1,5 @@
 //
-.dashboard header {
+.custom-wrapper.dashboard > header {
   margin-top: 25px;
   margin-bottom: 25px;
 }
@@ -64,4 +64,25 @@ section.bonus .grid {
 }
 img.avatar.photo {
   border-radius: 50%;
+}
+
+.dashboard section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .actions {
+    display: flex;
+    > a {
+      font-weight: bold;
+      background: var(--input-bg);
+      display: inline-block;
+      height: fit-content;
+      padding: 4px 12px;
+      border-radius: 4px;
+      &:hover {
+        background: var(--input-bg--hover);
+        color: var(--link-color);
+      }
+    }
+  }
 }
