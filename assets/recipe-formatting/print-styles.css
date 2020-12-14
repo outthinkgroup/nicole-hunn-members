@@ -1,2 +1,33 @@
-.ast-scroll-top,.fl-module-separator,.global-sidebar,.post-navigation,.recipe-video,.site-header,.title-add-to-collections,.top-bar,.uabb-tabs-nav,.wake-lock-toggle{display:none}html #content h3{font-family:Berkshire Swash,handwriting}.uabb-tabs .uabb-content-wrap .section{display:block}.recipe-info-row{padding-top:20px}.fl-module-advanced-tabs>div{margin:0}.fl-module-advanced-tabs .uabb-tabs-desc{margin:20px 0}
+.top-bar,
+.global-sidebar,
+.site-header,
+.title-add-to-collections,
+.recipe-video,
+.wake-lock-toggle,
+.post-navigation,
+.uabb-tabs-nav,
+.fl-module-separator,
+.ast-scroll-top {
+  display: none;
+}
+
+html #content h3 {
+  font-family: "Berkshire Swash", handwriting;
+}
+
+.uabb-tabs .uabb-content-wrap .section {
+  display: block;
+}
+
+.recipe-info-row {
+  padding-top: 20px;
+}
+
+.fl-module-advanced-tabs > div {
+  margin: 0;
+}
+.fl-module-advanced-tabs .uabb-tabs-desc {
+  margin: 20px 0px;
+}
+
 /*# sourceMappingURL=print-styles.css.map */
