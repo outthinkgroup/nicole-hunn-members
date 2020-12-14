@@ -31,7 +31,7 @@ global $post;
 			</section>
 
 			<section class="gf-lives">
-				<header><h3><i>LIVES</i> with Nicole Hunn</h3> <div class="actions"><a href="">Ask Nicole A question</a></div></header>
+				<header><h3><i>LIVES</i> with Nicole Hunn</h3> <div class="actions"><a href="/ask-me-question">Ask Nicole A question</a></div></header>
 				<ul class="grid" style="--cols:auto-fit; --card-mx-width:100%; --min-col-width:220px">
 				<?php
 				$lives = get_posts([
