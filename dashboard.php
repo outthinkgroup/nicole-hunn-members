@@ -37,15 +37,14 @@ global $post;
 				$lives = get_posts([
 					'post_type' => 'live',
 					'posts_per_page' => 3,
-					'post_status' => 'all',
+					'post_status' => ['publish', 'future'],
 				]);
 				foreach($lives as $live){ ?>
-					<?php if($live->post_status == "publish" || $live->post_status == "scheduled"):?>
+					
 					<li>
 						<?php product_card($live); ?>
 					</li>
 					<?php
-					endif;
 				}
 				?> 
 				</ul>
