@@ -37,7 +37,7 @@ global $post;
 				$lives = get_posts([
 					'post_type' => 'live',
 					'posts_per_page' => 3,
-					'status' => 'all',
+					'post_status' => 'all',
 				]);
 				foreach($lives as $live){ ?>
 					<li>
