@@ -47,7 +47,7 @@ global $post;
 				}
 				?> 
 				</ul>
-				<a href="/gf-lives" class="viewall">View all Lives &rarr;</a>
+				<a href="/gfoas-lives" class="viewall">View all Lives &rarr;</a>
 			</section>
 
 			<section class="recipes">
