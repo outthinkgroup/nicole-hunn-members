@@ -5,7 +5,7 @@ function dashboard_carousel($post_id){
   if($slides) { ?>
   <div class="carousel-wrapper">
     <div class="header">
-      <h3>Whats New</h3>
+      <h3>What's New</h3>
       <!-- <div class="end">
         <a class="viewall" href="">See all latest content</a>
       </div> -->
