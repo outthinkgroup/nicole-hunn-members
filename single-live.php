@@ -13,9 +13,13 @@ global $post;
       </header>
       <main class="">
         <article>
+        <?php if(get_field('live_video')): ?>
         <div class="iframe-wrapper">
-          <?php echo get_field('live_video');?>
+          <?php 
+            echo get_field('live_video');
+            ?>
         </div>
+        <?php  endif; ?>
         <div>
           <?php 
         if ( have_posts() ) : 

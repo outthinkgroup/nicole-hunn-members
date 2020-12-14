@@ -40,10 +40,12 @@ global $post;
 					'post_status' => 'all',
 				]);
 				foreach($lives as $live){ ?>
+					<?php if($live->post_status == "publish" || $live->post_status == "scheduled"):?>
 					<li>
 						<?php product_card($live); ?>
 					</li>
 					<?php
+					endif;
 				}
 				?> 
 				</ul>
