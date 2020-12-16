@@ -41,7 +41,11 @@ function recipe_archive_sidebar(){
             <li>
               <a href="<?php echo get_permalink($collection->ID); ?>" class="card">
                 <span class="count">
-                  <?php echo count(get_post_meta($collection->ID, 'list_items')); ?>
+                  <?php 
+                    $list_items = get_post_meta($collection->ID, 'list_items', true);
+                    $count = count($list_items);
+                    echo $count;
+                  ?>
                 </span>
                 <?php echo $collection->post_title; ?>
               </a>
