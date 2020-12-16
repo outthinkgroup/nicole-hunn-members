@@ -47,7 +47,7 @@ $user_id = $user->ID;
             <?php wp_loop_post_grid('recipe'); ?>
           </section>
           <?php
-          $category_cache[] = $category->slug;
+          // $category_cache[] = $category->slug; //this adds the category to the cache so no posts with this category will be shown again
         }
       }
       wp_reset_postdata(); 
