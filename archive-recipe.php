@@ -23,7 +23,7 @@ $user_id = $user->ID;
         //var_dump($category);
         $args = array(
           'post_type' => 'recipe',
-          //'posts_per_page' => ,
+          'posts_per_page' => 9,
           'tax_query' => array(
             'relation'  => 'AND',
             array(
@@ -43,7 +43,10 @@ $user_id = $user->ID;
         if( have_posts()){
           ?>
           <section class="post-collection">
-            <h3> <?php echo $category->name; ?></h3>
+            <header>
+              <h3> <?php echo $category->name; ?></h3>
+              <a class="viewall" href="<?php echo get_term_link($category); ?>">View all <?php echo $category->name; ?> recipes &rarr;</a>
+            </header>
             <?php wp_loop_post_grid('recipe'); ?>
           </section>
           <?php
