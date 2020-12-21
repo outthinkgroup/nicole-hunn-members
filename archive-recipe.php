@@ -48,6 +48,8 @@ $user_id = $user->ID;
               <a class="viewall" href="<?php echo get_term_link($category); ?>">View all <?php echo $category->name; ?> recipes &rarr;</a>
             </header>
             <?php wp_loop_post_grid('recipe'); ?>
+            <a class="viewall" href="<?php echo get_term_link($category); ?>" style="margin-top:1.5em">View all <?php echo $category->name; ?> recipes &rarr;</a>
+
           </section>
           <?php
           // $category_cache[] = $category->slug; //this adds the category to the cache so no posts with this category will be shown again
