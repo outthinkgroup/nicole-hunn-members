@@ -27,7 +27,7 @@
     grid-template-columns: minmax(0, 1fr) 300px;
   }
 }
-.archive-template-layout header {
+.archive-template-layout > header {
   text-align: center;
   padding: 100px 20px;
   background: white;
