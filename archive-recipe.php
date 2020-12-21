@@ -45,7 +45,7 @@ $user_id = $user->ID;
           <section class="post-collection">
             <header>
               <h3> <?php echo $category->name; ?></h3>
-              <a class="viewall" href="<?php echo get_term_link($category); ?>">View all <?php echo $category->name; ?> recipes &rarr;</a>
+              <a class="viewall" href="<?php echo get_term_link($category); ?>">View all <?php echo $category->name; ?> &rarr;</a>
             </header>
             <?php wp_loop_post_grid('recipe'); ?>
             <a class="viewall" href="<?php echo get_term_link($category); ?>" style="margin-top:1.5em">View all <?php echo $category->name; ?> recipes &rarr;</a>
