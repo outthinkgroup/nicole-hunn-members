@@ -14,10 +14,11 @@ export function gramCalc(recipeSlug, totalCups) {
   const recipeObj = recipes[recipeSlug];
   const { name, ingredients } = recipeObj;
 
-  const ingredientsPortions = ingredients.map(({ name, percent }) => {
-    const grams = Math.round(totalCups * percent);
-    return { name, grams };
+  const ingredientsPortions = ingredients.map(({ name, grams }) => {
+    const calculatedGrams = Math.round(totalCups * grams);
+    return { name, grams: calculatedGrams };
   });
+
   return { name, ingredients: ingredientsPortions };
 }
 
