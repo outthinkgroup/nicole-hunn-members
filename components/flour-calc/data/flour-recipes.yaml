@@ -20,11 +20,11 @@ recipes:
     name: " Basic Xanthan-Free Blend"
     ingredients:
       - name: " White Rice Flour"
-        grams: 84.48
+        grams: 92
       - name: " Tapioca Starch"
-        grams: 15.36
+        grams: 31
       - name: " Potato Starch"
-        grams: 28.16
+        grams: 17
   mockCup4CupBlend:
     name: " Mock Cup4Cup Blend"
     ingredients:
