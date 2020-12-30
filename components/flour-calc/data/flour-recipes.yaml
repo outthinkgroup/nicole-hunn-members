@@ -20,11 +20,11 @@ recipes:
     name: " Basic Xanthan-Free Blend"
     ingredients:
       - name: " White Rice Flour"
-        percent: 92.4
+        percent: 84.48
       - name: " Tapioca Starch"
-        percent: 16.8
+        percent: 28.1
       - name: " Potato Starch"
-        percent: 30.8
+        percent: 15.36
   mockCup4CupBlend:
     name: " Mock Cup4Cup Blend"
     ingredients:
