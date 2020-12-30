@@ -2469,10 +2469,10 @@ module.exports = {
         percent: 92.4
       }, {
         name: " Tapioca Starch",
-        percent: 30.8
+        percent: 12
       }, {
         name: " Potato Starch",
-        percent: 16.8
+        percent: 22
       }]
     },
     mockCup4CupBlend: {
@@ -4827,7 +4827,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63898" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59520" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
