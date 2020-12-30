@@ -2441,119 +2441,119 @@ module.exports = {
       name: "Better Than Cup4Cup Blend",
       ingredients: [{
         name: "White Rice Flour",
-        percent: 43.4
+        grams: 43.4
       }, {
         name: "Cornstarch",
-        percent: 25.2
+        grams: 25.2
       }, {
         name: "Brown Rice Flour",
-        percent: 23.8
+        grams: 23.8
       }, {
         name: "Tapioca Starch",
-        percent: 21
+        grams: 21
       }, {
         name: " Non-Fat Dry Milk",
-        percent: 19.6
+        grams: 19.6
       }, {
         name: " Potato Starch",
-        percent: 4.2
+        grams: 4.2
       }, {
         name: " Xanthan Gum",
-        percent: 2.8000000000000003
+        grams: 2.8000000000000003
       }]
     },
     basicXanthanFreeBlend: {
       name: " Basic Xanthan-Free Blend",
       ingredients: [{
         name: " White Rice Flour",
-        percent: 92.4
+        grams: 84.48
       }, {
         name: " Tapioca Starch",
-        percent: 12
+        grams: 15.36
       }, {
         name: " Potato Starch",
-        percent: 22
+        grams: 28.16
       }]
     },
     mockCup4CupBlend: {
       name: " Mock Cup4Cup Blend",
       ingredients: [{
         name: " White Rice Flour",
-        percent: 43.4
+        grams: 43.4
       }, {
         name: " Cornstarch",
-        percent: 35
+        grams: 35
       }, {
         name: " Brown Rice Flour",
-        percent: 19.6
+        grams: 19.6
       }, {
         name: " Tapioca Starch",
-        percent: 21
+        grams: 21
       }, {
         name: " Non-Fat Dry Milk",
-        percent: 14
+        grams: 14
       }, {
         name: " Potato Starch",
-        percent: 4.2
+        grams: 4.2
       }, {
         name: " Xanthan Gum",
-        percent: 2.8000000000000003
+        grams: 2.8000000000000003
       }]
     },
     mockBetterBatter: {
       name: " Mock Better Batter",
       ingredients: [{
         name: " White Rice Flour",
-        percent: 42
+        grams: 42
       }, {
         name: " Brown Rice Flour",
-        percent: 42
+        grams: 42
       }, {
         name: " Tapioca Starch",
-        percent: 21
+        grams: 21
       }, {
         name: " Potato Starch",
-        percent: 21
+        grams: 21
       }, {
         name: " Xanthan Gum",
-        percent: 4.2
+        grams: 4.2
       }, {
         name: " Potato Flour",
-        percent: 7
+        grams: 7
       }, {
         name: " Pectin",
-        percent: 2.8000000000000003
+        grams: 2.8000000000000003
       }]
     },
     glutenFreeBreadFlour: {
       name: " Gluten Free Bread Flour",
       ingredients: [{
         name: " White Rice Flour",
-        percent: 30
+        grams: 30
       }, {
         name: " Brown Rice Flour",
-        percent: 30
+        grams: 30
       }, {
         name: " Tapioca Starch",
-        percent: 15
+        grams: 15
       }, {
         name: " Potato Starch",
-        percent: 15
+        grams: 15
       }, {
         name: " Xanthan Gum",
-        percent: 3
+        grams: 3
       }, {
         name: " Potato Flour",
-        percent: 5
+        grams: 5
       }, {
         name: " Pectin",
-        percent: 2
+        grams: 2
       }, {
         name: " Whey Protein Isolate",
-        percent: 25
+        grams: 25
       }, {
         name: " Expandex",
-        percent: 15
+        grams: 15
       }]
     }
   }
@@ -2739,11 +2739,11 @@ function gramCalc(recipeSlug, totalCups) {
       ingredients = recipeObj.ingredients;
   var ingredientsPortions = ingredients.map(function (_ref) {
     var name = _ref.name,
-        percent = _ref.percent;
-    var grams = Math.round(totalCups * percent);
+        grams = _ref.grams;
+    var calculatedGrams = Math.round(totalCups * grams);
     return {
       name: name,
-      grams: grams
+      grams: calculatedGrams
     };
   });
   return {
@@ -4827,7 +4827,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59520" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56236" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
