@@ -21,9 +21,9 @@ recipes:
     ingredients:
       - name: " White Rice Flour"
         grams: 92
-      - name: " Tapioca Starch"
-        grams: 31
       - name: " Potato Starch"
+        grams: 31
+      - name: " Tapioca Starch"
         grams: 17
   mockCup4CupBlend:
     name: " Mock Cup4Cup Blend"
