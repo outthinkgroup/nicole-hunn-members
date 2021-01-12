@@ -175,3 +175,17 @@ section.post-collection {
 }
 
 //mockup price banner
+
+/* woocommerce checkout payment methods */
+
+#payment label[for="payment_method_stripe"] {
+  display: flex;
+  gap: 10px;
+}
+
+#payment label[for="payment_method_stripe"] * {
+  width: 100%;
+}
+#payment label[for="payment_method_stripe"] svg {
+  width: calc(100% / 8);
+}
