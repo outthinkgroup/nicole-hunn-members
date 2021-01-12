@@ -2466,13 +2466,13 @@ module.exports = {
       name: " Basic Xanthan-Free Blend",
       ingredients: [{
         name: " White Rice Flour",
-        grams: 84.48
-      }, {
-        name: " Tapioca Starch",
-        grams: 15.36
+        grams: 92
       }, {
         name: " Potato Starch",
-        grams: 28.16
+        grams: 31
+      }, {
+        name: " Tapioca Starch",
+        grams: 17
       }]
     },
     mockCup4CupBlend: {
@@ -4827,7 +4827,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57253" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62903" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

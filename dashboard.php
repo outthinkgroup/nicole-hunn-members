@@ -97,6 +97,7 @@ global $post;
 				<a href="/member-content-downloads/" class="viewall">View all My Downloads &rarr;</a>
 			</section>
 		</main>
+		
 	</div>
 
 
