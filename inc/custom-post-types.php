@@ -12,7 +12,7 @@ function create_posttype_live() {
             'has_archive' => true,
             'rewrite' => array('slug' => 'gfoas-lives'),
             'show_in_rest' => true,
-            'supports' => ['thumbnail', 'title', 'custom fields', 'editor']
+            'supports' => ['thumbnail', 'title', 'custom fields', 'editor', 'thumbnail']
         )
     );
 }
