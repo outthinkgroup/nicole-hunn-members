@@ -186,6 +186,7 @@ a > strong {
   pointer-events: none !important;
 }
 
+/*  */
 #primary h1,
 #primary h2 {
   font-family: "Berkshire Swash", cursive;
@@ -1516,6 +1517,20 @@ section.post-collection .grid {
 }
 section.post-collection:first-child {
   padding-top: 0;
+}
+
+/* woocommerce checkout payment methods */
+#payment label[for=payment_method_stripe] {
+  display: flex;
+  gap: 10px;
+}
+
+#payment label[for=payment_method_stripe] * {
+  width: 100%;
+}
+
+#payment label[for=payment_method_stripe] svg {
+  width: calc(100% / 8);
 }
 
 /*# sourceMappingURL=global.css.map */
