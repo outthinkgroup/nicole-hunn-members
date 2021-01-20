@@ -1,3 +1,6 @@
+.section {
+  background: green;
+}
 .top-bar,
 .global-sidebar,
 .site-header,
@@ -5,17 +8,17 @@
 .recipe-video,
 .wake-lock-toggle,
 .post-navigation,
-.uabb-tabs-nav,
 .fl-module-separator,
 .ast-scroll-top {
-  display: none;
+  display: none !important;
 }
-html #content h3 {
+#content h3 {
   font-family: "Berkshire Swash", handwriting;
 }
-.uabb-tabs .uabb-content-wrap .section {
-  display: block;
+nav.uabb-tabs-nav {
+  display: none;
 }
+
 .recipe-info-row {
   padding-top: 20px;
 }
@@ -27,4 +30,15 @@ html #content h3 {
   .uabb-tabs-desc {
     margin: 20px 0px;
   }
+}
+
+.uabb-content-wrap * {
+  display: block !important;
+  nav.uabb-tabs-nav,
+  .uabb-tab-acc-title {
+    display: none !important;
+  }
+}
+.Beacon {
+  display: none;
 }

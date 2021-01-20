@@ -169,4 +169,4 @@ add_action('wp_enqueue_scripts', function(){
   if(is_single() && get_post_type() === 'recipe'){
     wp_enqueue_style('recipe_print_style', get_stylesheet_directory_uri() . '/assets/recipe-formatting/print-styles.css', array(), NHM_VERSION, 'print');
   }
-});
+},99);
