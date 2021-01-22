@@ -2,15 +2,13 @@
 //grid area
 function add_collection_area($type, $author, $count){
   if($type !== 'lists') return;
+  if($author !== wp_get_current_user()->ID) return;
+
   if(function_exists('show_create_list_area')){
-    ?>
-    
-      <?php show_create_list_area(); ?>
-    
-    <?php
+    show_create_list_area();
   }
 }
-add_action('post_type_grid_after_loop', 'add_collection_area', 10, 3);\
+add_action('post_type_grid_after_loop', 'add_collection_area', 10, 3);
 
 
 add_action('post_type_grid_append_item', function($type){

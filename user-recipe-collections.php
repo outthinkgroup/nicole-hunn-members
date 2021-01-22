@@ -4,8 +4,16 @@
 */
 
 get_header();
-$user = wp_get_current_user();
-$user_id = $user->ID;
+
+$user_from_url = isset($_GET['user_id']) ? intval($_GET['user_id']) : null;
+
+if($user_from_url){
+	$user_id = $user_from_url;
+}else{	
+	$user = wp_get_current_user();
+	$user_id = $user->ID;
+}
+
 ?>
 <div class="custom-wrapper recipe-collections">
 		<header>
@@ -15,10 +23,11 @@ $user_id = $user->ID;
 		<main class="user-collections">
       <div class="recipe-list-management-area">
         <div class="lists">
-          <?php post_type_grid('lists',null, -1, $user_id, true); ?>
+          <?php post_type_grid('lists',null, -1, $user_id, true); ?><!-- gets only recipes for the current user -->
         </div>
       </div>
 		</main>
+
 	</div>
 <?php
 get_footer();
