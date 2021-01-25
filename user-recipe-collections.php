@@ -17,6 +17,7 @@ if($user_from_url){
 ?>
 <div class="custom-wrapper recipe-collections">
 		<header>
+			<div class="user-name"><?php echo get_user_by('ID', $user_id)->display_name; ?>'s</div>			
 			<h2><?php echo the_title(); ?></h2>
 		</header>
 		
