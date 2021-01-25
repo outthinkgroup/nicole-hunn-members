@@ -24,7 +24,7 @@ if($user_from_url){
 		<main class="user-collections">
       <div class="recipe-list-management-area">
         <div class="lists">
-          <?php post_type_grid('lists',null, -1, $user_id, true); ?><!-- gets only recipes for the current user -->
+          <?php post_type_grid('lists', null, -1, $user_id, ['post_status'=>['private', 'publish']]); ?><!-- gets only recipes for the user  with id of $user_id-->
         </div>
       </div>
 		</main>

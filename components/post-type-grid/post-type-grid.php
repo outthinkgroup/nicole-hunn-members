@@ -1,8 +1,9 @@
 <?php
-function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count=-1, $author=null ){
+function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count=-1, $author=null, $options=['post_status'=>"publish"] ){
   $args = [
     'post_type' => $type,
     'posts_per_page' => $count,
+    'post_status'=>$options['post_status']
   ];
   if($category && $category['slug'] = $cat){
     $terms = $category['terms'];
