@@ -1,7 +1,7 @@
 import { handleUpdatePrivacyMode } from "./handleUpdatePrivacyMode";
 import { handleListFork } from "./handleListFork";
 import { handleListShare } from "./handleListShare";
-
+import { handleRename } from "./handleRename";
 window.addEventListener("DOMContentLoaded", init);
 function init() {
   if (!document.querySelector(".recipe-collections-single-layout")) return;
@@ -21,5 +21,10 @@ function init() {
   const shareBtn = document.querySelector('[data-action="share-list"]');
   if (shareBtn) {
     shareBtn.addEventListener("click", handleListShare);
+  }
+
+  const renameBtn = document.querySelector('[data-action="rename-list"]');
+  if (renameBtn) {
+    renameBtn.addEventListener("click", handleRename);
   }
 }

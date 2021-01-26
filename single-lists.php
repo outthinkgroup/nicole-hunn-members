@@ -15,11 +15,15 @@ $is_owner = $author_id == $user_id;
 ?>
 
 	<div class="custom-wrapper recipe-collections-single-layout">
-		<header class="list-single" data-list-id="<?php echo $post->ID; ?>" data-state="idle" data-status="<?php echo $post->post_status; ?>">
+		<header class="list-single " data-list-id="<?php echo $post->ID; ?>" data-state="idle" data-status="<?php echo $post->post_status; ?>">
 			<div class="user-name"><?php echo $author->display_name; ?></div>
 			<div class="flex flex-start">
-				<h2><?php echo the_title(); ?></h2>
-				<?php if($user_id == $author_id) privacy_toggle($post, ['action'=>'toggle-privacy-mode', 'title'=>'toggle collection privacy settings']); ?>
+				<h2 class="flex flex-start">
+				<span><?php echo the_title(); ?></span>
+				<button class="circle-button " data-tooltip="Rename List" data-action="rename-list"><span class="icon">
+					<?php get_icon('edit'); ?>
+				</span></button>
+				</h2>
 			</div>
 			<div class="list-meta">
 				<div class="collection-count">
@@ -37,6 +41,7 @@ $is_owner = $author_id == $user_id;
 				<div class="collection-privacy">
 					<div class="label">This Collection is</div>
 					<div class="tag">
+						<?php if($user_id == $author_id) privacy_toggle($post, ['action'=>'toggle-privacy-mode', 'title'=>'toggle collection privacy settings']); ?>
 						<?php echo $post->post_status == "publish" ? "public": $post->post_status; ?>
 					</div>
 				</div>
@@ -56,7 +61,11 @@ $is_owner = $author_id == $user_id;
 					<div class="label">
 						Copy Collection to Your Collections
 					</div>
-
+					<button class="circle-button" style="font-size:20px;" data-action="fork-list">
+						<span class="icon">
+							<?php get_icon('clone', 'solid'); ?>
+						</span>
+					</button>
 				</div>
 				<?php endif; ?>
 			</div>

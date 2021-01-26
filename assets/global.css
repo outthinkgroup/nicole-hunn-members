@@ -1768,4 +1768,9 @@ section.post-collection:first-child {
   background: var(--input-bg--hover);
 }
 
+header [data-tooltip] {
+  padding: 8px;
+  line-height: 1.2;
+}
+
 /*# sourceMappingURL=global.css.map */

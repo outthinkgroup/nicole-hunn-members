@@ -1,6 +1,7 @@
 export default class Notice {
-  constructor(el, [xAxis, yAxis]) {
+  constructor(el, [xAxis, yAxis], time = 3000) {
     this.el = el;
+    this.time = time;
     this.placement = {
       left: xAxis,
       top: yAxis,
@@ -18,7 +19,7 @@ export default class Notice {
   }
 
   setNotice = (msg) => {
-    this.noticeEl.textContent = msg;
+    this.noticeEl.innerHTML = msg;
     if (!document.body.contains(this.noticeEl)) {
       document.body.appendChild(this.noticeEl);
       this.noticeEl.style.setProperty("left", `${this.position.left}px`);
@@ -26,7 +27,7 @@ export default class Notice {
     }
     if (this.timer) clearTimeout(this.timer);
 
-    this.timer = setTimeout(this.removeNotice, 3000);
+    this.timer = setTimeout(this.removeNotice, this.time);
   };
 
   removeNotice = () => {

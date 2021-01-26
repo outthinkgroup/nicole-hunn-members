@@ -308,10 +308,12 @@ var Notice = function Notice(el, _ref) {
       xAxis = _ref2[0],
       yAxis = _ref2[1];
 
+  var time = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3000;
+
   _classCallCheck(this, Notice);
 
   _defineProperty(this, "setNotice", function (msg) {
-    _this.noticeEl.textContent = msg;
+    _this.noticeEl.innerHTML = msg;
 
     if (!document.body.contains(_this.noticeEl)) {
       document.body.appendChild(_this.noticeEl);
@@ -322,7 +324,7 @@ var Notice = function Notice(el, _ref) {
     }
 
     if (_this.timer) clearTimeout(_this.timer);
-    _this.timer = setTimeout(_this.removeNotice, 3000);
+    _this.timer = setTimeout(_this.removeNotice, _this.time);
   });
 
   _defineProperty(this, "removeNotice", function () {
@@ -333,6 +335,7 @@ var Notice = function Notice(el, _ref) {
   });
 
   this.el = el;
+  this.time = time;
   this.placement = {
     left: xAxis,
     top: yAxis
@@ -789,8 +792,41 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.handleListFork = handleListFork;
 
-function handleListFork(e) {} // == hello == //
-},{}],"collections/handleListShare.js":[function(require,module,exports) {
+var _notification = _interopRequireDefault(require("./notification"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function handleListFork(e) {
+  var button = e.currentTarget;
+  var parent = button.closest(".list-item, .list-single");
+  var list_id = parent.dataset.listId;
+  var _WP = WP,
+      user_id = _WP.userId;
+  var notice = new _notification.default(button.parentElement, [0, -85], 6000);
+  parent.dataset.state = "loading";
+  notice.setNotice("cloning collection");
+
+  window.__FAVE_RECIPE.forkList({
+    user_id: user_id,
+    list_id: list_id
+    /* list_title */
+
+  }).then(function waitForResponse(res) {
+    if (res.error) {
+      var message = res.error.message;
+
+      if (message) {
+        alert(message);
+      }
+
+      parent.dataset.state = "error";
+    } else {
+      notice.setNotice("Cloned Collection: <a href=\"".concat(res.data.link, "\">See Collection</a>"));
+      parent.dataset.state = "idle";
+    }
+  });
+}
+},{"./notification":"collections/notification.js"}],"collections/handleListShare.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -799,6 +835,58 @@ Object.defineProperty(exports, "__esModule", {
 exports.handleListShare = handleListShare;
 
 function handleListShare(e) {}
+},{}],"collections/handleRename.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleRename = handleRename;
+
+function handleRename(e) {
+  var renameButton = e.currentTarget;
+  var parent = renameButton.parentElement;
+  var parentHTML = parent.innerHTML;
+  showUi(e);
+  addHandler();
+
+  function showUi(e) {
+    var oldTitle = parent.querySelector("span");
+    parent.innerHTML = "\n    <form data-action=\"rename-list\" >\n      <input type=\"text\" value=\"".concat(oldTitle.textContent, "\" name=\"title\"/>\n      <button>Rename List</button>\n    </form>  \n  ");
+  }
+
+  function addHandler() {
+    var form = document.querySelector('form[data-action="rename-list"]');
+    form.addEventListener("submit", handleRenameRecipe);
+  }
+
+  function handleRenameRecipe(e) {
+    e.preventDefault();
+    var title = e.target.querySelector("input").value;
+    var list = e.target.closest(".list-single");
+    var list_id = list.dataset.listId;
+    list.dataset.state = "loading";
+    e.currentTarget.removeEventListener("submit", handleRenameRecipe);
+
+    window.__FAVE_RECIPE.renameList({
+      title: title,
+      list_id: list_id
+    }).then(function receiveResults(res) {
+      if (res.error) {
+        list.dataset.state = "error";
+        parent.innerHTML = parentHTML;
+
+        if (res.error.message) {
+          alert(res.error.message);
+        }
+      } else {
+        list.dataset.state = "idle";
+        parent.innerHTML = parentHTML;
+        parent.querySelector("span").textContent = title;
+      }
+    });
+  }
+}
 },{}],"collections/collection-single-template.js":[function(require,module,exports) {
 "use strict";
 
@@ -807,6 +895,8 @@ var _handleUpdatePrivacyMode = require("./handleUpdatePrivacyMode");
 var _handleListFork = require("./handleListFork");
 
 var _handleListShare = require("./handleListShare");
+
+var _handleRename = require("./handleRename");
 
 window.addEventListener("DOMContentLoaded", init);
 
@@ -832,8 +922,14 @@ function init() {
   if (shareBtn) {
     shareBtn.addEventListener("click", _handleListShare.handleListShare);
   }
+
+  var renameBtn = document.querySelector('[data-action="rename-list"]');
+
+  if (renameBtn) {
+    renameBtn.addEventListener("click", _handleRename.handleRename);
+  }
 }
-},{"./handleUpdatePrivacyMode":"collections/handleUpdatePrivacyMode.js","./handleListFork":"collections/handleListFork.js","./handleListShare":"collections/handleListShare.js"}],"index.js":[function(require,module,exports) {
+},{"./handleUpdatePrivacyMode":"collections/handleUpdatePrivacyMode.js","./handleListFork":"collections/handleListFork.js","./handleListShare":"collections/handleListShare.js","./handleRename":"collections/handleRename.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("./global-sidebar/global-sidebar.js");
@@ -850,10 +946,10 @@ require("./dashboard-carousel/dashboard-carousel.js");
 
 require("./member.scss");
 
-require("./collections/collection-single-template");
+require("./collections/collection-single-template.js");
 
 console.log("hello");
-},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./learndash/course-sidebar.js":"learndash/course-sidebar.js","./dashboard-carousel/dashboard-carousel.js":"dashboard-carousel/dashboard-carousel.js","./member.scss":"member.scss","./collections/collection-single-template":"collections/collection-single-template.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./learndash/course-sidebar.js":"learndash/course-sidebar.js","./dashboard-carousel/dashboard-carousel.js":"dashboard-carousel/dashboard-carousel.js","./member.scss":"member.scss","./collections/collection-single-template.js":"collections/collection-single-template.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -881,7 +977,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58430" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54284" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
