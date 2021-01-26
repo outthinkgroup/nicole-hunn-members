@@ -6,11 +6,15 @@
 get_header();
 $user = wp_get_current_user();
 $user_id = $user->ID;
+
 global $post;
+$author_id = $post->post_author;
+$author = get_user_by('ID', $author_id);
 ?>
 
 	<div class="custom-wrapper recipe-collections-single-layout">
 		<header>
+			<div class="user-name"><?php echo $author->display_name; ?></div>
 			<h2><?php echo the_title(); ?></h2>
 		</header>
 		<main class="lists-single">

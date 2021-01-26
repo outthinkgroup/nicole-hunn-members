@@ -702,15 +702,6 @@ a {
   display: none;
 }
 
-.recipe-collections header .user-name {
-  font-size: 1.56rem;
-  font-weight: bold;
-  color: var(--blue-base);
-  display: inline-flex;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: var(--input-bg);
-}
 .recipe-collections .lists {
   box-shadow: none;
 }
@@ -1651,7 +1642,16 @@ section.post-collection:first-child {
   padding-top: 0;
 }
 
-/* woocommerce checkout payment methods */
+.custom-wrapper > header .user-name {
+  font-size: 1.56rem;
+  font-weight: bold;
+  color: var(--blue-base);
+  display: inline-flex;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--input-bg);
+}
+
 #payment label[for=payment_method_stripe] {
   display: flex;
   gap: 10px;
