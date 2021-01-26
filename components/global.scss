@@ -199,3 +199,37 @@ section.post-collection {
 #payment label[for="payment_method_stripe"] svg {
   width: calc(100% / 8);
 }
+
+//== CIRCLE BUTTON ==//
+.top-bar .button-group > a,
+.top-bar__button > button,
+.top-bar__button > a,
+.top-bar__button,
+.circle-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  padding: 0;
+  border-radius: 50%;
+
+  &:focus {
+    background: var(--input-bg);
+  }
+  &:active {
+    background: var(--input-bg--hover);
+  }
+}
+
+.circle-button {
+  color: var(--button-color, var(--med-grey));
+  background: var(--input-bg);
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--button-color, var(--med-grey));
+    background: var(--input-bg--hover);
+  }
+}

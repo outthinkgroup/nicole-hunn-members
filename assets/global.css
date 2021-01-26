@@ -1730,4 +1730,42 @@ section.post-collection:first-child {
   width: calc(100% / 8);
 }
 
+.top-bar .button-group > a,
+.top-bar__button > button,
+.top-bar__button > a,
+.top-bar__button,
+.circle-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  padding: 0;
+  border-radius: 50%;
+}
+.top-bar .button-group > a:focus,
+.top-bar__button > button:focus,
+.top-bar__button > a:focus,
+.top-bar__button:focus,
+.circle-button:focus {
+  background: var(--input-bg);
+}
+.top-bar .button-group > a:active,
+.top-bar__button > button:active,
+.top-bar__button > a:active,
+.top-bar__button:active,
+.circle-button:active {
+  background: var(--input-bg--hover);
+}
+
+.circle-button {
+  color: var(--button-color, var(--med-grey));
+  background: var(--input-bg);
+}
+.circle-button:hover, .circle-button:active, .circle-button:focus {
+  color: var(--button-color, var(--med-grey));
+  background: var(--input-bg--hover);
+}
+
 /*# sourceMappingURL=global.css.map */

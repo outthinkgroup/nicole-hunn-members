@@ -781,10 +781,32 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"collections/collection-single-template.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"collections/handleListFork.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleListFork = handleListFork;
+
+function handleListFork(e) {} // == hello == //
+},{}],"collections/handleListShare.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleListShare = handleListShare;
+
+function handleListShare(e) {}
+},{}],"collections/collection-single-template.js":[function(require,module,exports) {
 "use strict";
 
 var _handleUpdatePrivacyMode = require("./handleUpdatePrivacyMode");
+
+var _handleListFork = require("./handleListFork");
+
+var _handleListShare = require("./handleListShare");
 
 window.addEventListener("DOMContentLoaded", init);
 
@@ -795,9 +817,23 @@ function init() {
 
   if (toggle) {
     toggle.addEventListener("change", _handleUpdatePrivacyMode.handleUpdatePrivacyMode);
+  } //TODO Clone List
+
+
+  var forkBtn = document.querySelector('[data-action="fork-list"]');
+
+  if (forkBtn) {
+    forkBtn.addEventListener("click", _handleListFork.handleListFork);
+  } //TODO Share List
+
+
+  var shareBtn = document.querySelector('[data-action="share-list"]');
+
+  if (shareBtn) {
+    shareBtn.addEventListener("click", _handleListShare.handleListShare);
   }
 }
-},{"./handleUpdatePrivacyMode":"collections/handleUpdatePrivacyMode.js"}],"index.js":[function(require,module,exports) {
+},{"./handleUpdatePrivacyMode":"collections/handleUpdatePrivacyMode.js","./handleListFork":"collections/handleListFork.js","./handleListShare":"collections/handleListShare.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("./global-sidebar/global-sidebar.js");
