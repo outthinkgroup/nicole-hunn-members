@@ -277,7 +277,7 @@ function toQueryString(data) {
   var queryString = urlSearhParams.toString();
   return queryString;
 }
-},{}],"product-card/products/recipe-collection/notification.js":[function(require,module,exports) {
+},{}],"collections/notification.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -353,84 +353,26 @@ var Notice = function Notice(el, _ref) {
 };
 
 exports.default = Notice;
-},{}],"product-card/products/recipe-collection/recipe-collection.js":[function(require,module,exports) {
+},{}],"collections/handleUpdatePrivacyMode.js":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleUpdatePrivacyMode = handleUpdatePrivacyMode;
 
 var _notification = _interopRequireDefault(require("./notification"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-window.addEventListener("DOMContentLoaded", initRecipeCollectionScript);
-
-function initRecipeCollectionScript() {
-  if (!document.querySelector(".product-card.post-type-lists")) return;
-
-  var allCards = _toConsumableArray(document.querySelectorAll(".product-card.post-type-lists"));
-
-  allCards.forEach(function (collectionCard) {
-    var showDeleteActionBtn = collectionCard.querySelector('[data-action="warn-delete-list"]');
-
-    if (showDeleteActionBtn) {
-      showDeleteActionBtn.addEventListener("click", handleShowDeleteUI);
-    }
-
-    var privacyModeToggle = collectionCard.querySelector('[data-action="toggle-privacy-mode"]');
-
-    if (privacyModeToggle) {
-      privacyModeToggle.addEventListener("change", handleUpdatePrivacyMode);
-    }
-  });
-}
-
-function handleShowDeleteUI(e) {
-  var item = e.target.closest(".list-item");
-  var parentElement = item.parentElement;
-  var listId = item.dataset.listId;
-  var _WP = WP,
-      userId = _WP.userId;
-
-  if (window.confirm("Are you sure you want to delete this collection")) {
-    item.dataset.state = "loading";
-
-    window.__FAVE_RECIPE.deleteList(listId, userId).then(function (res) {
-      if (res.error) {
-        if (res.error.message) {
-          alert(res.error.message);
-        }
-
-        item.dataset.state = "error";
-      } else {
-        if (parentElement.contains(item)) {
-          parentElement.removeChild(item);
-        }
-      }
-    });
-  }
-} //add default new list link
-
-
-window.__FAVE_RECIPE.newListItemLink = "/recipes";
-
 function handleUpdatePrivacyMode(e) {
   var toggle = e.currentTarget;
-  var list = toggle.closest(".list-item");
+  var list = toggle.closest(".list-item, .list-single");
   var list_id = list.dataset.listId;
-  var _WP2 = WP,
-      user_id = _WP2.userId;
+  var _WP = WP,
+      user_id = _WP.userId;
   var new_status = getNewStatus(toggle);
-  var notice = new _notification.default(toggle.parentElement, [0, -25]);
+  var notice = new _notification.default(toggle.parentElement, [0, -35]);
   list.dataset.state = "loading";
   notice.setNotice("changing to ".concat(new_status));
 
@@ -465,7 +407,74 @@ function getNewStatus(checkboxEl) {
 function toggleStatus(checked) {
   return checked == true ? "publish" : "private";
 }
-},{"./notification":"product-card/products/recipe-collection/notification.js"}],"product-card/products/recipes/collection-single-recipes.js":[function(require,module,exports) {
+},{"./notification":"collections/notification.js"}],"product-card/products/recipe-collection/recipe-collection.js":[function(require,module,exports) {
+"use strict";
+
+var _handleUpdatePrivacyMode = require("../../../collections/handleUpdatePrivacyMode");
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+window.addEventListener("DOMContentLoaded", initRecipeCollectionScript);
+
+function initRecipeCollectionScript() {
+  if (!document.querySelector(".product-card.post-type-lists")) return;
+
+  var allCards = _toConsumableArray(document.querySelectorAll(".product-card.post-type-lists"));
+
+  allCards.forEach(function (collectionCard) {
+    var showDeleteActionBtn = collectionCard.querySelector('[data-action="warn-delete-list"]');
+
+    if (showDeleteActionBtn) {
+      showDeleteActionBtn.addEventListener("click", handleShowDeleteUI);
+    }
+
+    var privacyModeToggle = collectionCard.querySelector('[data-action="toggle-privacy-mode"]');
+
+    if (privacyModeToggle) {
+      privacyModeToggle.addEventListener("change", _handleUpdatePrivacyMode.handleUpdatePrivacyMode);
+    }
+  });
+}
+
+function handleShowDeleteUI(e) {
+  var item = e.target.closest(".list-item");
+  var parentElement = item.parentElement;
+  var listId = item.dataset.listId;
+  var _WP = WP,
+      userId = _WP.userId;
+
+  if (window.confirm("Are you sure you want to delete this collection")) {
+    item.dataset.state = "loading";
+
+    window.__FAVE_RECIPE.deleteList(listId, userId).then(function (res) {
+      if (res.error) {
+        if (res.error.message) {
+          alert(res.error.message);
+        }
+
+        item.dataset.state = "error";
+      } else {
+        if (parentElement.contains(item)) {
+          parentElement.removeChild(item);
+        }
+      }
+    });
+  }
+} //add default new list link
+
+
+window.__FAVE_RECIPE.newListItemLink = "/recipes";
+},{"../../../collections/handleUpdatePrivacyMode":"collections/handleUpdatePrivacyMode.js"}],"product-card/products/recipes/collection-single-recipes.js":[function(require,module,exports) {
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -772,7 +781,23 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"collections/collection-single-template.js":[function(require,module,exports) {
+"use strict";
+
+var _handleUpdatePrivacyMode = require("./handleUpdatePrivacyMode");
+
+window.addEventListener("DOMContentLoaded", init);
+
+function init() {
+  if (!document.querySelector(".recipe-collections-single-layout")) return; //add privacy toggle listener
+
+  var toggle = document.querySelector('[data-action="toggle-privacy-mode"]');
+
+  if (toggle) {
+    toggle.addEventListener("change", _handleUpdatePrivacyMode.handleUpdatePrivacyMode);
+  }
+}
+},{"./handleUpdatePrivacyMode":"collections/handleUpdatePrivacyMode.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("./global-sidebar/global-sidebar.js");
@@ -789,8 +814,10 @@ require("./dashboard-carousel/dashboard-carousel.js");
 
 require("./member.scss");
 
+require("./collections/collection-single-template");
+
 console.log("hello");
-},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./learndash/course-sidebar.js":"learndash/course-sidebar.js","./dashboard-carousel/dashboard-carousel.js":"dashboard-carousel/dashboard-carousel.js","./member.scss":"member.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./learndash/course-sidebar.js":"learndash/course-sidebar.js","./dashboard-carousel/dashboard-carousel.js":"dashboard-carousel/dashboard-carousel.js","./member.scss":"member.scss","./collections/collection-single-template":"collections/collection-single-template.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

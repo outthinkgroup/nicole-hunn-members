@@ -13,9 +13,12 @@ $author = get_user_by('ID', $author_id);
 ?>
 
 	<div class="custom-wrapper recipe-collections-single-layout">
-		<header>
+		<header class="list-single" data-list-id="<?php echo $post->ID; ?>" data-state="idle" data-status="<?php echo $post->post_status; ?>">
 			<div class="user-name"><?php echo $author->display_name; ?></div>
-			<h2><?php echo the_title(); ?></h2>
+			<div class="flex flex-start">
+				<h2><?php echo the_title(); ?></h2>
+				<?php if($user_id == $author_id) privacy_toggle($post, ['action'=>'toggle-privacy-mode', 'title'=>'toggle collection privacy settings']); ?>
+			</div>
 		</header>
 		<main class="lists-single">
 			<section class="">
