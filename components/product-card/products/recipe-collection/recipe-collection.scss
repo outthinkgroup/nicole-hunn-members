@@ -36,4 +36,36 @@
       display: none;
     }
   }
+
+  .simple-toggle {
+    font-size: 10px;
+    .toggle__wrapper {
+      margin-left: 0;
+    }
+  }
+  .top-left-corner {
+    display: flex;
+    align-items: center;
+    .tag {
+      margin-left: 10px;
+    }
+  }
+  .top-left-corner[data-status="private"]::after {
+    content: attr(data-status);
+    line-height: 1;
+    padding: 2px 5px;
+    background: var(--input-bg);
+    display: inline-block;
+    color: var(--blue-base);
+    border-radius: 4px;
+    margin-left: 5px;
+  }
+}
+
+.temp-notice {
+  background: var(--blue-dark);
+  color: white;
+  border-radius: 4px;
+  box-shadow: var(--shadow-sm);
+  padding: 0 5px;
 }

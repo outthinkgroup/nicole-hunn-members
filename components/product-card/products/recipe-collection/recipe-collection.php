@@ -44,8 +44,19 @@ add_action('after_product_card_image', function($product){
       <span class="icon"><?php get_icon('delete'); ?></span>
     </button>
   </div>
+  <div class="list-actions top-left-corner" data-status="<?php echo $product->post_status; ?>"> 
+    <?php privacy_toggle($product, ['action'=>'toggle-privacy-mode', 'title'=>'toggle privacy of this collection']); ?>
+  </div>
   <?php
 }, 10, 1);
+function privacy_toggle($post, $options){
+  $status = $post->post_status;
+  $is_checked = $status == 'publish' ? true : false;
+
+  simple_toggle($is_checked, $options);
+}
+
+
 
 add_action('product_card_no_image', function($replaced_image, $product){
   if($product->post_type !== 'lists') return $replaced_image;

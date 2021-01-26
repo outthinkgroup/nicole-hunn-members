@@ -277,7 +277,89 @@ function toQueryString(data) {
   var queryString = urlSearhParams.toString();
   return queryString;
 }
+},{}],"product-card/products/recipe-collection/notification.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Notice = function Notice(el, _ref) {
+  var _this = this;
+
+  var _ref2 = _slicedToArray(_ref, 2),
+      xAxis = _ref2[0],
+      yAxis = _ref2[1];
+
+  _classCallCheck(this, Notice);
+
+  _defineProperty(this, "setNotice", function (msg) {
+    _this.noticeEl.textContent = msg;
+
+    if (!document.body.contains(_this.noticeEl)) {
+      document.body.appendChild(_this.noticeEl);
+
+      _this.noticeEl.style.setProperty("left", "".concat(_this.position.left, "px"));
+
+      _this.noticeEl.style.setProperty("top", "".concat(_this.position.top, "px"));
+    }
+
+    if (_this.timer) clearTimeout(_this.timer);
+    _this.timer = setTimeout(_this.removeNotice, 3000);
+  });
+
+  _defineProperty(this, "removeNotice", function () {
+    clearTimeout(_this.timer); // if (document.body.contains(this.noticeEl)) {
+
+    _this.noticeEl.parentElement.removeChild(_this.noticeEl); // }
+
+  });
+
+  this.el = el;
+  this.placement = {
+    left: xAxis,
+    top: yAxis
+  };
+
+  var _this$el$getBoundingC = this.el.getBoundingClientRect(),
+      top = _this$el$getBoundingC.y,
+      left = _this$el$getBoundingC.x;
+
+  console.log(this.el.getBoundingClientRect());
+  this.position = {
+    top: window.pageYOffset + (top + this.placement.top * -1),
+    left: left + this.placement.left
+  };
+  this.noticeEl = document.createElement("div");
+  this.noticeEl.classList.add("temp-notice");
+  this.noticeEl.style.position = "absolute";
+};
+
+exports.default = Notice;
 },{}],"product-card/products/recipe-collection/recipe-collection.js":[function(require,module,exports) {
+"use strict";
+
+var _notification = _interopRequireDefault(require("./notification"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -298,8 +380,17 @@ function initRecipeCollectionScript() {
   var allCards = _toConsumableArray(document.querySelectorAll(".product-card.post-type-lists"));
 
   allCards.forEach(function (collectionCard) {
-    showDeleteActionBtn = collectionCard.querySelector('[data-action="warn-delete-list"]');
-    showDeleteActionBtn.addEventListener("click", handleShowDeleteUI);
+    var showDeleteActionBtn = collectionCard.querySelector('[data-action="warn-delete-list"]');
+
+    if (showDeleteActionBtn) {
+      showDeleteActionBtn.addEventListener("click", handleShowDeleteUI);
+    }
+
+    var privacyModeToggle = collectionCard.querySelector('[data-action="toggle-privacy-mode"]');
+
+    if (privacyModeToggle) {
+      privacyModeToggle.addEventListener("change", handleUpdatePrivacyMode);
+    }
   });
 }
 
@@ -315,8 +406,8 @@ function handleShowDeleteUI(e) {
 
     window.__FAVE_RECIPE.deleteList(listId, userId).then(function (res) {
       if (res.error) {
-        if (err.message) {
-          alert(err.message);
+        if (res.error.message) {
+          alert(res.error.message);
         }
 
         item.dataset.state = "error";
@@ -331,7 +422,50 @@ function handleShowDeleteUI(e) {
 
 
 window.__FAVE_RECIPE.newListItemLink = "/recipes";
-},{}],"product-card/products/recipes/collection-single-recipes.js":[function(require,module,exports) {
+
+function handleUpdatePrivacyMode(e) {
+  var toggle = e.currentTarget;
+  var list = toggle.closest(".list-item");
+  var list_id = list.dataset.listId;
+  var _WP2 = WP,
+      user_id = _WP2.userId;
+  var new_status = getNewStatus(toggle);
+  var notice = new _notification.default(toggle.parentElement, [0, -25]);
+  list.dataset.state = "loading";
+  notice.setNotice("changing to ".concat(new_status));
+
+  window.__FAVE_RECIPE.changeListPrivacyMode({
+    user_id: user_id,
+    list_id: list_id,
+    status: new_status
+  }).then(function waitForResponse(res) {
+    if (res.error) {
+      var message = res.error.message;
+
+      if (message) {
+        alert(message);
+      }
+
+      list.dataset.state = "error";
+    } else {
+      notice.setNotice("collection is now ".concat(new_status));
+      list.dataset.state = "idle";
+      toggle.closest("[data-status]").dataset.status = new_status;
+    }
+  });
+} //checked = `publish`
+//unchecked = `private`
+
+
+function getNewStatus(checkboxEl) {
+  var checked = checkboxEl.checked;
+  return toggleStatus(checked);
+}
+
+function toggleStatus(checked) {
+  return checked == true ? "publish" : "private";
+}
+},{"./notification":"product-card/products/recipe-collection/notification.js"}],"product-card/products/recipes/collection-single-recipes.js":[function(require,module,exports) {
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -684,7 +818,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56740" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62630" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
