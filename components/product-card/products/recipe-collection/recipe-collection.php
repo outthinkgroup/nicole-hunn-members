@@ -37,7 +37,9 @@ add_filter('card_bottom', function($card_bottom_markup, $product){
 }, 10, 2);
 
 add_action('after_product_card_image', function($product){
-  if($product->post_type !== 'lists') return;
+  if($product->post_type !== 'lists' || $product->post_author != wp_get_current_user()->ID){
+    return;
+  } 
   ?>
   <div class="list-actions top-right-corner">
     <button type="button" data-action="warn-delete-list" data-tooltip="Delete this list" class="danger icon-button" style="--tool-tip-y-distance:-80px" >
