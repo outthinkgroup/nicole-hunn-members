@@ -720,6 +720,53 @@ a {
   color: white;
   background: #df9393;
 }
+.recipe-collections-single-layout header .title-el {
+  margin-bottom: 20px;
+}
+.recipe-collections-single-layout header .list-meta > div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.recipe-collections-single-layout header .list-meta > div .label {
+  padding: 8px;
+  font-weight: bold;
+  color: var(--med-grey);
+}
+.recipe-collections-single-layout header .list-meta > div .tag {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.recipe-collections-single-layout header .list-meta > div .tag button {
+  box-shadow: var(--shadow-sm);
+}
+.recipe-collections-single-layout header .list-meta > div.collection-privacy .privacy-tag {
+  border-radius: 8px;
+  background: var(--input-bg);
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+}
+.recipe-collections-single-layout header .list-meta > div.collection-privacy label {
+  margin-right: 10px;
+}
+@media (min-width: 650px) {
+  .recipe-collections-single-layout header .list-meta {
+    display: flex;
+    gap: 20px;
+  }
+}
+.recipe-collections-single-layout header [data-action=rename-list] {
+  display: none;
+}
+.recipe-collections-single-layout header:hover [data-action=rename-list] {
+  display: unset;
+}
 
 .member_content-single-layout header {
   text-align: center;

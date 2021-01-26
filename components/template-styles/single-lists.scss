@@ -13,4 +13,57 @@
       background: #df9393;
     }
   }
+  header {
+    .title-el {
+      margin-bottom: 20px;
+    }
+    .list-meta {
+      > div {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 3px;
+        overflow: hidden;
+
+        .label {
+          padding: 8px;
+          font-weight: bold;
+          color: var(--med-grey);
+        }
+        .tag {
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          button {
+            box-shadow: var(--shadow-sm);
+          }
+        }
+        &.collection-privacy {
+          .privacy-tag {
+            border-radius: 8px;
+            background: var(--input-bg);
+            padding: 5px 8px;
+            display: flex;
+            align-items: center;
+          }
+          label {
+            margin-right: 10px;
+          }
+        }
+      }
+      @media (min-width: 650px) {
+        display: flex;
+        gap: 20px;
+      }
+    }
+
+    [data-action="rename-list"] {
+      display: none;
+    }
+    &:hover [data-action="rename-list"] {
+      display: unset;
+    }
+  }
 }
