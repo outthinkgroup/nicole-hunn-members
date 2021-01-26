@@ -47,7 +47,7 @@ add_action('after_product_card_image', function($product){
     </button>
   </div>
   <div class="list-actions top-left-corner" data-status="<?php echo $product->post_status; ?>"> 
-    <?php privacy_toggle($product, ['action'=>'toggle-privacy-mode', 'title'=>'toggle privacy of this collection']); ?>
+    <?php privacy_toggle($product, ['action'=>'toggle-privacy-mode', 'title'=>'toggle collection privacy settings']); ?>
   </div>
   <?php
 }, 10, 1);
@@ -55,7 +55,7 @@ function privacy_toggle($post, $options){
   $status = $post->post_status;
   $is_checked = $status == 'publish' ? true : false;
 
-  simple_toggle($is_checked, $options);
+  lock_toggle($is_checked, $options);
 }
 
 

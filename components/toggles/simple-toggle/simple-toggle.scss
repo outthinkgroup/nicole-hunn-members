@@ -33,7 +33,7 @@
   transform: scale(0);
 }
 
-.toggle__wrapper {
+.simple-toggle .toggle__wrapper {
   margin-left: 1em;
   position: relative;
   height: 2em;
@@ -43,7 +43,7 @@
   box-shadow: 0 0 0 2px #dfdfdf;
 }
 
-.toggle__bg {
+.simple-toggle .toggle__bg {
   overflow: hidden;
   position: absolute;
   z-index: 1;
@@ -53,7 +53,7 @@
   border-radius: 2.5em;
   transition: all 0s linear 0.2s;
 }
-.toggle__bg:after {
+.simple-toggle .toggle__bg:after {
   transition: all 0.2s linear;
   transition-property: transform, opacity;
   transition-delay: 0s, 0.02s;
@@ -70,7 +70,7 @@
   opacity: 1;
 }
 
-.toggle__switch {
+.simple-toggle .toggle__switch {
   position: absolute;
   z-index: 200;
   border-radius: 50%;

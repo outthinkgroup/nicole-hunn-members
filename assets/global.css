@@ -1250,7 +1250,7 @@ li[data-in-list] button:focus:after {
   transform: scale(0);
 }
 
-.toggle__wrapper {
+.wake-lock-toggle .toggle__wrapper {
   margin-left: 1em;
   position: relative;
   height: 2em;
@@ -1260,7 +1260,7 @@ li[data-in-list] button:focus:after {
   box-shadow: 0 0 0 2px #dfdfdf;
 }
 
-.toggle__bg {
+.wake-lock-toggle .toggle__bg {
   overflow: hidden;
   position: absolute;
   z-index: 1;
@@ -1271,7 +1271,7 @@ li[data-in-list] button:focus:after {
   transition: all 0s linear 0.2s;
 }
 
-.toggle__bg:after {
+.wake-lock-toggle .toggle__bg:after {
   transition: all 0.2s linear;
   transition-property: transform, opacity;
   transition-delay: 0s, 0.02s;
@@ -1288,7 +1288,7 @@ li[data-in-list] button:focus:after {
   opacity: 1;
 }
 
-.toggle__switch {
+.wake-lock-toggle .toggle__switch {
   position: absolute;
   z-index: 200;
   border-radius: 50%;
@@ -1300,7 +1300,7 @@ li[data-in-list] button:focus:after {
   transition: all 0.15s cubic-bezier(0.5, 1, 0.5, 1);
 }
 
-.wake-lock-toggle.top-right {
+.wake-lock-toggle .wake-lock-toggle.top-right {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -1418,7 +1418,7 @@ li[data-in-list] button:focus:after {
   transform: scale(0);
 }
 
-.toggle__wrapper {
+.simple-toggle .toggle__wrapper {
   margin-left: 1em;
   position: relative;
   height: 2em;
@@ -1428,7 +1428,7 @@ li[data-in-list] button:focus:after {
   box-shadow: 0 0 0 2px #dfdfdf;
 }
 
-.toggle__bg {
+.simple-toggle .toggle__bg {
   overflow: hidden;
   position: absolute;
   z-index: 1;
@@ -1439,7 +1439,7 @@ li[data-in-list] button:focus:after {
   transition: all 0s linear 0.2s;
 }
 
-.toggle__bg:after {
+.simple-toggle .toggle__bg:after {
   transition: all 0.2s linear;
   transition-property: transform, opacity;
   transition-delay: 0s, 0.02s;
@@ -1456,7 +1456,7 @@ li[data-in-list] button:focus:after {
   opacity: 1;
 }
 
-.toggle__switch {
+.simple-toggle .toggle__switch {
   position: absolute;
   z-index: 200;
   border-radius: 50%;
@@ -1468,6 +1468,71 @@ li[data-in-list] button:focus:after {
   transition: all 0.15s cubic-bezier(0.5, 1, 0.5, 1);
 }
 
+.lock-toggle {
+  position: relative;
+  display: inline-block;
+  font-size: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.lock-toggle:hover {
+  transform: scale(1.08);
+}
+
+.lock-toggle * {
+  box-sizing: inherit;
+}
+
+.lock-toggle input {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.lock-toggle label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.lock-toggle .toggle__wrapper {
+  margin-left: 1em;
+  position: relative;
+  height: 2.75em;
+  width: 2.75em;
+  overflow: visible;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #dfdfdf;
+  background: var(--med-grey);
+}
+.lock-toggle .toggle__wrapper .toggle__icon {
+  color: var(--input-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2em;
+}
+.lock-toggle .toggle__wrapper .toggle__icon [data-show=false] {
+  display: block;
+}
+.lock-toggle .toggle__wrapper .toggle__icon [data-show=true] {
+  display: none;
+}
+
+.lock-toggle input:checked ~ .toggle__wrapper {
+  background: var(--input-bg--hover);
+}
+.lock-toggle input:checked ~ .toggle__wrapper .toggle__icon {
+  color: var(--med-grey);
+}
+.lock-toggle input:checked ~ .toggle__wrapper .toggle__icon [data-show=true] {
+  display: block;
+}
+.lock-toggle input:checked ~ .toggle__wrapper .toggle__icon [data-show=false] {
+  display: none;
+}
 body.customer-login {
   background: #f4f7fa;
 }

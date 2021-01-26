@@ -1,0 +1,74 @@
+.lock-toggle {
+  position: relative;
+  display: inline-block;
+  font-size: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    transform: scale(1.08);
+  }
+}
+.lock-toggle * {
+  box-sizing: inherit;
+}
+.lock-toggle input {
+  width: 0;
+  height: 0;
+  display: none;
+}
+.lock-toggle label {
+  display: inline-flex;
+  align-items: center;
+}
+
+// == STATE is NOT CHECKED == //
+.lock-toggle .toggle__wrapper {
+  margin-left: 1em;
+  position: relative;
+  height: 2.75em;
+  width: 2.75em;
+  overflow: visible;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #dfdfdf;
+  background: var(--med-grey);
+
+  .toggle__bg {
+  }
+  .toggle__bg:after {
+  }
+
+  .toggle__icon {
+    color: var(--input-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+    [data-show="false"] {
+      display: block;
+    }
+    [data-show="true"] {
+      display: none;
+    }
+  }
+}
+
+// == STATE is CHECKED == //
+.lock-toggle input:checked ~ .toggle__wrapper {
+  background: var(--input-bg--hover);
+  .toggle__bg {
+  }
+  .toggle__icon {
+    color: var(--med-grey);
+    [data-show="true"] {
+      display: block;
+    }
+    [data-show="false"] {
+      display: none;
+    }
+  }
+  .toggle__bg:after {
+  }
+}
