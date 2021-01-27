@@ -20,7 +20,6 @@ $get_next_status = $post->post_status != "publish" ? "public": $post->post_statu
 
 	<div class="custom-wrapper recipe-collections-single-layout">
 		<header class="list-single " data-list-id="<?php echo $post->ID; ?>" data-state="idle" data-status="<?php echo $post->post_status; ?>">
-			<div class="user-name"><?php echo $author->display_name; ?></div>
 			<div class="flex flex-start title-el">
 				<h2 class="flex flex-start">
 				<span><?php echo the_title(); ?></span>
@@ -29,55 +28,57 @@ $get_next_status = $post->post_status != "publish" ? "public": $post->post_statu
 				</span></button>
 				</h2>
 			</div>
+
 			<div class="list-meta">
-				<div class="collection-count">
-					<div class="label">
-						Number of Recipes
+				<!--  -->
+				<div class="byline">
+					<div class="tag" data-tooltip="Number of Recipes">
+						By: <span class="user-name"><?php echo $author->display_name; ?></span>
 					</div>
+				</div>
+				<!--  -->
+				<div class="collection-count">
 					<?php 
 					if(function_exists("show_count")){?>
-						<div class="tag">
-							<div class="badge"><span><?php show_count($post->ID); ?></span></div>
+						<div class="tag" data-tooltip="Number of Recipes">
+							<span class="bold-label" style="margin-top:-7px; margin-right:8px;"><?php show_count($post->ID); ?></span>
+							Recipes
 						</div>
 					<?php }
 					?>
 				</div>
+				<!--  -->
 				<div class="collection-privacy">
-					<div class="label">This Collection is</div>
-					<div class="tag">
-						<div class="privacy-tag" >
+					<div class="tag" data-tooltip="Click lock to change privacy">
 							<?php if($user_id == $author_id) privacy_toggle($post, ['action'=>'toggle-privacy-mode', 'title'=>'toggle collection privacy settings']); ?>
-							<span class="status"><?php echo $get_status; ?></span>
-						</div>
+							<span class="status label"><?php echo $get_status; ?></span>
 					</div>
 				</div>
+				<!--  -->
 				<div class="share-list-wrapper">
-					<div class="label">
-						Show others
-					</div>
-					<div class="tag">
-						<button class="circle-button" style="font-size:20px;">
-						<span class="icon">
-							<?php get_icon('share-alt', 'solid'); ?>
-						</span>
-					</button>
+					<div class="tag" data-tooltip="Share with Others">
+						<button class="circle-button" style="font-size:20px; margin-right:8px;">
+							<span class="icon">
+								<?php get_icon('share-alt', 'solid'); ?>
+							</span>
+						</button>
+						Share
 					</div>
 				</div>
-				<?php if(!$is_owner): ?>
+				<!--  -->		
 				<div class="fork-list-wrapper">
-					<div class="label">
-						Copy Collection to Your Collections
-					</div>
-					<div class="tag">
-						<button class="circle-button" style="font-size:20px;" data-action="fork-list">
+					<div class="tag" data-tooltip="Copy Collection">
+						<button class="circle-button" style="font-size:20px; margin-right:8px;" data-action="fork-list">
 						<span class="icon">
 							<?php get_icon('clone', 'solid'); ?>
 						</span>
 					</button>
+					Copy
 					</div>
 				</div>
-				<?php endif; ?>
-			</div>
+				<!--  -->		
+			</div><!-- end of list meta -->
+
 		</header>
 		<main class="lists-single">
 			<section class="">

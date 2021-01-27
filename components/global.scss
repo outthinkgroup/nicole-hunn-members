@@ -176,14 +176,16 @@ section.post-collection {
 
 // == Page Template Headers == //
 
-.custom-wrapper > header .user-name {
-  font-size: 1.56rem;
-  font-weight: bold;
-  color: var(--blue-base);
-  display: inline-flex;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: var(--input-bg);
+.custom-wrapper {
+  > header .user-name {
+    font-size: 1.56rem;
+    font-weight: bold;
+    color: var(--med-grey);
+    display: inline-flex;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--input-bg);
+  }
 }
 
 // == woocommerce checkout payment methods == /
