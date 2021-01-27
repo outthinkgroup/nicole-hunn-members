@@ -47,7 +47,7 @@ $get_next_status = $post->post_status != "publish" ? "public": $post->post_statu
 					<div class="tag">
 						<div class="privacy-tag" >
 							<?php if($user_id == $author_id) privacy_toggle($post, ['action'=>'toggle-privacy-mode', 'title'=>'toggle collection privacy settings']); ?>
-							<?php echo $get_status; ?>
+							<span class="status"><?php echo $get_status; ?></span>
 						</div>
 					</div>
 				</div>

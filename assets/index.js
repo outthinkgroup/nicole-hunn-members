@@ -356,6 +356,44 @@ var Notice = function Notice(el, _ref) {
 };
 
 exports.default = Notice;
+},{}],"collections/bus.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var EventBus = /*#__PURE__*/function () {
+  function EventBus(commentMsg) {
+    _classCallCheck(this, EventBus);
+
+    this.bus = new Comment(commentMsg);
+    this.dispatch = this.dispatch.bind(this);
+  }
+
+  _createClass(EventBus, [{
+    key: "dispatch",
+    value: function dispatch(event, details) {
+      this.bus.dispatchEvent(new CustomEvent(event, details));
+    }
+  }, {
+    key: "listenFor",
+    value: function listenFor(event, cb) {
+      this.bus.addEventListener(event, cb);
+    }
+  }]);
+
+  return EventBus;
+}();
+
+exports.default = EventBus;
 },{}],"collections/handleUpdatePrivacyMode.js":[function(require,module,exports) {
 "use strict";
 
@@ -363,10 +401,16 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.handleUpdatePrivacyMode = handleUpdatePrivacyMode;
+exports.privacyModeBus = void 0;
 
 var _notification = _interopRequireDefault(require("./notification"));
 
+var _bus = _interopRequireDefault(require("./bus"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var privacyModeBus = new _bus.default("privacy-mode");
+exports.privacyModeBus = privacyModeBus;
 
 function handleUpdatePrivacyMode(e) {
   var toggle = e.currentTarget;
@@ -396,6 +440,11 @@ function handleUpdatePrivacyMode(e) {
       notice.setNotice("collection is now ".concat(new_status));
       list.dataset.state = "idle";
       toggle.closest("[data-status]").dataset.status = new_status;
+      privacyModeBus.dispatch("privacy-change", {
+        detail: {
+          status: new_status
+        }
+      });
     }
   });
 } //checked = `publish`
@@ -410,7 +459,7 @@ function getNewStatus(checkboxEl) {
 function toggleStatus(checked) {
   return checked == true ? "publish" : "private";
 }
-},{"./notification":"collections/notification.js"}],"product-card/products/recipe-collection/recipe-collection.js":[function(require,module,exports) {
+},{"./notification":"collections/notification.js","./bus":"collections/bus.js"}],"product-card/products/recipe-collection/recipe-collection.js":[function(require,module,exports) {
 "use strict";
 
 var _handleUpdatePrivacyMode = require("../../../collections/handleUpdatePrivacyMode");
@@ -898,6 +947,18 @@ var _handleListShare = require("./handleListShare");
 
 var _handleRename = require("./handleRename");
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
@@ -927,6 +988,19 @@ function init() {
 
   if (renameBtn) {
     renameBtn.addEventListener("click", _handleRename.handleRename);
+  } //Any Privacy Status should be updated when privacy changes
+
+
+  _handleUpdatePrivacyMode.privacyModeBus.listenFor("privacy-change", updateAllStatuses);
+
+  function updateAllStatuses(e) {
+    console.log(e);
+
+    var allStatuses = _toConsumableArray(document.querySelectorAll(".status"));
+
+    allStatuses.forEach(function (el) {
+      el.textContent = e.detail.status;
+    });
   }
 }
 },{"./handleUpdatePrivacyMode":"collections/handleUpdatePrivacyMode.js","./handleListFork":"collections/handleListFork.js","./handleListShare":"collections/handleListShare.js","./handleRename":"collections/handleRename.js"}],"index.js":[function(require,module,exports) {

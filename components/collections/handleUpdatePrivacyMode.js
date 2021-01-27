@@ -1,4 +1,7 @@
 import Notice from "./notification";
+import EventBus from "./bus";
+
+export const privacyModeBus = new EventBus("privacy-mode");
 
 export function handleUpdatePrivacyMode(e) {
   const toggle = e.currentTarget;
@@ -24,6 +27,9 @@ export function handleUpdatePrivacyMode(e) {
         notice.setNotice(`collection is now ${new_status}`);
         list.dataset.state = "idle";
         toggle.closest("[data-status]").dataset.status = new_status;
+        privacyModeBus.dispatch("privacy-change", {
+          detail: { status: new_status },
+        });
       }
     });
 }

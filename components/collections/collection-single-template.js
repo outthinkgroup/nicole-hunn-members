@@ -1,7 +1,11 @@
-import { handleUpdatePrivacyMode } from "./handleUpdatePrivacyMode";
+import {
+  handleUpdatePrivacyMode,
+  privacyModeBus,
+} from "./handleUpdatePrivacyMode";
 import { handleListFork } from "./handleListFork";
 import { handleListShare } from "./handleListShare";
 import { handleRename } from "./handleRename";
+
 window.addEventListener("DOMContentLoaded", init);
 function init() {
   if (!document.querySelector(".recipe-collections-single-layout")) return;
@@ -26,5 +30,15 @@ function init() {
   const renameBtn = document.querySelector('[data-action="rename-list"]');
   if (renameBtn) {
     renameBtn.addEventListener("click", handleRename);
+  }
+
+  //Any Privacy Status should be updated when privacy changes
+  privacyModeBus.listenFor("privacy-change", updateAllStatuses);
+  function updateAllStatuses(e) {
+    console.log(e);
+    const allStatuses = [...document.querySelectorAll(".status")];
+    allStatuses.forEach((el) => {
+      el.textContent = e.detail.status;
+    });
   }
 }
