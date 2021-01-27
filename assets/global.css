@@ -720,6 +720,7 @@ a {
   color: white;
   background: #df9393;
 }
+
 .recipe-collections-single-layout header .title-el {
   margin-bottom: 20px;
 }
@@ -752,6 +753,9 @@ a {
   display: flex;
   align-items: center;
 }
+.recipe-collections-single-layout header .list-meta > div.collection-privacy .privacy-tag .toggle__wrapper {
+  margin-left: 0;
+}
 .recipe-collections-single-layout header .list-meta > div.collection-privacy label {
   margin-right: 10px;
 }
@@ -761,11 +765,13 @@ a {
     gap: 20px;
   }
 }
-.recipe-collections-single-layout header [data-action=rename-list] {
-  display: none;
-}
-.recipe-collections-single-layout header:hover [data-action=rename-list] {
-  display: unset;
+@media (min-width: 900px) {
+  .recipe-collections-single-layout header [data-action=rename-list] {
+    display: none;
+  }
+  .recipe-collections-single-layout header:hover [data-action=rename-list] {
+    display: unset;
+  }
 }
 
 .member_content-single-layout header {
