@@ -36,8 +36,8 @@ $get_next_status = $post->post_status != "publish" ? "public": $post->post_statu
 					</div>
 					<?php 
 					if(function_exists("show_count")){?>
-						<div class="tag circle">
-							<?php show_count($post->ID); ?>
+						<div class="tag">
+							<div class="badge"><span><?php show_count($post->ID); ?></span></div>
 						</div>
 					<?php }
 					?>
@@ -46,7 +46,6 @@ $get_next_status = $post->post_status != "publish" ? "public": $post->post_statu
 					<div class="label">This Collection is</div>
 					<div class="tag">
 						<div class="privacy-tag" >
-
 							<?php if($user_id == $author_id) privacy_toggle($post, ['action'=>'toggle-privacy-mode', 'title'=>'toggle collection privacy settings']); ?>
 							<?php echo $get_status; ?>
 						</div>
@@ -69,11 +68,13 @@ $get_next_status = $post->post_status != "publish" ? "public": $post->post_statu
 					<div class="label">
 						Copy Collection to Your Collections
 					</div>
-					<button class="circle-button" style="font-size:20px;" data-action="fork-list">
+					<div class="tag">
+						<button class="circle-button" style="font-size:20px;" data-action="fork-list">
 						<span class="icon">
 							<?php get_icon('clone', 'solid'); ?>
 						</span>
 					</button>
+					</div>
 				</div>
 				<?php endif; ?>
 			</div>

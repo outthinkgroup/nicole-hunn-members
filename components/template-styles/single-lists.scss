@@ -60,6 +60,22 @@
           margin-right: 10px;
         }
       }
+      .badge {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background: var(--input-bg);
+        color: var(--med-grey);
+        font-weight: bold;
+        position: relative;
+        > span {
+          font-size: 1.2em;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
     }
     @media (min-width: 650px) {
       display: flex;
