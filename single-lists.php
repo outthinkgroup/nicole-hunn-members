@@ -17,7 +17,6 @@ $get_status =  $post->post_status == "publish" ? "public": $post->post_status;
 $get_next_status = $post->post_status != "publish" ? "public": $post->post_status;
 
 ?>
-
 	<div class="custom-wrapper recipe-collections-single-layout">
 		<header class="list-single " data-list-id="<?php echo $post->ID; ?>" data-state="idle" data-status="<?php echo $post->post_status; ?>">
 			<div class="flex flex-start title-el">

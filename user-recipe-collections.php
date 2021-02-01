@@ -14,6 +14,7 @@ if($user_from_url){
 	$user_id = $user->ID;
 }
 $allowed_post_statuses = wp_get_current_user()->ID === $user_id ? ['publish', 'private'] : ['publish'];
+
 ?>
 <div class="custom-wrapper recipe-collections">
 		<header>
