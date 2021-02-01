@@ -49,3 +49,10 @@ function get_taxonomy_title(){
   $taxonomy = get_taxonomy($taxonomy_slug);
   return $taxonomy->labels->singular_name;
 }
+
+// remove "Private: " from titles
+function remove_private_prefix($title) {
+	$title = str_replace('Private: ', '', $title);
+	return $title;
+}
+add_filter('the_title', 'remove_private_prefix');
