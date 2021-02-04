@@ -56,3 +56,28 @@ function remove_private_prefix($title) {
 	return $title;
 }
 add_filter('the_title', 'remove_private_prefix');
+
+//Remove Empty Collections from main query.
+function remove_empty_collections_from_main_query($query){
+
+	global $post;
+	if(
+		!is_admin() &&
+		$query->is_main_query() &&
+		is_post_type_archive('lists')
+		){
+			$query->set('posts_per_page', 100);
+			$query->set( 'meta_query', array(
+            array(
+                'key'     => 'list_items',
+                'compare' => '!=',
+								'value'	=> ["", array(), false]
+            )
+        ) );
+			
+		}
+		return;
+}
+
+
+add_action('pre_get_posts', 'remove_empty_collections_from_main_query');

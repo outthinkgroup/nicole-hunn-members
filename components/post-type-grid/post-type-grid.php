@@ -44,6 +44,7 @@ function wp_loop_post_grid(){
   <ul class="grid">
   <?php while ( have_posts() ) : the_post(); 
     global $post;
+    
     ?>
     <li <?php echo apply_filters('post_type_grid_li_attr', '', $post->post_type, $post, $post->post_author); ?> >
       <?php product_card($post); ?>

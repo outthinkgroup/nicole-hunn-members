@@ -31,7 +31,7 @@ add_filter('card_bottom', function($card_bottom_markup, $product){
   ob_start();
   show_list_title_and_count($product);
   $title = ob_get_clean();
-
+  var_dump(get_list_items($product->ID));
   return $title;
 
 }, 10, 2);
