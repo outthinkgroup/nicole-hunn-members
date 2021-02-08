@@ -53,17 +53,6 @@ $get_next_status = $post->post_status != "publish" ? "public": $post->post_statu
 							<span class="status label"><?php echo $get_status; ?></span>
 					</div>
 				</div>
-				<!--  -->
-				<div class="share-list-wrapper">
-					<div class="tag" data-tooltip="Share with Others">
-						<button class="circle-button" style="font-size:20px; margin-right:8px;">
-							<span class="icon">
-								<?php get_icon('share-alt', 'solid'); ?>
-							</span>
-						</button>
-						Share
-					</div>
-				</div>
 				<!--  -->		
 				<div class="fork-list-wrapper">
 					<div class="tag" data-tooltip="Copy Collection">
