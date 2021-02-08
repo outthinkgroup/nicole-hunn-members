@@ -13,7 +13,7 @@ export function handleUpdatePrivacyMode(e) {
   const new_status = getNewStatus(toggle);
   const notice = new Notice(toggle.parentElement, [0, -35]);
   list.dataset.state = "loading";
-  notice.setNotice(`changing to ${new_status}`);
+  notice.setNotice(`changing to ${formatStatus(new_status)}`);
   window.__FAVE_RECIPE
     .changeListPrivacyMode({ user_id, list_id, status: new_status })
     .then(function waitForResponse(res) {
@@ -24,7 +24,7 @@ export function handleUpdatePrivacyMode(e) {
         }
         list.dataset.state = "error";
       } else {
-        notice.setNotice(`collection is now ${new_status}`);
+        notice.setNotice(`collection is now ${formatStatus(new_status)}`);
         list.dataset.state = "idle";
         toggle.closest("[data-status]").dataset.status = new_status;
         privacyModeBus.dispatch("privacy-change", {
@@ -42,4 +42,9 @@ function getNewStatus(checkboxEl) {
 }
 function toggleStatus(checked) {
   return checked == true ? "publish" : "private";
+}
+
+function formatStatus(status) {
+  console.log(status);
+  return status == "publish" ? "public" : status;
 }

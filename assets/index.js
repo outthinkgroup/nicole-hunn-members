@@ -421,7 +421,7 @@ function handleUpdatePrivacyMode(e) {
   var new_status = getNewStatus(toggle);
   var notice = new _notification.default(toggle.parentElement, [0, -35]);
   list.dataset.state = "loading";
-  notice.setNotice("changing to ".concat(new_status));
+  notice.setNotice("changing to ".concat(formatStatus(new_status)));
 
   window.__FAVE_RECIPE.changeListPrivacyMode({
     user_id: user_id,
@@ -437,7 +437,7 @@ function handleUpdatePrivacyMode(e) {
 
       list.dataset.state = "error";
     } else {
-      notice.setNotice("collection is now ".concat(new_status));
+      notice.setNotice("collection is now ".concat(formatStatus(new_status)));
       list.dataset.state = "idle";
       toggle.closest("[data-status]").dataset.status = new_status;
       privacyModeBus.dispatch("privacy-change", {
@@ -458,6 +458,11 @@ function getNewStatus(checkboxEl) {
 
 function toggleStatus(checked) {
   return checked == true ? "publish" : "private";
+}
+
+function formatStatus(status) {
+  console.log(status);
+  return status == "publish" ? "public" : status;
 }
 },{"./notification":"collections/notification.js","./bus":"collections/bus.js"}],"product-card/products/recipe-collection/recipe-collection.js":[function(require,module,exports) {
 "use strict";
@@ -968,15 +973,13 @@ function init() {
 
   if (toggle) {
     toggle.addEventListener("change", _handleUpdatePrivacyMode.handleUpdatePrivacyMode);
-  } //TODO Clone List
-
+  }
 
   var forkBtn = document.querySelector('[data-action="fork-list"]');
 
   if (forkBtn) {
     forkBtn.addEventListener("click", _handleListFork.handleListFork);
-  } //TODO Share List
-
+  }
 
   var shareBtn = document.querySelector('[data-action="share-list"]');
 
@@ -1021,8 +1024,6 @@ require("./dashboard-carousel/dashboard-carousel.js");
 require("./member.scss");
 
 require("./collections/collection-single-template.js");
-
-console.log("hello");
 },{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./learndash/course-sidebar.js":"learndash/course-sidebar.js","./dashboard-carousel/dashboard-carousel.js":"dashboard-carousel/dashboard-carousel.js","./member.scss":"member.scss","./collections/collection-single-template.js":"collections/collection-single-template.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -1051,7 +1052,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54284" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49242" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
