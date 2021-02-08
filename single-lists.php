@@ -31,7 +31,7 @@ $get_next_status = $post->post_status != "publish" ? "public": $post->post_statu
 			<div class="list-meta">
 				<!--  -->
 				<div class="byline">
-					<div class="tag" data-tooltip="Number of Recipes">
+					<div class="tag" >
 						By: <span class="user-name"><?php echo $author->display_name; ?></span>
 					</div>
 				</div>
