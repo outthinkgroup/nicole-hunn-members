@@ -314,6 +314,7 @@ a > strong {
 }
 .product-card.post-type-lists .recipe-title {
   align-items: start;
+  margin-bottom: 16px;
 }
 .product-card.post-type-lists .title-el {
   display: inline;
@@ -358,12 +359,18 @@ a > strong {
   margin-left: 5px;
 }
 
-.temp-notice {
-  background: var(--blue-dark);
+.temp-notice,
+.recipe-author .tag {
+  background: var(--temp-notice, var(--blue-dark));
   color: white;
   border-radius: 4px;
   box-shadow: var(--shadow-sm);
   padding: 0 5px;
+}
+.temp-notice--light,
+.recipe-author .tag--light {
+  --temp-notice: var(--input-bg);
+  color: var(--dark-blue);
 }
 
 .product-card.post-type-member_content .card-top img {

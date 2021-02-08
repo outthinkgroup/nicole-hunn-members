@@ -30,6 +30,9 @@ add_filter('card_bottom', function($card_bottom_markup, $product){
   if($product->post_type !== 'lists') return $card_bottom_markup;
   ob_start();
   show_list_title_and_count($product);
+  ?>
+  <div class="recipe-author">By: <span class="tag tag--light"><?php echo get_user_by('ID',$product->post_author)->user_nicename; ?></span></div>
+  <?php
   $title = ob_get_clean();
 
   return $title;

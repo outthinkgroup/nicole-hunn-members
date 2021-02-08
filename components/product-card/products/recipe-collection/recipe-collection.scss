@@ -13,6 +13,7 @@
   }
   .recipe-title {
     align-items: start;
+    margin-bottom: 16px;
   }
   .title-el {
     display: inline;
@@ -62,10 +63,15 @@
   }
 }
 
-.temp-notice {
-  background: var(--blue-dark);
+.temp-notice,
+.recipe-author .tag {
+  background: var(--temp-notice, var(--blue-dark));
   color: white;
   border-radius: 4px;
   box-shadow: var(--shadow-sm);
   padding: 0 5px;
+  &--light {
+    --temp-notice: var(--input-bg);
+    color: var(--dark-blue);
+  }
 }
