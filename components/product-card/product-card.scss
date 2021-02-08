@@ -64,7 +64,7 @@
 //STATE
 .product-card {
   &[data-state="show"] {
-    display: unset;
+    display: block;
   }
   &[data-state="hide"] {
     display: none;

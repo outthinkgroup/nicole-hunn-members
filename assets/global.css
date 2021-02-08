@@ -444,7 +444,7 @@ a > strong {
 }
 
 .product-card[data-state=show] {
-  display: unset;
+  display: block;
 }
 .product-card[data-state=hide] {
   display: none;
