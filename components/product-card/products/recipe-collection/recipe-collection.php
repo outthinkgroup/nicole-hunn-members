@@ -10,20 +10,29 @@ function nhm_user_recipe_collections($user_id){
 }
 
 
-function loopThroughRecipesForImage($array, $count, $image ){
+function loopThroughRecipesForImage_($array, $count, $image ){
   if((!is_array($array)) || count($array) === 0) return null;
-
   if(isset($array[$count]) && get_the_post_thumbnail($array[$count])){
-     $image = get_the_post_thumbnail($array[$count]);
-      return $image;
+    $image = get_the_post_thumbnail($array[$count]);
+    return $image;
+  }else{
+    $count++;
+    if($array[$count]){
+      loopThroughRecipesForImage($array, $count, $image);
     }else{
-      $count++;
-      if($array[$count]){
-        loopThroughRecipesForImage($array, $count, $image);
-      }else{
-        return null;
-      }
+      return null;
     }
+  }
+}
+function loopThroughRecipesForImage($array, $count, $image){
+  if((!is_array($array)) || count($array) === 0) return null;
+  foreach($array as $id){
+    if(get_the_post_thumbnail($id)){
+      $image = get_the_post_thumbnail($id);
+      break;
+    }
+  }
+  return $image;
 }
 
 add_filter('card_bottom', function($card_bottom_markup, $product){
@@ -103,6 +112,3 @@ add_filter('product_card_extra_classes', function($classes, $product){
 },10, 2);
 
 
-function remove_rename_button($html){
-  var_dump($html);
-}
