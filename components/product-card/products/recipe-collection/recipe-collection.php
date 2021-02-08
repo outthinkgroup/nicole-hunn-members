@@ -28,8 +28,9 @@ function loopThroughRecipesForImage($array, $count, $image ){
 
 add_filter('card_bottom', function($card_bottom_markup, $product){
   if($product->post_type !== 'lists') return $card_bottom_markup;
+  $options = ['edit'=> is_archive() ? false : true, 'recipe_link' => true];
   ob_start();
-  show_list_title_and_count($product);
+  show_list_title_and_count($product, $options);
   ?>
   <div class="recipe-author">By: <span class="tag tag--light"><?php echo get_user_by('ID',$product->post_author)->user_nicename; ?></span></div>
   <?php
@@ -100,3 +101,8 @@ add_filter('product_card_extra_classes', function($classes, $product){
   $classes .= 'hide-functionality';
   return $classes;
 },10, 2);
+
+
+function remove_rename_button($html){
+  var_dump($html);
+}
