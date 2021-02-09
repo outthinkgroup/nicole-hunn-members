@@ -1,39 +1,39 @@
-.wake-lock-toggle {
+.simple-toggle {
   position: relative;
   display: inline-block;
   font-size: 16px;
   box-sizing: border-box;
 }
-.wake-lock-toggle * {
+.simple-toggle * {
   box-sizing: inherit;
 }
-.wake-lock-toggle input {
+.simple-toggle input {
   width: 0;
   height: 0;
   display: none;
 }
-.wake-lock-toggle label {
+.simple-toggle label {
   display: inline-flex;
   align-items: center;
 }
-.wake-lock-toggle input:checked ~ .toggle__wrapper {
+.simple-toggle input:checked ~ .toggle__wrapper {
   box-shadow: 0 0 0 2px #44da60;
 }
-.wake-lock-toggle input:checked ~ .toggle__wrapper .toggle__switch {
+.simple-toggle input:checked ~ .toggle__wrapper .toggle__switch {
   right: 0;
 }
-.wake-lock-toggle input:checked ~ .toggle__wrapper .toggle__bg {
+.simple-toggle input:checked ~ .toggle__wrapper .toggle__bg {
   border: 1px solid #44da60;
   transition: none;
   background: #44da60;
 }
-.wake-lock-toggle input:checked ~ .toggle__wrapper .toggle__bg:after {
+.simple-toggle input:checked ~ .toggle__wrapper .toggle__bg:after {
   transition-delay: 0.05s, 0s;
   opacity: 0;
   transform: scale(0);
 }
 
-.wake-lock-toggle .toggle__wrapper {
+.simple-toggle .toggle__wrapper {
   margin-left: 1em;
   position: relative;
   height: 2em;
@@ -43,7 +43,7 @@
   box-shadow: 0 0 0 2px #dfdfdf;
 }
 
-.wake-lock-toggle .toggle__bg {
+.simple-toggle .toggle__bg {
   overflow: hidden;
   position: absolute;
   z-index: 1;
@@ -53,7 +53,7 @@
   border-radius: 2.5em;
   transition: all 0s linear 0.2s;
 }
-.wake-lock-toggle .toggle__bg:after {
+.simple-toggle .toggle__bg:after {
   transition: all 0.2s linear;
   transition-property: transform, opacity;
   transition-delay: 0s, 0.02s;
@@ -70,7 +70,7 @@
   opacity: 1;
 }
 
-.wake-lock-toggle .toggle__switch {
+.simple-toggle .toggle__switch {
   position: absolute;
   z-index: 200;
   border-radius: 50%;
@@ -80,10 +80,4 @@
   box-shadow: 0.5px 1px 2px #dedede;
   right: calc(100% - 2em);
   transition: all 0.15s cubic-bezier(0.5, 1, 0.5, 1);
-}
-
-.wake-lock-toggle .wake-lock-toggle.top-right {
-  position: absolute;
-  top: 10px;
-  right: 10px;
 }

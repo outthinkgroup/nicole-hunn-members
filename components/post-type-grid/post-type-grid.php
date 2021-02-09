@@ -1,8 +1,9 @@
 <?php
-function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count=-1, $author=null ){
+function post_type_grid($type, $category=['slug'=>null, 'terms'=> null ], $count=-1, $author=null, $options=['post_status'=>"publish"] ){
   $args = [
     'post_type' => $type,
     'posts_per_page' => $count,
+    'post_status'=>$options['post_status']
   ];
   if($category && $category['slug'] = $cat){
     $terms = $category['terms'];
@@ -43,7 +44,12 @@ function wp_loop_post_grid(){
   <ul class="grid">
   <?php while ( have_posts() ) : the_post(); 
     global $post;
-    product_card($post); 
+    
+    ?>
+    <li <?php echo apply_filters('post_type_grid_li_attr', '', $post->post_type, $post, $post->post_author); ?> >
+      <?php product_card($post); ?>
+    </li>
+    <?php
   endwhile; 
   ?> 
   </ul>

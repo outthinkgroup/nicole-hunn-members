@@ -1,7 +1,7 @@
 <?php
 add_action('after_product_card_image', function($product){
   global $post;
-  if($product->post_type !== 'recipe' || $post->post_type !== 'lists') return;
+  if($product->post_type !== 'recipe' || $post->post_type !== 'lists' || $post->post_author != wp_get_current_user()->ID) return;
   ?>
   <div class="list-actions top-right-corner">
     <button 

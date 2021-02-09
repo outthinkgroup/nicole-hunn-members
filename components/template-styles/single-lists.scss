@@ -1,4 +1,5 @@
 .recipe-collections-single-layout {
+  //== RECIPE CARD ==//
   .card-top button[data-action="delete-from-list"] {
     color: #df9393;
     background: rgba(255, 255, 255, 0.85);
@@ -11,6 +12,96 @@
     &:hover {
       color: white;
       background: #df9393;
+    }
+  }
+}
+
+// == Collection Title and Collection Meta == //
+
+.custom-wrapper.recipe-collections-single-layout header {
+  margin-bottom: 40px;
+  .title-el {
+    margin-bottom: 20px;
+  }
+  .list-meta {
+    @media (min-width: 650px) {
+      display: flex;
+      gap: 20px;
+    }
+
+    > div {
+      .tag {
+        // max-width: 200px;
+
+        &:after {
+          z-index: 99;
+        }
+        display: inline-flex;
+        margin-bottom: 10px;
+        @media (min-width: 650px) {
+          margin-bottom: 0px;
+          justify-content: space-between;
+        }
+        position: relative;
+        z-index: 2;
+        height: 50px;
+        align-items: center;
+        border-radius: 8px;
+        background: var(--input-bg);
+        padding: 5px 14px;
+        button {
+          height: 40px;
+          width: 40px;
+          background: var(--input-bg--hover);
+          box-shadow: var(--shadow-sm);
+          &:hover,
+          &:focus,
+          &:active {
+            transform: scale(1.08);
+          }
+        }
+        .toggle__wrapper {
+          margin-left: 0;
+        }
+      }
+      .bold-label {
+        font-size: 1.56rem;
+        font-weight: bold;
+        color: var(--med-grey);
+      }
+      &.collection-privacy {
+        label {
+          margin-right: 10px;
+        }
+      }
+      .badge {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background: var(--input-bg);
+        color: var(--med-grey);
+        font-weight: bold;
+        position: relative;
+        > span {
+          font-size: 1.2em;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+  .user-name {
+    font-size: 20px;
+  }
+  @media (min-width: 900px) {
+    // only shows the rename title button when you hover the header element
+    [data-action="rename-list"] {
+      display: none;
+    }
+    &:hover [data-action="rename-list"] {
+      display: unset;
     }
   }
 }

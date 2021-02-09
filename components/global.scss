@@ -58,7 +58,7 @@
 @import "/screen-caffeine-toggle/screen-caffeine-toggle.scss";
 @import "/non-logged-in-nav/non-logged-in-nav.scss";
 @import "/laptop-mockup-shortcode/laptop-mockup-shortcode.scss";
-
+@import "/toggles/toggles.scss";
 @import "/login/login.scss";
 
 ul.grid {
@@ -174,9 +174,21 @@ section.post-collection {
   }
 }
 
-//mockup price banner
+// == Page Template Headers == //
 
-/* woocommerce checkout payment methods */
+.custom-wrapper {
+  > header .user-name {
+    font-size: 1.56rem;
+    font-weight: bold;
+    color: var(--med-grey);
+    display: inline-flex;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--input-bg);
+  }
+}
+
+// == woocommerce checkout payment methods == /
 
 #payment label[for="payment_method_stripe"] {
   display: flex;
@@ -188,4 +200,43 @@ section.post-collection {
 }
 #payment label[for="payment_method_stripe"] svg {
   width: calc(100% / 8);
+}
+
+//== CIRCLE BUTTON ==//
+.top-bar .button-group > a,
+.top-bar__button > button,
+.top-bar__button > a,
+.top-bar__button,
+.circle-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  padding: 0;
+  border-radius: 50%;
+
+  &:focus {
+    background: var(--input-bg);
+  }
+  &:active {
+    background: var(--input-bg--hover);
+  }
+}
+
+.circle-button {
+  color: var(--button-color, var(--med-grey));
+  background: var(--input-bg);
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--button-color, var(--med-grey));
+    background: var(--input-bg--hover);
+  }
+}
+
+header [data-tooltip] {
+  padding: 8px;
+  line-height: 1.2;
 }

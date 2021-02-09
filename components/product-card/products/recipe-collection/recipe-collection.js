@@ -1,3 +1,5 @@
+import { handleUpdatePrivacyMode } from "../../../collections/handleUpdatePrivacyMode";
+
 window.addEventListener("DOMContentLoaded", initRecipeCollectionScript);
 function initRecipeCollectionScript() {
   if (!document.querySelector(".product-card.post-type-lists")) return;
@@ -6,10 +8,19 @@ function initRecipeCollectionScript() {
     ...document.querySelectorAll(".product-card.post-type-lists"),
   ];
   allCards.forEach((collectionCard) => {
-    showDeleteActionBtn = collectionCard.querySelector(
+    const showDeleteActionBtn = collectionCard.querySelector(
       '[data-action="warn-delete-list"]'
     );
-    showDeleteActionBtn.addEventListener("click", handleShowDeleteUI);
+    if (showDeleteActionBtn) {
+      showDeleteActionBtn.addEventListener("click", handleShowDeleteUI);
+    }
+
+    const privacyModeToggle = collectionCard.querySelector(
+      '[data-action="toggle-privacy-mode"]'
+    );
+    if (privacyModeToggle) {
+      privacyModeToggle.addEventListener("change", handleUpdatePrivacyMode);
+    }
   });
 }
 
@@ -22,8 +33,8 @@ function handleShowDeleteUI(e) {
     item.dataset.state = "loading";
     window.__FAVE_RECIPE.deleteList(listId, userId).then((res) => {
       if (res.error) {
-        if (err.message) {
-          alert(err.message);
+        if (res.error.message) {
+          alert(res.error.message);
         }
         item.dataset.state = "error";
       } else {

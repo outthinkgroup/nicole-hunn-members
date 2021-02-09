@@ -277,7 +277,198 @@ function toQueryString(data) {
   var queryString = urlSearhParams.toString();
   return queryString;
 }
-},{}],"product-card/products/recipe-collection/recipe-collection.js":[function(require,module,exports) {
+},{}],"collections/notification.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Notice = function Notice(el, _ref) {
+  var _this = this;
+
+  var _ref2 = _slicedToArray(_ref, 2),
+      xAxis = _ref2[0],
+      yAxis = _ref2[1];
+
+  var time = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3000;
+
+  _classCallCheck(this, Notice);
+
+  _defineProperty(this, "setNotice", function (msg) {
+    _this.noticeEl.innerHTML = msg;
+
+    if (!document.body.contains(_this.noticeEl)) {
+      document.body.appendChild(_this.noticeEl);
+
+      _this.noticeEl.style.setProperty("left", "".concat(_this.position.left, "px"));
+
+      _this.noticeEl.style.setProperty("top", "".concat(_this.position.top, "px"));
+    }
+
+    if (_this.timer) clearTimeout(_this.timer);
+    _this.timer = setTimeout(_this.removeNotice, _this.time);
+  });
+
+  _defineProperty(this, "removeNotice", function () {
+    clearTimeout(_this.timer); // if (document.body.contains(this.noticeEl)) {
+
+    _this.noticeEl.parentElement.removeChild(_this.noticeEl); // }
+
+  });
+
+  this.el = el;
+  this.time = time;
+  this.placement = {
+    left: xAxis,
+    top: yAxis
+  };
+
+  var _this$el$getBoundingC = this.el.getBoundingClientRect(),
+      top = _this$el$getBoundingC.y,
+      left = _this$el$getBoundingC.x;
+
+  console.log(this.el.getBoundingClientRect());
+  this.position = {
+    top: window.pageYOffset + (top + this.placement.top * -1),
+    left: left + this.placement.left
+  };
+  this.noticeEl = document.createElement("div");
+  this.noticeEl.classList.add("temp-notice");
+  this.noticeEl.style.position = "absolute";
+};
+
+exports.default = Notice;
+},{}],"collections/bus.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var EventBus = /*#__PURE__*/function () {
+  function EventBus(commentMsg) {
+    _classCallCheck(this, EventBus);
+
+    this.bus = new Comment(commentMsg);
+    this.dispatch = this.dispatch.bind(this);
+  }
+
+  _createClass(EventBus, [{
+    key: "dispatch",
+    value: function dispatch(event, details) {
+      this.bus.dispatchEvent(new CustomEvent(event, details));
+    }
+  }, {
+    key: "listenFor",
+    value: function listenFor(event, cb) {
+      this.bus.addEventListener(event, cb);
+    }
+  }]);
+
+  return EventBus;
+}();
+
+exports.default = EventBus;
+},{}],"collections/handleUpdatePrivacyMode.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleUpdatePrivacyMode = handleUpdatePrivacyMode;
+exports.privacyModeBus = void 0;
+
+var _notification = _interopRequireDefault(require("./notification"));
+
+var _bus = _interopRequireDefault(require("./bus"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var privacyModeBus = new _bus.default("privacy-mode");
+exports.privacyModeBus = privacyModeBus;
+
+function handleUpdatePrivacyMode(e) {
+  var toggle = e.currentTarget;
+  var list = toggle.closest(".list-item, .list-single");
+  var list_id = list.dataset.listId;
+  var _WP = WP,
+      user_id = _WP.userId;
+  var new_status = getNewStatus(toggle);
+  var notice = new _notification.default(toggle.parentElement, [0, -35]);
+  list.dataset.state = "loading";
+  notice.setNotice("changing to ".concat(formatStatus(new_status)));
+
+  window.__FAVE_RECIPE.changeListPrivacyMode({
+    user_id: user_id,
+    list_id: list_id,
+    status: new_status
+  }).then(function waitForResponse(res) {
+    if (res.error) {
+      var message = res.error.message;
+
+      if (message) {
+        alert(message);
+      }
+
+      list.dataset.state = "error";
+    } else {
+      notice.setNotice("collection is now ".concat(formatStatus(new_status)));
+      list.dataset.state = "idle";
+      toggle.closest("[data-status]").dataset.status = new_status;
+      privacyModeBus.dispatch("privacy-change", {
+        detail: {
+          status: new_status
+        }
+      });
+    }
+  });
+} //checked = `publish`
+//unchecked = `private`
+
+
+function getNewStatus(checkboxEl) {
+  var checked = checkboxEl.checked;
+  return toggleStatus(checked);
+}
+
+function toggleStatus(checked) {
+  return checked == true ? "publish" : "private";
+}
+
+function formatStatus(status) {
+  console.log(status);
+  return status == "publish" ? "public" : status;
+}
+},{"./notification":"collections/notification.js","./bus":"collections/bus.js"}],"product-card/products/recipe-collection/recipe-collection.js":[function(require,module,exports) {
+"use strict";
+
+var _handleUpdatePrivacyMode = require("../../../collections/handleUpdatePrivacyMode");
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -298,8 +489,17 @@ function initRecipeCollectionScript() {
   var allCards = _toConsumableArray(document.querySelectorAll(".product-card.post-type-lists"));
 
   allCards.forEach(function (collectionCard) {
-    showDeleteActionBtn = collectionCard.querySelector('[data-action="warn-delete-list"]');
-    showDeleteActionBtn.addEventListener("click", handleShowDeleteUI);
+    var showDeleteActionBtn = collectionCard.querySelector('[data-action="warn-delete-list"]');
+
+    if (showDeleteActionBtn) {
+      showDeleteActionBtn.addEventListener("click", handleShowDeleteUI);
+    }
+
+    var privacyModeToggle = collectionCard.querySelector('[data-action="toggle-privacy-mode"]');
+
+    if (privacyModeToggle) {
+      privacyModeToggle.addEventListener("change", _handleUpdatePrivacyMode.handleUpdatePrivacyMode);
+    }
   });
 }
 
@@ -315,8 +515,8 @@ function handleShowDeleteUI(e) {
 
     window.__FAVE_RECIPE.deleteList(listId, userId).then(function (res) {
       if (res.error) {
-        if (err.message) {
-          alert(err.message);
+        if (res.error.message) {
+          alert(res.error.message);
         }
 
         item.dataset.state = "error";
@@ -331,7 +531,7 @@ function handleShowDeleteUI(e) {
 
 
 window.__FAVE_RECIPE.newListItemLink = "/recipes";
-},{}],"product-card/products/recipes/collection-single-recipes.js":[function(require,module,exports) {
+},{"../../../collections/handleUpdatePrivacyMode":"collections/handleUpdatePrivacyMode.js"}],"product-card/products/recipes/collection-single-recipes.js":[function(require,module,exports) {
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -638,7 +838,175 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"collections/handleListFork.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleListFork = handleListFork;
+
+var _notification = _interopRequireDefault(require("./notification"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function handleListFork(e) {
+  var button = e.currentTarget;
+  var parent = button.closest(".list-item, .list-single");
+  var list_id = parent.dataset.listId;
+  var _WP = WP,
+      user_id = _WP.userId;
+  var notice = new _notification.default(button.parentElement, [0, -85], 6000);
+  parent.dataset.state = "loading";
+  notice.setNotice("cloning collection");
+
+  window.__FAVE_RECIPE.forkList({
+    user_id: user_id,
+    list_id: list_id
+    /* list_title */
+
+  }).then(function waitForResponse(res) {
+    if (res.error) {
+      var message = res.error.message;
+
+      if (message) {
+        alert(message);
+      }
+
+      parent.dataset.state = "error";
+    } else {
+      notice.setNotice("Cloned Collection: <a href=\"".concat(res.data.link, "\">See Collection</a>"));
+      parent.dataset.state = "idle";
+    }
+  });
+}
+},{"./notification":"collections/notification.js"}],"collections/handleListShare.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleListShare = handleListShare;
+
+function handleListShare(e) {}
+},{}],"collections/handleRename.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.handleRename = handleRename;
+
+function handleRename(e) {
+  var renameButton = e.currentTarget;
+  var parent = renameButton.parentElement;
+  var parentHTML = parent.innerHTML;
+  showUi(e);
+  addHandler();
+
+  function showUi(e) {
+    var oldTitle = parent.querySelector("span");
+    parent.innerHTML = "\n    <form data-action=\"rename-list\" >\n      <input type=\"text\" value=\"".concat(oldTitle.textContent, "\" name=\"title\"/>\n      <button>Rename List</button>\n    </form>  \n  ");
+  }
+
+  function addHandler() {
+    var form = document.querySelector('form[data-action="rename-list"]');
+    form.addEventListener("submit", handleRenameRecipe);
+  }
+
+  function handleRenameRecipe(e) {
+    e.preventDefault();
+    var title = e.target.querySelector("input").value;
+    var list = e.target.closest(".list-single");
+    var list_id = list.dataset.listId;
+    list.dataset.state = "loading";
+    e.currentTarget.removeEventListener("submit", handleRenameRecipe);
+
+    window.__FAVE_RECIPE.renameList({
+      title: title,
+      list_id: list_id
+    }).then(function receiveResults(res) {
+      if (res.error) {
+        list.dataset.state = "error";
+        parent.innerHTML = parentHTML;
+
+        if (res.error.message) {
+          alert(res.error.message);
+        }
+      } else {
+        list.dataset.state = "idle";
+        parent.innerHTML = parentHTML;
+        parent.querySelector("span").textContent = title;
+      }
+    });
+  }
+}
+},{}],"collections/collection-single-template.js":[function(require,module,exports) {
+"use strict";
+
+var _handleUpdatePrivacyMode = require("./handleUpdatePrivacyMode");
+
+var _handleListFork = require("./handleListFork");
+
+var _handleListShare = require("./handleListShare");
+
+var _handleRename = require("./handleRename");
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+window.addEventListener("DOMContentLoaded", init);
+
+function init() {
+  if (!document.querySelector(".recipe-collections-single-layout")) return; //add privacy toggle listener
+
+  var toggle = document.querySelector('[data-action="toggle-privacy-mode"]');
+
+  if (toggle) {
+    toggle.addEventListener("change", _handleUpdatePrivacyMode.handleUpdatePrivacyMode);
+  }
+
+  var forkBtn = document.querySelector('[data-action="fork-list"]');
+
+  if (forkBtn) {
+    forkBtn.addEventListener("click", _handleListFork.handleListFork);
+  }
+
+  var shareBtn = document.querySelector('[data-action="share-list"]');
+
+  if (shareBtn) {
+    shareBtn.addEventListener("click", _handleListShare.handleListShare);
+  }
+
+  var renameBtn = document.querySelector('[data-action="rename-list"]');
+
+  if (renameBtn) {
+    renameBtn.addEventListener("click", _handleRename.handleRename);
+  } //Any Privacy Status should be updated when privacy changes
+
+
+  _handleUpdatePrivacyMode.privacyModeBus.listenFor("privacy-change", updateAllStatuses);
+
+  function updateAllStatuses(e) {
+    console.log(e);
+
+    var allStatuses = _toConsumableArray(document.querySelectorAll(".status"));
+
+    allStatuses.forEach(function (el) {
+      el.textContent = e.detail.status;
+    });
+  }
+}
+},{"./handleUpdatePrivacyMode":"collections/handleUpdatePrivacyMode.js","./handleListFork":"collections/handleListFork.js","./handleListShare":"collections/handleListShare.js","./handleRename":"collections/handleRename.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("./global-sidebar/global-sidebar.js");
@@ -655,8 +1023,8 @@ require("./dashboard-carousel/dashboard-carousel.js");
 
 require("./member.scss");
 
-console.log("hello");
-},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./learndash/course-sidebar.js":"learndash/course-sidebar.js","./dashboard-carousel/dashboard-carousel.js":"dashboard-carousel/dashboard-carousel.js","./member.scss":"member.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("./collections/collection-single-template.js");
+},{"./global-sidebar/global-sidebar.js":"global-sidebar/global-sidebar.js","./top-bar/top-bar.js":"top-bar/top-bar.js","./product-card/products/recipe-collection/recipe-collection.js":"product-card/products/recipe-collection/recipe-collection.js","./product-card/products/recipes/collection-single-recipes.js":"product-card/products/recipes/collection-single-recipes.js","./learndash/course-sidebar.js":"learndash/course-sidebar.js","./dashboard-carousel/dashboard-carousel.js":"dashboard-carousel/dashboard-carousel.js","./member.scss":"member.scss","./collections/collection-single-template.js":"collections/collection-single-template.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -684,7 +1052,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64357" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60618" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -13,6 +13,8 @@
  */
 define('NHM_DIR', get_stylesheet_directory());
 define('NHM_URL', get_stylesheet_directory_uri());
+define('NICOLE_USER_ID', 1433);
+
 include_once NHM_DIR . '/theme-version.php';
 /**
  * Enqueue styles
@@ -49,3 +51,36 @@ function get_taxonomy_title(){
   $taxonomy = get_taxonomy($taxonomy_slug);
   return $taxonomy->labels->singular_name;
 }
+
+// remove "Private: " from titles
+function remove_private_prefix($title) {
+	$title = str_replace('Private: ', '', $title);
+	return $title;
+}
+add_filter('the_title', 'remove_private_prefix');
+
+//Remove Empty Collections from main query.
+function remove_empty_collections_from_main_query($query){
+
+	global $post;
+	if(
+		!is_admin() &&
+		$query->is_main_query() &&
+		is_post_type_archive('lists')
+		){
+			$query->set('posts_per_page', 100);
+			$query->set( 'meta_query', array(
+            array(
+                'key'     => 'list_items',
+                'compare' => '!=',
+								'value'	=> ["", array(), false]
+            )
+        ) );
+			
+		}
+		return;
+}
+
+
+add_action('pre_get_posts', 'remove_empty_collections_from_main_query');
+

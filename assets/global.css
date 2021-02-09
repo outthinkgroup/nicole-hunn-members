@@ -314,6 +314,7 @@ a > strong {
 }
 .product-card.post-type-lists .recipe-title {
   align-items: start;
+  margin-bottom: 16px;
 }
 .product-card.post-type-lists .title-el {
   display: inline;
@@ -333,6 +334,51 @@ a > strong {
 }
 .product-card.post-type-lists.hide-functionality button {
   display: none;
+}
+.product-card.post-type-lists .simple-toggle {
+  font-size: 10px;
+}
+.product-card.post-type-lists .simple-toggle .toggle__wrapper {
+  margin-left: 0;
+}
+.product-card.post-type-lists .top-left-corner {
+  display: flex;
+  align-items: center;
+}
+.product-card.post-type-lists .top-left-corner .tag {
+  margin-left: 10px;
+}
+.product-card.post-type-lists .top-left-corner[data-status=private]::after {
+  content: attr(data-status);
+  line-height: 1;
+  padding: 2px 5px;
+  background: var(--input-bg);
+  display: inline-block;
+  color: var(--blue-base);
+  border-radius: 4px;
+  margin-left: 5px;
+}
+.product-card.post-type-lists.nicole-collection .card-bottom {
+  border-top: 4px solid var(--theme-color);
+}
+.product-card.post-type-lists.nicole-collection .recipe-author .tag.tag--light {
+  --temp-notice: var(--theme-color);
+  color: var(--blue-dark);
+  font-weight: bold;
+}
+
+.temp-notice,
+.recipe-author .tag {
+  background: var(--temp-notice, var(--blue-dark));
+  color: white;
+  border-radius: 4px;
+  box-shadow: var(--shadow-sm);
+  padding: 0 5px;
+}
+.temp-notice--light,
+.recipe-author .tag--light {
+  --temp-notice: var(--input-bg);
+  color: var(--dark-blue);
 }
 
 .product-card.post-type-member_content .card-top img {
@@ -406,7 +452,7 @@ a > strong {
 }
 
 .product-card[data-state=show] {
-  display: unset;
+  display: block;
 }
 .product-card[data-state=hide] {
   display: none;
@@ -688,6 +734,86 @@ a {
 .recipe-collections-single-layout .card-top button[data-action=delete-from-list]:hover {
   color: white;
   background: #df9393;
+}
+
+.custom-wrapper.recipe-collections-single-layout header {
+  margin-bottom: 40px;
+}
+.custom-wrapper.recipe-collections-single-layout header .title-el {
+  margin-bottom: 20px;
+}
+@media (min-width: 650px) {
+  .custom-wrapper.recipe-collections-single-layout header .list-meta {
+    display: flex;
+    gap: 20px;
+  }
+}
+.custom-wrapper.recipe-collections-single-layout header .list-meta > div .tag {
+  display: inline-flex;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+  height: 50px;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--input-bg);
+  padding: 5px 14px;
+}
+.custom-wrapper.recipe-collections-single-layout header .list-meta > div .tag:after {
+  z-index: 99;
+}
+@media (min-width: 650px) {
+  .custom-wrapper.recipe-collections-single-layout header .list-meta > div .tag {
+    margin-bottom: 0px;
+    justify-content: space-between;
+  }
+}
+.custom-wrapper.recipe-collections-single-layout header .list-meta > div .tag button {
+  height: 40px;
+  width: 40px;
+  background: var(--input-bg--hover);
+  box-shadow: var(--shadow-sm);
+}
+.custom-wrapper.recipe-collections-single-layout header .list-meta > div .tag button:hover, .custom-wrapper.recipe-collections-single-layout header .list-meta > div .tag button:focus, .custom-wrapper.recipe-collections-single-layout header .list-meta > div .tag button:active {
+  transform: scale(1.08);
+}
+.custom-wrapper.recipe-collections-single-layout header .list-meta > div .tag .toggle__wrapper {
+  margin-left: 0;
+}
+.custom-wrapper.recipe-collections-single-layout header .list-meta > div .bold-label {
+  font-size: 1.56rem;
+  font-weight: bold;
+  color: var(--med-grey);
+}
+.custom-wrapper.recipe-collections-single-layout header .list-meta > div.collection-privacy label {
+  margin-right: 10px;
+}
+.custom-wrapper.recipe-collections-single-layout header .list-meta > div .badge {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: var(--input-bg);
+  color: var(--med-grey);
+  font-weight: bold;
+  position: relative;
+}
+.custom-wrapper.recipe-collections-single-layout header .list-meta > div .badge > span {
+  font-size: 1.2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.custom-wrapper.recipe-collections-single-layout header .user-name {
+  font-size: 20px;
+}
+@media (min-width: 900px) {
+  .custom-wrapper.recipe-collections-single-layout header [data-action=rename-list] {
+    display: none;
+  }
+  .custom-wrapper.recipe-collections-single-layout header:hover [data-action=rename-list] {
+    display: unset;
+  }
 }
 
 .member_content-single-layout header {
@@ -1219,7 +1345,7 @@ li[data-in-list] button:focus:after {
   transform: scale(0);
 }
 
-.toggle__wrapper {
+.wake-lock-toggle .toggle__wrapper {
   margin-left: 1em;
   position: relative;
   height: 2em;
@@ -1229,7 +1355,7 @@ li[data-in-list] button:focus:after {
   box-shadow: 0 0 0 2px #dfdfdf;
 }
 
-.toggle__bg {
+.wake-lock-toggle .toggle__bg {
   overflow: hidden;
   position: absolute;
   z-index: 1;
@@ -1240,7 +1366,7 @@ li[data-in-list] button:focus:after {
   transition: all 0s linear 0.2s;
 }
 
-.toggle__bg:after {
+.wake-lock-toggle .toggle__bg:after {
   transition: all 0.2s linear;
   transition-property: transform, opacity;
   transition-delay: 0s, 0.02s;
@@ -1257,7 +1383,7 @@ li[data-in-list] button:focus:after {
   opacity: 1;
 }
 
-.toggle__switch {
+.wake-lock-toggle .toggle__switch {
   position: absolute;
   z-index: 200;
   border-radius: 50%;
@@ -1269,7 +1395,7 @@ li[data-in-list] button:focus:after {
   transition: all 0.15s cubic-bezier(0.5, 1, 0.5, 1);
 }
 
-.wake-lock-toggle.top-right {
+.wake-lock-toggle .wake-lock-toggle.top-right {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -1345,6 +1471,163 @@ li[data-in-list] button:focus:after {
   transform: rotate(-50deg);
 }
 
+.simple-toggle {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.simple-toggle * {
+  box-sizing: inherit;
+}
+
+.simple-toggle input {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.simple-toggle label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.simple-toggle input:checked ~ .toggle__wrapper {
+  box-shadow: 0 0 0 2px #44da60;
+}
+
+.simple-toggle input:checked ~ .toggle__wrapper .toggle__switch {
+  right: 0;
+}
+
+.simple-toggle input:checked ~ .toggle__wrapper .toggle__bg {
+  border: 1px solid #44da60;
+  transition: none;
+  background: #44da60;
+}
+
+.simple-toggle input:checked ~ .toggle__wrapper .toggle__bg:after {
+  transition-delay: 0.05s, 0s;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.simple-toggle .toggle__wrapper {
+  margin-left: 1em;
+  position: relative;
+  height: 2em;
+  width: 3.3em;
+  overflow: visible;
+  border-radius: 2.5em;
+  box-shadow: 0 0 0 2px #dfdfdf;
+}
+
+.simple-toggle .toggle__bg {
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  background: transparent;
+  height: 100%;
+  border-radius: 2.5em;
+  transition: all 0s linear 0.2s;
+}
+
+.simple-toggle .toggle__bg:after {
+  transition: all 0.2s linear;
+  transition-property: transform, opacity;
+  transition-delay: 0s, 0.02s;
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  width: 103%;
+  height: 103%;
+  background: #efeff9;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform-origin: 50% 50%;
+  opacity: 1;
+}
+
+.simple-toggle .toggle__switch {
+  position: absolute;
+  z-index: 200;
+  border-radius: 50%;
+  background: white;
+  width: 2em;
+  height: 100%;
+  box-shadow: 0.5px 1px 2px #dedede;
+  right: calc(100% - 2em);
+  transition: all 0.15s cubic-bezier(0.5, 1, 0.5, 1);
+}
+
+.lock-toggle {
+  position: relative;
+  display: inline-block;
+  font-size: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.lock-toggle:hover {
+  transform: scale(1.08);
+}
+
+.lock-toggle * {
+  box-sizing: inherit;
+}
+
+.lock-toggle input {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.lock-toggle label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.lock-toggle .toggle__wrapper {
+  margin-left: 1em;
+  position: relative;
+  height: 2.75em;
+  width: 2.75em;
+  overflow: visible;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #dfdfdf;
+  background: var(--med-grey);
+}
+.lock-toggle .toggle__wrapper .toggle__icon {
+  color: var(--input-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 2em;
+}
+.lock-toggle .toggle__wrapper .toggle__icon [data-show=false] {
+  display: block;
+}
+.lock-toggle .toggle__wrapper .toggle__icon [data-show=true] {
+  display: none;
+}
+
+.lock-toggle input:checked ~ .toggle__wrapper {
+  background: var(--input-bg--hover);
+}
+.lock-toggle input:checked ~ .toggle__wrapper .toggle__icon {
+  color: var(--med-grey);
+}
+.lock-toggle input:checked ~ .toggle__wrapper .toggle__icon [data-show=true] {
+  display: block;
+}
+.lock-toggle input:checked ~ .toggle__wrapper .toggle__icon [data-show=false] {
+  display: none;
+}
 body.customer-login {
   background: #f4f7fa;
 }
@@ -1519,7 +1802,16 @@ section.post-collection:first-child {
   padding-top: 0;
 }
 
-/* woocommerce checkout payment methods */
+.custom-wrapper > header .user-name {
+  font-size: 1.56rem;
+  font-weight: bold;
+  color: var(--med-grey);
+  display: inline-flex;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--input-bg);
+}
+
 #payment label[for=payment_method_stripe] {
   display: flex;
   gap: 10px;
@@ -1531,6 +1823,49 @@ section.post-collection:first-child {
 
 #payment label[for=payment_method_stripe] svg {
   width: calc(100% / 8);
+}
+
+.top-bar .button-group > a,
+.top-bar__button > button,
+.top-bar__button > a,
+.top-bar__button,
+.circle-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  padding: 0;
+  border-radius: 50%;
+}
+.top-bar .button-group > a:focus,
+.top-bar__button > button:focus,
+.top-bar__button > a:focus,
+.top-bar__button:focus,
+.circle-button:focus {
+  background: var(--input-bg);
+}
+.top-bar .button-group > a:active,
+.top-bar__button > button:active,
+.top-bar__button > a:active,
+.top-bar__button:active,
+.circle-button:active {
+  background: var(--input-bg--hover);
+}
+
+.circle-button {
+  color: var(--button-color, var(--med-grey));
+  background: var(--input-bg);
+}
+.circle-button:hover, .circle-button:active, .circle-button:focus {
+  color: var(--button-color, var(--med-grey));
+  background: var(--input-bg--hover);
+}
+
+header [data-tooltip] {
+  padding: 8px;
+  line-height: 1.2;
 }
 
 /*# sourceMappingURL=global.css.map */

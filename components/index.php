@@ -7,6 +7,8 @@ include_once NHM_DIR . "/components/global-sidebar/global-sidebar.php";
 
 include_once NHM_DIR . "/components/top-bar/top-bar.php";
 
+include_once NHM_DIR . "/components/toggles/toggles.php";
+
 include_once NHM_DIR . "/components/product-card/product-card.php";
 
 include_once NHM_DIR . "/components/post-type-grid/post-type-grid.php";
@@ -30,3 +32,4 @@ include_once NHM_DIR . "/components/login/login.php";
 include_once NHM_DIR . "/components/laptop-mockup-shortcode/laptop-mockup-shortcode.php";
 
 include_once NHM_DIR . "/components/dashboard-carousel/dashboard-carousel.php";
+
