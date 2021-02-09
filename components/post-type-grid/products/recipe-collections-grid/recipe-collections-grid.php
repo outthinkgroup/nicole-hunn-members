@@ -38,6 +38,7 @@ add_action('empty_product_product_card', function($product, $forced_type){
   $product->ID = 0;
   $product->post_type='lists';
   $product->post_author = wp_get_current_user()->ID;
+  $product->post_status = 'private';
   return $product;
 }, 10, 2);
 

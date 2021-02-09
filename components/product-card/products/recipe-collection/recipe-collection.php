@@ -54,6 +54,7 @@ add_action('after_product_card_image', function($product){
   if($product->post_type !== 'lists' || $product->post_author != wp_get_current_user()->ID){
     return;
   } 
+  do_action('qm/debug', $product->post_status);
   ?>
   <div class="list-actions top-right-corner">
     <button type="button" data-action="warn-delete-list" data-tooltip="Delete this list" class="danger icon-button" style="--tool-tip-y-distance:-80px" >
