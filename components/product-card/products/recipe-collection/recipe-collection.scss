@@ -66,6 +66,11 @@
     .card-bottom {
       border-top: 4px solid var(--theme-color);
     }
+    .recipe-author .tag.tag--light {
+      --temp-notice: var(--theme-color);
+      color: var(--blue-dark);
+      font-weight: bold;
+    }
   }
 }
 

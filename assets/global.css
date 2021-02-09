@@ -361,6 +361,11 @@ a > strong {
 .product-card.post-type-lists.nicole-collection .card-bottom {
   border-top: 4px solid var(--theme-color);
 }
+.product-card.post-type-lists.nicole-collection .recipe-author .tag.tag--light {
+  --temp-notice: var(--theme-color);
+  color: var(--blue-dark);
+  font-weight: bold;
+}
 
 .temp-notice,
 .recipe-author .tag {

@@ -54,7 +54,7 @@ add_action('after_product_card_image', function($product){
   if($product->post_type !== 'lists' || $product->post_author != wp_get_current_user()->ID){
     return;
   } 
-  do_action('qm/debug', $product->post_status);
+
   ?>
   <div class="list-actions top-right-corner">
     <button type="button" data-action="warn-delete-list" data-tooltip="Delete this list" class="danger icon-button" style="--tool-tip-y-distance:-80px" >
@@ -116,7 +116,7 @@ add_filter('product_card_extra_classes', function($classes, $product){
 
 //Nicole's Collections get special styles
 add_filter('product_card_extra_classes', function ($classes, $product) {
-  if($product->post_type !== "lists" && $product->post_author !== NICOLE_USER_ID) return;
+  if($product->post_type !== "lists" || $product->post_author != NICOLE_USER_ID) return;
 
   $classes.= "nicole-collection";
   return $classes;
