@@ -13,6 +13,8 @@
  */
 define('NHM_DIR', get_stylesheet_directory());
 define('NHM_URL', get_stylesheet_directory_uri());
+define('NICOLE_USER_ID', 1433);
+
 include_once NHM_DIR . '/theme-version.php';
 /**
  * Enqueue styles
@@ -81,3 +83,4 @@ function remove_empty_collections_from_main_query($query){
 
 
 add_action('pre_get_posts', 'remove_empty_collections_from_main_query');
+

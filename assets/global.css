@@ -358,6 +358,9 @@ a > strong {
   border-radius: 4px;
   margin-left: 5px;
 }
+.product-card.post-type-lists.nicole-collection .card-bottom {
+  border-top: 4px solid var(--theme-color);
+}
 
 .temp-notice,
 .recipe-author .tag {

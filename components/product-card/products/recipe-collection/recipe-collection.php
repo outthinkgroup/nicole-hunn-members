@@ -38,10 +38,11 @@ function loopThroughRecipesForImage($array, $count, $image){
 add_filter('card_bottom', function($card_bottom_markup, $product){
   if($product->post_type !== 'lists') return $card_bottom_markup;
   $options = ['edit'=> is_archive() ? false : true, 'recipe_link' => true];
+  $author = get_user_by('ID',$product->post_author);
   ob_start();
   show_list_title_and_count($product, $options);
   ?>
-  <div class="recipe-author">By: <span class="tag tag--light"><?php echo get_user_by('ID',$product->post_author)->user_nicename; ?></span></div>
+  <div class="recipe-author">By: <span class="tag tag--light"><?php echo $author->display_name;  ?></span></div>
   <?php
   $title = ob_get_clean();
 
@@ -112,3 +113,10 @@ add_filter('product_card_extra_classes', function($classes, $product){
 },10, 2);
 
 
+//Nicole's Collections get special styles
+add_filter('product_card_extra_classes', function ($classes, $product) {
+  if($product->post_type !== "lists" && $product->post_author !== NICOLE_USER_ID) return;
+
+  $classes.= "nicole-collection";
+  return $classes;
+}, 10, 2);

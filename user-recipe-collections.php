@@ -13,6 +13,8 @@ if($user_from_url){
 	$user = wp_get_current_user();
 	$user_id = $user->ID;
 }
+
+
 $allowed_post_statuses = wp_get_current_user()->ID === $user_id ? ['publish', 'private'] : ['publish'];
 
 ?>
