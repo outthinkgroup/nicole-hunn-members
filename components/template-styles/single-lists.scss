@@ -97,8 +97,11 @@
   }
   @media (min-width: 900px) {
     // only shows the rename title button when you hover the header element
-    [data-action="rename-list"] {
+    button[data-action="rename-list"] {
       display: none;
+    }
+    form[data-action="rename-list"] {
+      display: block;
     }
     &:hover [data-action="rename-list"] {
       display: unset;
