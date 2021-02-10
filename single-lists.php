@@ -22,9 +22,11 @@ $get_next_status = $post->post_status != "publish" ? "public": $post->post_statu
 			<div class="flex flex-start title-el">
 				<h2 class="flex flex-start">
 				<span><?php echo the_title(); ?></span>
-				<button class="circle-button " data-tooltip="Rename List" data-action="rename-list"><span class="icon">
-					<?php get_icon('edit'); ?>
-				</span></button>
+				<?php if ($is_owner): ?>
+				<button class="circle-button " data-tooltip="Rename List" data-action="rename-list">
+					<span class="icon"><?php get_icon('edit'); ?></span>
+				</button>
+				<?php endif; ?>
 				</h2>
 			</div>
 
