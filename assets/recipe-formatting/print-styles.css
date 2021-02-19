@@ -1,2 +1,48 @@
-.section{background:green}.ast-scroll-top,.fl-module-separator,.global-sidebar,.post-navigation,.recipe-video,.site-header,.title-add-to-collections,.top-bar,.wake-lock-toggle{display:none!important}#content h3{font-family:Berkshire Swash,handwriting}nav.uabb-tabs-nav{display:none}.recipe-info-row{padding-top:20px}.fl-module-advanced-tabs>div{margin:0}.fl-module-advanced-tabs .uabb-tabs-desc{margin:20px 0}.uabb-content-wrap *{display:block!important}.uabb-content-wrap * .uabb-tab-acc-title,.uabb-content-wrap * nav.uabb-tabs-nav{display:none!important}.Beacon{display:none}
+.section {
+  background: green;
+}
+
+.top-bar,
+.global-sidebar,
+.site-header,
+.title-add-to-collections,
+.recipe-video,
+.wake-lock-toggle,
+.post-navigation,
+.fl-module-separator,
+.ast-scroll-top {
+  display: none !important;
+}
+
+#content h3 {
+  font-family: "Berkshire Swash", handwriting;
+}
+
+nav.uabb-tabs-nav {
+  display: none;
+}
+
+.recipe-info-row {
+  padding-top: 20px;
+}
+
+.fl-module-advanced-tabs > div {
+  margin: 0;
+}
+.fl-module-advanced-tabs .uabb-tabs-desc {
+  margin: 20px 0px;
+}
+
+.uabb-content-wrap * {
+  display: block !important;
+}
+.uabb-content-wrap * nav.uabb-tabs-nav,
+.uabb-content-wrap * .uabb-tab-acc-title {
+  display: none !important;
+}
+
+.Beacon {
+  display: none;
+}
+
 /*# sourceMappingURL=print-styles.css.map */
