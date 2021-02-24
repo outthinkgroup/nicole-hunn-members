@@ -1,4 +1,10 @@
 //LAYOUT
+.page-template-cma-page-php #content > .astra-container {
+  /* stupid astra  */
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
 @media (min-width: 1000px) {
   .nhm-default.wide .wrapper {
     max-width: 1100px;
