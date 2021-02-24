@@ -1,0 +1,48 @@
+//--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--//
+//ask a question form
+.cma-form-container > .cma-form,
+#cma-thread-add {
+  textarea {
+    resize: none;
+    height: 275px;
+  }
+  textarea,
+  [type="text"] {
+    background: var(--input-bg);
+    border: none;
+    border-radius: 4px;
+    box-shadow: var(--shadow-sm);
+    &:active,
+    &:focus {
+      background: var(--input-bg--hover);
+      outline: none;
+      border: none;
+    }
+
+    width: 100%;
+    max-width: 450px;
+  }
+
+  [type="submit"] {
+    background: var(--blue-base);
+    color: white;
+    text-transform: Capitalize;
+    letter-spacing: 1px;
+
+    font-weight: normal;
+    font-size: 14px;
+    font-family: raleway;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &:hover,
+    &:focus,
+    &:active {
+      background: var(--blue-dark);
+    }
+    &:focus,
+    &:active {
+      border: 2px solid var(--theme-color);
+    }
+  }
+}

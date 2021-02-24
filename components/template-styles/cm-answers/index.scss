@@ -1,0 +1,14 @@
+//repeating class to be more specific
+h2.entry-title.entry-title {
+  font-size: 26px;
+}
+h3 {
+  font-size: 20px;
+}
+//--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--//
+
+@import "./search.scss";
+@import "./editor.scss";
+@import "./header.scss";
+@import "./questions.scss";
+@import "./question.scss";
