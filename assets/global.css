@@ -1236,6 +1236,14 @@ form.cma-filter .cma-nav-item.cma-thread-search button[type=submit] {
   border: 2px solid var(--theme-color);
 }
 
+.page-template-cma-page-php #content > .astra-container {
+  /* stupid astra  */
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 @media (min-width: 1000px) {
   .nhm-default.wide .wrapper {
     max-width: 1100px;
@@ -1243,16 +1251,18 @@ form.cma-filter .cma-nav-item.cma-thread-search button[type=submit] {
   .nhm-default.wide .wrapper .cma-questions-container {
     display: grid;
     grid-template-columns: minmax(400px, 1fr) minmax(200px, 35%);
+    grid-template-rows: auto auto auto;
     grid-auto-flow: dense;
     -moz-column-gap: 40px;
          column-gap: 40px;
+    grid-auto-rows: 30px 1fr;
   }
   .nhm-default.wide .wrapper .cma-questions-container > * {
     grid-column: 1/2;
   }
   .nhm-default.wide .wrapper .cma-questions-container .cma-form-container {
     grid-column: 2/3;
-    grid-row: 1/3;
+    grid-row: 1/4;
   }
 }
 #content .cma-main-query {
