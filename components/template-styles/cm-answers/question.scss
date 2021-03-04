@@ -1,0 +1,29 @@
+.page-template-cma-single-page-php .thread-page {
+  background: #fafafa;
+}
+
+.thread-page {
+  table.cma-question-table,
+  table.cma-answers-list {
+    margin-bottom: 20px !important;
+    td {
+      border: none;
+      padding: 1em;
+      padding-bottom: 2em;
+    }
+  }
+  .cma-answer-content {
+    padding-right: 0;
+  }
+}
+
+.cma-thread-resolve-form button[type="submit"] {
+  font-size: 14px;
+  background: var(--input-bg);
+  color: var(--blue-base);
+  padding: 8px;
+  border-radius: 4px;
+  &:hover {
+    background: var(--input-bg--hover);
+  }
+}

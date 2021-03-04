@@ -1269,22 +1269,31 @@ form.cma-filter .cma-nav-item.cma-thread-search button[type=submit] {
   margin: 0 auto;
 }
 
-.page-template-cma-page-php .nhm-default {
+.page-template-cma-page-php .nhm-default,
+.page-template-cma-single-page-php .nhm-default {
   background: #fafafa;
 }
-.page-template-cma-page-php .nhm-default .wrapper {
+.page-template-cma-page-php .nhm-default .wrapper,
+.page-template-cma-single-page-php .nhm-default .wrapper {
   padding: 0;
   background: none;
   box-shadow: var(--shadow-none);
 }
 .page-template-cma-page-php .nhm-default .cma-thread-list,
-.page-template-cma-page-php .nhm-default .cma-thread-add {
+.page-template-cma-page-php .nhm-default .cma-thread-add,
+.page-template-cma-page-php .nhm-default .cma-question-table,
+.page-template-cma-page-php .nhm-default .cma-answers-list,
+.page-template-cma-single-page-php .nhm-default .cma-thread-list,
+.page-template-cma-single-page-php .nhm-default .cma-thread-add,
+.page-template-cma-single-page-php .nhm-default .cma-question-table,
+.page-template-cma-single-page-php .nhm-default .cma-answers-list {
   background: white;
   padding: 10px;
   border-radius: 4px;
   box-shadow: var(--shadow-md);
 }
-.page-template-cma-page-php .nhm-default .cma-questions-container > :empty {
+.page-template-cma-page-php .nhm-default .cma-questions-container > :empty,
+.page-template-cma-single-page-php .nhm-default .cma-questions-container > :empty {
   display: none;
 }
 
@@ -1316,6 +1325,35 @@ form.cma-filter .cma-nav-item.cma-thread-search button[type=submit] {
 }
 .cma-thread-list .cma-thread-meta .cma-thread-numbers {
   margin: 0;
+}
+
+.page-template-cma-single-page-php .thread-page {
+  background: #fafafa;
+}
+
+.thread-page table.cma-question-table,
+.thread-page table.cma-answers-list {
+  margin-bottom: 20px !important;
+}
+.thread-page table.cma-question-table td,
+.thread-page table.cma-answers-list td {
+  border: none;
+  padding: 1em;
+  padding-bottom: 2em;
+}
+.thread-page .cma-answer-content {
+  padding-right: 0;
+}
+
+.cma-thread-resolve-form button[type=submit] {
+  font-size: 14px;
+  background: var(--input-bg);
+  color: var(--blue-base);
+  padding: 8px;
+  border-radius: 4px;
+}
+.cma-thread-resolve-form button[type=submit]:hover {
+  background: var(--input-bg--hover);
 }
 
 .grid li {

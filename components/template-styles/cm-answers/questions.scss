@@ -32,7 +32,8 @@
 }
 
 //COLOR BLOCKING the Page components
-.page-template-cma-page-php .nhm-default {
+.page-template-cma-page-php .nhm-default,
+.page-template-cma-single-page-php .nhm-default {
   background: #fafafa;
   .wrapper {
     padding: 0;
@@ -41,7 +42,9 @@
   }
 
   .cma-thread-list,
-  .cma-thread-add {
+  .cma-thread-add,
+  .cma-question-table,
+  .cma-answers-list {
     background: white;
     padding: 10px;
     border-radius: 4px;
