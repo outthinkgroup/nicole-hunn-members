@@ -76,6 +76,7 @@ form.cma-filter {
     gap: 8px;
     button[type="submit"] {
       border-radius: 4px;
+      color: white;
       box-shadow: var(--shadow-sm);
       background: var(--blue-light);
       height: var(--search-input-height);
