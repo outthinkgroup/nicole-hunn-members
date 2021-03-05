@@ -32,7 +32,8 @@
     font-weight: normal;
     font-size: 14px;
     font-family: raleway;
-    border-radius: 20px;
+    border-radius: 5px;
+    border: none;
     padding-top: 10px;
     padding-bottom: 10px;
     &:hover,
@@ -44,5 +45,13 @@
     &:active {
       border: 2px solid var(--theme-color);
     }
+  }
+}
+
+//THREAD SINGLE
+.thread-page .cma-form-container > .cma-form {
+  textarea,
+  [type="text"] {
+    max-width: 100%;
   }
 }
