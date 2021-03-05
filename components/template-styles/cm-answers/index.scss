@@ -6,6 +6,11 @@ h3 {
   font-size: 20px;
 }
 //--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--/--//
+.page-template-cma-page-php,
+.page-template-cma-single-page-php #content > .ast-container {
+  padding: 0;
+  max-width: 100%;
+}
 
 @import "./search.scss";
 @import "./editor.scss";
