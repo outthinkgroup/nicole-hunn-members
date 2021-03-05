@@ -37,16 +37,7 @@
   });
 </script>
 
-<style>
-  .nav-button {
-    width: calc(100% + 10px);
-    padding: 10px;
-    justify-content: center;
-    display: flex;
-    border-radius: 0 20px 20px 0;
-  }
-</style>
-
+<!-- TEMPLATE  -->
 <button class="nav-button nav-link" on:click={toggleCalc}>
   <span class="icon">
     <CalculatorIcon />
@@ -58,3 +49,13 @@
     <Calculator />
   </Modal>
 {/if}
+
+<style>
+  .nav-button {
+    width: calc(100% + 10px);
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+    border-radius: 0 20px 20px 0;
+  }
+</style>
