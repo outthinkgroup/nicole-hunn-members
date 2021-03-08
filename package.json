@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^9.8.5",
+    "lodash.debounce": "^4.0.8",
     "nosleep.js": "^0.11.0",
     "parcel": "^1.12.4",
     "postcss-nested": "^4.2.3"
