@@ -1,11 +1,14 @@
+import { addMenuScrollHint } from "./menu-scroll-hint";
+// Opening and closing / showing the sidebar
 window.addEventListener("DOMContentLoaded", initGlobalSidebar);
 function initGlobalSidebar() {
   runOnDesktop("650px", expandSidebar);
   addHandlerToToggler();
+  addMenuScrollHint();
 }
 
 function expandSidebar() {
-  isSideBarOpen = localStorage.getItem("isSideBarOpen");
+  const isSideBarOpen = localStorage.getItem("isSideBarOpen");
   if (isSideBarOpen === "false") return;
   document.body.dataset.sidebarState = "open";
 }

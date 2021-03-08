@@ -134,6 +134,8 @@
   width: 100%;
   z-index: 5;
   background: var(--blue-base);
+
+  box-shadow: -8px -20px 8px var(--blue-base);
 }
 .global-sidebar .nav-button {
   display: flex;
@@ -253,3 +255,5 @@ body:not([data-sidebar-state="open"]) {
     }
   }
 }
+
+@import "./menu-scroll-hint/scroll-hint.scss";

@@ -2,7 +2,7 @@
 function get_sidebar_nav(){
   ?>
   
-  <nav class="">
+  <nav class="sidebar-menu">
     <?php 
     wp_nav_menu( array( 'theme_location' => 'sidebar_top', 'walker' => new Icon_Items_Nav_Menu() ) );
     ?>
