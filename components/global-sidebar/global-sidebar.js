@@ -38,12 +38,12 @@ function toggle({ containerEl, attr }) {
 
 function runOnDesktop(dimensions, callback) {
   function checkIfDesktop(x) {
-    if (!isMobile.matches) {
+    if (!x.matches) {
       callback();
     }
   }
 
-  var isMobile = window.matchMedia(`(max-width: ${dimensions})`);
+  const isMobile = window.matchMedia(`(max-width: ${dimensions})`);
   checkIfDesktop(isMobile); // Call listener function at run time
   isMobile.addListener(checkIfDesktop); // Attach listener function on state changes
 }
