@@ -126,11 +126,11 @@
   display: inline;
 }
 //
-
+//FLOUR CALC BUTTON POSITIONING
 .global-sidebar .bottom-utils {
   position: absolute;
   bottom: 0;
-  padding-bottom: 73px;
+  padding-bottom: 42px;
   width: 100%;
   z-index: 5;
   background: var(--blue-base);
@@ -150,7 +150,6 @@
 }
 
 //
-
 .global-sidebar .toggle-sidebar {
   position: absolute;
   right: 0%;

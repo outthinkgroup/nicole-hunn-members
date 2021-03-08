@@ -8,6 +8,17 @@
   }
 </script>
 
+<div class="modal">
+  <button on:click={handleClose}>
+    <span>
+      <CloseIcon />
+    </span>
+  </button>
+  <div class="modal-bg">
+    <slot />
+  </div>
+</div>
+
 <style>
   .modal {
     position: fixed;
@@ -33,7 +44,7 @@
       transform: none;
       position: absolute;
       left: calc(100% + 30px);
-      bottom: 50%;
+      bottom: 27%;
       top: unset;
     }
 
@@ -71,14 +82,3 @@
     background: #efefef;
   }
 </style>
-
-<div class="modal">
-  <button on:click={handleClose}>
-    <span>
-      <CloseIcon />
-    </span>
-  </button>
-  <div class="modal-bg">
-    <slot />
-  </div>
-</div>
