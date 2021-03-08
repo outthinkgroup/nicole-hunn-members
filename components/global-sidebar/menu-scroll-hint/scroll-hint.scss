@@ -1,0 +1,17 @@
+.scroll-hint-el {
+  pointer-events: none;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+  position: absolute;
+  top: -18px;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.2s linear;
+}
+[data-scroll-hint="on"] .scroll-hint-el {
+  opacity: 1;
+}
+[data-scroll-hint="off"] .scroll-hint-el {
+  opacity: 0;
+}

@@ -1,11 +1,14 @@
+import { addMenuScrollHint } from "./menu-scroll-hint";
+// Opening and closing / showing the sidebar
 window.addEventListener("DOMContentLoaded", initGlobalSidebar);
 function initGlobalSidebar() {
   runOnDesktop("650px", expandSidebar);
   addHandlerToToggler();
+  addMenuScrollHint();
 }
 
 function expandSidebar() {
-  isSideBarOpen = localStorage.getItem("isSideBarOpen");
+  const isSideBarOpen = localStorage.getItem("isSideBarOpen");
   if (isSideBarOpen === "false") return;
   document.body.dataset.sidebarState = "open";
 }
@@ -38,12 +41,12 @@ function toggle({ containerEl, attr }) {
 
 function runOnDesktop(dimensions, callback) {
   function checkIfDesktop(x) {
-    if (!isMobile.matches) {
+    if (!x.matches) {
       callback();
     }
   }
 
-  var isMobile = window.matchMedia(`(max-width: ${dimensions})`);
+  const isMobile = window.matchMedia(`(max-width: ${dimensions})`);
   checkIfDesktop(isMobile); // Call listener function at run time
   isMobile.addListener(checkIfDesktop); // Attach listener function on state changes
 }

@@ -18,7 +18,7 @@ function get_logo(){
 function nav_button($name, $icon="bell", $icon_type="regular"){
   ?> 
   <div class="flour-calc-wrapper" id="flour-calc" data-state>
-    
+    <!-- svelte component will go here -->
   </div>
   <?php
 }
