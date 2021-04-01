@@ -16,20 +16,30 @@ global $post;
 
 		</aside>
 		<main class="dashboard">
+			<!-- 
+			//== CAROUSEL 
+			 -->
 			<?php dashboard_carousel($post->ID); ?>
-			<section class="bonus">
-				<h3>Bonus Content & Updates</h3>
-				<ul class="grid" style="--cols:4; --card-mx-width:100%">
-					<?php 
-						$allposts = get_posts();
-						foreach($allposts as $thispost){
-							product_card($thispost);
+
+			<!-- 
+			//== RECIPES
+			 -->
+			<section class="recipes">
+				<h3>Recipes</h3>
+				<ul class="grid" style="--cols:auto-fill; --min-col-width:220px">
+					<?php
+						$recipes = nhm_all_recipes();
+						foreach($recipes as $recipe){
+							product_card($recipe);
 						}
 					?>
 				</ul>
-				<a href="/member-updates/" class="viewall">All Updates &rarr;</a>
+				<a href="/recipes" class="viewall">View all Recipes &rarr;</a>
 			</section>
 
+			<!-- 
+			//== LIVES
+			 -->
 			<section class="gf-lives">
 				<header><h3><i>LIVES</i> with Nicole Hunn</h3> <div class="actions"><a href="/ask-me-question">Ask Nicole A question</a></div></header>
 				<ul class="grid" style="--cols:auto-fit; --card-mx-width:100%; --min-col-width:220px">
@@ -51,19 +61,9 @@ global $post;
 				<a href="/gfoas-lives" class="viewall">View all Lives &rarr;</a>
 			</section>
 
-			<section class="recipes">
-				<h3>Recipes</h3>
-				<ul class="grid" style="--cols:auto-fill; --min-col-width:220px">
-					<?php
-						$recipes = nhm_all_recipes();
-						foreach($recipes as $recipe){
-							product_card($recipe);
-						}
-					?>
-				</ul>
-				<a href="/recipes" class="viewall">View all Recipes &rarr;</a>
-			</section>
-
+			<!-- 
+			//== COURSES
+			 -->
 			<section class="my-courses">
 				<h3>My Courses</h3>
 				<ul class="grid" style="--cols:2; --card-mx-width:100%">
@@ -76,6 +76,9 @@ global $post;
 				</ul>
 			</section>
 
+			<!-- 
+			//== MY COLLECTIONS	
+			 -->
 			<section class="my-collections recipe-list-management-area">
 				<h3>My Recipe Collections</h3>
 				<div class="lists">
@@ -84,6 +87,9 @@ global $post;
 				<a href="/collections" class="viewall">View all My Recipe Collections &rarr;</a>
 			</section>
 			
+			<!-- 
+			//== DOWNLOADS
+			 -->
 			<section class="my-downloads">
 				<h3>My Downloads</h3>
 				<ul class="grid">
@@ -96,6 +102,23 @@ global $post;
 				</ul>
 				<a href="/member-content-downloads/" class="viewall">View all My Downloads &rarr;</a>
 			</section>
+
+			<!--
+			//== MEMBER/Bonus CONTENT 
+			-->
+			<section class="bonus">
+				<h3>Bonus Content & Updates</h3>
+				<ul class="grid" style="--cols:4; --card-mx-width:100%">
+					<?php 
+						$allposts = get_posts();
+						foreach($allposts as $thispost){
+							product_card($thispost);
+						}
+					?>
+				</ul>
+				<a href="/member-updates/" class="viewall">All Updates &rarr;</a>
+			</section>
+
 		</main>
 		
 	</div>
