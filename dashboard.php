@@ -81,8 +81,8 @@ global $post;
 			 -->
 			<section class="my-collections recipe-list-management-area">
 				<h3>My Recipe Collections</h3>
-				<div class="lists">
-          <?php post_type_grid('lists', null, -1, $user_id); ?>
+				<div class="lists">
+          <?php post_type_grid('lists', null, 3, $user_id, ['post_status'=>['private','publish']]); ?>
         </div>
 				<a href="/collections" class="viewall">View all My Recipe Collections &rarr;</a>
 			</section>
