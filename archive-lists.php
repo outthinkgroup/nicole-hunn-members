@@ -9,7 +9,7 @@ THIS IS FOR THE COMMUNITY LISTINGS
 <div class="custom-wrapper recipe-collections">
   <header>
     
-    <h2><?php echo get_the_archive_title(); ?></h2>
+    <h2>Community Collections</h2>
   </header>
   
   <main class="user-collections">
