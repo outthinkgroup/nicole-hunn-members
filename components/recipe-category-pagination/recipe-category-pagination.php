@@ -22,16 +22,18 @@ function recipe_category_pagination($current_page_offset, $per_page = 5, $link_c
   ?>
   <div class="nhm-pagination">
     <?php if(!$is_first):?> <a href="<?php echo $prev_page_url;?>">&larr; previous</a> <?php endif; ?>
-    <a href="<?php echo $current_page_url;?>"><?php echo $current_page?></a>
-    
-    <?php for($i = 1; $i<=$link_count; $i++ ):
+      <div class="inner">
+        <a href="<?php echo $current_page_url;?>" class="current"><?php echo $current_page?></a>
+      
+      <?php for($i = 1; $i<=$link_count; $i++ ):
       $p = $current_page + $i;
       ?>
       
-      <?php if($p < $total_pages): ?> <a href="<?php echo get_cat_url($p); ?>" ><?php echo $p ?></a><?php endif; ?>
-
+        <?php if($p < $total_pages): ?> <a href="<?php echo get_cat_url($p); ?>" ><?php echo $p ?></a><?php endif; ?>
+        
       <?php endfor; ?>  
-
+    </div>
+        
       <?php if(!$is_last): ?> <a href="<?php echo $next_page_url;?>">next &rarr;</a> <?php endif; ?>
     </div>
   <?php
