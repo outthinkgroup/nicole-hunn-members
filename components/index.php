@@ -33,3 +33,4 @@ include_once NHM_DIR . "/components/laptop-mockup-shortcode/laptop-mockup-shortc
 
 include_once NHM_DIR . "/components/dashboard-carousel/dashboard-carousel.php";
 
+include_once NHM_DIR . "/components/recipe-category-pagination/recipe-category-pagination.php";

@@ -43,8 +43,9 @@ function recipe_archive_sidebar(){
                 <span class="count">
                   <?php 
                     $list_items = get_post_meta($collection->ID, 'list_items', true);
-                    $count = count($list_items);
+                    $count = is_array($list_items) ? count($list_items) : 0;
                     echo $count;
+
                   ?>
                 </span>
                 <?php echo $collection->post_title; ?>
