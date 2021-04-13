@@ -118,7 +118,7 @@ a {
 //DEFAULT WIDTH
 .archive-template-layout .recipes .grid {
   max-width: 100%;
-  // grid-template-columns: repeat(auto-fill, 250px);
+  grid-template-columns: repeat(auto-fill, 250px);
   --card-mx-width: 270px;
 }
 //ANY THING ABOVE 450px
@@ -130,10 +130,20 @@ a {
   }
 }
 //ANY THING BELOW 1233px
-@media (max-width: 1233px) {
-  .archive-template-layout .recipes .grid {
+@media (max-width: 1395px) {
+  body[data-sidebar-state="open"] .archive-template-layout .recipes .grid {
+    grid-template-columns: repeat(2, minmax(1px, 1fr));
     --card-mx-width: 100%;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    .product-card {
+      --card-mx-width: 100%;
+    }
+  }
+}
+//This is a repeat of the above rule execept the sidebar is closed so there is more room for the recipes, which is why it has a lower media breakpoint
+@media (max-width: 1220px) {
+  .archive-template-layout .recipes .grid {
+    grid-template-columns: repeat(2, minmax(1px, 1fr));
+    --card-mx-width: 100%;
     .product-card {
       --card-mx-width: 100%;
     }
