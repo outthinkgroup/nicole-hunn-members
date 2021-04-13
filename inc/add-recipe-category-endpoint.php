@@ -11,13 +11,13 @@ function create_recipe_archive_endpoint(){
   $wp->add_query_var('nhm_endpoint');
   add_rewrite_endpoint('recipe-categories', EP_ROOT);
   $wp_rewrite->add_rule('recipe-categories/?$', 'index.php?nhm_endpoint=recipe-categories', 'top');
-
+  $wp_rewrite->add_rule('recipe-categories/([0-9]{1,})/?$', 'index.php?nhm_endpoint=recipe-categories&category-pagination=$matches[1]', 'top');
 }
 
 function get_recipe_archive_template(){
   global $wp, $wp_rewrite;
   $query_vars = $wp->query_vars;
-  
+
   if(array_key_exists('nhm_endpoint', $query_vars) && 'recipe-categories' == $query_vars['nhm_endpoint']){
     global $wp_query;
     $wp_query->set('is_404', false);
