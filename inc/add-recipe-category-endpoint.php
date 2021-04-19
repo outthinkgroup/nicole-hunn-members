@@ -54,6 +54,8 @@ function stop_over_pagination(){
   global $wp;
   $query_vars = $wp->query_vars;
   do_action('qm/debug',  'made it');
+  if(!array_key_exists('category-pagination', $query_vars)) return;// early
+  
   $page = intval($query_vars['category-pagination']);
   $total_categories = wp_count_terms('recipe_category');
   $total_pages = $total_categories / 5;
