@@ -158,8 +158,6 @@ a {
   }
 }
 
-// @media ( max-width: )
-
 .archive-template-layout .product-card {
   .card-top {
     height: 150px;
@@ -174,4 +172,8 @@ a {
   &[data-state="hide"] {
     display: none;
   }
+}
+
+.custom-wrapper.archive-template-layout {
+  padding: 0;
 }

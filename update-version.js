@@ -7,17 +7,9 @@ async function updateThemeVersion() {
   const content = await readFileAsync(FILE);
 
   const regex = /[0-9]+/g;
-  const newContent = content.replace(regex, updater);
+  const newContent = content.replace(regex, new Date().getTime());
 
   writeFileAsync(FILE, newContent);
-}
-//increments the version by 1
-function updater() {
-  return "xxxxxyxx-xyxx".replace(/[xy]/g, function (c) {
-    var r = (Math.random() * 16) | 0,
-      v = c === "x" ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
 }
 
 function readFileAsync(path) {

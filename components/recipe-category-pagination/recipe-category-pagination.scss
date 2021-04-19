@@ -1,0 +1,26 @@
+.nhm-pagination {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: space-between;
+  .inner {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  a {
+    display: block;
+    background: var(--input-bg);
+    color: white;
+    border-radius: 4px;
+    box-shadow: var(--shadow-sm);
+    padding: 5px 15px;
+    font-size: 20px;
+    color: var(--blue-dark);
+    font-weight: bold;
+    &:hover,
+    &.current {
+      background: var(--input-bg--hover);
+    }
+  }
+}
