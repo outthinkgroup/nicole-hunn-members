@@ -1,0 +1,27 @@
+button.print-button {
+  font-size: 14px;
+  background: var(--blue-base);
+  color: var(--input-bg);
+  padding: 8px;
+  border-radius: 4px;
+  text-transform: none;
+  font-weight: bold;
+  &:hover {
+    background: var(--blue-dark);
+  }
+  &:active {
+    background-color: var(--blue-light);
+  }
+  &:focus {
+    box-shadow: var(--shadow-outline);
+  }
+
+  //POSITIONING
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.uabb-tabs-nav {
+  position: relative;
+}
