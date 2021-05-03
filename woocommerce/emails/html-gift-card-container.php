@@ -53,8 +53,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php else: ?>
 		<?php /*
 			<a href="<?php echo esc_attr( add_query_arg( array( 'do_email_session' => urlencode( $giftcard->get_hash() ) ), apply_filters( 'woocommerce_gc_email_received_action_button_url', site_url(), $giftcard ) ) ); ?>" id="giftcard__action-button" class="shop-action"><?php echo apply_filters( 'woocommerce_gc_email_received_action_button_text', esc_html_x( 'Shop Now', 'Email gift card received', 'woocommerce-gift-cards' ), $giftcard ); ?></a>
-			<?php */ ?>
-			<?php $link = 'https://members.glutenfreeonashoestring.com/?add-to-cart=9172'; ?>
+			<?php */
+			?>
+
+			<?php $link = site_url() . "?add-to-cart=9109"; ?>
 			<a href="<?php echo $link; ?>" id="giftcard__action-button" class="shop-action"><?php echo apply_filters( 'woocommerce_gc_email_received_action_button_text', esc_html_x( 'Start Your Membership', 'Email gift card received', 'woocommerce-gift-cards' ), $giftcard ); ?></a>
 			<div id="giftcard__separator">&nbsp;</div>
 			<div id="giftcard__card-code-container">
