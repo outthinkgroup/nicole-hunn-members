@@ -36,3 +36,5 @@ include_once NHM_DIR . "/components/dashboard-carousel/dashboard-carousel.php";
 include_once NHM_DIR . "/components/recipe-category-pagination/recipe-category-pagination.php";
 
 include_once NHM_DIR . "/components/woocommerce-see-cart/woocommerce-see-cart.php";
+
+include_once NHM_DIR . "/components/user-notes/user-notes.php";
