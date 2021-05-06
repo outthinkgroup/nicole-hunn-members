@@ -39,3 +39,22 @@
 #commentform[data-is-loading="true"] {
   opacity: 0.4;
 }
+
+#commentform input[type="submit"] {
+  font-size: 14px;
+  background: var(--blue-base);
+  color: var(--input-bg);
+  padding: 8px;
+  border-radius: 4px;
+  text-transform: none;
+  font-weight: bold;
+  &:hover {
+    background: var(--blue-dark);
+  }
+  &:active {
+    background-color: var(--blue-light);
+  }
+  &:focus {
+    box-shadow: var(--shadow-outline);
+  }
+}
