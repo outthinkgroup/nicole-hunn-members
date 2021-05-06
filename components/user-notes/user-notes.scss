@@ -1,0 +1,41 @@
+#notes {
+  margin-bottom: 30px;
+
+  p {
+    font-size: 18px;
+  }
+  .icon-button {
+    border-radius: 50%;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+    .icon {
+      padding: 0;
+    }
+  }
+  .note button {
+    display: none;
+    color: var(--blue-dark);
+    font-size: 12px;
+    background: var(--input-bg);
+    line-height: 0;
+    margin-left: 10px;
+    &:hover {
+      background: var(--input-bg--hover);
+    }
+    &:focus {
+      outline: none;
+      box-shadow: var(--shadow-outline);
+    }
+  }
+  .note:hover button {
+    display: inline-block;
+  }
+}
+
+#commentform[data-is-loading="true"] {
+  opacity: 0.4;
+}

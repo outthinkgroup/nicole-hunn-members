@@ -243,3 +243,7 @@ header [data-tooltip] {
   padding: 8px;
   line-height: 1.2;
 }
+
+p:empty {
+  display: none;
+}

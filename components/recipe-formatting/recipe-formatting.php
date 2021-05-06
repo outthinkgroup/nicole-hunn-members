@@ -89,14 +89,12 @@ function gf_recipe_notes( $atts ) {
 
 add_shortcode( 'user_notes', 'gf_user_notes' );
 function gf_user_notes( $atts ) {
-  $valueatts = shortcode_atts( array(
-  ), $atts, 'recipe_notes' );
-
+  
   ob_start();
   // Feature is only available for members
   if(is_user_logged_in()){
     gf_get_user_notes(); //gets only the users comments
-    gf_get_note_form(); // gets the comment form
+    gf_add_note_form(); // gets the comment form
   } else {
     ?> <p>Log in to use this feature</p> <?php
   }

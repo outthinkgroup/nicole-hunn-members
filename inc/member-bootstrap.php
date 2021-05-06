@@ -5,7 +5,8 @@ function enqueue_logged_in_assets(){
 	wp_enqueue_script( 'logged-in-scripts', get_stylesheet_directory_uri() . '/assets/index.js', [], NHM_VERSION, true );
 	wp_localize_script( 'logged-in-scripts', 'WP', [
 		"userId" => get_current_user_id(),
-		'ajaxUrl'=> admin_url( 'admin-ajax.php' )
+		'ajaxUrl'=> admin_url( 'admin-ajax.php' ),
+		"siteUrl" => site_url()
 	]);
 }
 
