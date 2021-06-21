@@ -87,6 +87,20 @@ function gf_recipe_notes( $atts ) {
   return $notes;
 }
 
+add_shortcode( 'user_notes', 'gf_user_notes' );
+function gf_user_notes( $atts ) {
+  
+  ob_start();
+  // Feature is only available for members
+  if(is_user_logged_in()){
+    gf_get_user_notes(); //gets only the users comments
+    gf_add_note_form(); // gets the comment form
+  } else {
+    ?> <p>Log in to use this feature</p> <?php
+  }
+  return ob_get_clean();
+}
+
 add_shortcode( 'gfoas_video', 'gf_video_filter' );
 function gf_video_filter( $atts ) {
   $atts = shortcode_atts( array(

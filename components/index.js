@@ -6,3 +6,6 @@ import "./learndash/course-sidebar.js";
 import "./dashboard-carousel/dashboard-carousel.js";
 import "./member.scss";
 import "./collections/collection-single-template.js";
+
+import "./user-notes/user-notes.js";
+// TESTING
