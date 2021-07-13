@@ -25,21 +25,26 @@ function html_to_array($html){
 add_shortcode( 'ingredients', 'recipe_ingredients' );
 
 function recipe_ingredients( $atts ) {
-    $atts = shortcode_atts( array(
-        'foo' => 'no foo',
-        'baz' => 'default baz'
-    ), $atts, 'ingredients' );
-    global $post;
-    ?>
-    <?php
-    $ingredients = get_field('ingredients', $post->ID);
-    $htmlarr = html_to_array($ingredients);
-    $content = '';
+  $atts = shortcode_atts( array(
+      'foo' => 'no foo',
+      'baz' => 'default baz'
+  ), $atts, 'ingredients' );
+  global $post;
+  ?>
+  <?php
+  $ingredients = get_field('ingredients', $post->ID);
+  $htmlarr = html_to_array($ingredients);
+  do_action('qm/debug',  $htmlarr);
+  $content = '';
+  if(is_array($htmlarr)){
     $content .= '<ul class="ingredients-list">';
     foreach ($htmlarr as $key => $value) {
       $content .= '<li>'.$value.'</li>';
     }
-  $content .= '</ul>';
+    $content .= '</ul>';
+  } else {
+    $content .= "<div class='ingredients-list'>".$ingredients."</div>";
+  }
   return $content;
 }
 
