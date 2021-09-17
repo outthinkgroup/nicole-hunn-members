@@ -23,6 +23,8 @@ function arrange_menu_items( $menu_links ){
 
 	return $new_order;
 }
+
+
 /*
 - dashboard -> Overview
 - account details
@@ -42,3 +44,30 @@ add_action('wp', function(){
 		wp_redirect(site_url() . '/my-account/edit-account');	
 	}
 });
+
+//add_action('init', 'create_subscrption_redirect_endpoint');
+
+// create cusom endpoint
+add_action('template_redirect','manage_subscription_redirect' );
+// do the redirect
+function manage_subscription_redirect(){
+
+  global $wp;
+  $query_vars = $wp->query_vars;
+
+	if(    array_key_exists('nhm_endpoint', $query_vars) && 
+		'manage_subscriptions' == $query_vars['nhm_endpoint']
+	){
+		$user_id = get_current_user_id();
+		$subscription_ids = WCS_Customer_Store::instance()->get_users_subscription_ids( $user_id );
+		$sub_id= $subscription_ids[0];
+		wp_redirect(get_home_url(null,"my-account/view-subscription/$sub_id"));
+		do_action('qm/debug',$subscription_id);	
+	}
+}
+function get_sub_id(){
+	$subscription_ids = WCS_Customer_Store::instance()->get_users_subscription_ids( $user_id );
+	$sub_id= $subscription_ids[0];
+	return $sub_id;
+
+}

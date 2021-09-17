@@ -23,6 +23,7 @@ function get_recipe_archive_template(){
   if(
     array_key_exists('nhm_endpoint', $query_vars) && 
     'recipe-categories' == $query_vars['nhm_endpoint']){
+
       global $wp_query;
       $wp_query->set('is_404', false);
       

@@ -83,12 +83,14 @@
 .global-sidebar .toggle-sub-menu {
   position: absolute;
   padding-right: var(--sidebar-x-padding);
+  padding-left: var(--sidebar-x-padding);
   top: 0;
   right: 0;
   background: transparent;
   display: flex;
   align-items: center;
   border-radius: 0;
+  z-index: 1;
   &:hover {
     background: var(--blue-light);
   }
