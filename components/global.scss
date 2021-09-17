@@ -39,7 +39,9 @@
   //fonts
   --heading-font: "Berkshire Swash", handwriting;
 }
-
+body {
+  // display: none !important;
+}
 @import "/shared.scss";
 @import "/typeography.scss";
 @import "/product-card/product-card.scss";
