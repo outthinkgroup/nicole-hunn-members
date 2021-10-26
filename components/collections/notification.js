@@ -1,4 +1,4 @@
-export default class Notice {
+class Notice {
   constructor(el, [xAxis, yAxis], time = 3000) {
     this.el = el;
     this.time = time;
@@ -37,3 +37,5 @@ export default class Notice {
     // }
   };
 }
+
+export default Notice;
