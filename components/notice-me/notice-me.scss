@@ -1,0 +1,31 @@
+/* PLUGIN CODE */
+
+.notice-me {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform: scale(0.9);
+}
+
+.notice-me.now {
+  animation: lift 0.68s ease-out forwards;
+  filter: drop-shadow(0 15px 35px rgba(50, 50, 93, 0.25))
+    drop-shadow(2px 4px 6px #00000053);
+}
+
+@keyframes lift {
+  0% {
+    transform: scale(0.9);
+  }
+  25% {
+    /* transform: translate(0, 0px)  rotate3d(0.1, 1.2, 0, 16deg); */
+    transform: translate(0, 0px) rotate3d(1, 1, 0, 5deg) scale(0.925);
+  }
+  50% {
+    transform: translate(0, 0px) rotate3d(0.5, 2, 0, 10deg) scale(0.95);
+  }
+  100% {
+    transform: translate(0, 0px) rotate3d(0.1, 1, 0, 0deg) scale(1);
+  }
+}
