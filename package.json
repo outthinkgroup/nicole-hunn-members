@@ -15,7 +15,8 @@
     "build": "parcel build components/index.js components/global.js components/flour-calc/flour-calc.js components/recipe-formatting/print-styles.scss --out-dir assets --public-url .",
     "clean": "rm -r .cache && rm -r assets",
     "update-version": "node ./update-version.js",
-    "hmr": "simple-hmr"
+    "hmr": "simple-hmr",
+    "remove-ignored-folder": "node ./remove-ignored-folders.js"
   },
   "devDependencies": {
     "parcel-plugin-svelte": "^4.0.6",

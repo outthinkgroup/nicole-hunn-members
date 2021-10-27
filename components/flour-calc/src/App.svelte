@@ -51,6 +51,7 @@
 {/if}
 
 <style>
+
   .nav-button {
     width: calc(100% + 10px);
     padding: 10px;

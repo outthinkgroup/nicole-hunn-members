@@ -1,7 +1,7 @@
-name: DEPLOY PRODUCTION
+name: DEPLOY STAGING
 
 on:
-  pull_request:
+  push:
     branches:
       - production
 
@@ -25,10 +25,13 @@ jobs:
       - name: Version Theme
         run: npm run update-version
 
-      - name: FTP-Deploy-Action
+      - name: Delete Ignored Folder
+        run: npm run remove-ignored-folder
+
+      - name: FTP
         uses: SamKirkland/FTP-Deploy-Action@2.0.0
         with:
-          port: 22
+          port: 36541
           method: sftp
         env:
           FTP_SERVER: 35.245.151.137
