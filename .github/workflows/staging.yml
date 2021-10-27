@@ -26,11 +26,11 @@ jobs:
         run: npm run update-version
 
       - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@4.0.1-patch
+        uses: SamKirkland/FTP-Deploy-Action@master
         with:
           port: 50647
           method: sftp
-          exclude:
+          excludes:
             - "**/.git*"
             - "**/.git*/**"
             - "**/node_modules/**"
