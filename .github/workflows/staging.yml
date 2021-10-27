@@ -24,8 +24,10 @@ jobs:
 
       - name: Version Theme
         run: npm run update-version
-     # - name: Delete Ignored Folder
-      #  run: npm run remove-ignored-folders
+
+      - name: Delete Ignored Folder
+        run: npm run remove-ignored-folders
+
       - name: FTP
         uses: SamKirkland/FTP-Deploy-Action@2.0.0
         with:
