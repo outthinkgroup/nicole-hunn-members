@@ -3,7 +3,7 @@ name: DEPLOY STAGING
 on:
   push:
     branches:
-      - master
+      - production
 
 jobs:
   FTP-Deploy-Action:
