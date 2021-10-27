@@ -30,6 +30,11 @@ jobs:
         with:
           port: 50647
           method: sftp
+          exclude:
+            - **/.git*
+            - **/.git*/**
+            - **/node_modules/**
+            - **/bin/**
         env:
           FTP_SERVER: 35.245.151.137
           FTP_USERNAME: ${{ secrets.SERVER_USER }}
